@@ -1,0 +1,158 @@
+const ixLicenseKey = "F792D10B2B24";	// 라이선스 키
+const ixTimeout = 20 * 1000;	// 종료 시간
+
+var ixServiceUrl = String( location.href.match(/http[s]*:\/\/([a-zA-Z0-9\-\.]*)/)[1] ); // 웹페이지 DNS 호스트 주소
+
+const ixDaemonUrl = "http://127.0.0.1:8940";
+var ixCmdCheckRunning = '{"cmd":"whois"}';
+
+const ixSilenceStart = true;
+var ixKeepInterval;
+
+var ixRandomUid   = ""; // 고유 생성 랜덤 값
+try {
+    var pattern = /^[A-Z0-9]+$/;
+    var n       = 8;
+    var str     = "";
+    
+    if(!/^[0-9]+$/.test(n)) n = 0x10;
+
+    for(var i=0; i<n; i++) {
+        var rnd = Math.round( Math.random() * 1000 );
+
+        if( !pattern.test( String.fromCharCode(rnd) ) ) {
+            n = n + 1;
+        } else {
+            str += String.fromCharCode(rnd);
+        }
+    }
+    ixRandomUid = str;
+}
+catch(e){}
+
+function start_noslink() {
+		
+	// 시작 메소드 호출
+	if ( !ixSilenceStart ) s_start_noslink();
+	else s_sstart_noslink();
+	
+	sessionStorage.setItem("ixRandomUid", ixRandomUid);
+	
+	// 유지 명령 전송 설정
+	if (null == ixKeepInterval) {			
+		keep_noslink();
+	}
+}
+
+function stop_noslink() {
+	sessionStorage.removeItem("ixRandomUid");	
+
+		clearInterval(ixKeepInterval);
+		ixKeepInterval = null;
+		
+		var finData = '{"finish":"'+ ixServiceUrl + '","rnd":"' + ixRandomUid + '","lic":"' + ixLicenseKey + '"}';
+		send_to_daemon(finData);
+		
+		s_finish_noslink();
+}
+
+// 앱 호출
+function s_call_noslink(command, licenseKey, randomVal, DNSUrl) {
+	var finData = '{"start call nos link":"'+ ixServiceUrl + '"}';
+	send_to_daemon(finData);
+	
+    var intent_str = "intent://nprotect/"
+                   + "?m=" + command
+                   + "&l=" + licenseKey
+                   + "&u=" + randomVal
+                   + "&p=" + DNSUrl;
+				   
+	intent_str = intent_str + "&s=" + ixTimeout;
+	intent_str += "#Intent;scheme=noslink;action=android.intent.action.VIEW;category=android.intent.category.BROWSABLE;package=com.nprotect.noslink;end";
+    window.location.href = intent_str;
+}
+
+// 구동요청
+function s_start_noslink() {
+	s_call_noslink("svcstart", ixLicenseKey, ixRandomUid, ixServiceUrl);
+}
+
+// 구동요청 (스플래시 x)
+function s_sstart_noslink() {
+	s_call_noslink("svcsstart", ixLicenseKey, ixRandomUid, ixServiceUrl);
+}
+
+// 유지요청
+function s_keep_noslink() {
+	s_call_noslink("svchbeat", ixLicenseKey, ixRandomUid, ixServiceUrl);
+}
+
+// 종료요청
+function s_finish_noslink() {
+	s_call_noslink("svcstop", ixLicenseKey, ixRandomUid, ixServiceUrl);
+}
+
+// 백신앱으로 유지 신호 전송
+function send_to_daemon(sendData) {
+	var ajaxHttpReq = create_http_req();
+	if (null == ajaxHttpReq) {
+		return;
+	}
+
+	ajaxHttpReq.open("POST", ixDaemonUrl, true);
+	ajaxHttpReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	ajaxHttpReq.send(sendData);
+}
+
+function create_http_req() {
+	try {
+		request = new XMLHttpRequest();
+	} catch (other) {
+		try {
+			request = new ActiceXObject("Msxml2.XMLHTTP");
+		} catch (failed) {
+			request = null;
+		}
+	}
+		
+	return request;
+}
+
+// 유지 명령 전송 설정
+function keep_noslink() {
+	ixKeepInterval = setInterval(function() {
+		var keepData = '{"keep":"'+ ixServiceUrl + '"}';
+		send_to_daemon(keepData);
+	}, 10000); //10~15초로 설정
+}
+
+// 터치로 시작할 경우 구동 요청 (호출 시 타임스탬프 저장)
+function start_noslink_adv() {
+	timeStampForEvent = new Date().getTime();
+	
+	start_noslink();
+}
+
+function force_keep_noslink() {
+	var rndV = sessionStorage.getItem("ixRandomUid");
+	if ( null == rndV ) return;
+	
+	ixRandomUid = rndV;
+	
+	s_sstart_noslink();
+}
+
+// (터치)이벤트 시에 noslink 재호출
+function touch_noslink(event) {
+	// 30초 이내에 들어온 이벤트는 무시
+	if ((new Date().getTime() - timeStampForEvent) < 30000) return;
+	
+	timeStampForEvent = new Date().getTime();
+	
+	
+	var finData = '{"touch":"'+ ixServiceUrl + '"}';
+	send_to_daemon(finData);
+	
+	//재호출
+	s_sstart_noslink();
+}

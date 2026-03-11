@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HelloByMyBrown — 수호의 별빛 리포트</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Noto+Serif+KR:wght@300;600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════
+   디자인 토큰 (전단지 코드 계승)
+═══════════════════════════ */
+:root {
+  --cream: #FBF7F2;
+  --gold: #C9A84C;
+  --brown: #2E1F14;
+  --soft-warm: #8B5E3C;
+  --paper: #FAF9F6;
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-body: 'Noto Serif KR', serif;
+}
+
+body {
+  margin: 0; padding: 0;
+  background-color: var(--cream);
+  color: var(--brown);
+  font-family: var(--font-body);
+  display: flex; justify-content: center;
+}
+
+.container {
+  width: 100%; max-width: 375px;
+  background-color: white;
+  min-height: 100vh;
+  box-shadow: 0 0 40px rgba(0,0,0,0.05);
+  overflow: hidden;
+  position: relative;
+}
+
+/* ═══════════════════════════
+   컴포넌트 스타일
+═══════════════════════════ */
+.step { display: none; padding: 40px 24px; animation: fadeIn 1s ease; }
+.step.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.header-label {
+  font-family: var(--font-serif);
+  color: var(--gold);
+  letter-spacing: 4px;
+  text-align: center;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.main-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+
+/* 양피지 질감 입력 박스 */
+.input-section {
+  background: var(--paper);
+  border: 1px solid #EADDCA;
+  padding: 30px 20px;
+  border-radius: 4px;
+  position: relative;
+}
+
+.input-group { margin-bottom: 24px; }
+.input-group label {
+  font-size: 11px;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+input, select {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--soft-warm);
+  background: transparent;
+  padding: 8px 0;
+  font-family: var(--font-body);
+  font-size: 16px;
+  outline: none;
+}
+
+/* 수호길드 가입 버튼 (전단지 스타일) */
+.btn-gold {
+  background-color: var(--brown);
+  color: var(--cream);
+  width: 100%;
+  padding: 20px;
+  border: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: 0.3s;
+}
+
+.btn-gold:hover { background-color: var(--soft-warm); }
+
+/* 하이프리스트의 신탁 카드 */
+.oracle-card {
+  border: 1px solid var(--gold);
+  padding: 24px;
+  margin-top: 20px;
+  background-image: radial-gradient(circle at 1px 1px, #f1ece1 1px, transparent 0);
+  background-size: 20px 20px;
+}
+
+.highlight { color: #D35400; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <section id="step1" class="step active">
+    <div class="header-label">INFODOG x HELLOBROWN</div>
+    <h1 class="main-title">우리 강아지를 위한<br>동화 같은 수호 리포트</h1>
+    <div style="text-align: center; margin-bottom: 60px;">
+        <span style="font-size: 50px;">✦</span>
+        <p style="font-size: 14px; color: var(--soft-warm); line-height: 1.8;">
+            멀리서 들려오는 별빛의 신탁.<br>
+            그대의 반려견은 어느 왕국의 기사인가요?
+        </p>
+    </div>
+    <button class="btn-gold" onclick="nextStep(2)">나의 기사 확인하기</button>
+  </section>
+
+  <section id="step2" class="step">
+    <div class="header-label">RECORD OF KNIGHT</div>
+    <h1 class="main-title">입국 기록부 작성</h1>
+    <div class="input-section">
+      <div class="input-group">
+        <label>기사의 이름</label>
+        <input type="text" id="dogName" placeholder="보리">
+      </div>
+      <div class="input-group">
+        <label>함께한 계절 (나이)</label>
+        <input type="number" id="dogAge" placeholder="6">
+      </div>
+      <div class="input-group">
+        <label>출신 혈통 (견종)</label>
+        <select id="breed">
+          <option value="Maltese">말티즈 (몰타 왕국)</option>
+          <option value="Poodle">푸들 (베르사유 왕국)</option>
+          <option value="Pomeranian">포메라니안 (알프스 왕국)</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label>머무는 영지 (지역)</label>
+        <input type="text" id="region" placeholder="강남구">
+      </div>
+    </div>
+    <button class="btn-gold" onclick="nextStep(3)">별빛의 신탁 듣기</button>
+  </section>
+
+  <section id="step3" class="step">
+    <div class="header-label">THE HIGH PRIEST'S ORACLE</div>
+    <h1 class="main-title">별빛의 신탁 리포트</h1>
+    <div class="oracle-card" id="resultArea">
+      </div>
+    
+    <div style="text-align: center; margin-top: 40px;">
+        <p style="font-size: 11px; color: var(--gold); margin-bottom: 20px;">✦ ✦ ✦</p>
+        <button class="btn-gold" onclick="alert('수호길드 시트로 전송!')">마이브라운 수호길드 가입하기</button>
+        <p style="font-size: 12px; color: var(--muted); margin-top: 15px; text-decoration: underline; cursor: pointer;">
+            마이브라운 본부 둘러보기
+        </p>
+    </div>
+  </section>
+</div>
+
+<script>
+function nextStep(n) {
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  document.getElementById('step' + n).classList.add('active');
+  if(n === 3) renderResult();
+}
+
+function renderResult() {
+  const name = document.getElementById('dogName').value || "보리";
+  const breed = document.getElementById('breed').value;
+  const region = document.getElementById('region').value || "강남구";
+  
+  const breedData = {
+    "Maltese": { kingdom: "몰타 왕국", disease: "슬개골 탈구", cost: "250만", tip: "폭신한 매트를 깔아주세요." },
+    "Poodle": { kingdom: "베르사유 왕국", disease: "기관지 허탈", advice: "체중 관리가 중요해요.", cost: "180만" }
+  };
+
+  const data = breedData[breed] || breedData["Maltese"];
+
+  const html = `
+    <p style="font-size: 15px; line-height: 1.8;">
+      "${data.kingdom}의 기사, <span class="highlight">${name}</span> 기사님의 별자리를 읽었습니다."<br><br>
+      ${name}님의 혈통은 대대로 <span class="highlight">${data.disease}</span>라는 시련을 안고 태어나는 운명입니다.<br><br>
+      현재 머무시는 <span style="font-weight: 600;">${region}</span> 영지에서는 이 시련을 극복하기 위해 평균 <span class="highlight">${data.cost} 금화</span>가 소요된다고 전해집니다.
+    </p>
+    <p style="font-size: 12px; margin-top: 20px; color: var(--soft-warm); font-style: italic;">
+      "예방은 사랑을 전하는 가장 따뜻한 마법입니다. ${data.tip || ''}"
+    </p>
+  `;
+  document.getElementById('resultArea').innerHTML = html;
+}
+</script>
+
+</body>
+</html>

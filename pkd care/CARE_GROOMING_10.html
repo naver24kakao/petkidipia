@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>강아지 눈물 관리 가이드 — 펫키디피아</title>
+  <meta name="description" content="눈물 자국 제거, 눈물 과다 원인, 일일 관리 루틴까지. 몰티즈, 포메라니안 등 눈물 자국 심한 견종 보호자를 위한 가이드.">
+  <meta name="keywords" content="강아지 눈물 자국, 강아지 눈물, 반려견 눈물 관리, 몰티즈 눈물">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #FBF7F2;
+      --cream-2: #F4EEE5;
+      --gold: #C9A84C;
+      --gold-pale: #F5ECD4;
+      --brown: #2E1F14;
+      --brown-2: #3D2B1F;
+      --warm: #8B5E3C;
+      --soft: #EDE4D8;
+      --muted: #9B8878;
+      --line: rgba(46,31,20,0.08);
+      --green: #2E7D32;
+      --green-pale: #E8F5E9;
+      --amber: #F57F17;
+      --amber-pale: #FFF8E1;
+      --red: #D32F2F;
+      --red-pale: #FFF3F0;
+      --blue: #1976D2;
+      --blue-pale: #E3F2FD;
+      --max: 680px;
+      --font-serif: "Cormorant Garamond", serif;
+      --font-sans: "Noto Sans KR", sans-serif;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--cream);
+      color: var(--brown);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .top-bar {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(251,247,242,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      padding: 14px 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .top-back { background: none; border: none; font-size: 20px; cursor: pointer; color: var(--brown); }
+    .top-breadcrumb { font-size: 12px; color: var(--muted); }
+    .top-breadcrumb a { color: var(--warm); text-decoration: none; }
+
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 20px 120px; }
+
+    .hero {
+      padding: 40px 0 32px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--gold-pale);
+      color: var(--warm);
+      font-size: 11px; font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: var(--font-sans);
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--brown);
+      margin-bottom: 12px;
+    }
+    .hero-sub {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .toc {
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 18px;
+      padding: 20px 24px;
+      margin-bottom: 32px;
+    }
+    .toc-title {
+      font-size: 12px; font-weight: 700;
+      color: var(--warm);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .toc a {
+      display: block;
+      font-size: 14px;
+      color: var(--brown-2);
+      text-decoration: none;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .toc a:last-child { border-bottom: none; }
+    .toc a:hover { color: var(--gold); }
+    .toc-num { color: var(--gold); font-weight: 700; margin-right: 8px; }
+
+    .section { margin-bottom: 36px; }
+    .section-label {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 16px;
+    }
+    .section-label::before, .section-label::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(to right, var(--gold), transparent);
+    }
+    .section-label::after {
+      background: linear-gradient(to left, var(--gold), transparent);
+    }
+    .section-tag {
+      font-family: var(--font-serif);
+      font-size: 13px; font-style: italic;
+      color: var(--gold);
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+    .section h2 {
+      font-size: 20px; font-weight: 700;
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+    .section p {
+      font-size: 15px;
+      color: var(--brown-2);
+      margin-bottom: 12px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 18px;
+      padding: 20px;
+      margin-bottom: 14px;
+    }
+    .card-label {
+      font-size: 11px; font-weight: 700;
+      color: var(--warm);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .cause-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 13px;
+    }
+    .cause-table th {
+      background: var(--cream-2);
+      padding: 10px 12px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 12px;
+      color: var(--warm);
+      border-bottom: 2px solid var(--soft);
+    }
+    .cause-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+
+    .step-box {
+      background: var(--blue-pale);
+      border: 1px solid rgba(25,118,210,0.2);
+      border-radius: 14px;
+      padding: 18px 20px;
+      margin-bottom: 12px;
+    }
+    .step-number {
+      display: inline-block;
+      width: 28px;
+      height: 28px;
+      background: var(--blue);
+      color: #fff;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 28px;
+      font-weight: 700;
+      font-size: 14px;
+      margin-right: 10px;
+    }
+    .step-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--brown);
+      margin-bottom: 8px;
+    }
+    .step-text {
+      font-size: 14px;
+      color: var(--brown-2);
+      line-height: 1.6;
+    }
+
+    .do-dont {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .do-box, .dont-box {
+      border-radius: 14px;
+      padding: 16px;
+    }
+    .do-box {
+      background: var(--green-pale);
+      border: 1px solid rgba(46,125,50,0.2);
+    }
+    .dont-box {
+      background: var(--red-pale);
+      border: 1px solid rgba(211,47,47,0.15);
+    }
+    .do-box-title, .dont-box-title {
+      font-size: 12px; font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+    }
+    .do-box-title { color: var(--green); }
+    .dont-box-title { color: var(--red); }
+    .do-box p, .dont-box p {
+      font-size: 13px;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    .caution-box {
+      background: var(--amber-pale);
+      border: 1px solid rgba(245,127,23,0.2);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin-top: 16px;
+    }
+    .caution-box-title {
+      font-size: 13px; font-weight: 700;
+      color: var(--amber);
+      margin-bottom: 8px;
+    }
+    .caution-box p {
+      font-size: 13px;
+      color: #5D4037;
+      margin-bottom: 0;
+    }
+
+    .tip-box {
+      background: var(--blue-pale);
+      border: 1px solid rgba(25,118,210,0.2);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin-top: 16px;
+    }
+    .tip-box-title {
+      font-size: 13px; font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+    .tip-box p {
+      font-size: 13px;
+      color: var(--brown-2);
+      margin-bottom: 0;
+    }
+
+    .vet-signal {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 14px 16px;
+      background: var(--red-pale);
+      border: 1px solid rgba(211,47,47,0.12);
+      border-radius: 14px;
+      margin-bottom: 10px;
+    }
+    .vet-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--red);
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
+    .vet-text { font-size: 14px; color: var(--brown-2); }
+
+    .checklist { list-style: none; }
+    .checklist li {
+      display: flex; gap: 10px; align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+    }
+    .checklist li:last-child { border-bottom: none; }
+    .check-icon {
+      width: 22px; height: 22px;
+      border-radius: 6px;
+      background: var(--green-pale);
+      color: var(--green);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .related-item {
+      display: block;
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 14px;
+      padding: 16px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .related-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(46,31,20,0.08);
+    }
+    .related-emoji { font-size: 22px; margin-bottom: 8px; }
+    .related-title { font-size: 13px; font-weight: 700; color: var(--brown); line-height: 1.4; }
+    .related-sub { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+    .cta-banner {
+      background: linear-gradient(135deg, var(--brown), var(--brown-2));
+      border-radius: 20px;
+      padding: 28px 24px;
+      margin-top: 40px;
+      text-align: center;
+    }
+    .cta-banner h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    .cta-banner p {
+      font-size: 13px;
+      color: rgba(251,247,242,0.85);
+      margin-bottom: 18px;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--brown);
+      font-size: 14px; font-weight: 700;
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(201,168,76,0.4);
+    }
+
+    .article-meta {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      text-align: center;
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-bar">
+  <button class="top-back" onclick="history.back()">←</button>
+  <div class="top-breadcrumb">
+    <a href="/">펫키디피아</a> / <a href="/care">CARE</a> / 그루밍
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="hero">
+    <div class="hero-badge">CARE · Grooming</div>
+    <h1>강아지 눈물 관리 가이드</h1>
+    <p class="hero-sub">
+      눈 주변이 갈색으로 변하는 눈물 자국, 미용만의 문제가 아닙니다.<br>
+      눈물 과다의 원인을 파악하고 일일 관리로 개선해봅시다.
+    </p>
+  </div>
+
+  <nav class="toc">
+    <div class="toc-title">목차</div>
+    <a href="#why"><span class="toc-num">01</span>눈물 자국이 생기는 이유</a>
+    <a href="#causes"><span class="toc-num">02</span>눈물 과다 원인</a>
+    <a href="#breeds"><span class="toc-num">03</span>눈물 자국 심한 견종</a>
+    <a href="#daily"><span class="toc-num">04</span>일일 관리 루틴</a>
+    <a href="#stain"><span class="toc-num">05</span>눈물 자국 제거법</a>
+    <a href="#prevention"><span class="toc-num">06</span>예방 팁</a>
+    <a href="#vet"><span class="toc-num">07</span>병원 방문 신호</a>
+  </nav>
+
+  <section class="section" id="why">
+    <div class="section-label"><span class="section-tag">01 · Why Tear Stains</span></div>
+    <h2>눈물 자국이 생기는 이유</h2>
+    <p>
+      눈물 자국(Tear Staining)은 눈에서 나온 눈물이
+      흰색이나 밝은 색 털에 붙으면서 갈색·적갈색으로 변색되는 현상입니다.
+    </p>
+
+    <div class="card">
+      <div class="card-label">변색 원리</div>
+      <p style="font-size:14px;">
+        눈물에는 포르피린(Porphyrin)이라는 붉은 색소가 포함되어 있습니다.
+        이것이 털에 묻어 공기와 햇빛에 노출되면
+        산화 반응을 일으켜 갈색으로 변하게 됩니다.
+      </p>
+      <p style="font-size:14px;">
+        특히 흰색 털은 이 변색이 매우 눈에 띄기 때문에
+        몰티즈, 비숑, 포메라니안 같은 견종에서 더 고민이 됩니다.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">눈물 vs 눈물 자국</div>
+      <p style="font-size:14px;">
+        <strong>정상적인 눈물</strong> — 눈을 촉촉하게 유지하고 이물질 제거. 모든 강아지에게 있음.<br>
+        <strong>과도한 눈물</strong> — 눈물이 지나치게 많이 나와서 얼굴을 타고 흐름.<br>
+        <strong>눈물 자국</strong> — 과도한 눈물이 털에 계속 묻으면서 생기는 변색.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="causes">
+    <div class="section-label"><span class="section-tag">02 · Causes</span></div>
+    <h2>눈물 과다 원인</h2>
+
+    <table class="cause-table">
+      <thead>
+        <tr>
+          <th>원인</th>
+          <th>설명</th>
+          <th>대처법</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>얼굴 구조</strong></td>
+          <td>납작한 얼굴(단두종)은 눈물관이 좁거나 막히기 쉬움</td>
+          <td>구조적 문제는 완전 해결 어려움, 일일 관리로 최소화</td>
+        </tr>
+        <tr>
+          <td><strong>털 자극</strong></td>
+          <td>눈 주변 털이 눈에 닿아 자극</td>
+          <td>눈 주변 털 짧게 정리, 정기 미용</td>
+        </tr>
+        <tr>
+          <td><strong>눈물관 막힘</strong></td>
+          <td>눈물이 코로 내려가는 관이 막힘</td>
+          <td>수의사 상담, 눈물관 세척 시술</td>
+        </tr>
+        <tr>
+          <td><strong>안구 질환</strong></td>
+          <td>결막염, 각막염, 속눈썹 문제 등</td>
+          <td>동물병원 진료 필수</td>
+        </tr>
+        <tr>
+          <td><strong>알레르기</strong></td>
+          <td>음식, 환경 알레르기로 눈 자극</td>
+          <td>알레르기 원인 파악 및 제거</td>
+        </tr>
+        <tr>
+          <td><strong>이물질</strong></td>
+          <td>먼지, 모래, 털 등이 눈에 들어감</td>
+          <td>눈 주변 청결 유지, 안약으로 세척</td>
+        </tr>
+        <tr>
+          <td><strong>유전</strong></td>
+          <td>일부 견종은 유전적으로 눈물 많음</td>
+          <td>완전 해결 어려움, 관리로 최소화</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section" id="breeds">
+    <div class="section-label"><span class="section-tag">03 · High Risk Breeds</span></div>
+    <h2>눈물 자국 심한 견종</h2>
+
+    <div class="card">
+      <div class="card-label">흰색·밝은 색 소형견</div>
+      <p style="font-size:14px;">
+        <strong>몰티즈</strong> — 눈물 자국이 가장 흔한 견종 중 하나<br>
+        <strong>비숑 프리제</strong> — 흰 털에 눈물 자국 매우 눈에 띔<br>
+        <strong>포메라니안</strong> — 크림색·흰색 개체<br>
+        <strong>시츄</strong> — 얼굴이 납작해 눈물관 문제 많음<br>
+        <strong>요크셔 테리어</strong> — 밝은 색 털에 변색 잘 보임
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">단두종 (납작한 얼굴)</div>
+      <p style="font-size:14px;">
+        <strong>퍼그</strong> — 얼굴 구조상 눈물관 막힘 흔함<br>
+        <strong>프렌치 불독</strong> — 큰 눈 + 얕은 안와<br>
+        <strong>페키니즈</strong> — 튀어나온 눈, 눈물 과다<br>
+        <strong>보스턴 테리어</strong> — 눈이 크고 튀어나옴
+      </p>
+    </div>
+
+    <div class="caution-box">
+      <div class="caution-box-title">💡 견종 특성 이해하기</div>
+      <p>
+        위 견종들은 구조적으로 눈물이 많을 수밖에 없는 경우가 많습니다.
+        완벽하게 없앨 수는 없지만, 일일 관리로 최소화할 수 있어요.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="daily">
+    <div class="section-label"><span class="section-tag">04 · Daily Routine</span></div>
+    <h2>일일 관리 루틴</h2>
+
+    <div class="step-box">
+      <div class="step-title">
+        <span class="step-number">1</span>
+        아침 눈 주변 체크
+      </div>
+      <div class="step-text">
+        눈곱, 눈물 자국, 눈 주변 털 상태를 확인합니다.
+        눈이 붓거나 충혈됐는지, 분비물은 없는지 체크하세요.
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-title">
+        <span class="step-number">2</span>
+        눈물 닦아내기
+      </div>
+      <div class="step-text">
+        부드러운 거즈나 화장솜을 미지근한 물에 적셔서
+        눈 안쪽에서 바깥쪽으로 살살 닦아냅니다.
+        양쪽 눈을 각각 다른 거즈로 닦아주세요 (교차 감염 방지).
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-title">
+        <span class="step-number">3</span>
+        눈물 자국 클리너 사용 (선택)
+      </div>
+      <div class="step-text">
+        강아지 전용 눈물 자국 클리너나 인공 눈물을 사용합니다.
+        제품을 화장솜에 묻혀서 자국 부위를 가볍게 닦아주세요.
+        눈에 직접 들어가지 않도록 주의합니다.
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-title">
+        <span class="step-number">4</span>
+        완전히 건조시키기
+      </div>
+      <div class="step-text">
+        깨끗한 마른 거즈로 눈 주변을 톡톡 두드려 물기를 제거합니다.
+        젖은 상태로 두면 세균 번식과 변색이 더 심해집니다.
+      </div>
+    </div>
+
+    <div class="do-dont">
+      <div class="do-box">
+        <div class="do-box-title">✅ DO</div>
+        <p>• 매일 같은 시간에 닦기<br>
+        • 부드러운 재질 사용<br>
+        • 안쪽→바깥쪽 방향으로<br>
+        • 완전히 건조시키기</p>
+      </div>
+      <div class="dont-box">
+        <div class="dont-box-title">❌ DON'T</div>
+        <p>• 사람용 화장품 사용<br>
+        • 눈에 직접 클리너 뿌리기<br>
+        • 세게 문지르기<br>
+        • 젖은 상태로 방치하기</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="stain">
+    <div class="section-label"><span class="section-tag">05 · Stain Removal</span></div>
+    <h2>눈물 자국 제거법</h2>
+    <p>
+      이미 생긴 눈물 자국은 하루 이틀에 없어지지 않습니다.
+      꾸준한 관리로 2~4주에 걸쳐 점차 옅어집니다.
+    </p>
+
+    <div class="card">
+      <div class="card-label">안전한 제거 방법</div>
+      <p style="font-size:14px;">
+        <strong>① 매일 닦기</strong><br>
+        가장 기본이자 가장 효과적입니다. 위에서 설명한 일일 루틴을 꾸준히 반복하세요.
+      </p>
+      <p style="font-size:14px;">
+        <strong>② 눈물 자국 전용 제품</strong><br>
+        강아지 전용 눈물 자국 클리너(Tear Stain Remover)를 사용합니다.
+        천연 성분 위주 제품을 선택하고, 사용 전 성분 확인은 필수예요.
+      </p>
+      <p style="font-size:14px;">
+        <strong>③ 눈 주변 털 짧게 정리</strong><br>
+        미용 시 눈 주변 털을 짧게 정리하면 눈물이 털에 덜 묻습니다.
+        변색된 부분은 잘라내는 것도 빠른 방법이에요.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">식단 조절</div>
+      <p style="font-size:14px;">
+        일부 강아지는 음식 알레르기로 눈물이 많아질 수 있습니다.
+        곡물 무첨가(Grain-Free) 사료로 바꾸거나,
+        알레르기 유발 성분(닭고기, 소고기 등)을 제외한 사료를 시도해볼 수 있어요.
+        단, 사료 변경 전에는 수의사와 상담하세요.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">물 그릇 관리</div>
+      <p style="font-size:14px;">
+        플라스틱 물그릇은 세균이 번식하기 쉽고,
+        턱 주변에 물기가 남아서 눈물 자국을 악화시킬 수 있습니다.
+        스테인리스나 도자기 그릇으로 바꾸고 매일 깨끗이 씻어주세요.
+      </p>
+    </div>
+
+    <div class="caution-box">
+      <div class="caution-box-title">⚠️ 사용 금지 성분</div>
+      <p>
+        과산화수소, 표백제, 알코올, 사람용 화장품은 절대 사용하지 마세요.
+        눈에 들어가면 매우 위험하고, 피부 자극 및 실명 위험이 있습니다.
+        반드시 강아지 전용 제품만 사용하세요.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="prevention">
+    <div class="section-label"><span class="section-tag">06 · Prevention</span></div>
+    <h2>예방 팁</h2>
+
+    <ul class="checklist">
+      <li><span class="check-icon">✓</span> 매일 눈 주변 닦기 (일일 루틴 필수)</li>
+      <li><span class="check-icon">✓</span> 눈 주변 털 짧게 유지 (월 1회 미용)</li>
+      <li><span class="check-icon">✓</span> 알레르기 유발 음식 피하기</li>
+      <li><span class="check-icon">✓</span> 스테인리스·도자기 물그릇 사용</li>
+      <li><span class="check-icon">✓</span> 먼지 많은 환경 피하기 (정기 청소)</li>
+      <li><span class="check-icon">✓</span> 건조한 실내 환경 개선 (가습기 사용)</li>
+      <li><span class="check-icon">✓</span> 정기 안과 검진 (연 1~2회)</li>
+    </ul>
+
+    <div class="tip-box">
+      <div class="tip-box-title">💡 완벽한 해결은 어렵습니다</div>
+      <p>
+        눈물 자국은 유전·얼굴 구조 같은 태생적 요인이 큽니다.
+        완전히 없애는 것보다 최소화하는 것을 목표로 하고,
+        강아지의 건강 상태에 문제가 없는지 확인하는 게 더 중요해요.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="vet">
+    <div class="section-label"><span class="section-tag">07 · When to Visit Vet</span></div>
+    <h2>병원 방문 신호</h2>
+    <p>
+      눈물 자국 자체는 질환이 아니지만,
+      아래 증상이 동반되면 안구 질환일 수 있으니 병원 방문을 권장합니다.
+    </p>
+
+    <div class="vet-signal">
+      <span class="vet-dot"></span>
+      <span class="vet-text">눈이 붓거나 충혈됐다</span>
+    </div>
+    <div class="vet-signal">
+      <span class="vet-dot"></span>
+      <span class="vet-text">눈에서 노란색·녹색 고름이 나온다</span>
+    </div>
+    <div class="vet-signal">
+      <span class="vet-dot"></span>
+      <span class="vet-text">눈을 자주 비비거나 긁는다</span>
+    </div>
+    <div class="vet-signal">
+      <span class="vet-dot"></span>
+      <span class="vet-text">눈을 잘 뜨지 못하거나 눈부셔한다</span>
+    </div>
+    <div class="vet-signal">
+      <span class="vet-dot"></span>
+      <span class="vet-text">눈물이 갑자기 심해졌다</span>
+    </div>
+    <div class="vet-signal">
+      <span class="vet-dot"></span>
+      <span class="vet-text">눈 주변 피부가 짓무르거나 염증이 생겼다</span>
+    </div>
+    <div class="vet-signal">
+      <span class="vet-dot"></span>
+      <span class="vet-text">눈동자가 흐리거나 백태가 낀 것처럼 보인다</span>
+    </div>
+
+    <div class="caution-box" style="margin-top:16px;">
+      <div class="caution-box-title">⚠️ 참고</div>
+      <p>
+        이 가이드는 일반적인 관리 정보를 제공하며,
+        전문적인 수의학적 진단을 대체하지 않습니다.
+        눈 질환이 의심되면 반드시 동물병원에서 검진받으세요.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label"><span class="section-tag">Related</span></div>
+    <h2>함께 보면 좋은 가이드</h2>
+    <div class="related-grid">
+      <a class="related-item" href="care/grooming/basic">
+        <div class="related-emoji">✂️</div>
+        <div class="related-title">털관리 기본 가이드</div>
+        <div class="related-sub">CARE · 그루밍</div>
+      </a>
+      <a class="related-item" href="care/bath/basic">
+        <div class="related-emoji">🛁</div>
+        <div class="related-title">강아지 목욕 주기 가이드</div>
+        <div class="related-sub">CARE · 그루밍</div>
+      </a>
+      <a class="related-item" href="care/ear/basic">
+        <div class="related-emoji">👂</div>
+        <div class="related-title">강아지 귀 청소 가이드</div>
+        <div class="related-sub">CARE · 그루밍</div>
+      </a>
+      <a class="related-item" href="care/nail/basic">
+        <div class="related-emoji">🐾</div>
+        <div class="related-title">강아지 발톱 관리 가이드</div>
+        <div class="related-sub">CARE · 그루밍</div>
+      </a>
+    </div>
+  </section>
+
+  <div class="cta-banner">
+    <h3>우리 강아지 눈물 자국 위험도가 궁금하다면</h3>
+    <p>374종 Breed Detail에서 견종별 얼굴 구조와 관리 정보를 확인하세요</p>
+    <a class="cta-btn" href="encyclopedia.html">Breed Detail 보러가기 →</a>
+  </div>
+
+  <div class="article-meta">
+    <p>CARE_GROOMING_10 · 펫키디피아 Care Guide</p>
+    <p>마지막 업데이트: 2026.03</p>
+    <p>이 콘텐츠는 전문 수의학적 진단을 대체하지 않습니다.</p>
+  </div>
+
+</div>
+
+</body>
+</html>

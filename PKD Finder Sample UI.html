@@ -1,0 +1,95 @@
+
+
+<!--
+File: pkd_finder_ui_260310.html
+Project: Petkidipia (PKD)
+Purpose: Finder UI with Question Search
+Input:
+ - pkd_search_engine_260310.js
+ - pkd_finder_engine.js
+Output:
+ - breed card results
+Author: Grid
+-->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+<title>펫키디피아 Finder</title>
+
+<style>
+
+body{
+font-family: sans-serif;
+background:#fafafa;
+margin:0;
+padding:40px;
+}
+
+.pkd-search{
+max-width:600px;
+margin:auto;
+}
+
+.pkd-search input{
+width:100%;
+padding:14px;
+font-size:16px;
+border:1px solid #ddd;
+border-radius:8px;
+}
+
+.pkd-suggestions{
+margin-top:10px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:8px;
+}
+
+.pkd-suggestion{
+padding:10px;
+background:#fff;
+border:1px solid #eee;
+border-radius:6px;
+cursor:pointer;
+}
+
+.pkd-suggestion:hover{
+background:#f3f3f3;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="pkd-search">
+
+<input
+type="text"
+placeholder="무엇이 궁금하세요? 예: 강아지 털"
+data-pkd-search-input
+/>
+
+<div class="pkd-suggestions" data-pkd-suggestions></div>
+
+<div data-pkd-search-result></div>
+
+</div>
+
+<script src="./pkd_search_engine_260310.js"></script>
+
+<script>
+
+const pkdSearch = new PKDSearchEngine({
+limit:4
+})
+
+pkdSearch.pkdBind()
+
+</script>
+
+</body>
+</html>

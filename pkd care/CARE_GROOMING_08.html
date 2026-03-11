@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>강아지 귀 청소 가이드 — 펫키디피아</title>
+  <meta name="description" content="귀 청소 빈도, 올바른 방법, 귀 질환 예방까지. 귀가 처진 견종, 귀털이 많은 견종 맞춤 가이드.">
+  <meta name="keywords" content="강아지 귀 청소, 강아지 귀지, 반려견 귀 관리, 외이염 예방">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #FBF7F2;
+      --cream-2: #F4EEE5;
+      --gold: #C9A84C;
+      --gold-pale: #F5ECD4;
+      --brown: #2E1F14;
+      --brown-2: #3D2B1F;
+      --warm: #8B5E3C;
+      --soft: #EDE4D8;
+      --muted: #9B8878;
+      --line: rgba(46,31,20,0.08);
+      --green: #2E7D32;
+      --green-pale: #E8F5E9;
+      --amber: #F57F17;
+      --amber-pale: #FFF8E1;
+      --red: #D32F2F;
+      --red-pale: #FFF3F0;
+      --blue: #1976D2;
+      --blue-pale: #E3F2FD;
+      --max: 680px;
+      --font-serif: "Cormorant Garamond", serif;
+      --font-sans: "Noto Sans KR", sans-serif;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--cream);
+      color: var(--brown);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .top-bar {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(251,247,242,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      padding: 14px 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .top-back { background: none; border: none; font-size: 20px; cursor: pointer; color: var(--brown); }
+    .top-breadcrumb { font-size: 12px; color: var(--muted); }
+    .top-breadcrumb a { color: var(--warm); text-decoration: none; }
+
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 20px 120px; }
+
+    .hero {
+      padding: 40px 0 32px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--gold-pale);
+      color: var(--warm);
+      font-size: 11px; font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: var(--font-sans);
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--brown);
+      margin-bottom: 12px;
+    }
+    .hero-sub {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .toc {
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 18px;
+      padding: 20px 24px;
+      margin-bottom: 32px;
+    }
+    .toc-title {
+      font-size: 12px; font-weight: 700;
+      color: var(--warm);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .toc a {
+      display: block;
+      font-size: 14px;
+      color: var(--brown-2);
+      text-decoration: none;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .toc a:last-child { border-bottom: none; }
+    .toc a:hover { color: var(--gold); }
+    .toc-num { color: var(--gold); font-weight: 700; margin-right: 8px; }
+
+    .section { margin-bottom: 36px; }
+    .section-label {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 16px;
+    }
+    .section-label::before, .section-label::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(to right, var(--gold), transparent);
+    }
+    .section-label::after {
+      background: linear-gradient(to left, var(--gold), transparent);
+    }
+    .section-tag {
+      font-family: var(--font-serif);
+      font-size: 13px; font-style: italic;
+      color: var(--gold);
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+    .section h2 {
+      font-size: 20px; font-weight: 700;
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+    .section p {
+      font-size: 15px;
+      color: var(--brown-2);
+      margin-bottom: 12px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 18px;
+      padding: 20px;
+      margin-bottom: 14px;
+    }
+    .card-label {
+      font-size: 11px; font-weight: 700;
+      color: var(--warm);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .risk-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 13px;
+    }
+    .risk-table th {
+      background: var(--cream-2);
+      padding: 10px 12px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 12px;
+      color: var(--warm);
+      border-bottom: 2px solid var(--soft);
+    }
+    .risk-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+
+    .step-box {
+      background: var(--blue-pale);
+      border: 1px solid rgba(25,118,210,0.2);
+      border-radius: 14px;
+      padding: 18px 20px;
+      margin-bottom: 12px;
+    }
+    .step-number {
+      display: inline-block;
+      width: 28px;
+      height: 28px;
+      background: var(--blue);
+      color: #fff;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 28px;
+      font-weight: 700;
+      font-size: 14px;
+      margin-right: 10px;
+    }
+    .step-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--brown);
+      margin-bottom: 8px;
+    }
+    .step-text {
+      font-size: 14px;
+      color: var(--brown-2);
+      line-height: 1.6;
+    }
+
+    .do-dont {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .do-box, .dont-box {
+      border-radius: 14px;
+      padding: 16px;
+    }
+    .do-box {
+      background: var(--green-pale);
+      border: 1px solid rgba(46,125,50,0.2);
+    }
+    .dont-box {
+      background: var(--red-pale);
+      border: 1px solid rgba(211,47,47,0.15);
+    }
+    .do-box-title, .dont-box-title {
+      font-size: 12px; font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+    }
+    .do-box-title { color: var(--green); }
+    .dont-box-title { color: var(--red); }
+    .do-box p, .dont-box p {
+      font-size: 13px;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    .caution-box {
+      background: var(--amber-pale);
+      border: 1px solid rgba(245,127,23,0.2);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin-top: 16px;
+    }
+    .caution-box-title {
+      font-size: 13px; font-weight: 700;
+      color: var(--amber);
+      margin-bottom: 8px;
+    }
+    .caution-box p {
+      font-size: 13px;
+      color: #5D4037;
+      margin-bottom: 0;
+    }
+
+    .vet-signal {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 14px 16px;
+      background: var(--red-pale);
+      border: 1px solid rgba(211,47,47,0.12);
+      border-radius: 14px;
+      margin-bottom: 10px;
+    }
+    .vet-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--red);
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
+    .vet-text { font-size: 14px; color: var(--brown-2); }
+
+    .checklist { list-style: none; }
+    .checklist li {
+      display: flex; gap: 10px; align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+    }
+    .checklist li:last-child { border-bottom: none; }
+    .check-icon {
+      width: 22px; height: 22px;
+      border-radius: 6px;
+      background: var(--green-pale);
+      color: var(--green);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .related-item {
+      display: block;
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 14px;
+      padding: 16px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .related-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(46,31,20,0.08);
+    }
+    .related-emoji { font-size: 22px; margin-bottom: 8px; }
+    .related-title { font-size: 13px; font-weight: 700; color: var(--brown); line-height: 1.4; }
+    .related-sub { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+    .cta-banner {
+      background: linear-gradient(135deg, var(--brown), var(--brown-2));
+      border-radius: 20px;
+      padding: 28px 24px;
+      margin-top: 40px;
+      text-align: center;
+    }
+    .cta-banner h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    .cta-banner p {
+      font-size: 13px;
+      color: rgba(251,247,242,0.85);
+      margin-bottom: 18px;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--brown);
+      font-size: 14px; font-weight: 700;
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(201,168,76,0.4);
+    }
+
+    .article-meta {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      text-align: center;
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-bar">
+  <button class="top-back" onclick="history.back()">←</button>
+  <div class="top-breadcrumb">
+    <a href="/">펫키디피아</a> / <a href="/care">CARE</a> / 그루밍
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="hero">
+    <div class="hero-badge">CARE · Grooming</div>
+    <h1>강아지 귀 청소 가이드</h1>
+    <p class="hero-sub">
+      귀는 보이지 않는 곳에서 문제가 생기기 쉽습니다.<br>
+      정기적인 체크와 올바른 청소로 외이염을 예방하세요.
+    </p>
+  </div>
+
+  <nav class="toc">
+    <div class="toc-title">목차</div>
+    <a href="#why"><span class="toc-num">01</span>왜 귀 관리가 중요한가</a>
+    <a href="#risk"><span class="toc-num">02</span>귀 질환 위험 그룹</a>
+    <a href="#frequency"><span class="toc-num">03</span>청소 빈도</a>
+    <a href="#how"><span class="toc-num">04</span>귀 청소 방법</a>
+    <a href="#hair"><span class="toc-num">05</span>귀털 관리</a>
+    <a href="#signs"><span class="toc-num">06</span>귀 질환 신호</a>
+    <a href="#vet"><span class="toc-num">07</span>병원 방문이 필요한 경우</a>
+  </nav>
+
+  <section class="section" id="why">
+    <div class="section-label"><span class="section-tag">01 · Why Ear Care</span></div>
+    <h2>왜 귀 관리가 중요한가</h2>
+    <p>
+      강아지 귀는 사람과 달리 L자 형태로 굽어 있어서
+      통풍이 잘 안 되고 습기가 차기 쉽습니다.
+      여기에 귀지와 분비물이 쌓이면 세균·곰팡이가 번식하면서
+      외이염이 생길 수 있어요.
+    </p>
+
+    <div class="card">
+      <div class="card-label">외이염이란</div>
+      <p style="font-size:14px;">
+        귓속 외이도(귀 입구부터 고막까지)에 염증이 생긴 상태입니다.
+        가려움, 냄새, 분비물, 통증이 주요 증상이며,
+        방치하면 만성화되거나 중이염으로 악화될 수 있어요.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">정기 귀 청소의 효과</div>
+      <p style="font-size:14px;">
+        • 귀지와 먼지 제거로 청결 유지<br>
+        • 습기 제거로 세균·곰팡이 번식 방지<br>
+        • 조기에 이상 징후 발견 (냄새, 붉은 기, 분비물)<br>
+        • 외이염 예방
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="risk">
+    <div class="section-label"><span class="section-tag">02 · High Risk Groups</span></div>
+    <h2>귀 질환 위험 그룹</h2>
+
+    <table class="risk-table">
+      <thead>
+        <tr>
+          <th>위험 요인</th>
+          <th>해당 견종</th>
+          <th>이유</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>처진 귀</strong></td>
+          <td>비글, 코카 스파니엘, 바셋하운드, 래브라도, 골든 리트리버</td>
+          <td>귀가 귓속을 덮어서 통풍 안 됨</td>
+        </tr>
+        <tr>
+          <td><strong>귀털 많음</strong></td>
+          <td>푸들, 시츄, 요크셔 테리어, 말티즈</td>
+          <td>귀 안쪽 털이 많아 습기 차고 귀지 엉킴</td>
+        </tr>
+        <tr>
+          <td><strong>귀가 큼</strong></td>
+          <td>저먼 셰퍼드, 도베르만</td>
+          <td>귀 면적이 넓어 먼지·이물질 유입</td>
+        </tr>
+        <tr>
+          <td><strong>수영 자주</strong></td>
+          <td>모든 견종</td>
+          <td>물놀이 후 귓속 물기가 염증 유발</td>
+        </tr>
+        <tr>
+          <td><strong>알레르기 체질</strong></td>
+          <td>불독, 시바견, 닥스훈트 등</td>
+          <td>피부 알레르기가 귀에도 영향</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="caution-box">
+      <div class="caution-box-title">💡 위험 그룹은 더 자주 체크</div>
+      <p>
+        위 그룹에 해당하면 주 1~2회 귀 상태를 확인하고,
+        필요 시 청소 주기를 늘리세요.
+        수영 후에는 반드시 귀를 건조시켜야 합니다.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="frequency">
+    <div class="section-label"><span class="section-tag">03 · Frequency</span></div>
+    <h2>청소 빈도</h2>
+
+    <div class="card">
+      <div class="card-label">일반 견종 (서 있는 귀)</div>
+      <p style="font-size:14px;">
+        <strong>체크:</strong> 주 1회<br>
+        <strong>청소:</strong> 월 1~2회 (귀지가 보일 때)
+      </p>
+      <p style="font-size:14px;">
+        진돗개, 시바견, 포메라니안 등 귀가 서 있는 견종은
+        통풍이 잘 돼서 귀 질환 위험이 상대적으로 낮습니다.
+        너무 자주 청소하면 오히려 귀를 자극할 수 있어요.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">처진 귀 견종</div>
+      <p style="font-size:14px;">
+        <strong>체크:</strong> 주 2~3회<br>
+        <strong>청소:</strong> 주 1~2회
+      </p>
+      <p style="font-size:14px;">
+        비글, 코카 스파니엘, 래브라도 등은
+        귀가 귓속을 덮고 있어서 습기가 차기 쉽습니다.
+        자주 들춰보고 청소 주기를 늘려야 해요.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">귀털 많은 견종</div>
+      <p style="font-size:14px;">
+        <strong>체크:</strong> 주 2회<br>
+        <strong>청소:</strong> 주 1회<br>
+        <strong>귀털 제거:</strong> 월 1회 (미용실 또는 집)
+      </p>
+      <p style="font-size:14px;">
+        푸들, 시츄, 말티즈 등은 귀 안쪽에 털이 자라서
+        귀지가 엉키고 통풍이 안 됩니다.
+        귀털을 정기적으로 뽑아주거나 다듬어줘야 합니다.
+      </p>
+    </div>
+
+    <div class="caution-box">
+      <div class="caution-box-title">⚠️ 과도한 청소 주의</div>
+      <p>
+        귀가 깨끗한데도 너무 자주 청소하면
+        귀 안쪽 피부가 자극받아 오히려 염증이 생길 수 있습니다.
+        냄새나 귀지가 없으면 청소를 건너뛰세요.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="how">
+    <div class="section-label"><span class="section-tag">04 · How to Clean</span></div>
+    <h2>귀 청소 방법</h2>
+
+    <div class="card">
+      <div class="card-label">준비물</div>
+      <ul class="checklist">
+        <li><span class="check-icon">✓</span> 강아지 전용 귀 세정제 (동물병원·펫샵)</li>
+        <li><span class="check-icon">✓</span> 부드러운 거즈 또는 화장솜</li>
+        <li><span class="check-icon">✓</span> 간식 (보상용)</li>
+      </ul>
+    </div>
+
+    <div class="step-box">
+      <div class="step-title">
+        <span class="step-number">1</span>
+        강아지 안정시키기
+      </div>
+      <div class="step-text">
+        차분한 목소리로 달래면서 편안한 자세로 앉히거나 눕힙니다.
+        귀 청소를 처음 하는 강아지라면 귀를 만지는 것부터 천천히 익숙하게 만드세요.
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-title">
+        <span class="step-number">2</span>
+        귀 세정제 주입
+      </div>
+      <div class="step-text">
+        귀를 살짝 들어 올리고, 귀 입구에 세정제를 2~3방울 떨어뜨립니다.
+        너무 많이 넣을 필요 없어요. 귓속 깊이 넣으려 하지 말고 입구에만 떨어뜨리세요.
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-title">
+        <span class="step-number">3</span>
+        귀 밑부분 마사지
+      </div>
+      <div class="step-text">
+        귀 아래쪽(귀와 머리가 만나는 부분)을 20~30초간 부드럽게 마사지합니다.
+        '쿡쿡' 소리가 나면서 세정제가 귀지를 녹이고 있다는 신호예요.
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-title">
+        <span class="step-number">4</span>
+        강아지가 머리 흔들게 하기
+      </div>
+      <div class="step-text">
+        마사지가 끝나면 강아지를 놓아주세요.
+        자연스럽게 머리를 흔들면서 귀 안쪽 세정제와 귀지가 밖으로 나옵니다.
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-title">
+        <span class="step-number">5</span>
+        겉 부분 닦아내기
+      </div>
+      <div class="step-text">
+        거즈나 화장솜으로 귀 입구와 주변에 나온 귀지·세정제를 부드럽게 닦아냅니다.
+        보이는 부분만 닦고, 귓속 깊이 들어가지 마세요.
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-title">
+        <span class="step-number">6</span>
+        간식 보상
+      </div>
+      <div class="step-text">
+        청소가 끝나면 칭찬과 간식으로 보상해주세요.
+        귀 청소가 긍정적인 경험으로 기억되도록 만드는 게 중요합니다.
+      </div>
+    </div>
+
+    <div class="do-dont">
+      <div class="do-box">
+        <div class="do-box-title">✅ DO</div>
+        <p>• 강아지 전용 귀 세정제 사용<br>
+        • 보이는 부분만 닦기<br>
+        • 부드럽게 마사지하기<br>
+        • 양쪽 귀 모두 청소하기</p>
+      </div>
+      <div class="dont-box">
+        <div class="dont-box-title">❌ DON'T</div>
+        <p>• 면봉 사용 (귓속 손상 위험)<br>
+        • 물이나 알코올로 닦기<br>
+        • 귓속 깊이 파고들기<br>
+        • 강제로 붙잡고 청소하기</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="hair">
+    <div class="section-label"><span class="section-tag">05 · Ear Hair</span></div>
+    <h2>귀털 관리</h2>
+    <p>
+      푸들, 시츄, 말티즈, 요크셔 테리어 등은
+      귀 안쪽에 털이 자라는 견종입니다.
+      이 털을 그대로 두면 통풍이 안 돼서 외이염 위험이 높아져요.
+    </p>
+
+    <div class="card">
+      <div class="card-label">귀털 제거 방법</div>
+      <p style="font-size:14px;">
+        <strong>① 미용실에서 제거</strong><br>
+        가장 안전한 방법입니다. 월 1회 미용할 때 함께 귀털을 뽑아달라고 요청하세요.
+      </p>
+      <p style="font-size:14px;">
+        <strong>② 집에서 직접 제거 (귀털 포셉 사용)</strong><br>
+        귀 전용 포셉으로 조금씩 뽑아줍니다.
+        한 번에 많이 뽑으면 아프므로 소량씩 여러 번 나눠서 진행하세요.
+        처음 하는 경우 미용사에게 시범을 보고 배우는 게 좋습니다.
+      </p>
+      <p style="font-size:14px;">
+        <strong>③ 귀털 가위로 다듬기</strong><br>
+        뽑는 게 부담스럽다면 귀 입구 부근의 털만 짧게 잘라주세요.
+        완전히 제거하는 것보다 효과는 적지만, 통풍에는 도움이 됩니다.
+      </p>
+    </div>
+
+    <div class="caution-box">
+      <div class="caution-box-title">⚠️ 귀털 뽑기 주의사항</div>
+      <p>
+        • 한 번에 2~3가닥씩만 뽑기<br>
+        • 강아지가 심하게 아파하면 중단<br>
+        • 귀 안쪽이 붉어지거나 출혈이 있으면 즉시 중단하고 병원 방문<br>
+        • 자신 없으면 전문가에게 맡기기
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="signs">
+    <div class="section-label"><span class="section-tag">06 · Warning Signs</span></div>
+    <h2>귀 질환 신호</h2>
+    <p>
+      아래 증상이 하나라도 보이면 외이염이나 귀 질환을 의심해볼 수 있습니다.
+    </p>
+
+    <ul class="checklist">
+      <li><span class="check-icon">✓</span> 귀를 자주 긁거나 머리를 흔든다</li>
+      <li><span class="check-icon">✓</span> 귀에서 냄새가 난다 (시큼하거나 썩은 냄새)</li>
+      <li><span class="check-icon">✓</span> 귓속이 붉거나 부어 있다</li>
+      <li><span class="check-icon">✓</span> 귀지가 갈색·검은색·노란색이다 (정상은 연한 갈색)</li>
+      <li><span class="check-icon">✓</span> 귀에서 분비물이 나온다 (진물, 고름)</li>
+      <li><span class="check-icon">✓</span> 귀를 만지면 아파하거나 예민하게 반응한다</li>
+      <li><span class="check-icon">✓</span> 머리를 한쪽으로 기울인다</li>
+      <li><span class="check-icon">✓</span> 귀 주변을 바닥이나 가구에 비빈다</li>
+    </ul>
+  </section>
+
+  <section class="section" id="vet">
+    <div class="section-label"><span class="section-tag">07 · When to Visit Vet</span></div>
+    <h2>병원 방문이 필요한 경우</h2>
+
+    <div class="vet-signal">
+      <span class="vet-dot"></span>
+      <span class="vet-text">귀에서 악취가 심하게 난다</span>
+    </div>
+    <div class="vet-signal">
+      <span class="vet-dot"></span>
+      <span class="vet-text">귀지 색이 검거나 녹색, 노란색이다</span>
+    </div>
+    <div class="vet-signal">
+      <span class="vet-dot"></span>
+      <span class="vet-text">귀에서 진물이나 고름이 나온다</span>
+    </div>
+    <div class="vet-signal">
+      <span class="vet-dot"></span>
+      <span class="vet-text">귓속이 심하게 붉거나 부어올랐다</span>
+    </div>
+    <div class="vet-signal">
+      <span class="vet-dot"></span>
+      <span class="vet-text">귀를 만질 때 통증 반응이 심하다</span>
+    </div>
+    <div class="vet-signal">
+      <span class="vet-dot"></span>
+      <span class="vet-text">균형을 잃거나 머리를 계속 한쪽으로 기울인다</span>
+    </div>
+    <div class="vet-signal">
+      <span class="vet-dot"></span>
+      <span class="vet-text">청소 후에도 증상이 계속되거나 악화된다</span>
+    </div>
+
+    <div class="caution-box" style="margin-top:16px;">
+      <div class="caution-box-title">⚠️ 자가 치료 금지</div>
+      <p>
+        외이염이 의심되면 함부로 귀 세정제를 사용하지 말고
+        동물병원에서 진단을 받으세요.
+        고막이 손상됐는데 세정제를 쓰면 더 악화될 수 있습니다.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label"><span class="section-tag">Related</span></div>
+    <h2>함께 보면 좋은 가이드</h2>
+    <div class="related-grid">
+      <a class="related-item" href="care/bath/basic">
+        <div class="related-emoji">🛁</div>
+        <div class="related-title">강아지 목욕 주기 가이드</div>
+        <div class="related-sub">CARE · 그루밍</div>
+      </a>
+      <a class="related-item" href="care/nail/basic">
+        <div class="related-emoji">🐾</div>
+        <div class="related-title">강아지 발톱 관리 가이드</div>
+        <div class="related-sub">CARE · 그루밍</div>
+      </a>
+      <a class="related-item" href="care/grooming/basic">
+        <div class="related-emoji">✂️</div>
+        <div class="related-title">털관리 기본 가이드</div>
+        <div class="related-sub">CARE · 그루밍</div>
+      </a>
+      <a class="related-item" href="care/tear/basic">
+        <div class="related-emoji">😢</div>
+        <div class="related-title">강아지 눈물 관리 가이드</div>
+        <div class="related-sub">CARE · 그루밍</div>
+      </a>
+    </div>
+  </section>
+
+  <div class="cta-banner">
+    <h3>우리 강아지 귀 타입이 궁금하다면</h3>
+    <p>374종 Breed Detail에서 견종별 귀 형태와 관리 정보를 확인하세요</p>
+    <a class="cta-btn" href="encyclopedia.html">Breed Detail 보러가기 →</a>
+  </div>
+
+  <div class="article-meta">
+    <p>CARE_GROOMING_08 · 펫키디피아 Care Guide</p>
+    <p>마지막 업데이트: 2026.03</p>
+    <p>이 콘텐츠는 전문 수의학적 진단을 대체하지 않습니다.</p>
+  </div>
+
+</div>
+
+</body>
+</html>

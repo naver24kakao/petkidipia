@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+<!--
+File: finder.html
+Project: Petkidipia
+Purpose: Breed Finder Interface
+Engine: pkd_finder_engine.js
+Author: Grid
+-->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>강아지 찾기 | 펫키디피아</title>
+
+<link rel="stylesheet" href="/assets/pkd_style.css">
+
+<style>
+
+body{
+font-family: Arial, sans-serif;
+background:#faf7f2;
+margin:0;
+padding:0;
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:20px;
+}
+
+h1{
+text-align:center;
+margin-bottom:10px;
+}
+
+.search-box{
+margin:20px 0;
+text-align:center;
+}
+
+.search-box input{
+width:100%;
+max-width:400px;
+padding:12px;
+font-size:16px;
+}
+
+.filters{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin-bottom:20px;
+}
+
+.filter-group{
+background:#fff;
+padding:10px;
+border-radius:8px;
+}
+
+.filter-group button{
+margin:4px;
+padding:6px 10px;
+border:none;
+background:#eee;
+cursor:pointer;
+}
+
+.results{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+gap:20px;
+}
+
+.breed-card{
+background:#fff;
+padding:12px;
+border-radius:10px;
+text-align:center;
+}
+
+.breed-card img{
+width:100%;
+border-radius:8px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🐾 우리 집에 맞는 강아지 찾기</h1>
+
+<div class="search-box">
+<input
+type="text"
+placeholder="품종 이름 검색 (예: 말티즈)"
+data-pkd-search
+/>
+</div>
+
+
+<div class="filters">
+
+<div class="filter-group">
+<b>Size</b><br>
+<button data-pkd-filter="size" data-value="small">Small</button>
+<button data-pkd-filter="size" data-value="medium">Medium</button>
+<button data-pkd-filter="size" data-value="large">Large</button>
+</div>
+
+<div class="filter-group">
+<b>Shedding</b><br>
+<button data-pkd-filter="shedding" data-value="low">Low</button>
+<button data-pkd-filter="shedding" data-value="medium">Medium</button>
+<button data-pkd-filter="shedding" data-value="high">High</button>
+</div>
+
+<div class="filter-group">
+<b>Apartment</b><br>
+<button data-pkd-filter="apartment" data-value="good">Good</button>
+<button data-pkd-filter="apartment" data-value="okay">Okay</button>
+<button data-pkd-filter="apartment" data-value="poor">Poor</button>
+</div>
+
+<div class="filter-group">
+<b>Kids</b><br>
+<button data-pkd-filter="kids" data-value="good">Good</button>
+<button data-pkd-filter="kids" data-value="okay">Okay</button>
+<button data-pkd-filter="kids" data-value="poor">Poor</button>
+</div>
+
+</div>
+
+
+<div class="results" data-pkd-card-container>
+
+<!-- breed cards injected by engine -->
+
+</div>
+
+</div>
+
+
+<script src="/engine/pkd_finder_engine.js"></script>
+
+<script>
+
+const engine = new PKDFinderEngine()
+
+engine.pkd_boot("/data/pkd_runtime_bundle_scored.json")
+
+</script>
+
+
+</body>
+</html>

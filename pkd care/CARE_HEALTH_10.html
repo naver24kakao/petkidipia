@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>노령견 건강관리 가이드 — 펫키디피아</title>
+  <meta name="description" content="우리 강아지도 나이가 들었습니다. 시니어견 건강 체크부터 식단·운동·인지 기능까지. 행복한 노년 보내기.">
+  <meta name="keywords" content="노령견, 시니어견, 강아지 노화, 노견 관리, 인지장애">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #FBF7F2;
+      --cream-2: #F4EEE5;
+      --gold: #C9A84C;
+      --gold-pale: #F5ECD4;
+      --brown: #2E1F14;
+      --brown-2: #3D2B1F;
+      --warm: #8B5E3C;
+      --soft: #EDE4D8;
+      --muted: #9B8878;
+      --line: rgba(46,31,20,0.08);
+      --green: #2E7D32;
+      --green-pale: #E8F5E9;
+      --amber: #F57F17;
+      --amber-pale: #FFF8E1;
+      --red: #D32F2F;
+      --red-pale: #FFF3F0;
+      --blue: #1976D2;
+      --blue-pale: #E3F2FD;
+      --purple: #7B1FA2;
+      --purple-pale: #F3E5F5;
+      --max: 680px;
+      --font-serif: "Cormorant Garamond", serif;
+      --font-sans: "Noto Sans KR", sans-serif;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--cream);
+      color: var(--brown);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .top-bar {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(251,247,242,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      padding: 14px 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .top-back { background: none; border: none; font-size: 20px; cursor: pointer; color: var(--brown); }
+    .top-breadcrumb { font-size: 12px; color: var(--muted); }
+    .top-breadcrumb a { color: var(--warm); text-decoration: none; }
+
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 20px 120px; }
+
+    .hero {
+      padding: 40px 0 32px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--purple-pale);
+      color: var(--purple);
+      font-size: 11px; font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: var(--font-sans);
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--brown);
+      margin-bottom: 12px;
+    }
+    .hero-sub {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .toc {
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 18px;
+      padding: 20px 24px;
+      margin-bottom: 32px;
+    }
+    .toc-title {
+      font-size: 12px; font-weight: 700;
+      color: var(--warm);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .toc a {
+      display: block;
+      font-size: 14px;
+      color: var(--brown-2);
+      text-decoration: none;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .toc a:last-child { border-bottom: none; }
+    .toc a:hover { color: var(--gold); }
+    .toc-num { color: var(--gold); font-weight: 700; margin-right: 8px; }
+
+    .section { margin-bottom: 36px; }
+    .section-label {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 16px;
+    }
+    .section-label::before, .section-label::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(to right, var(--gold), transparent);
+    }
+    .section-label::after {
+      background: linear-gradient(to left, var(--gold), transparent);
+    }
+    .section-tag {
+      font-family: var(--font-serif);
+      font-size: 13px; font-style: italic;
+      color: var(--gold);
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+    .section h2 {
+      font-size: 20px; font-weight: 700;
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+    .section p {
+      font-size: 15px;
+      color: var(--brown-2);
+      margin-bottom: 12px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 18px;
+      padding: 20px;
+      margin-bottom: 14px;
+    }
+    .card-label {
+      font-size: 11px; font-weight: 700;
+      color: var(--warm);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .age-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 13px;
+    }
+    .age-table th {
+      background: var(--purple-pale);
+      padding: 10px 12px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 12px;
+      color: var(--purple);
+      border-bottom: 2px solid var(--soft);
+    }
+    .age-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+
+    .caution-box {
+      background: var(--amber-pale);
+      border: 1px solid rgba(245,127,23,0.2);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin-top: 16px;
+    }
+    .caution-box-title {
+      font-size: 13px; font-weight: 700;
+      color: var(--amber);
+      margin-bottom: 8px;
+    }
+    .caution-box p {
+      font-size: 13px;
+      color: #5D4037;
+      margin-bottom: 0;
+    }
+
+    .tip-box {
+      background: var(--blue-pale);
+      border: 1px solid rgba(25,118,210,0.2);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin-top: 16px;
+    }
+    .tip-box-title {
+      font-size: 13px; font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+    .tip-box p {
+      font-size: 13px;
+      color: var(--brown-2);
+      margin-bottom: 0;
+    }
+
+    .checklist { list-style: none; }
+    .checklist li {
+      display: flex; gap: 10px; align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+    }
+    .checklist li:last-child { border-bottom: none; }
+    .check-icon {
+      width: 22px; height: 22px;
+      border-radius: 6px;
+      background: var(--green-pale);
+      color: var(--green);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .cds-box {
+      background: var(--red-pale);
+      border: 1px solid rgba(211,47,47,0.15);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin-top: 16px;
+    }
+    .cds-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--red);
+      margin-bottom: 10px;
+    }
+    .cds-text {
+      font-size: 14px;
+      color: var(--brown-2);
+      line-height: 1.7;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .related-item {
+      display: block;
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 14px;
+      padding: 16px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .related-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(46,31,20,0.08);
+    }
+    .related-emoji { font-size: 22px; margin-bottom: 8px; }
+    .related-title { font-size: 13px; font-weight: 700; color: var(--brown); line-height: 1.4; }
+    .related-sub { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+    .cta-banner {
+      background: linear-gradient(135deg, var(--brown), var(--brown-2));
+      border-radius: 20px;
+      padding: 28px 24px;
+      margin-top: 40px;
+      text-align: center;
+    }
+    .cta-banner h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    .cta-banner p {
+      font-size: 13px;
+      color: rgba(251,247,242,0.85);
+      margin-bottom: 18px;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--brown);
+      font-size: 14px; font-weight: 700;
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(201,168,76,0.4);
+    }
+
+    .article-meta {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      text-align: center;
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-bar">
+  <button class="top-back" onclick="history.back()">←</button>
+  <div class="top-breadcrumb">
+    <a href="/">펫키디피아</a> / <a href="/care">CARE</a> / 건강관리
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="hero">
+    <div class="hero-badge">CARE · Health</div>
+    <h1>노령견 건강관리 가이드</h1>
+    <p class="hero-sub">
+      우리 강아지도 나이가 들었습니다.<br>
+      노년을 행복하고 건강하게 보낼 수 있도록 도와주세요.
+    </p>
+  </div>
+
+  <nav class="toc">
+    <div class="toc-title">목차</div>
+    <a href="#when"><span class="toc-num">01</span>언제부터 노령견인가</a>
+    <a href="#changes"><span class="toc-num">02</span>노화 신호</a>
+    <a href="#checkup"><span class="toc-num">03</span>정기 건강검진</a>
+    <a href="#diet"><span class="toc-num">04</span>식단 조절</a>
+    <a href="#exercise"><span class="toc-num">05</span>운동 관리</a>
+    <a href="#cds"><span class="toc-num">06</span>인지장애 증후군</a>
+    <a href="#qol"><span class="toc-num">07</span>삶의 질 관리</a>
+  </nav>
+
+  <section class="section" id="when">
+    <div class="section-label"><span class="section-tag">01 · Senior Age</span></div>
+    <h2>언제부터 노령견인가</h2>
+    <p>
+      강아지는 사람보다 빨리 늙습니다.
+      품종·크기에 따라 차이가 있지만, 일반적으로 다음과 같이 구분합니다.
+    </p>
+
+    <table class="age-table">
+      <thead>
+        <tr>
+          <th>견종 크기</th>
+          <th>시니어 시작</th>
+          <th>사람 나이 환산</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>소형견</strong><br>(10kg 이하)</td>
+          <td>9~11세</td>
+          <td>약 52~60세</td>
+        </tr>
+        <tr>
+          <td><strong>중형견</strong><br>(10~25kg)</td>
+          <td>7~9세</td>
+          <td>약 44~52세</td>
+        </tr>
+        <tr>
+          <td><strong>대형견</strong><br>(25kg 이상)</td>
+          <td>5~7세</td>
+          <td>약 36~44세</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="card">
+      <div class="card-label">왜 크기별로 다른가?</div>
+      <p style="font-size:14px;">
+        대형견이 소형견보다 빨리 늙는 이유는
+        신진대사가 빠르고 세포 분열이 많아서 노화가 빨리 진행되기 때문입니다.
+        대형견은 평균 수명도 짧아요 (8~12년 vs 소형견 12~16년).
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="changes">
+    <div class="section-label"><span class="section-tag">02 · Aging Signs</span></div>
+    <h2>노화 신호</h2>
+
+    <div class="card">
+      <div class="card-label">신체적 변화</div>
+      <ul class="checklist">
+        <li><span class="check-icon">✓</span> 털이 하얗게 센다 (주둥이·눈 주변부터)</li>
+        <li><span class="check-icon">✓</span> 시력·청력 저하</li>
+        <li><span class="check-icon">✓</span> 관절이 뻣뻣해지고 움직임이 느려짐</li>
+        <li><span class="check-icon">✓</span> 근육량 감소, 체중 변화</li>
+        <li><span class="check-icon">✓</span> 피부 탄력 감소, 사마귀·혹 증가</li>
+        <li><span class="check-icon">✓</span> 치아 손실, 구취 증가</li>
+        <li><span class="check-icon">✓</span> 배뇨·배변 조절 어려움 (실수 증가)</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-label">행동 변화</div>
+      <ul class="checklist">
+        <li><span class="check-icon">✓</span> 수면 시간 증가 (하루 18~20시간)</li>
+        <li><span class="check-icon">✓</span> 활동량 감소, 놀이에 관심 없음</li>
+        <li><span class="check-icon">✓</span> 낯선 것에 불안해함</li>
+        <li><span class="check-icon">✓</span> 혼자 있는 걸 싫어함 (분리불안 증가)</li>
+        <li><span class="check-icon">✓</span> 방향 감각 상실 (멍하니 벽 보고 서있기)</li>
+        <li><span class="check-icon">✓</span> 밤에 안절부절, 배회 (수면 주기 교란)</li>
+      </ul>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-box-title">💡 "나이 들어서 그런가보다" 금물</div>
+      <p>
+        노화 증상과 질병 증상이 겹치는 경우가 많습니다.
+        "나이 들면 원래 그런 거지" 하고 넘기면 치료 시기를 놓칠 수 있어요.
+        변화가 보이면 동물병원에서 검진받으세요.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="checkup">
+    <div class="section-label"><span class="section-tag">03 · Health Checkup</span></div>
+    <h2>정기 건강검진</h2>
+    <p>
+      노령견은 **6개월마다 1회** 정기 검진을 권장합니다.
+      (성견은 연 1회지만 노령견은 더 자주)
+    </p>
+
+    <div class="card">
+      <div class="card-label">기본 검진 항목</div>
+      <p style="font-size:14px;">
+        <strong>① 신체검사</strong><br>
+        체중, 체온, 심박수, 호흡, 청진, 촉진
+      </p>
+      <p style="font-size:14px;">
+        <strong>② 혈액 검사</strong><br>
+        완전 혈구 검사 (CBC) + 생화학 검사<br>
+        간·신장·혈당·전해질 등 확인
+      </p>
+      <p style="font-size:14px;">
+        <strong>③ 소변 검사</strong><br>
+        신장 기능, 방광 감염, 당뇨 확인
+      </p>
+      <p style="font-size:14px;">
+        <strong>④ 치과 검진</strong><br>
+        치석·치주질환 확인
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">추가 검진 (필요 시)</div>
+      <p style="font-size:14px;">
+        • 흉부 X-ray (심장·폐 확인)<br>
+        • 복부 초음파 (간·신장·비장·방광 확인)<br>
+        • 심장 초음파 (심장 판막·비대 확인)<br>
+        • 갑상선 검사<br>
+        • 안과 검진 (백내장·녹내장)
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">노령견 흔한 질병</div>
+      <p style="font-size:14px;">
+        <strong>① 신부전</strong> — 신장 기능 저하, 물 많이 마심, 체중 감소<br>
+        <strong>② 심장질환</strong> — 판막 문제, 기침, 호흡 곤란<br>
+        <strong>③ 당뇨병</strong> — 물 많이 마심, 체중 감소, 식욕 증가<br>
+        <strong>④ 관절염</strong> — 절뚝거림, 계단 못 오름<br>
+        <strong>⑤ 암</strong> — 혹, 체중 감소, 식욕 저하<br>
+        <strong>⑥ 치매 (인지장애 증후군)</strong> — 방향 감각 상실, 밤 배회<br>
+        <strong>⑦ 쿠싱 증후군</strong> — 배 늘어짐, 물 많이 마심, 탈모<br>
+        <strong>⑧ 갑상선 기능 저하증</strong> — 무기력, 체중 증가, 탈모
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="diet">
+    <div class="section-label"><span class="section-tag">04 · Diet</span></div>
+    <h2>식단 조절</h2>
+
+    <div class="card">
+      <div class="card-label">시니어 사료로 전환</div>
+      <p style="font-size:14px;">
+        시니어 사료는 노령견의 변화된 영양 요구에 맞춰 설계됩니다.<br>
+        <strong>• 칼로리 감소</strong> — 활동량 감소로 비만 방지<br>
+        <strong>• 단백질 유지/증가</strong> — 근육량 유지 (양질의 단백질)<br>
+        <strong>• 섬유질 증가</strong> — 소화 도움, 변비 예방<br>
+        <strong>• 관절 보조 성분</strong> — 글루코사민, 콘드로이틴<br>
+        <strong>• 항산화제</strong> — 비타민 E, C, 베타카로틴
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">급여량 조절</div>
+      <p style="font-size:14px;">
+        활동량이 줄어들면 칼로리 소모도 줄어듭니다.<br>
+        성견 사료 급여량의 **80~90%**로 줄이거나<br>
+        시니어 사료로 바꾸세요.<br>
+        체중을 주기적으로 재면서 조절.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">먹기 쉽게 도와주기</div>
+      <p style="font-size:14px;">
+        <strong>치아가 약해졌다면</strong><br>
+        • 사료를 물에 불려주기<br>
+        • 습식 사료로 전환<br>
+        • 작은 알갱이 사료 선택
+      </p>
+      <p style="font-size:14px;">
+        <strong>식욕이 떨어졌다면</strong><br>
+        • 사료를 살짝 데워서 냄새 강화<br>
+        • 닭가슴살·계란 토핑 추가<br>
+        • 소량씩 자주 급여 (하루 3~4회)
+      </p>
+      <p style="font-size:14px;">
+        <strong>물그릇 높이 조절</strong><br>
+        목을 구부리기 힘들면 높이 있는 그릇 사용
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">보충제</div>
+      <p style="font-size:14px;">
+        • 관절 영양제 (글루코사민, 콘드로이틴)<br>
+        • 오메가-3 지방산 (항염, 인지 기능)<br>
+        • 프로바이오틱스 (장 건강)<br>
+        • 항산화제 (비타민 E, C)
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="exercise">
+    <div class="section-label"><span class="section-tag">05 · Exercise</span></div>
+    <h2>운동 관리</h2>
+    <p>
+      노령견도 운동이 필요하지만,
+      강도와 시간을 조절해야 합니다.
+    </p>
+
+    <div class="card">
+      <div class="card-label">적절한 운동</div>
+      <p style="font-size:14px;">
+        <strong>① 짧고 자주</strong><br>
+        한 번에 긴 산책보다 하루 2~3회 짧은 산책<br>
+        10~15분씩
+      </p>
+      <p style="font-size:14px;">
+        <strong>② 평지 걷기</strong><br>
+        계단·언덕 피하기<br>
+        아스팔트보다 흙길·잔디 선호 (관절 부담 적음)
+      </p>
+      <p style="font-size:14px;">
+        <strong>③ 수영</strong><br>
+        관절염이 있다면 수영이 최고의 운동<br>
+        물에서는 체중 부담 없음
+      </p>
+      <p style="font-size:14px;">
+        <strong>④ 강아지 속도에 맞추기</strong><br>
+        천천히 걷고, 자주 쉬어주세요<br>
+        강아지가 멈추거나 앉으면 휴식 시간
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">피해야 할 운동</div>
+      <p style="font-size:14px;">
+        • 점프, 뛰어오르기<br>
+        • 장시간 달리기<br>
+        • 계단 오르내리기<br>
+        • 격렬한 놀이 (공 쫓기 등)<br>
+        • 더운 날 산책 (체온 조절 능력 저하)
+      </p>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-box-title">💡 움직이지 않으면 더 나빠집니다</div>
+      <p>
+        "힘들어하는 것 같아서" 운동을 안 시키면
+        근육이 더 약해지고 관절이 더 굳어집니다.
+        적당한 운동은 근육 유지, 체중 관리, 정신 건강에 필수입니다.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="cds">
+    <div class="section-label"><span class="section-tag">06 · Cognitive Dysfunction</span></div>
+    <h2>인지장애 증후군 (CDS)</h2>
+    <p>
+      노령견의 **30~40%**가 인지장애 증후군을 경험합니다.
+      사람의 치매와 비슷한 증상이에요.
+    </p>
+
+    <div class="cds-box">
+      <div class="cds-title">🧠 DISHA 증상 체크</div>
+      <div class="cds-text">
+        <strong>D - Disorientation (방향 감각 상실)</strong><br>
+        • 익숙한 집에서 길을 잃음<br>
+        • 문 반대쪽에서 나가려 함<br>
+        • 구석·벽을 보고 멍하니 서있음
+      </div>
+      <div class="cds-text" style="margin-top:12px;">
+        <strong>I - Interactions (상호작용 변화)</strong><br>
+        • 가족을 못 알아봄<br>
+        • 쓰다듬는 걸 싫어함<br>
+        • 혼자 있는 걸 선호 또는 극도로 집착
+      </div>
+      <div class="cds-text" style="margin-top:12px;">
+        <strong>S - Sleep-wake cycle (수면 주기 교란)</strong><br>
+        • 낮에 자고 밤에 깸<br>
+        • 밤에 배회, 짖음<br>
+        • 불안해하며 돌아다님
+      </div>
+      <div class="cds-text" style="margin-top:12px;">
+        <strong>H - House soiling (배변 실수)</strong><br>
+        • 갑자기 집 안에서 배변<br>
+        • 배변 신호를 보내지 않음<br>
+        • 배변 직후 기억 못 함
+      </div>
+      <div class="cds-text" style="margin-top:12px;">
+        <strong>A - Activity (활동 변화)</strong><br>
+        • 무의미한 배회<br>
+        • 반복 행동 (빙글빙글)<br>
+        • 활동량 급격히 감소 또는 증가
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">인지장애 관리</div>
+      <p style="font-size:14px;">
+        <strong>① 약물 치료</strong><br>
+        셀레길린(Selegiline, Anipryl) — 도파민 증가<br>
+        수의사 처방 필요, 일부 강아지에서 효과
+      </p>
+      <p style="font-size:14px;">
+        <strong>② 식단 개선</strong><br>
+        • 항산화제 풍부한 사료<br>
+        • 오메가-3 지방산 (DHA) — 뇌 건강<br>
+        • 중쇄 지방산(MCT) — 뇌 에너지원
+      </p>
+      <p style="font-size:14px;">
+        <strong>③ 정신적 자극</strong><br>
+        • 노즈워크 (냄새 맡으며 간식 찾기)<br>
+        • 퍼즐 장난감<br>
+        • 짧은 훈련 (앉아, 기다려 등)<br>
+        • 새로운 경로로 산책
+      </p>
+      <p style="font-size:14px;">
+        <strong>④ 규칙적인 루틴 유지</strong><br>
+        같은 시간에 식사·산책·수면<br>
+        익숙한 환경 유지 (가구 배치 바꾸지 않기)
+      </p>
+      <p style="font-size:14px;">
+        <strong>⑤ 밤 배회 대응</strong><br>
+        • 밤에 불 켜두기 (야간 조명)<br>
+        • 잠자기 전 짧은 산책<br>
+        • 편안한 침대 제공
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="qol">
+    <div class="section-label"><span class="section-tag">07 · Quality of Life</span></div>
+    <h2>삶의 질 관리</h2>
+
+    <div class="card">
+      <div class="card-label">편안한 환경 만들기</div>
+      <ul class="checklist">
+        <li><span class="check-icon">✓</span> 정형외과 침대 (메모리폼) — 관절 부담 감소</li>
+        <li><span class="check-icon">✓</span> 미끄럼 방지 매트 — 바닥에 깔아주기</li>
+        <li><span class="check-icon">✓</span> 계단·경사로 — 소파·침대 접근 쉽게</li>
+        <li><span class="check-icon">✓</span> 온도 관리 — 추위·더위에 약함, 적정 온도 유지</li>
+        <li><span class="check-icon">✓</span> 조용한 환경 — 청력 저하로 큰 소리에 놀람</li>
+        <li><span class="check-icon">✓</span> 밤 조명 — 시력 저하, 야간 이동 안전</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-label">통증 관리</div>
+      <p style="font-size:14px;">
+        노령견은 관절염·치아 문제 등으로 만성 통증을 겪기 쉽습니다.<br>
+        통증 신호를 놓치지 마세요:<br>
+        • 움직임 감소<br>
+        • 만지면 싫어함<br>
+        • 식욕 저하<br>
+        • 호흡 빨라짐<br>
+        • 성격 변화 (공격적 또는 위축)
+      </p>
+      <p style="font-size:14px;">
+        수의사와 상담해서 진통제 복용 고려하세요.<br>
+        노령견의 삶의 질 향상에 매우 중요합니다.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">사랑과 관심</div>
+      <p style="font-size:14px;">
+        노령견은 더 많은 애정과 관심이 필요합니다.<br>
+        • 자주 쓰다듬고 말 걸어주기<br>
+        • 혼자 오래 두지 않기<br>
+        • 인내심 갖기 (배변 실수·느린 움직임)<br>
+        • 강아지 속도에 맞춰주기
+      </p>
+    </div>
+
+    <div class="caution-box">
+      <div class="caution-box-title">💛 마지막 순간까지</div>
+      <p>
+        노령견과 보내는 시간은 특별합니다.
+        느리고 조용해졌지만, 여전히 사랑이 가득합니다.
+        가능한 한 편안하고 행복하게 노년을 보낼 수 있도록
+        최선을 다해주세요.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label"><span class="section-tag">Related</span></div>
+    <h2>함께 보면 좋은 가이드</h2>
+    <div class="related-grid">
+      <a class="related-item" href="care/health/joint">
+        <div class="related-emoji">🦴</div>
+        <div class="related-title">관절 관리 가이드</div>
+        <div class="related-sub">CARE · 건강관리</div>
+      </a>
+      <a class="related-item" href="care/health/obesity">
+        <div class="related-emoji">⚖️</div>
+        <div class="related-title">강아지 비만 관리 가이드</div>
+        <div class="related-sub">CARE · 건강관리</div>
+      </a>
+      <a class="related-item" href="care/feed/senior">
+        <div class="related-emoji">🍚</div>
+        <div class="related-title">노령견 식단 가이드</div>
+        <div class="related-sub">CARE · 급여관리</div>
+      </a>
+      <a class="related-item" href="care/exercise/senior">
+        <div class="related-emoji">🏃</div>
+        <div class="related-title">노령견 운동 가이드</div>
+        <div class="related-sub">CARE · 운동관리</div>
+      </a>
+    </div>
+  </section>
+
+  <div class="cta-banner">
+    <h3>노령견 치료비가 걱정된다면</h3>
+    <p>신부전·심장질환·암 치료까지 보장하는 마이브라운 반려견 보험</p>
+    <a class="cta-btn" href="https://mybrownpet.com">보험 상담 신청하기 →</a>
+  </div>
+
+  <div class="article-meta">
+    <p>CARE_HEALTH_10 · 펫키디피아 Care Guide</p>
+    <p>마지막 업데이트: 2026.03</p>
+    <p>이 콘텐츠는 전문 수의학적 진단을 대체하지 않습니다.</p>
+  </div>
+
+</div>
+
+</body>
+</html>

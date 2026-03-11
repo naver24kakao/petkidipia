@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>피부 민감견 케어 가이드 — 펫키디피아</title>
+  <meta name="description" content="긁고, 핥고, 빨갛게 변한 피부. 민감성 피부 관리법부터 샴푸 선택, 식단 조절까지.">
+  <meta name="keywords" content="강아지 피부병, 민감성 피부, 강아지 가려움, 아토피, 피부염">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #FBF7F2;
+      --cream-2: #F4EEE5;
+      --gold: #C9A84C;
+      --gold-pale: #F5ECD4;
+      --brown: #2E1F14;
+      --brown-2: #3D2B1F;
+      --warm: #8B5E3C;
+      --soft: #EDE4D8;
+      --muted: #9B8878;
+      --line: rgba(46,31,20,0.08);
+      --green: #2E7D32;
+      --green-pale: #E8F5E9;
+      --amber: #F57F17;
+      --amber-pale: #FFF8E1;
+      --red: #D32F2F;
+      --red-pale: #FFF3F0;
+      --blue: #1976D2;
+      --blue-pale: #E3F2FD;
+      --purple: #7B1FA2;
+      --purple-pale: #F3E5F5;
+      --max: 680px;
+      --font-serif: "Cormorant Garamond", serif;
+      --font-sans: "Noto Sans KR", sans-serif;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--cream);
+      color: var(--brown);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .top-bar {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(251,247,242,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      padding: 14px 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .top-back { background: none; border: none; font-size: 20px; cursor: pointer; color: var(--brown); }
+    .top-breadcrumb { font-size: 12px; color: var(--muted); }
+    .top-breadcrumb a { color: var(--warm); text-decoration: none; }
+
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 20px 120px; }
+
+    .hero {
+      padding: 40px 0 32px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--purple-pale);
+      color: var(--purple);
+      font-size: 11px; font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: var(--font-sans);
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--brown);
+      margin-bottom: 12px;
+    }
+    .hero-sub {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .toc {
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 18px;
+      padding: 20px 24px;
+      margin-bottom: 32px;
+    }
+    .toc-title {
+      font-size: 12px; font-weight: 700;
+      color: var(--warm);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .toc a {
+      display: block;
+      font-size: 14px;
+      color: var(--brown-2);
+      text-decoration: none;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .toc a:last-child { border-bottom: none; }
+    .toc a:hover { color: var(--gold); }
+    .toc-num { color: var(--gold); font-weight: 700; margin-right: 8px; }
+
+    .section { margin-bottom: 36px; }
+    .section-label {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 16px;
+    }
+    .section-label::before, .section-label::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(to right, var(--gold), transparent);
+    }
+    .section-label::after {
+      background: linear-gradient(to left, var(--gold), transparent);
+    }
+    .section-tag {
+      font-family: var(--font-serif);
+      font-size: 13px; font-style: italic;
+      color: var(--gold);
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+    .section h2 {
+      font-size: 20px; font-weight: 700;
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+    .section p {
+      font-size: 15px;
+      color: var(--brown-2);
+      margin-bottom: 12px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 18px;
+      padding: 20px;
+      margin-bottom: 14px;
+    }
+    .card-label {
+      font-size: 11px; font-weight: 700;
+      color: var(--warm);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .cause-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .cause-item {
+      background: var(--red-pale);
+      border: 1px solid rgba(211,47,47,0.15);
+      border-radius: 14px;
+      padding: 16px;
+    }
+    .cause-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--red);
+      margin-bottom: 8px;
+    }
+    .cause-text {
+      font-size: 13px;
+      color: var(--brown-2);
+      line-height: 1.6;
+    }
+
+    .do-dont {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .do-box, .dont-box {
+      border-radius: 14px;
+      padding: 16px;
+    }
+    .do-box {
+      background: var(--green-pale);
+      border: 1px solid rgba(46,125,50,0.2);
+    }
+    .dont-box {
+      background: var(--red-pale);
+      border: 1px solid rgba(211,47,47,0.15);
+    }
+    .do-box-title, .dont-box-title {
+      font-size: 12px; font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+    }
+    .do-box-title { color: var(--green); }
+    .dont-box-title { color: var(--red); }
+    .do-box p, .dont-box p {
+      font-size: 13px;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    .caution-box {
+      background: var(--amber-pale);
+      border: 1px solid rgba(245,127,23,0.2);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin-top: 16px;
+    }
+    .caution-box-title {
+      font-size: 13px; font-weight: 700;
+      color: var(--amber);
+      margin-bottom: 8px;
+    }
+    .caution-box p {
+      font-size: 13px;
+      color: #5D4037;
+      margin-bottom: 0;
+    }
+
+    .tip-box {
+      background: var(--blue-pale);
+      border: 1px solid rgba(25,118,210,0.2);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin-top: 16px;
+    }
+    .tip-box-title {
+      font-size: 13px; font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+    .tip-box p {
+      font-size: 13px;
+      color: var(--brown-2);
+      margin-bottom: 0;
+    }
+
+    .checklist { list-style: none; }
+    .checklist li {
+      display: flex; gap: 10px; align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+    }
+    .checklist li:last-child { border-bottom: none; }
+    .check-icon {
+      width: 22px; height: 22px;
+      border-radius: 6px;
+      background: var(--green-pale);
+      color: var(--green);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .related-item {
+      display: block;
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 14px;
+      padding: 16px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .related-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(46,31,20,0.08);
+    }
+    .related-emoji { font-size: 22px; margin-bottom: 8px; }
+    .related-title { font-size: 13px; font-weight: 700; color: var(--brown); line-height: 1.4; }
+    .related-sub { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+    .cta-banner {
+      background: linear-gradient(135deg, var(--brown), var(--brown-2));
+      border-radius: 20px;
+      padding: 28px 24px;
+      margin-top: 40px;
+      text-align: center;
+    }
+    .cta-banner h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    .cta-banner p {
+      font-size: 13px;
+      color: rgba(251,247,242,0.85);
+      margin-bottom: 18px;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--brown);
+      font-size: 14px; font-weight: 700;
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(201,168,76,0.4);
+    }
+
+    .article-meta {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      text-align: center;
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-bar">
+  <button class="top-back" onclick="history.back()">←</button>
+  <div class="top-breadcrumb">
+    <a href="/">펫키디피아</a> / <a href="/care">CARE</a> / 건강관리
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="hero">
+    <div class="hero-badge">CARE · Health</div>
+    <h1>피부 민감견 케어 가이드</h1>
+    <p class="hero-sub">
+      계속 긁고, 핥고, 피부가 빨갛게 변했나요?<br>
+      민감성 피부는 평생 관리가 필요합니다. 원인을 찾고 관리하세요.
+    </p>
+  </div>
+
+  <nav class="toc">
+    <div class="toc-title">목차</div>
+    <a href="#signs"><span class="toc-num">01</span>민감성 피부 증상</a>
+    <a href="#causes"><span class="toc-num">02</span>피부 문제 원인</a>
+    <a href="#bath"><span class="toc-num">03</span>목욕·샴푸 관리</a>
+    <a href="#diet"><span class="toc-num">04</span>식단 조절</a>
+    <a href="#environment"><span class="toc-num">05</span>환경 관리</a>
+    <a href="#tips"><span class="toc-num">06</span>일상 케어 팁</a>
+    <a href="#vet"><span class="toc-num">07</span>병원 치료</a>
+  </nav>
+
+  <section class="section" id="signs">
+    <div class="section-label"><span class="section-tag">01 · Signs</span></div>
+    <h2>민감성 피부 증상</h2>
+
+    <ul class="checklist">
+      <li><span class="check-icon">✓</span> 계속 긁는다 (특히 귀·배·발바닥·겨드랑이)</li>
+      <li><span class="check-icon">✓</span> 발·배를 계속 핥는다</li>
+      <li><span class="check-icon">✓</span> 피부가 붉거나 발진이 있다</li>
+      <li><span class="check-icon">✓</span> 털이 빠지거나 얇아진다</li>
+      <li><span class="check-icon">✓</span> 피부가 건조하고 각질이 생긴다</li>
+      <li><span class="check-icon">✓</span> 비듬이 많다</li>
+      <li><span class="check-icon">✓</span> 피부에서 냄새가 난다</li>
+      <li><span class="check-icon">✓</span> 얼굴을 바닥에 비빈다</li>
+      <li><span class="check-icon">✓</span> 귀를 자주 긁거나 머리를 흔든다</li>
+    </ul>
+
+    <div class="card">
+      <div class="card-label">고위험 견종</div>
+      <p style="font-size:14px;">
+        <strong>피부병 많은 견종:</strong><br>
+        시츄, 불독, 퍼그, 웨스트 하이랜드 화이트 테리어, 코카 스파니엘,<br>
+        골든 리트리버, 저먼 셰퍼드, 샤페이, 달마시안
+      </p>
+      <p style="font-size:14px;">
+        이 견종들은 유전적으로 아토피나 피부염에 취약합니다.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="causes">
+    <div class="section-label"><span class="section-tag">02 · Causes</span></div>
+    <h2>피부 문제 원인</h2>
+
+    <div class="cause-grid">
+      <div class="cause-item">
+        <div class="cause-title">🦠 감염</div>
+        <div class="cause-text">
+          세균·곰팡이·효모균 감염<br>
+          특히 피부 주름 사이 습기
+        </div>
+      </div>
+      <div class="cause-item">
+        <div class="cause-title">🐜 기생충</div>
+        <div class="cause-text">
+          벼룩·진드기·옴진드기<br>
+          벼룩 알레르기 피부염
+        </div>
+      </div>
+      <div class="cause-item">
+        <div class="cause-title">🌾 알레르기</div>
+        <div class="cause-text">
+          음식·환경 알레르기<br>
+          꽃가루·먼지·곰팡이
+        </div>
+      </div>
+      <div class="cause-item">
+        <div class="cause-title">🧬 아토피</div>
+        <div class="cause-text">
+          유전성 피부염<br>
+          평생 관리 필요
+        </div>
+      </div>
+      <div class="cause-item">
+        <div class="cause-title">💧 건조</div>
+        <div class="cause-text">
+          과도한 목욕·샴푸<br>
+          건조한 실내 환경
+        </div>
+      </div>
+      <div class="cause-item">
+        <div class="cause-title">⚗️ 화학물질</div>
+        <div class="cause-text">
+          샴푸·세제·향수<br>
+          청소용품 자극
+        </div>
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-box-title">💡 원인 파악이 우선</div>
+      <p>
+        피부병은 원인이 다양하므로 정확한 진단이 필요합니다.
+        증상만 보고 자가 진단하지 말고 동물병원에서 검사받으세요.
+        피부 긁어검사, 알레르기 검사 등으로 원인을 찾을 수 있습니다.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="bath">
+    <div class="section-label"><span class="section-tag">03 · Bath & Shampoo</span></div>
+    <h2>목욕·샴푸 관리</h2>
+
+    <div class="card">
+      <div class="card-label">목욕 주기</div>
+      <p style="font-size:14px;">
+        <strong>일반 강아지:</strong> 2~4주에 1회<br>
+        <strong>민감성 피부:</strong> 주 1~2회 (약용 샴푸 사용 시)
+      </p>
+      <p style="font-size:14px;">
+        역설적이지만 피부 문제가 있을 때는
+        오히려 목욕을 **더 자주** 해야 합니다.
+        약용 샴푸로 세균·알레르겐을 제거하기 위해서예요.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">샴푸 선택</div>
+      <p style="font-size:14px;">
+        <strong>① 저자극·무향 샴푸</strong><br>
+        오트밀, 알로에 베라 성분 포함 제품 권장<br>
+        인공 향료·파라벤·SLS 무첨가
+      </p>
+      <p style="font-size:14px;">
+        <strong>② 약용 샴푸 (처방 필요)</strong><br>
+        • 항균 샴푸 (클로르헥시딘) — 세균 감염<br>
+        • 항진균 샴푸 (케토코나졸) — 효모균 감염<br>
+        • 저알레르기 샴푸 — 아토피<br>
+        수의사 처방 후 사용
+      </p>
+      <p style="font-size:14px;">
+        <strong>③ pH 균형</strong><br>
+        강아지 피부 pH는 6.2~7.4 (사람보다 높음)<br>
+        강아지 전용 샴푸 사용 필수
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">목욕 방법</div>
+      <p style="font-size:14px;">
+        <strong>① 미지근한 물</strong><br>
+        뜨거운 물은 피부를 건조하게 만듭니다.
+      </p>
+      <p style="font-size:14px;">
+        <strong>② 샴푸를 충분히 묻히고 5~10분 방치</strong><br>
+        약용 샴푸는 접촉 시간이 중요합니다.<br>
+        바로 씻어내지 말고 5~10분 후 헹굽니다.
+      </p>
+      <p style="font-size:14px;">
+        <strong>③ 완전히 헹구기</strong><br>
+        샴푸 잔여물이 남으면 더 자극됩니다.<br>
+        주름 사이까지 꼼꼼히 헹궈주세요.
+      </p>
+      <p style="font-size:14px;">
+        <strong>④ 완전히 건조</strong><br>
+        자연 건조 금지 (세균 번식).<br>
+        드라이기로 완전히 말려주세요 (미지근한 바람).
+      </p>
+    </div>
+
+    <div class="caution-box">
+      <div class="caution-box-title">❌ 사람용 샴푸 절대 금지</div>
+      <p>
+        사람 피부는 pH 4.5~5.5로 산성이지만,
+        강아지는 pH 6.2~7.4로 중성에 가깝습니다.
+        사람용 샴푸를 쓰면 피부 장벽이 손상됩니다.
+      </p>
+    </caution-box>
+  </section>
+
+  <section class="section" id="diet">
+    <div class="section-label"><span class="section-tag">04 · Diet</span></div>
+    <h2>식단 조절</h2>
+    <p>
+      음식 알레르기가 피부 문제의 원인일 수 있습니다.
+      특히 닭고기, 쇠고기, 유제품, 밀, 옥수수, 콩이 흔한 알레르겐입니다.
+    </p>
+
+    <div class="card">
+      <div class="card-label">제한 급여 시도 (Elimination Diet)</div>
+      <p style="font-size:14px;">
+        <strong>1단계: 새로운 단백질 사료로 전환 (8~12주)</strong><br>
+        강아지가 먹어본 적 없는 단백질로 바꿉니다.<br>
+        예: 오리, 연어, 캥거루, 사슴고기 등<br>
+        이 기간 동안 **간식 일체 금지** (간식도 같은 단백질로만)
+      </p>
+      <p style="font-size:14px;">
+        <strong>2단계: 증상 개선 확인</strong><br>
+        8~12주 후 증상이 좋아졌다면 음식 알레르기 가능성 높음
+      </p>
+      <p style="font-size:14px;">
+        <strong>3단계: 재도전 (Challenge)</strong><br>
+        이전 사료를 조금 먹여봅니다.<br>
+        다시 증상이 나타나면 알레르기 확진
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">저알레르기 사료</div>
+      <p style="font-size:14px;">
+        <strong>① 가수분해 사료 (Hydrolyzed Protein)</strong><br>
+        단백질을 아주 작게 쪼개서 알레르기 반응 최소화<br>
+        수의사 처방 사료 (비쌈)
+      </p>
+      <p style="font-size:14px;">
+        <strong>② 단일 단백질 사료 (Limited Ingredient)</strong><br>
+        한 가지 단백질 + 한 가지 탄수화물<br>
+        예: 오리+감자, 연어+고구마
+      </p>
+      <p style="font-size:14px;">
+        <strong>③ 곡물 무첨가 (Grain-Free)</strong><br>
+        일부 강아지는 곡물 알레르기<br>
+        밀·옥수수·콩 제외 사료
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">오메가-3 지방산 보충</div>
+      <p style="font-size:14px;">
+        오메가-3 (EPA, DHA)는 항염 효과가 있어 피부 건강에 좋습니다.<br>
+        생선 오일 보충제를 사료에 섞어주세요.<br>
+        수의사와 상담 후 적정량 결정.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="environment">
+    <div class="section-label"><span class="section-tag">05 · Environment</span></div>
+    <h2>환경 관리</h2>
+
+    <ul class="checklist">
+      <li><span class="check-icon">✓</span> 침구·쿠션 자주 세탁 (60℃ 이상 고온 세탁)</li>
+      <li><span class="check-icon">✓</span> 집안 청소 자주 (진공청소기 주 2~3회)</li>
+      <li><span class="check-icon">✓</span> 공기청정기 사용 (먼지·꽃가루 제거)</li>
+      <li><span class="check-icon">✓</span> 가습기 사용 (습도 40~60% 유지)</li>
+      <li><span class="check-icon">✓</span> 세제는 무향·무표백 제품 사용</li>
+      <li><span class="check-icon">✓</span> 향수·방향제 사용 자제</li>
+      <li><span class="check-icon">✓</span> 플라스틱 그릇 → 스테인리스·도자기로 교체</li>
+      <li><span class="check-icon">✓</span> 카펫보다 바닥 청소 쉬운 재질 선호</li>
+    </ul>
+
+    <div class="tip-box">
+      <div class="tip-box-title">💡 계절 관리</div>
+      <p>
+        <strong>봄·가을:</strong> 꽃가루 알레르기 주의. 산책 후 발 씻기, 털 브러싱으로 꽃가루 제거<br>
+        <strong>여름:</strong> 습도 높아 곰팡이·세균 번식 쉬움. 목욕 후 완전 건조 필수<br>
+        <strong>겨울:</strong> 건조해서 피부 가려움 악화. 가습기 사용, 보습 샴푸
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="tips">
+    <div class="section-label"><span class="section-tag">06 · Daily Care</span></div>
+    <h2>일상 케어 팁</h2>
+
+    <div class="do-dont">
+      <div class="do-box">
+        <div class="do-box-title">✅ DO</div>
+        <p>• 정기적인 브러싱 (매일)<br>
+        • 산책 후 발 씻기<br>
+        • 주름 사이 물기 제거<br>
+        • 적정 온습도 유지<br>
+        • 오메가-3 보충<br>
+        • 스트레스 줄이기</p>
+      </div>
+      <div class="dont-box">
+        <div class="dont-box-title">❌ DON'T</div>
+        <p>• 사람용 제품 사용<br>
+        • 과도한 목욕 (약용 제외)<br>
+        • 자연 건조<br>
+        • 임의로 약 중단<br>
+        • 긁지 못하게 야단치기<br>
+        • 알레르기 유발 간식</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">긁는 것 막기</div>
+      <p style="font-size:14px;">
+        <strong>① 엘리자베스 칼라 (넥카라)</strong><br>
+        심하게 긁거나 핥아서 상처가 생겼다면 착용
+      </p>
+      <p style="font-size:14px;">
+        <strong>② 옷 입히기</strong><br>
+        배·겨드랑이를 보호하는 면 소재 옷
+      </p>
+      <p style="font-size:14px;">
+        <strong>③ 발 양말</strong><br>
+        긁을 때 상처 예방
+      </p>
+      <p style="font-size:14px;">
+        <strong>④ 주의 전환</strong><br>
+        긁으려 하면 놀이·간식으로 주의 돌리기
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="vet">
+    <div class="section-label"><span class="section-tag">07 · Veterinary Treatment</span></div>
+    <h2>병원 치료</h2>
+
+    <div class="card">
+      <div class="card-label">진단 검사</div>
+      <p style="font-size:14px;">
+        • 피부 긁어검사 (세균·곰팡이 배양)<br>
+        • 알레르기 검사 (혈액 or 피내 검사)<br>
+        • 조직검사 (필요 시)
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">치료 약물</div>
+      <p style="font-size:14px;">
+        <strong>① 항히스타민제</strong><br>
+        알레르기 반응 억제
+      </p>
+      <p style="font-size:14px;">
+        <strong>② 스테로이드</strong><br>
+        염증·가려움 빠르게 완화<br>
+        장기 복용 시 부작용 (체중 증가, 면역 저하)<br>
+        수의사 지시대로 복용·감량
+      </p>
+      <p style="font-size:14px;">
+        <strong>③ 사이토카인 억제제 (아포켈, 사이토포인트)</strong><br>
+        아토피 치료. 스테로이드보다 부작용 적음<br>
+        장기 사용 가능
+      </p>
+      <p style="font-size:14px;">
+        <strong>④ 항생제</strong><br>
+        세균 감염 시 사용
+      </p>
+      <p style="font-size:14px;">
+        <strong>⑤ 항진균제</strong><br>
+        효모균·곰팡이 감염 시 사용
+      </p>
+    </div>
+
+    <div class="caution-box">
+      <div class="caution-box-title">⚠️ 약은 수의사 지시대로</div>
+      <p>
+        증상이 좋아졌다고 임의로 약을 중단하면 재발합니다.
+        특히 스테로이드는 갑자기 끊으면 위험하므로
+        반드시 수의사 지시에 따라 서서히 감량하세요.
+      </p>
+    </caution-box>
+  </section>
+
+  <section class="section">
+    <div class="section-label"><span class="section-tag">Related</span></div>
+    <h2>함께 보면 좋은 가이드</h2>
+    <div class="related-grid">
+      <a class="related-item" href="care/health/allergy">
+        <div class="related-emoji">🌾</div>
+        <div class="related-title">알러지 케어 기본 가이드</div>
+        <div class="related-sub">CARE · 건강관리</div>
+      </a>
+      <a class="related-item" href="care/grooming/shampoo">
+        <div class="related-emoji">🧴</div>
+        <div class="related-title">강아지 샴푸 선택법</div>
+        <div class="related-sub">CARE · 그루밍</div>
+      </a>
+      <a class="related-item" href="care/grooming/basic">
+        <div class="related-emoji">✂️</div>
+        <div class="related-title">털관리 기본 가이드</div>
+        <div class="related-sub">CARE · 그루밍</div>
+      </a>
+      <a class="related-item" href="care/feed/basic">
+        <div class="related-emoji">🍚</div>
+        <div class="related-title">강아지 급여량 계산법</div>
+        <div class="related-sub">CARE · 급여관리</div>
+      </a>
+    </div>
+  </section>
+
+  <div class="cta-banner">
+    <h3>피부 치료비가 부담된다면</h3>
+    <p>만성 피부염·아토피 치료비까지 보장하는 마이브라운 반려견 보험</p>
+    <a class="cta-btn" href="https://mybrownpet.com">보험 상담 신청하기 →</a>
+  </div>
+
+  <div class="article-meta">
+    <p>CARE_HEALTH_07 · 펫키디피아 Care Guide</p>
+    <p>마지막 업데이트: 2026.03</p>
+    <p>이 콘텐츠는 전문 수의학적 진단을 대체하지 않습니다.</p>
+  </div>
+
+</div>
+
+</body>
+</html>

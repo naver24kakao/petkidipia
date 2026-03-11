@@ -1,0 +1,112 @@
+
+
+<!-- ==================================================
+File: pkd_breed_template.html
+Project: Petkidipia (PKD)
+
+Purpose:
+PKD Breed Detail 페이지 템플릿
+pkd_breed_generator.py에서 사용됨
+
+Author: PKD System
+================================================== -->
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+<meta charset="UTF-8">
+<title>{{NAME_KO}}</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f5f1ea;
+margin:0;
+}
+
+.wrap{
+max-width:1100px;
+margin:auto;
+padding:40px;
+}
+
+.section{
+background:white;
+padding:20px;
+margin-top:20px;
+border-radius:12px;
+}
+
+.score-row{
+display:grid;
+grid-template-columns:100px 1fr 40px;
+gap:10px;
+margin-bottom:10px;
+}
+
+.track{
+background:#e7dccb;
+height:10px;
+border-radius:6px;
+}
+
+.fill{
+background:#c39b52;
+height:100%;
+border-radius:6px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="wrap">
+
+<h1>{{NAME_KO}}</h1>
+<p>{{NAME_EN}}</p>
+
+<p>{{HERO}}</p>
+
+<div class="section">
+<h2>Stage Score</h2>
+{{SCORE_ROWS}}
+</div>
+
+<div class="section">
+<h2>Temperament</h2>
+<p>{{TEMPERAMENT}}</p>
+</div>
+
+<div class="section">
+<h2>History</h2>
+<p>{{HISTORY}}</p>
+</div>
+
+<div class="section">
+<h2>Appearance</h2>
+<p>{{APPEARANCE}}</p>
+</div>
+
+<div class="section">
+<h2>Health</h2>
+<ul>
+{{HEALTH_ITEMS}}
+</ul>
+</div>
+
+<div class="section">
+<h2>Care Guide</h2>
+<ul>
+{{CARE_ITEMS}}
+</ul>
+</div>
+
+</div>
+
+</body>
+</html>

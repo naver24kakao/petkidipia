@@ -1,0 +1,468 @@
+var IHB_C_TYPE = {
+  // 통합
+  inihub: "inihub",
+
+  // 간편인증
+  ea_hana: "ea_hana",
+  ea_ibk: "ea_ibk",
+  ea_kakao: "ea_kakao",
+  ea_kakao_v2: "ea_kakao_v2",
+  ea_kakaobank: "ea_kakaobank",
+  ea_kb: "ea_kb",
+  ea_naver: "ea_naver",
+  ea_naver_v2: "ea_naver_v2",
+  ea_nh: "ea_nh",
+  ea_pass: "ea_pass",
+  ea_payco: "ea_payco",
+  ea_shbank: "ea_shbank",
+  ea_toss: "ea_toss",
+  ea_woori: "ea_woori",
+  kftc: "kftc",
+  oa_kakao: "oa_kakao",
+  oa_naver: "oa_naver",
+  pblc_cwui: "pblc_cwui",
+  pblc_mbweb: "pblc_mbweb",
+
+  // the편한인증
+  easyauth: "easyauth",
+  fido: "fido",
+  mOTP: "mOTP",
+
+  // 마이데이터
+  md_kb: "md_kb",
+  md_naver: "md_naver",
+  md_payco: "md_payco",
+  md_toss: "md_toss",
+
+  // 본인확인
+  act_kakaobank: "act_kakaobank",
+  id_hana: "id_hana",
+  id_kakaobank: "id_kakaobank",
+  id_kb: "id_kb",
+  id_shbank: "id_shbank",
+  id_toss: "id_toss",
+  id_woori: "id_woori",
+  mobile_kgmobilians: "mobile_kgmobilians",
+  mobileID: "mobileID",
+  ucpid_kftc: "ucpid_kftc",
+
+  // 신분증 본인인증
+  id_trust: "id_trust",
+};
+
+// apps id for ios
+var IHB_C_APPS_ID = {
+  md_toss: "839333328",
+  md_payco: "924292102",
+  md_naver: "393499958",
+  md_kb: "373742138",
+
+  ea_kakao: "362057947",
+  ea_payco: "924292102",
+  ea_pass: "1141258007",
+  ea_toss: "839333328",
+  ea_shbank: "357484932",
+  ea_nh: "1444712671",
+  ea_kb: "373742138",
+  ea_nh: "1444712671",
+  ea_kakaobank: "1258016944",
+  ea_woori: "1470181651",
+  ea_naver_v2: "393499958",
+
+  id_kb: "373742138",
+  id_woori: "1470181651",
+  act_kakaobank: "1258016944",
+  id_kakaobank: "1258016944",
+  id_shbank: "357484932",
+  id_toss: "839333328",
+};
+
+var IHUB_C = (function () {
+  var _promiseIndex = 0;
+  var _promiseMap = {};
+  var _iframe = undefined;
+  var _baseUrl = undefined;
+  var _AppToAppOpt = undefined;
+
+  var ADDON_LIB = {
+    IHUB_EXT_PROC: {
+      type: ["fido"],
+      path: "/ui/inihub_external.1.0.64.min.js",
+    },
+  };
+
+  //=============================================================================================
+  // 내부용 함수 부분
+  //=============================================================================================
+  function setBaseUrl(baseUrl) {
+    if (baseUrl === undefined) {
+      _baseUrl = location.origin;
+    } else {
+      _baseUrl = baseUrl;
+    }
+  }
+
+  // 객체 복사하기 (targetData 로 sourceData가 복사 됨)
+  function updateInfo(targetData, sourceData) {
+    // assign 사용하지 않기 - ie에서 지원하지 않음
+    // targetData = Object.assign(targetData, targetData);
+    if (!targetData || !sourceData) {
+      return targetData;
+    }
+
+    for (var key_s in sourceData) {
+      var isUpdated = false;
+
+      for (var key_g in targetData) {
+        // 저장할 데이터와 읽어온 데이터가 같은 Key를 같는다.
+        if (key_s == key_g) {
+          // 객체면 하위 단계 데이터를 루프를 돌면서 Update
+          if (typeof sourceData[key_s] === "object" && typeof targetData[key_g] === "object") {
+            updateInfo(targetData[key_g], sourceData[key_s]);
+          }
+          // 데이터면 데이터 update
+          else {
+            targetData[key_g] = sourceData[key_s];
+          }
+          isUpdated = true;
+          break;
+        }
+      }
+
+      // Update할 Key가 없으면 새로운 Key로 판단하여 Key를 새롭게 추가
+      if (isUpdated == false) {
+        targetData[key_s] = sourceData[key_s];
+      }
+    }
+
+    return targetData;
+  }
+
+  // dummy 문자열 만들기
+  function getDummy() {
+    var date = new Date();
+    var month = date.getMonth() + 1;
+    month = month >= 10 ? month : "0" + month;
+    var day = date.getDate();
+    day = day >= 10 ? day : "0" + day;
+    var hours = date.getHours();
+    hours = hours >= 10 ? hours : "0" + hours;
+
+    var dummyTime = "?dt=" + date.getFullYear() + month + day + hours;
+    return dummyTime;
+  }
+
+  // iframe 만들기
+  function getIframe(allowCamera) {
+    return new Promise(function (resolve, reject) {
+      _iframe = document.getElementById("inihubIframe");
+      if (!_iframe) {
+        const ua = navigator.userAgent;
+        const match = ua.match(/Chrome\/(\d+)/);
+        const chromeVersion = match ? parseInt(match[1], 10) : 0;
+        var allowOption = "";
+
+        _iframe = document.createElement("iframe");
+        _iframe.src = _baseUrl + "/ui/inihub_iframe.html" + getDummy();
+        _iframe.style.position = "fixed";
+        _iframe.style.zIndex = "2000000";
+        _iframe.style.top = "0px";
+        _iframe.style.left = "0px";
+        _iframe.style.width = "100%";
+        _iframe.style.height = "100%";
+        _iframe.style.backgroundColor = "transparent";
+        _iframe.style.display = "none";
+        _iframe.frameBorder = 0;
+        _iframe.setAttribute("id", "inihubIframe");
+        if (chromeVersion > 141) {
+          allowOption += "local-network-access; ";
+        }
+        if (allowCamera) {
+          allowOption += "camera";
+        }
+        _iframe.setAttribute("allow", allowOption);
+
+        _iframe.onload = function () {
+          resolve(_iframe);
+        };
+        _iframe.onerror = function () {
+          reject(_iframe);
+        };
+
+        window.addEventListener(
+          "message",
+          function (e) {
+            var iframeParam = e.data;
+
+            if (iframeParam === "showIframe") {
+              _iframe.style.display = "block";
+              return;
+            }
+            if (iframeParam.type === "urlscheme") {
+              if (typeof _AppToAppOpt === "object" && typeof _AppToAppOpt.requestFunc === "function") {
+                _AppToAppOpt.requestFunc(iframeParam.aosAppSchemeUrl, iframeParam.iosAppSchemeUrl, _AppToAppOpt.data);
+              }
+              return;
+            } else if (iframeParam.type === "msgFidoAction") {
+              IHUB_EXT_PROC.procCredentials(iframeParam, callbackCredentials);
+
+              return;
+            } else if (iframeParam.type === "refreshParent") {
+              // CWEX 설치 후 부모창을 새로고침을 해줘야 한다.
+              location.reload();
+            }
+
+            var index = iframeParam.index;
+            _iframe.style.display = "none";
+
+            iframeParam.result && _promiseMap[index].resolve(iframeParam.result);
+            iframeParam.error && _promiseMap[index].reject(iframeParam.error);
+          },
+          false
+        );
+        document.body.appendChild(_iframe);
+      } else {
+        _iframe.style.display = "block";
+        resolve(_iframe);
+      }
+    });
+  }
+
+  function promiseOnIframe(func, param) {
+    return new Promise(function (resolve, reject) {
+      getIframe(param.allowCamera).then(function (_iframe) {
+        var index = _promiseIndex++;
+        _promiseMap[index] = {
+          resolve: function (result) {
+            scroll_Unlock(param);
+            resolve(result);
+          },
+          reject: function (error) {
+            scroll_Unlock(param);
+            reject(error);
+          },
+        };
+        if (_iframe.contentWindow) {
+          scroll_Lock(param);
+          try {
+            _iframe.contentWindow.postMessage(
+              {
+                index: index,
+                func: func,
+                param: param,
+                targetOrigin: location.origin,
+              },
+              _baseUrl
+            );
+          } catch (err) {
+            scroll_Unlock(param);
+          }
+        }
+      });
+    });
+  }
+
+  function setAppToAppRequestOption(param) {
+    if (typeof param.apptoappOpt === "object" && typeof param.apptoappOpt.requestFunc === "function") {
+      _AppToAppOpt = param.apptoappOpt;
+      delete param.apptoappOpt;
+    } else {
+      _AppToAppOpt = undefined;
+    }
+  }
+
+  var oriOverflow = {
+    value: undefined,
+    setted: false,
+  };
+
+  function scroll_Lock(param) {
+    if (param.type !== IHB_C_TYPE.pblc_mbweb) {
+      return;
+    }
+    oriOverflow.value = document.body.style.overflow;
+    oriOverflow.setted = true;
+
+    document.body.style.overflow = "hidden";
+  }
+
+  function scroll_Unlock() {
+    if (oriOverflow.setted !== true) {
+      return;
+    }
+    document.body.style.overflow = oriOverflow.value;
+    oriOverflow.value = undefined;
+    oriOverflow.setted = false;
+  }
+
+  function createScriptTag(list, callback, errorCallback) {
+    var script = !list ? undefined : list.shift();
+    var _List = list;
+    if (!script) {
+      callback();
+    } else {
+      var js = document.createElement("script");
+      js.type = "text/javascript";
+      js.src = script + getDummy();
+      js.onload = function (event) {
+        createScriptTag(_List, callback);
+      };
+      js.onerror = function () {
+        console.log("Load error:" + this.src);
+        if (errorCallback !== undefined) {
+          errorCallback(new Error("INIHuB script load error:" + this.src));
+        }
+      };
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(js, s);
+    }
+  }
+
+  function LoadAddOnLibs(type, baseUrl) {
+    return new Promise(function (resolve, reject) {
+      if (!type) {
+        resolve();
+      }
+
+      var UrlList = [];
+
+      for (var module in ADDON_LIB) {
+        if (!Object.prototype.hasOwnProperty.call(window, module) && ADDON_LIB[module].type.indexOf(type) !== -1) {
+          UrlList.push(baseUrl + ADDON_LIB[module].path);
+        }
+      }
+
+      createScriptTag(UrlList, resolve, reject);
+    });
+  }
+
+  //=============================================================================================
+  // 외부용 함수 부분
+  //=============================================================================================
+  function init(param) {
+    return new Promise(function (resolve, reject) {
+      setBaseUrl(param.baseUrl);
+      LoadAddOnLibs(param.type, _baseUrl)
+        .then(function () {
+          if (param.type === IHB_C_TYPE.id_trust) {
+            param.allowCamera = true;
+          }
+          return promiseOnIframe("init", param);
+        })
+        .then(resolve)
+        .catch(reject);
+    });
+  }
+
+  function login(param) {
+    return new Promise(function (resolve, reject) {
+      setAppToAppRequestOption(param);
+      var newParam = updateInfo({ funcName: "login" }, param);
+      promiseOnIframe("runAuthFunc", newParam).then(resolve).catch(reject);
+    });
+  }
+
+  function sign(param) {
+    return new Promise(function (resolve, reject) {
+      setAppToAppRequestOption(param);
+      var newParam = updateInfo({ funcName: "sign" }, param);
+      promiseOnIframe("runAuthFunc", newParam).then(resolve).catch(reject);
+    });
+  }
+
+  function identity(param) {
+    return new Promise(function (resolve, reject) {
+      setAppToAppRequestOption(param);
+      var newParam = updateInfo({ funcName: "identity" }, param);
+      promiseOnIframe("runAuthFunc", newParam).then(resolve).catch(reject);
+    });
+  }
+
+  function scanCapturedId(param) {
+    return new Promise(function (resolve, reject) {
+      setAppToAppRequestOption(param);
+      var newParam = updateInfo({ funcName: "scanCapturedId" }, param);
+      promiseOnIframe("runAuthFunc", newParam).then(resolve).catch(reject);
+    });
+  }
+
+  function scan(param) {
+    return new Promise(function (resolve, reject) {
+      setAppToAppRequestOption(param);
+      var newParam = updateInfo({ funcName: "scan" }, param);
+      promiseOnIframe("runAuthFunc", newParam).then(resolve).catch(reject);
+    });
+  }
+
+  function register(param) {
+    return new Promise(function (resolve, reject) {
+      setAppToAppRequestOption(param);
+      var newParam = updateInfo({ funcName: "register" }, param);
+      promiseOnIframe("runAuthFunc", newParam).then(resolve).catch(reject);
+    });
+  }
+
+  function unregister(param) {
+    return new Promise(function (resolve, reject) {
+      setAppToAppRequestOption(param);
+      var newParam = updateInfo({ funcName: "unregister" }, param);
+      promiseOnIframe("runAuthFunc", newParam).then(resolve).catch(reject);
+    });
+  }
+
+  function mobileRegisterOtp(param) {
+    return new Promise(function (resolve, reject) {
+      setAppToAppRequestOption(param);
+      var newParam = updateInfo({ funcName: "mobileRegisterOtp" }, param);
+      promiseOnIframe("runAuthFunc", newParam).then(resolve).catch(reject);
+    });
+  }
+
+  function myDataSign(param) {
+    return new Promise(function (resolve, reject) {
+      var newParam = updateInfo({ funcName: "mydatasign" }, param);
+      promiseOnIframe("runAuthFunc", newParam).then(resolve).catch(reject);
+    });
+  }
+
+  function runAuthFunc(param) {
+    return new Promise(function (resolve, reject) {
+      setAppToAppRequestOption(param);
+      promiseOnIframe("runAuthFunc", param).then(resolve).catch(reject);
+    });
+  }
+
+  function callbackFromMobile(param) {
+    promiseOnIframe("callbackFromMobile", param);
+  }
+
+  function callbackCredentials(param) {
+    promiseOnIframe("callbackCredentials", param);
+  }
+
+  function runTicket(param) {
+    return new Promise(function (resolve, reject) {
+      setBaseUrl(param.baseUrl);
+      promiseOnIframe("runTicket", param).then(resolve).catch(reject);
+    });
+  }
+
+  //=============================================================================================
+  // 외부 함수 정의 부분
+  //=============================================================================================
+  return {
+    init: init,
+    login: login,
+    sign: sign,
+    identity: identity,
+    scanCapturedId: scanCapturedId,
+    scan: scan,
+    register: register,
+    unregister: unregister,
+    mobileRegisterOtp: mobileRegisterOtp,
+    myDataSign: myDataSign,
+    runAuthFunc: runAuthFunc,
+    callbackFromMobile: callbackFromMobile,
+    runTicket: runTicket,
+  };
+})();

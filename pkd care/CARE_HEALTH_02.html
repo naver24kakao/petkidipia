@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>심장사상충 예방 가이드 — 펫키디피아</title>
+  <meta name="description" content="모기가 옮기는 치명적 질병, 심장사상충. 예방약 종류, 복용 주기, 검사 시기까지 완벽 예방 가이드.">
+  <meta name="keywords" content="강아지 심장사상충, 심장사상충 예방약, 하트가드, 넥스가드 스펙트라">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #FBF7F2;
+      --cream-2: #F4EEE5;
+      --gold: #C9A84C;
+      --gold-pale: #F5ECD4;
+      --brown: #2E1F14;
+      --brown-2: #3D2B1F;
+      --warm: #8B5E3C;
+      --soft: #EDE4D8;
+      --muted: #9B8878;
+      --line: rgba(46,31,20,0.08);
+      --green: #2E7D32;
+      --green-pale: #E8F5E9;
+      --amber: #F57F17;
+      --amber-pale: #FFF8E1;
+      --red: #D32F2F;
+      --red-pale: #FFF3F0;
+      --blue: #1976D2;
+      --blue-pale: #E3F2FD;
+      --purple: #7B1FA2;
+      --purple-pale: #F3E5F5;
+      --max: 680px;
+      --font-serif: "Cormorant Garamond", serif;
+      --font-sans: "Noto Sans KR", sans-serif;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--cream);
+      color: var(--brown);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .top-bar {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(251,247,242,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      padding: 14px 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .top-back { background: none; border: none; font-size: 20px; cursor: pointer; color: var(--brown); }
+    .top-breadcrumb { font-size: 12px; color: var(--muted); }
+    .top-breadcrumb a { color: var(--warm); text-decoration: none; }
+
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 20px 120px; }
+
+    .hero {
+      padding: 40px 0 32px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--purple-pale);
+      color: var(--purple);
+      font-size: 11px; font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: var(--font-sans);
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--brown);
+      margin-bottom: 12px;
+    }
+    .hero-sub {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .toc {
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 18px;
+      padding: 20px 24px;
+      margin-bottom: 32px;
+    }
+    .toc-title {
+      font-size: 12px; font-weight: 700;
+      color: var(--warm);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .toc a {
+      display: block;
+      font-size: 14px;
+      color: var(--brown-2);
+      text-decoration: none;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .toc a:last-child { border-bottom: none; }
+    .toc a:hover { color: var(--gold); }
+    .toc-num { color: var(--gold); font-weight: 700; margin-right: 8px; }
+
+    .section { margin-bottom: 36px; }
+    .section-label {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 16px;
+    }
+    .section-label::before, .section-label::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(to right, var(--gold), transparent);
+    }
+    .section-label::after {
+      background: linear-gradient(to left, var(--gold), transparent);
+    }
+    .section-tag {
+      font-family: var(--font-serif);
+      font-size: 13px; font-style: italic;
+      color: var(--gold);
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+    .section h2 {
+      font-size: 20px; font-weight: 700;
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+    .section p {
+      font-size: 15px;
+      color: var(--brown-2);
+      margin-bottom: 12px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 18px;
+      padding: 20px;
+      margin-bottom: 14px;
+    }
+    .card-label {
+      font-size: 11px; font-weight: 700;
+      color: var(--warm);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .lifecycle {
+      background: var(--red-pale);
+      border: 1px solid rgba(211,47,47,0.15);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+    .lifecycle-step {
+      font-size: 13px;
+      color: var(--brown-2);
+      padding: 8px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .lifecycle-step:last-child {
+      border-bottom: none;
+    }
+    .lifecycle-num {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      background: var(--red);
+      color: #fff;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 24px;
+      font-weight: 700;
+      font-size: 12px;
+      margin-right: 8px;
+    }
+
+    .medicine-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 13px;
+    }
+    .medicine-table th {
+      background: var(--purple-pale);
+      padding: 10px 12px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 12px;
+      color: var(--purple);
+      border-bottom: 2px solid var(--soft);
+    }
+    .medicine-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+
+    .caution-box {
+      background: var(--amber-pale);
+      border: 1px solid rgba(245,127,23,0.2);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin-top: 16px;
+    }
+    .caution-box-title {
+      font-size: 13px; font-weight: 700;
+      color: var(--amber);
+      margin-bottom: 8px;
+    }
+    .caution-box p {
+      font-size: 13px;
+      color: #5D4037;
+      margin-bottom: 0;
+    }
+
+    .tip-box {
+      background: var(--blue-pale);
+      border: 1px solid rgba(25,118,210,0.2);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin-top: 16px;
+    }
+    .tip-box-title {
+      font-size: 13px; font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+    .tip-box p {
+      font-size: 13px;
+      color: var(--brown-2);
+      margin-bottom: 0;
+    }
+
+    .checklist { list-style: none; }
+    .checklist li {
+      display: flex; gap: 10px; align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+    }
+    .checklist li:last-child { border-bottom: none; }
+    .check-icon {
+      width: 22px; height: 22px;
+      border-radius: 6px;
+      background: var(--green-pale);
+      color: var(--green);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .related-item {
+      display: block;
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 14px;
+      padding: 16px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .related-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(46,31,20,0.08);
+    }
+    .related-emoji { font-size: 22px; margin-bottom: 8px; }
+    .related-title { font-size: 13px; font-weight: 700; color: var(--brown); line-height: 1.4; }
+    .related-sub { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+    .cta-banner {
+      background: linear-gradient(135deg, var(--brown), var(--brown-2));
+      border-radius: 20px;
+      padding: 28px 24px;
+      margin-top: 40px;
+      text-align: center;
+    }
+    .cta-banner h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    .cta-banner p {
+      font-size: 13px;
+      color: rgba(251,247,242,0.85);
+      margin-bottom: 18px;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--brown);
+      font-size: 14px; font-weight: 700;
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(201,168,76,0.4);
+    }
+
+    .article-meta {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      text-align: center;
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-bar">
+  <button class="top-back" onclick="history.back()">←</button>
+  <div class="top-breadcrumb">
+    <a href="/">펫키디피아</a> / <a href="/care">CARE</a> / 건강관리
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="hero">
+    <div class="hero-badge">CARE · Health</div>
+    <h1>심장사상충 예방 가이드</h1>
+    <p class="hero-sub">
+      모기 한 마리가 옮기는 치명적 질병, 심장사상충.<br>
+      예방만이 답입니다. 매달 빠짐없이 예방약을 먹이세요.
+    </p>
+  </div>
+
+  <nav class="toc">
+    <div class="toc-title">목차</div>
+    <a href="#what"><span class="toc-num">01</span>심장사상충이란</a>
+    <a href="#lifecycle"><span class="toc-num">02</span>감염 경로와 생활사</a>
+    <a href="#symptoms"><span class="toc-num">03</span>증상</a>
+    <a href="#prevention"><span class="toc-num">04</span>예방약 종류</a>
+    <a href="#schedule"><span class="toc-num">05</span>예방 일정</a>
+    <a href="#test"><span class="toc-num">06</span>검사 시기</a>
+    <a href="#faq"><span class="toc-num">07</span>자주 묻는 질문</a>
+  </nav>
+
+  <section class="section" id="what">
+    <div class="section-label"><span class="section-tag">01 · What is Heartworm</span></div>
+    <h2>심장사상충이란</h2>
+    <p>
+      심장사상충(Heartworm, Dirofilaria immitis)은
+      모기를 통해 전파되는 기생충입니다.
+      성충은 심장과 폐동맥에 기생하며 길이가 15~30cm까지 자랍니다.
+    </p>
+
+    <div class="card">
+      <div class="card-label">왜 위험한가</div>
+      <p style="font-size:14px;">
+        성충이 심장과 폐동맥을 막으면서 혈액 순환을 방해합니다.
+        치료하지 않으면 심부전, 폐 손상, 간 손상으로 이어지며
+        결국 사망에 이릅니다.
+      </p>
+      <p style="font-size:14px;">
+        <strong>치료 가능하지만</strong> 치료 과정이 힘들고 비용이 많이 듭니다.
+        치료 중 성충이 죽으면서 혈관을 막을 위험도 있어요.
+        **예방이 훨씬 쉽고 안전합니다.**
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">한국에서도 흔한가요?</div>
+      <p style="font-size:14px;">
+        네, 매우 흔합니다. 한국은 여름철 모기가 많아서
+        심장사상충 발생률이 높은 지역입니다.
+        예방약을 먹지 않은 강아지의 감염률은 30~50%에 달합니다.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="lifecycle">
+    <div class="section-label"><span class="section-tag">02 · Lifecycle</span></div>
+    <h2>감염 경로와 생활사</h2>
+    <p>
+      심장사상충은 모기를 통해서만 전파됩니다.
+      강아지끼리 직접 전염되지는 않아요.
+    </p>
+
+    <div class="lifecycle">
+      <div class="lifecycle-step">
+        <span class="lifecycle-num">1</span>
+        <strong>감염된 강아지를 모기가 물음</strong> — 모기가 혈액과 함께 유충(L1)을 흡수
+      </div>
+      <div class="lifecycle-step">
+        <span class="lifecycle-num">2</span>
+        <strong>모기 안에서 성장</strong> — 10~14일 동안 L3 단계로 발육 (이 단계부터 전염력 있음)
+      </div>
+      <div class="lifecycle-step">
+        <span class="lifecycle-num">3</span>
+        <strong>건강한 강아지를 물음</strong> — L3 유충이 강아지 피부로 침투
+      </div>
+      <div class="lifecycle-step">
+        <span class="lifecycle-num">4</span>
+        <strong>피부 아래에서 성장</strong> — 50~70일 동안 L4, L5로 발육
+      </div>
+      <div class="lifecycle-step">
+        <span class="lifecycle-num">5</span>
+        <strong>혈관으로 이동</strong> — 심장과 폐동맥으로 이동 (감염 후 약 3개월)
+      </div>
+      <div class="lifecycle-step">
+        <span class="lifecycle-num">6</span>
+        <strong>성충으로 성장</strong> — 심장에서 6개월간 자라며 번식 시작 (감염 후 6~7개월)
+      </div>
+    </div>
+
+    <div class="caution-box">
+      <div class="caution-box-title">⚠️ 예방약의 원리</div>
+      <p>
+        심장사상충 예방약은 모기에 물린 **후** 피부 아래에서 자라는 유충(L3, L4)을 죽입니다.
+        그래서 매달 먹여야 합니다. 한 달에 한 번 복용으로
+        지난 한 달간 물린 모기로부터 들어온 유충을 제거하는 원리입니다.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="symptoms">
+    <div class="section-label"><span class="section-tag">03 · Symptoms</span></div>
+    <h2>증상</h2>
+    <p>
+      초기에는 증상이 거의 없습니다.
+      성충이 자라면서 서서히 나타나기 때문에
+      증상이 보일 때는 이미 진행된 상태인 경우가 많습니다.
+    </p>
+
+    <div class="card">
+      <div class="card-label">단계별 증상</div>
+      <p style="font-size:14px;">
+        <strong>초기 (1~2마리 감염)</strong><br>
+        • 특별한 증상 없음<br>
+        • 혈액 검사로만 확인 가능
+      </p>
+      <p style="font-size:14px;">
+        <strong>중기 (3~10마리)</strong><br>
+        • 기침 (특히 운동 후)<br>
+        • 운동 후 쉽게 지침<br>
+        • 식욕 감소, 체중 감소
+      </p>
+      <p style="font-size:14px;">
+        <strong>말기 (10마리 이상)</strong><br>
+        • 심한 기침, 호흡 곤란<br>
+        • 복부 팽만 (복수)<br>
+        • 실신, 의식 저하<br>
+        • 혈뇨 (카발 증후군 — 급성 심장사상충증)
+      </p>
+    </div>
+
+    <div class="caution-box">
+      <div class="caution-box-title">⚠️ 카발 증후군 (응급 상황)</div>
+      <p>
+        대량의 성충이 심장을 막는 응급 상황입니다.
+        혈뇨, 호흡 곤란, 창백한 잇몸, 실신이 나타나면
+        즉시 병원에 가야 합니다. 수술로 성충을 제거해야 합니다.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="prevention">
+    <div class="section-label"><span class="section-tag">04 · Prevention Medicine</span></div>
+    <h2>예방약 종류</h2>
+
+    <table class="medicine-table">
+      <thead>
+        <tr>
+          <th>제품명</th>
+          <th>형태</th>
+          <th>추가 예방</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>하트가드 플러스</strong></td>
+          <td>경구 (츄어블)</td>
+          <td>회충, 구충</td>
+        </tr>
+        <tr>
+          <td><strong>넥스가드 스펙트라</strong></td>
+          <td>경구 (츄어블)</td>
+          <td>벼룩, 진드기, 회충, 구충</td>
+        </tr>
+        <tr>
+          <td><strong>심파리카 트리오</strong></td>
+          <td>경구 (츄어블)</td>
+          <td>벼룩, 진드기, 회충, 구충</td>
+        </tr>
+        <tr>
+          <td><strong>레볼루션 (스트롱홀드)</strong></td>
+          <td>외용 (스팟온)</td>
+          <td>벼룩, 귀진드기, 회충</td>
+        </tr>
+        <tr>
+          <td><strong>아드보킷 (어드보케이트)</strong></td>
+          <td>외용 (스팟온)</td>
+          <td>벼룩, 회충, 구충</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="card">
+      <div class="card-label">경구약 vs 외용약</div>
+      <p style="font-size:14px;">
+        <strong>경구약 (츄어블)</strong><br>
+        • 대부분 간식처럼 맛있어서 잘 먹음<br>
+        • 목욕·비 영향 없음<br>
+        • 일부 강아지는 토할 수 있음
+      </p>
+      <p style="font-size:14px;">
+        <strong>외용약 (스팟온)</strong><br>
+        • 피부에 바르는 방식<br>
+        • 먹기 싫어하는 강아지에게 편리<br>
+        • 목욕 전후 24시간 피해야 함<br>
+        • 피부 예민한 강아지는 자극 가능
+      </p>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-box-title">💡 복합 예방약 추천</div>
+      <p>
+        넥스가드 스펙트라나 심파리카 트리오처럼
+        심장사상충 + 벼룩·진드기를 함께 예방하는 제품이 편리합니다.
+        별도로 두 가지 약을 먹이는 것보다 비용도 절약되고 관리도 쉬워요.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="schedule">
+    <div class="section-label"><span class="section-tag">05 · Schedule</span></div>
+    <h2>예방 일정</h2>
+
+    <div class="card">
+      <div class="card-label">매달 같은 날, 1년 내내</div>
+      <p style="font-size:14px;">
+        <strong>복용 주기:</strong> 매월 1회 (30일마다)<br>
+        <strong>복용 기간:</strong> 1년 내내 (겨울에도 중단 금지)<br>
+        <strong>시작 시기:</strong> 생후 6~8주부터 가능
+      </p>
+      <p style="font-size:14px;">
+        매달 같은 날짜에 먹이세요. 예를 들어 매월 1일로 정했다면
+        1월 1일, 2월 1일, 3월 1일… 이런 식으로 계속 이어가야 합니다.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">겨울에도 먹여야 하나요?</div>
+      <p style="font-size:14px;">
+        네, 반드시 먹여야 합니다.
+        한국은 겨울에도 간헐적으로 따뜻한 날이 있어서
+        모기가 완전히 사라지지 않습니다.
+      </p>
+      <p style="font-size:14px;">
+        또한 예방약은 모기에 물린 **후** 유충을 죽이는 원리이므로,
+        가을에 물린 모기의 유충을 겨울에 제거하는 것입니다.
+        약을 중단하면 그 사이에 유충이 자라서 성충이 될 수 있어요.
+      </p>
+    </div>
+
+    <div class="caution-box">
+      <div class="caution-box-title">⚠️ 한 번이라도 빼먹으면 위험</div>
+      <p>
+        한 달을 건너뛰면 그 사이에 유충이 L5 단계로 성장해서
+        예방약이 효과가 없어집니다.
+        알람을 설정하거나 달력에 표시해서 절대 잊지 마세요.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="test">
+    <div class="section-label"><span class="section-tag">06 · Testing</span></div>
+    <h2>검사 시기</h2>
+
+    <div class="card">
+      <div class="card-label">언제 검사하나요?</div>
+      <p style="font-size:14px;">
+        <strong>첫 예방약 복용 전</strong> — 이미 감염됐는지 확인<br>
+        <strong>연 1회 (봄철 권장)</strong> — 예방약을 먹어도 100% 예방은 아니므로 정기 검사<br>
+        <strong>예방약을 중단했던 경우</strong> — 재개 전 반드시 검사
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">검사 방법</div>
+      <p style="font-size:14px;">
+        <strong>혈액 항원 검사 (Antigen Test)</strong><br>
+        혈액 몇 방울로 10분 내에 결과 확인 가능.
+        성충 암컷이 있으면 양성 반응이 나옵니다.
+      </p>
+      <p style="font-size:14px;">
+        단, 감염 후 6개월이 지나야 성충이 되므로
+        최근 감염은 검사에서 안 나올 수 있어요.
+      </p>
+    </div>
+
+    <div class="caution-box">
+      <div class="caution-box-title">⚠️ 감염된 상태에서 예방약을 먹으면?</div>
+      <p>
+        이미 성충이 있는데 예방약을 먹으면
+        유충이 한꺼번에 죽으면서 쇼크를 일으킬 수 있습니다.
+        그래서 첫 예방약 복용 전 반드시 검사를 해야 합니다.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="section-label"><span class="section-tag">07 · FAQ</span></div>
+    <h2>자주 묻는 질문</h2>
+
+    <div class="card">
+      <div class="card-label">Q. 실내견인데도 먹여야 하나요?</div>
+      <p style="font-size:14px;">
+        네, 실내에도 모기는 들어옵니다.
+        창문, 현관문, 배수구 등을 통해 모기가 유입되므로
+        실내견도 반드시 예방약을 먹여야 합니다.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Q. 예방약을 토했어요. 다시 먹여야 하나요?</div>
+      <p style="font-size:14px;">
+        복용 후 1시간 이내에 토했다면 다시 먹이세요.
+        1시간 이상 지났다면 이미 흡수됐을 가능성이 높으니
+        수의사와 상담하세요.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Q. 깜빡하고 한 달을 건너뛰었어요.</div>
+      <p style="font-size:14px;">
+        즉시 예방약을 먹이고, 다음 달부터 정상 스케줄로 돌아가세요.
+        2개월 이상 건너뛰었다면 심장사상충 검사를 받는 것이 안전합니다.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Q. 예방약 없이 모기 기피제만 쓰면 안 되나요?</div>
+      <p style="font-size:14px;">
+        모기 기피제는 100% 예방이 불가능합니다.
+        모기 한 마리만 물려도 감염될 수 있으므로
+        반드시 예방약을 먹여야 합니다.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label"><span class="section-tag">Related</span></div>
+    <h2>함께 보면 좋은 가이드</h2>
+    <div class="related-grid">
+      <a class="related-item" href="care/health/vaccination">
+        <div class="related-emoji">💉</div>
+        <div class="related-title">예방접종 일정 가이드</div>
+        <div class="related-sub">CARE · 건강관리</div>
+      </a>
+      <a class="related-item" href="care/health/flea-tick">
+        <div class="related-emoji">🐜</div>
+        <div class="related-title">벼룩·진드기 예방 가이드</div>
+        <div class="related-sub">CARE · 건강관리</div>
+      </a>
+      <a class="related-item" href="care/health/dental">
+        <div class="related-emoji">🦷</div>
+        <div class="related-title">강아지 치아 관리 가이드</div>
+        <div class="related-sub">CARE · 건강관리</div>
+      </a>
+      <a class="related-item" href="care/health/senior">
+        <div class="related-emoji">🐕</div>
+        <div class="related-title">노령견 건강관리 가이드</div>
+        <div class="related-sub">CARE · 건강관리</div>
+      </a>
+    </div>
+  </section>
+
+  <div class="cta-banner">
+    <h3>심장사상충 치료비가 걱정된다면</h3>
+    <p>예방과 치료, 모두 보장하는 마이브라운 반려견 보험</p>
+    <a class="cta-btn" href="https://mybrownpet.com">보험 상담 신청하기 →</a>
+  </div>
+
+  <div class="article-meta">
+    <p>CARE_HEALTH_02 · 펫키디피아 Care Guide</p>
+    <p>마지막 업데이트: 2026.03</p>
+    <p>이 콘텐츠는 전문 수의학적 진단을 대체하지 않습니다.</p>
+  </div>
+
+</div>
+
+</body>
+</html>

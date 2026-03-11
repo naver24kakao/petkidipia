@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>퍼피 식단 가이드 — 펫키디피아</title>
+  <meta name="description" content="성장기 강아지 식단의 모든 것. 이유식부터 성견 사료 전환까지, 건강한 성장을 위한 완벽 가이드.">
+  <meta name="keywords" content="퍼피 식단, 강아지 이유식, 퍼피 사료, 강아지 성장기 식단">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #FBF7F2;
+      --cream-2: #F4EEE5;
+      --gold: #C9A84C;
+      --gold-pale: #F5ECD4;
+      --brown: #2E1F14;
+      --brown-2: #3D2B1F;
+      --warm: #8B5E3C;
+      --soft: #EDE4D8;
+      --muted: #9B8878;
+      --line: rgba(46,31,20,0.08);
+      --green: #2E7D32;
+      --green-pale: #E8F5E9;
+      --amber: #F57F17;
+      --amber-pale: #FFF8E1;
+      --red: #D32F2F;
+      --red-pale: #FFF3F0;
+      --blue: #1976D2;
+      --blue-pale: #E3F2FD;
+      --purple: #7B1FA2;
+      --purple-pale: #F3E5F5;
+      --max: 680px;
+      --font-serif: "Cormorant Garamond", serif;
+      --font-sans: "Noto Sans KR", sans-serif;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--cream);
+      color: var(--brown);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .top-bar {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(251,247,242,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      padding: 14px 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .top-back { background: none; border: none; font-size: 20px; cursor: pointer; color: var(--brown); }
+    .top-breadcrumb { font-size: 12px; color: var(--muted); }
+    .top-breadcrumb a { color: var(--warm); text-decoration: none; }
+
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 20px 120px; }
+
+    .hero {
+      padding: 40px 0 32px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--amber-pale);
+      color: var(--amber);
+      font-size: 11px; font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: var(--font-sans);
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--brown);
+      margin-bottom: 12px;
+    }
+    .hero-sub {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .toc {
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 18px;
+      padding: 20px 24px;
+      margin-bottom: 32px;
+    }
+    .toc-title {
+      font-size: 12px; font-weight: 700;
+      color: var(--warm);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .toc a {
+      display: block;
+      font-size: 14px;
+      color: var(--brown-2);
+      text-decoration: none;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .toc a:last-child { border-bottom: none; }
+    .toc a:hover { color: var(--gold); }
+    .toc-num { color: var(--gold); font-weight: 700; margin-right: 8px; }
+
+    .section { margin-bottom: 36px; }
+    .section-label {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 16px;
+    }
+    .section-label::before, .section-label::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(to right, var(--gold), transparent);
+    }
+    .section-label::after {
+      background: linear-gradient(to left, var(--gold), transparent);
+    }
+    .section-tag {
+      font-family: var(--font-serif);
+      font-size: 13px; font-style: italic;
+      color: var(--gold);
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+    .section h2 {
+      font-size: 20px; font-weight: 700;
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+    .section p {
+      font-size: 15px;
+      color: var(--brown-2);
+      margin-bottom: 12px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 18px;
+      padding: 20px;
+      margin-bottom: 14px;
+    }
+    .card-label {
+      font-size: 11px; font-weight: 700;
+      color: var(--warm);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 30px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--gold);
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 24px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--line);
+    }
+    .timeline-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .timeline-dot {
+      position: absolute;
+      left: -25px;
+      top: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 3px solid var(--cream);
+    }
+    .timeline-age {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+    .timeline-content {
+      font-size: 14px;
+      color: var(--brown-2);
+      line-height: 1.7;
+    }
+
+    .nutrition-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 13px;
+    }
+    .nutrition-table th {
+      background: var(--amber-pale);
+      padding: 10px 12px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 12px;
+      color: var(--amber);
+      border-bottom: 2px solid var(--soft);
+    }
+    .nutrition-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+
+    .caution-box {
+      background: var(--amber-pale);
+      border: 1px solid rgba(245,127,23,0.2);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin-top: 16px;
+    }
+    .caution-box-title {
+      font-size: 13px; font-weight: 700;
+      color: var(--amber);
+      margin-bottom: 8px;
+    }
+    .caution-box p {
+      font-size: 13px;
+      color: #5D4037;
+      margin-bottom: 0;
+    }
+
+    .tip-box {
+      background: var(--blue-pale);
+      border: 1px solid rgba(25,118,210,0.2);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin-top: 16px;
+    }
+    .tip-box-title {
+      font-size: 13px; font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+    .tip-box p {
+      font-size: 13px;
+      color: var(--brown-2);
+      margin-bottom: 0;
+    }
+
+    .do-dont {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .do-box, .dont-box {
+      border-radius: 14px;
+      padding: 16px;
+    }
+    .do-box {
+      background: var(--green-pale);
+      border: 1px solid rgba(46,125,50,0.2);
+    }
+    .dont-box {
+      background: var(--red-pale);
+      border: 1px solid rgba(211,47,47,0.15);
+    }
+    .do-box-title, .dont-box-title {
+      font-size: 12px; font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+    }
+    .do-box-title { color: var(--green); }
+    .dont-box-title { color: var(--red); }
+    .do-box p, .dont-box p {
+      font-size: 13px;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    .checklist { list-style: none; }
+    .checklist li {
+      display: flex; gap: 10px; align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+    }
+    .checklist li:last-child { border-bottom: none; }
+    .check-icon {
+      width: 22px; height: 22px;
+      border-radius: 6px;
+      background: var(--green-pale);
+      color: var(--green);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .related-item {
+      display: block;
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 14px;
+      padding: 16px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .related-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(46,31,20,0.08);
+    }
+    .related-emoji { font-size: 22px; margin-bottom: 8px; }
+    .related-title { font-size: 13px; font-weight: 700; color: var(--brown); line-height: 1.4; }
+    .related-sub { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+    .cta-banner {
+      background: linear-gradient(135deg, var(--brown), var(--brown-2));
+      border-radius: 20px;
+      padding: 28px 24px;
+      margin-top: 40px;
+      text-align: center;
+    }
+    .cta-banner h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    .cta-banner p {
+      font-size: 13px;
+      color: rgba(251,247,242,0.85);
+      margin-bottom: 18px;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--brown);
+      font-size: 14px; font-weight: 700;
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(201,168,76,0.4);
+    }
+
+    .article-meta {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      text-align: center;
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-bar">
+  <button class="top-back" onclick="history.back()">←</button>
+  <div class="top-breadcrumb">
+    <a href="/">펫키디피아</a> / <a href="/care">CARE</a> / 급여관리
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="hero">
+    <div class="hero-badge">CARE · Feeding</div>
+    <h1>퍼피 식단 가이드</h1>
+    <p class="hero-sub">
+      성장기 강아지의 평생 건강은 지금 결정됩니다.<br>
+      올바른 영양 공급으로 튼튼한 아이로 키우세요.
+    </p>
+  </div>
+
+  <nav class="toc">
+    <div class="toc-title">목차</div>
+    <a href="#timeline"><span class="toc-num">01</span>월령별 식단 타임라인</a>
+    <a href="#nutrition"><span class="toc-num">02</span>퍼피 필수 영양소</a>
+    <a href="#amount"><span class="toc-num">03</span>급여량과 횟수</a>
+    <a href="#transition"><span class="toc-num">04</span>이유식 전환 방법</a>
+    <a href="#adult"><span class="toc-num">05</span>성견 사료로 전환</a>
+    <a href="#forbidden"><span class="toc-num">06</span>퍼피 금지 음식</a>
+    <a href="#tips"><span class="toc-num">07</span>퍼피 급여 팁</a>
+  </nav>
+
+  <section class="section" id="timeline">
+    <div class="section-label"><span class="section-tag">01 · Timeline</span></div>
+    <h2>월령별 식단 타임라인</h2>
+
+    <div class="card">
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-age">0~3주: 모유 수유기</div>
+          <div class="timeline-content">
+            <strong>100% 모유</strong><br>
+            • 어미견의 초유(첫 24~48시간) 필수 — 면역 항체 전달<br>
+            • 2~3시간마다 수유<br>
+            • 인공 수유 시 강아지 전용 분유 사용 (절대 우유 금지)
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-age">3~4주: 이유식 시작</div>
+          <div class="timeline-content">
+            <strong>모유 + 이유식 병행</strong><br>
+            • 퍼피 사료를 물에 불려 죽처럼 만들기<br>
+            • 하루 4~5회 소량씩 제공<br>
+            • 처음엔 혀로 핥아먹게 유도<br>
+            • 모유는 계속 제공
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-age">4~8주: 이유식 본격화</div>
+          <div class="timeline-content">
+            <strong>이유식 비중 증가</strong><br>
+            • 사료를 조금씩 덜 불려서 농도 높이기<br>
+            • 하루 4~5회 급여<br>
+            • 8주차에 완전히 이유 완료<br>
+            • 분양 적정 시기 (8주 이후)
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-age">2~4개월: 급성장기</div>
+          <div class="timeline-content">
+            <strong>퍼피 사료 본격 급여</strong><br>
+            • 하루 3~4회 급여<br>
+            • 물에 불리거나 건식 그대로 (치아 상태 보고 결정)<br>
+            • 체중이 빠르게 증가하는 시기<br>
+            • 과식 주의 (성장판·관절 문제)
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-age">4~12개월: 성장기</div>
+          <div class="timeline-content">
+            <strong>퍼피 사료 유지</strong><br>
+            • 하루 2~3회 급여<br>
+            • 소형견 8~10개월, 중형견 10~12개월, 대형견 12~18개월까지 퍼피 사료<br>
+            • 점진적으로 급여량 감소 (체중 안정화)
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-age">12개월 이후: 성견 전환</div>
+          <div class="timeline-content">
+            <strong>성견 사료로 전환</strong><br>
+            • 7~10일에 걸쳐 점진적 전환<br>
+            • 하루 2회 급여<br>
+            • 성견 적정 체중 유지
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="nutrition">
+    <div class="section-label"><span class="section-tag">02 · Nutrition</span></div>
+    <h2>퍼피 필수 영양소</h2>
+    <p>
+      성장기 강아지는 성견보다 **2~3배 많은 칼로리**와
+      더 높은 단백질·지방·칼슘이 필요합니다.
+    </p>
+
+    <table class="nutrition-table">
+      <thead>
+        <tr>
+          <th>영양소</th>
+          <th>퍼피 권장량</th>
+          <th>역할</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>단백질</strong></td>
+          <td>최소 22%<br>(성견 18%)</td>
+          <td>근육·뼈·면역 발달</td>
+        </tr>
+        <tr>
+          <td><strong>지방</strong></td>
+          <td>최소 8%<br>(성견 5%)</td>
+          <td>에너지, 뇌 발달, 영양 흡수</td>
+        </tr>
+        <tr>
+          <td><strong>칼슘</strong></td>
+          <td>1.0~1.8%</td>
+          <td>뼈·치아 형성</td>
+        </tr>
+        <tr>
+          <td><strong>인</strong></td>
+          <td>0.8~1.6%</td>
+          <td>뼈 형성, 칼슘과 균형</td>
+        </tr>
+        <tr>
+          <td><strong>DHA</strong></td>
+          <td>0.05% 이상</td>
+          <td>뇌·눈·신경 발달</td>
+        </tr>
+        <tr>
+          <td><strong>비타민 E</strong></td>
+          <td>50IU/kg 이상</td>
+          <td>면역 강화, 항산화</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip-box">
+      <div class="tip-box-title">💡 퍼피 전용 사료를 사용하세요</div>
+      <p>
+        퍼피 사료는 위 영양소 비율이 최적화되어 있습니다.
+        성견 사료를 먹이면 영양 부족으로 성장 장애가 올 수 있어요.
+        AAFCO(미국사료협회) 또는 FEDIAF(유럽) 퍼피 기준 인증 제품 권장.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="amount">
+    <div class="section-label"><span class="section-tag">03 · Portion & Frequency</span></div>
+    <h2>급여량과 횟수</h2>
+
+    <div class="card">
+      <div class="card-label">급여량 계산</div>
+      <p style="font-size:14px;">
+        퍼피는 성견의 **2~3배** 칼로리가 필요합니다.<br>
+        정확한 계산법은 "강아지 급여량 계산법" 가이드 참고.
+      </p>
+      <p style="font-size:14px;">
+        <strong>간단 공식:</strong><br>
+        DER = 70 × (체중kg)<sup>0.75</sup> × 2.0~3.0<br>
+        (4개월 미만: ×3.0 / 4개월 이후: ×2.0)
+      </p>
+      <p style="font-size:14px;">
+        대부분의 퍼피 사료 포장지에 월령·체중별 권장량이 있으니 참고하세요.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">급여 횟수</div>
+      <p style="font-size:14px;">
+        <strong>2~4개월:</strong> 하루 4회<br>
+        <strong>4~6개월:</strong> 하루 3회<br>
+        <strong>6~12개월:</strong> 하루 2~3회<br>
+        <strong>12개월 이후:</strong> 하루 2회
+      </p>
+      <p style="font-size:14px;">
+        퍼피는 위가 작아서 한 번에 많이 먹으면 소화 불량·저혈당 위험.<br>
+        소량씩 자주 급여하는 게 좋습니다.
+      </p>
+    </div>
+
+    <div class="caution-box">
+      <div class="caution-box-title">⚠️ 과식 주의</div>
+      <p>
+        퍼피는 배고픔을 잘 참지 못해서 계속 먹으려 합니다.
+        하지만 과식하면 비만·관절 문제·성장판 손상 위험이 있어요.
+        **정해진 양만** 급여하고, 추가로 주지 마세요.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="transition">
+    <div class="section-label"><span class="section-tag">04 · Weaning</span></div>
+    <h2>이유식 전환 방법</h2>
+    <p>
+      분양받은 퍼피는 이미 이유식을 시작했을 가능성이 높습니다.
+      집에서 이유식을 진행해야 한다면 다음 방법을 따르세요.
+    </p>
+
+    <div class="card">
+      <div class="card-label">1단계: 준비물</div>
+      <p style="font-size:14px;">
+        • 퍼피 전용 사료 (소형견용·대형견용 구분)<br>
+        • 따뜻한 물 또는 강아지 분유<br>
+        • 얕은 접시
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">2단계: 사료 불리기 (3주~)</div>
+      <p style="font-size:14px;">
+        • 퍼피 사료를 따뜻한 물에 10~15분 불리기<br>
+        • 으깨서 죽처럼 만들기<br>
+        • 강아지 코에 살짝 묻혀서 핥게 유도<br>
+        • 하루 4~5회, 소량씩 제공
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">3단계: 농도 높이기 (4~6주)</div>
+      <p style="font-size:14px;">
+        • 점차 물을 줄여서 사료 농도 높이기<br>
+        • 강아지가 씹어먹기 시작하면 성공<br>
+        • 모유는 어미견이 자연스럽게 줄임
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">4단계: 건식으로 전환 (6~8주)</div>
+      <p style="font-size:14px;">
+        • 사료를 물에 불리지 않고 그대로 제공<br>
+        • 물은 충분히 준비<br>
+        • 8주차에 완전 이유 완료
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="adult">
+    <div class="section-label"><span class="section-tag">05 · Adult Food Transition</span></div>
+    <h2>성견 사료로 전환</h2>
+    <p>
+      성견 사료로 전환하는 시기는 견종 크기에 따라 다릅니다.
+    </p>
+
+    <div class="card">
+      <div class="card-label">전환 시기</div>
+      <p style="font-size:14px;">
+        <strong>소형견 (10kg 이하):</strong> 8~10개월<br>
+        <strong>중형견 (10~25kg):</strong> 10~12개월<br>
+        <strong>대형견 (25kg+):</strong> 12~18개월
+      </p>
+      <p style="font-size:14px;">
+        대형견은 성장이 느려서 퍼피 사료를 더 오래 먹어야 합니다.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">7~10일 점진적 전환</div>
+      <p style="font-size:14px;">
+        갑자기 사료를 바꾸면 소화 불량·설사가 생깁니다.<br>
+        7~10일에 걸쳐 천천히 섞어주세요.
+      </p>
+      <p style="font-size:14px;">
+        <strong>1~2일차:</strong> 퍼피 사료 75% + 성견 사료 25%<br>
+        <strong>3~4일차:</strong> 퍼피 사료 50% + 성견 사료 50%<br>
+        <strong>5~6일차:</strong> 퍼피 사료 25% + 성견 사료 75%<br>
+        <strong>7일차 이후:</strong> 성견 사료 100%
+      </p>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-box-title">💡 변 상태 관찰하기</div>
+      <p>
+        사료 전환 중에는 변 상태를 매일 확인하세요.
+        설사가 생기면 전환 속도를 늦추거나 다시 이전 단계로 돌아가세요.
+      </p>
+    </tip-box>
+  </section>
+
+  <section class="section" id="forbidden">
+    <div class="section-label"><span class="section-tag">06 · Forbidden Foods</span></div>
+    <h2>퍼피 금지 음식</h2>
+    <p>
+      성견도 먹으면 안 되지만, 특히 퍼피는 더 민감합니다.
+      절대 주지 마세요.
+    </p>
+
+    <ul class="checklist">
+      <li><span class="check-icon">✗</span> <strong>초콜릿·카페인</strong> — 독성, 심장·신경 손상</li>
+      <li><span class="check-icon">✗</span> <strong>포도·건포도</strong> — 신부전 유발</li>
+      <li><span class="check-icon">✗</span> <strong>양파·마늘·파</strong> — 적혈구 파괴</li>
+      <li><span class="check-icon">✗</span> <strong>자일리톨</strong> — 저혈당, 간 손상 (껌·과자)</li>
+      <li><span class="check-icon">✗</span> <strong>우유·유제품</strong> — 유당 소화 못 함, 설사</li>
+      <li><span class="check-icon">✗</span> <strong>날고기·생선</strong> — 기생충·세균 위험</li>
+      <li><span class="check-icon">✗</span> <strong>뼈 (닭뼈·생선뼈)</strong> — 식도·위 손상</li>
+      <li><span class="check-icon">✗</span> <strong>소금·설탕 많은 음식</strong> — 신장 부담</li>
+      <li><span class="check-icon">✗</span> <strong>아보카도</strong> — 퍼신 성분 독성</li>
+      <li><span class="check-icon">✗</span> <strong>견과류 (마카다미아)</strong> — 중독 증상</li>
+    </ul>
+
+    <div class="caution-box">
+      <div class="caution-box-title">⚠️ 사람 음식 절대 금지</div>
+      <p>
+        "조금만 맛만 보게"는 안 됩니다.
+        한 번 주면 계속 달라고 하고, 퍼피 사료를 안 먹게 됩니다.
+        처음부터 사람 음식은 주지 않는 습관을 들이세요.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="tips">
+    <div class="section-label"><span class="section-tag">07 · Feeding Tips</span></div>
+    <h2>퍼피 급여 팁</h2>
+
+    <div class="do-dont">
+      <div class="do-box">
+        <div class="do-box-title">✅ 이렇게 하세요</div>
+        <p>• 같은 시간에 급여 (루틴 형성)<br>
+        • 조용한 장소에서 급여<br>
+        • 15~20분 후 남은 사료 치우기<br>
+        • 신선한 물 항상 준비<br>
+        • 급여 전후 30분 격렬한 운동 피하기</p>
+      </div>
+      <div class="dont-box">
+        <div class="dont-box-title">❌ 하지 마세요</div>
+        <p>• 자율급식 (밥그릇 항상 채워두기)<br>
+        • 급여 중 방해하거나 만지기<br>
+        • 다른 강아지와 함께 급여 (경쟁)<br>
+        • 운동 직후 급여 (위 염전 위험)<br>
+        • 간식 과다 (하루 칼로리 10% 이내)</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">저혈당 주의</div>
+      <p style="font-size:14px;">
+        특히 소형견 퍼피는 저혈당 위험이 높습니다.<br>
+        <strong>증상:</strong> 무기력, 떨림, 비틀거림, 의식 혼미<br>
+        <strong>대처:</strong> 꿀·설탕물을 잇몸에 바르고 즉시 병원<br>
+        <strong>예방:</strong> 하루 3~4회 규칙적 급여, 밤에 공복 오래 두지 않기
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">체중 모니터링</div>
+      <p style="font-size:14px;">
+        주 1회 체중 측정으로 성장 곡선 확인하세요.<br>
+        너무 빨리 자라거나 느리면 수의사 상담.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label"><span class="section-tag">Related</span></div>
+    <h2>함께 보면 좋은 가이드</h2>
+    <div class="related-grid">
+      <a class="related-item" href="care/feeding/portion">
+        <div class="related-emoji">🍚</div>
+        <div class="related-title">강아지 급여량 계산법</div>
+        <div class="related-sub">CARE · 급여관리</div>
+      </a>
+      <a class="related-item" href="care/feeding/food-transition">
+        <div class="related-emoji">🔄</div>
+        <div class="related-title">사료 교체 가이드</div>
+        <div class="related-sub">CARE · 급여관리</div>
+      </a>
+      <a class="related-item" href="care/health/vaccination">
+        <div class="related-emoji">💉</div>
+        <div class="related-title">예방접종 일정 가이드</div>
+        <div class="related-sub">CARE · 건강관리</div>
+      </a>
+      <a class="related-item" href="care/life/training">
+        <div class="related-emoji">🎓</div>
+        <div class="related-title">퍼피 훈련 가이드</div>
+        <div class="related-sub">CARE · 생활관리</div>
+      </a>
+    </div>
+  </section>
+
+  <div class="cta-banner">
+    <h3>퍼피 시절부터 준비하세요</h3>
+    <p>건강검진부터 예방접종까지 보장하는 마이브라운 반려견 보험</p>
+    <a class="cta-btn" href="https://mybrownpet.com">보험 상담 신청하기 →</a>
+  </div>
+
+  <div class="article-meta">
+    <p>CARE_FEED_02 · 펫키디피아 Care Guide</p>
+    <p>마지막 업데이트: 2026.03</p>
+    <p>이 콘텐츠는 전문 수의학적 진단을 대체하지 않습니다.</p>
+  </div>
+
+</div>
+
+</body>
+</html>

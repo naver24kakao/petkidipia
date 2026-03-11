@@ -1,0 +1,70 @@
+
+
+
+<!-- ==================================================
+File: pkd_index_template.html
+Project: Petkidipia (PKD)
+
+Purpose:
+PKD Breed Index 페이지 템플릿
+모든 Breed Detail 페이지 링크 제공
+
+Author: PKD System
+================================================== -->
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+<meta charset="UTF-8">
+<title>PKD Breed Index</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f5f1ea;
+margin:0;
+}
+
+.wrap{
+max-width:1100px;
+margin:auto;
+padding:40px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:12px;
+text-decoration:none;
+color:black;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="wrap">
+
+<h1>PKD Breed Encyclopedia</h1>
+
+<div class="grid">
+
+{{CARDS}}
+
+</div>
+
+</div>
+
+</body>
+</html>

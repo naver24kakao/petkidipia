@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>예방접종 일정 가이드 — 펫키디피아</title>
+  <meta name="description" content="강아지 필수 백신부터 선택 백신까지. 퍼피 백신 일정, 성견 추가접종, 접종 후 주의사항 완벽 가이드.">
+  <meta name="keywords" content="강아지 예방접종, 강아지 백신, 퍼피 백신 일정, 종합백신">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #FBF7F2;
+      --cream-2: #F4EEE5;
+      --gold: #C9A84C;
+      --gold-pale: #F5ECD4;
+      --brown: #2E1F14;
+      --brown-2: #3D2B1F;
+      --warm: #8B5E3C;
+      --soft: #EDE4D8;
+      --muted: #9B8878;
+      --line: rgba(46,31,20,0.08);
+      --green: #2E7D32;
+      --green-pale: #E8F5E9;
+      --amber: #F57F17;
+      --amber-pale: #FFF8E1;
+      --red: #D32F2F;
+      --red-pale: #FFF3F0;
+      --blue: #1976D2;
+      --blue-pale: #E3F2FD;
+      --purple: #7B1FA2;
+      --purple-pale: #F3E5F5;
+      --max: 680px;
+      --font-serif: "Cormorant Garamond", serif;
+      --font-sans: "Noto Sans KR", sans-serif;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--cream);
+      color: var(--brown);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .top-bar {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(251,247,242,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      padding: 14px 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .top-back { background: none; border: none; font-size: 20px; cursor: pointer; color: var(--brown); }
+    .top-breadcrumb { font-size: 12px; color: var(--muted); }
+    .top-breadcrumb a { color: var(--warm); text-decoration: none; }
+
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 20px 120px; }
+
+    .hero {
+      padding: 40px 0 32px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--purple-pale);
+      color: var(--purple);
+      font-size: 11px; font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: var(--font-sans);
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--brown);
+      margin-bottom: 12px;
+    }
+    .hero-sub {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .toc {
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 18px;
+      padding: 20px 24px;
+      margin-bottom: 32px;
+    }
+    .toc-title {
+      font-size: 12px; font-weight: 700;
+      color: var(--warm);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .toc a {
+      display: block;
+      font-size: 14px;
+      color: var(--brown-2);
+      text-decoration: none;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .toc a:last-child { border-bottom: none; }
+    .toc a:hover { color: var(--gold); }
+    .toc-num { color: var(--gold); font-weight: 700; margin-right: 8px; }
+
+    .section { margin-bottom: 36px; }
+    .section-label {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 16px;
+    }
+    .section-label::before, .section-label::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(to right, var(--gold), transparent);
+    }
+    .section-label::after {
+      background: linear-gradient(to left, var(--gold), transparent);
+    }
+    .section-tag {
+      font-family: var(--font-serif);
+      font-size: 13px; font-style: italic;
+      color: var(--gold);
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+    .section h2 {
+      font-size: 20px; font-weight: 700;
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+    .section p {
+      font-size: 15px;
+      color: var(--brown-2);
+      margin-bottom: 12px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 18px;
+      padding: 20px;
+      margin-bottom: 14px;
+    }
+    .card-label {
+      font-size: 11px; font-weight: 700;
+      color: var(--warm);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .vaccine-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 13px;
+    }
+    .vaccine-table th {
+      background: var(--purple-pale);
+      padding: 10px 12px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 12px;
+      color: var(--purple);
+      border-bottom: 2px solid var(--soft);
+    }
+    .vaccine-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 32px;
+      margin-top: 16px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--soft);
+    }
+    .timeline-item {
+      position: relative;
+      padding-bottom: 20px;
+    }
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+    .timeline-dot {
+      position: absolute;
+      left: -26px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--purple);
+      border: 3px solid var(--cream);
+    }
+    .timeline-content {
+      background: var(--purple-pale);
+      border: 1px solid rgba(123,31,162,0.2);
+      border-radius: 12px;
+      padding: 14px 16px;
+    }
+    .timeline-week {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--purple);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .timeline-text {
+      font-size: 14px;
+      color: var(--brown-2);
+    }
+
+    .caution-box {
+      background: var(--amber-pale);
+      border: 1px solid rgba(245,127,23,0.2);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin-top: 16px;
+    }
+    .caution-box-title {
+      font-size: 13px; font-weight: 700;
+      color: var(--amber);
+      margin-bottom: 8px;
+    }
+    .caution-box p {
+      font-size: 13px;
+      color: #5D4037;
+      margin-bottom: 0;
+    }
+
+    .tip-box {
+      background: var(--blue-pale);
+      border: 1px solid rgba(25,118,210,0.2);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin-top: 16px;
+    }
+    .tip-box-title {
+      font-size: 13px; font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+    .tip-box p {
+      font-size: 13px;
+      color: var(--brown-2);
+      margin-bottom: 0;
+    }
+
+    .checklist { list-style: none; }
+    .checklist li {
+      display: flex; gap: 10px; align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+    }
+    .checklist li:last-child { border-bottom: none; }
+    .check-icon {
+      width: 22px; height: 22px;
+      border-radius: 6px;
+      background: var(--green-pale);
+      color: var(--green);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .related-item {
+      display: block;
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 14px;
+      padding: 16px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .related-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(46,31,20,0.08);
+    }
+    .related-emoji { font-size: 22px; margin-bottom: 8px; }
+    .related-title { font-size: 13px; font-weight: 700; color: var(--brown); line-height: 1.4; }
+    .related-sub { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+    .cta-banner {
+      background: linear-gradient(135deg, var(--brown), var(--brown-2));
+      border-radius: 20px;
+      padding: 28px 24px;
+      margin-top: 40px;
+      text-align: center;
+    }
+    .cta-banner h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    .cta-banner p {
+      font-size: 13px;
+      color: rgba(251,247,242,0.85);
+      margin-bottom: 18px;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--brown);
+      font-size: 14px; font-weight: 700;
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(201,168,76,0.4);
+    }
+
+    .article-meta {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      text-align: center;
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-bar">
+  <button class="top-back" onclick="history.back()">←</button>
+  <div class="top-breadcrumb">
+    <a href="/">펫키디피아</a> / <a href="/care">CARE</a> / 건강관리
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="hero">
+    <div class="hero-badge">CARE · Health</div>
+    <h1>예방접종 일정 가이드</h1>
+    <p class="hero-sub">
+      예방접종은 전염병으로부터 강아지를 지키는 가장 확실한 방법입니다.<br>
+      필수 백신부터 선택 백신까지, 접종 일정을 완벽하게 관리하세요.
+    </p>
+  </div>
+
+  <nav class="toc">
+    <div class="toc-title">목차</div>
+    <a href="#why"><span class="toc-num">01</span>왜 예방접종이 필요한가</a>
+    <a href="#core"><span class="toc-num">02</span>필수 백신 (Core Vaccine)</a>
+    <a href="#optional"><span class="toc-num">03</span>선택 백신 (Non-Core)</a>
+    <a href="#schedule"><span class="toc-num">04</span>퍼피 백신 일정</a>
+    <a href="#adult"><span class="toc-num">05</span>성견 추가접종</a>
+    <a href="#after"><span class="toc-num">06</span>접종 후 주의사항</a>
+    <a href="#faq"><span class="toc-num">07</span>자주 묻는 질문</a>
+  </nav>
+
+  <section class="section" id="why">
+    <div class="section-label"><span class="section-tag">01 · Why Vaccination</span></div>
+    <h2>왜 예방접종이 필요한가</h2>
+    <p>
+      예방접종은 강아지의 면역 시스템을 훈련시켜서
+      특정 질병에 대한 항체를 미리 만들어두는 과정입니다.
+      백신을 맞으면 실제 병원체에 노출되었을 때 빠르게 대응할 수 있어요.
+    </p>
+
+    <div class="card">
+      <div class="card-label">백신으로 예방 가능한 주요 질병</div>
+      <p style="font-size:14px;">
+        <strong>홍역(Distemper)</strong> — 치사율 높은 바이러스성 질환<br>
+        <strong>파보바이러스(Parvo)</strong> — 강아지 급성 장염, 치사율 극히 높음<br>
+        <strong>간염(Hepatitis)</strong> — 간 손상을 일으키는 아데노바이러스<br>
+        <strong>파라인플루엔자</strong> — 호흡기 질환(켄넬코프 원인 중 하나)<br>
+        <strong>광견병(Rabies)</strong> — 사람에게도 전염, 법적 의무 접종<br>
+        <strong>렙토스피라증</strong> — 세균성 질환, 신장·간 손상<br>
+        <strong>코로나 장염</strong> — 장염 유발 바이러스
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">예방접종의 중요성</div>
+      <p style="font-size:14px;">
+        • 치사율 높은 전염병으로부터 보호<br>
+        • 다른 강아지와의 접촉 안전성 확보<br>
+        • 일부 질병은 사람에게도 전염 (광견병, 렙토스피라 등)<br>
+        • 애견호텔, 훈련소, 미용실 입장 조건<br>
+        • 법적 의무 (광견병 예방접종)
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="core">
+    <div class="section-label"><span class="section-tag">02 · Core Vaccines</span></div>
+    <h2>필수 백신 (Core Vaccine)</h2>
+    <p>
+      필수 백신은 모든 강아지가 반드시 맞아야 하는 백신입니다.
+      전염성이 높고 치사율이 높은 질병을 예방합니다.
+    </p>
+
+    <table class="vaccine-table">
+      <thead>
+        <tr>
+          <th>백신명</th>
+          <th>예방 질병</th>
+          <th>위험도</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>DHPPL</strong><br>(종합백신 5종)</td>
+          <td>홍역(D), 간염(H), 파보(P), 파라인플루엔자(P), 렙토스피라(L)</td>
+          <td>⭐⭐⭐<br>가장 기본</td>
+        </tr>
+        <tr>
+          <td><strong>광견병</strong><br>(Rabies)</td>
+          <td>광견병</td>
+          <td>⭐⭐⭐<br>법적 의무</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="card">
+      <div class="card-label">DHPPL 종합백신 상세</div>
+      <p style="font-size:14px;">
+        <strong>D (Distemper, 홍역)</strong> — 호흡기·소화기·신경계 증상, 치사율 50~80%<br>
+        <strong>H (Hepatitis, 간염)</strong> — 간 손상, 복통, 구토<br>
+        <strong>P (Parvovirus, 파보)</strong> — 혈변·심한 설사, 퍼피 치사율 90%<br>
+        <strong>P (Parainfluenza, 파라인플루엔자)</strong> — 켄넬코프(기침), 호흡기 질환<br>
+        <strong>L (Leptospirosis, 렙토스피라)</strong> — 신장·간 손상, 사람 전염 가능
+      </p>
+    </div>
+
+    <div class="caution-box">
+      <div class="caution-box-title">⚠️ 광견병 백신은 법적 의무</div>
+      <p>
+        생후 3개월 이상 모든 강아지는 광견병 예방접종이 의무입니다.
+        동물보호법에 따라 미접종 시 과태료가 부과될 수 있으며,
+        사람에게 전염 시 치명적이므로 반드시 접종하세요.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="optional">
+    <div class="section-label"><span class="section-tag">03 · Optional Vaccines</span></div>
+    <h2>선택 백신 (Non-Core Vaccine)</h2>
+    <p>
+      생활 환경과 위험 요인에 따라 선택적으로 접종하는 백신입니다.
+    </p>
+
+    <div class="card">
+      <div class="card-label">코로나 장염 백신 (CCV)</div>
+      <p style="font-size:14px;">
+        <strong>예방 질병:</strong> 코로나바이러스 장염<br>
+        <strong>증상:</strong> 설사, 구토 (파보보다 경미)<br>
+        <strong>권장 대상:</strong> 어린 강아지, 다견 가정, 번식장 환경<br>
+        <strong>접종 시기:</strong> 생후 6~8주부터 2~3회
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">켄넬코프 백신 (Bordetella)</div>
+      <p style="font-size:14px;">
+        <strong>예방 질병:</strong> 보르데텔라균에 의한 기관지염(켄넬코프)<br>
+        <strong>증상:</strong> 심한 기침, 가래<br>
+        <strong>권장 대상:</strong> 애견호텔·훈련소 이용, 다견 환경<br>
+        <strong>접종 방식:</strong> 코 점막 또는 주사
+      </p>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-box-title">💡 선택 백신 판단 기준</div>
+      <p>
+        • 애견호텔·훈련소를 자주 이용하나요? → 켄넬코프 권장<br>
+        • 다른 강아지와 접촉이 많나요? → 코로나·켄넬코프 고려<br>
+        • 주로 집에서만 생활하나요? → 필수 백신만으로 충분<br>
+        수의사와 상담 후 결정하세요.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="schedule">
+    <div class="section-label"><span class="section-tag">04 · Puppy Schedule</span></div>
+    <h2>퍼피 백신 일정</h2>
+    <p>
+      생후 6~8주부터 시작해서 16주까지 총 3~4회 접종합니다.
+      모체로부터 받은 항체가 사라지는 시기에 맞춰 단계적으로 면역을 형성해요.
+    </p>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-week">1차 접종 (6~8주)</div>
+          <div class="timeline-text">DHPPL 1차 + 코로나(선택) 1차</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-week">2차 접종 (10~12주)</div>
+          <div class="timeline-text">DHPPL 2차 + 코로나(선택) 2차 + 켄넬코프(선택)</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-week">3차 접종 (14~16주)</div>
+          <div class="timeline-text">DHPPL 3차 + 광견병 1차</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-week">생후 6개월</div>
+          <div class="timeline-text">광견병 2차 (일부 수의사는 1년 후 권장)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="caution-box">
+      <div class="caution-box-title">⚠️ 백신 간격 엄수</div>
+      <p>
+        백신은 정해진 간격(보통 3~4주)을 지켜야 효과적입니다.
+        너무 일찍 맞으면 항체가 제대로 형성되지 않고,
+        너무 늦으면 공백기에 감염 위험이 높아집니다.
+        수의사가 정한 일정을 꼭 지키세요.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="adult">
+    <div class="section-label"><span class="section-tag">05 · Adult Booster</span></div>
+    <h2>성견 추가접종 (Booster Shot)</h2>
+    <p>
+      퍼피 때 만들어진 면역은 시간이 지나면 약해집니다.
+      성견이 되어서도 정기적인 추가접종으로 면역을 유지해야 해요.
+    </p>
+
+    <div class="card">
+      <div class="card-label">추가접종 일정</div>
+      <p style="font-size:14px;">
+        <strong>DHPPL 종합백신</strong> — 매년 1회<br>
+        <strong>광견병 백신</strong> — 매년 1회 (법적 의무)<br>
+        <strong>선택 백신</strong> — 필요 시 매년 1회
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">항체 검사 옵션</div>
+      <p style="font-size:14px;">
+        일부 수의사는 매년 백신 대신 항체 검사(Titer Test)를 권장합니다.
+        혈액 검사로 항체 수치를 확인해서 충분하면 백신을 건너뛸 수 있어요.
+        노령견이나 기저질환이 있는 경우 유용합니다.
+      </p>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-box-title">💡 백신 수첩 관리</div>
+      <p>
+        동물병원에서 받은 백신 수첩(접종 증명서)을 잘 보관하세요.
+        애견호텔, 훈련소 입소 시 필수이고,
+        해외 여행 시에도 필요할 수 있습니다.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="after">
+    <div class="section-label"><span class="section-tag">06 · After Vaccination</span></div>
+    <h2>접종 후 주의사항</h2>
+
+    <div class="card">
+      <div class="card-label">접종 당일~3일</div>
+      <ul class="checklist">
+        <li><span class="check-icon">✓</span> 무리한 운동·산책 자제</li>
+        <li><span class="check-icon">✓</span> 목욕 금지</li>
+        <li><span class="check-icon">✓</span> 다른 강아지와의 접촉 최소화</li>
+        <li><span class="check-icon">✓</span> 충분한 휴식 제공</li>
+        <li><span class="check-icon">✓</span> 평소보다 물 많이 제공</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-label">부작용 관찰</div>
+      <p style="font-size:14px;">
+        <strong>경미한 반응 (정상)</strong><br>
+        • 주사 부위 약간의 부기·통증<br>
+        • 하루 정도 기력 저하, 식욕 감소<br>
+        • 미열 (38.5~39℃)
+      </p>
+      <p style="font-size:14px; margin-top:12px;">
+        <strong>심각한 부작용 (즉시 병원)</strong><br>
+        • 얼굴·목 부종 (알레르기 반응)<br>
+        • 호흡 곤란, 구토, 설사<br>
+        • 39.5℃ 이상 고열<br>
+        • 경련, 의식 저하<br>
+        • 주사 부위 심한 부기·열감
+      </p>
+    </div>
+
+    <div class="caution-box">
+      <div class="caution-box-title">⚠️ 알레르기 반응 주의</div>
+      <p>
+        백신 접종 후 15~30분 동안은 병원 근처에서 대기하세요.
+        심각한 알레르기 반응은 접종 직후에 나타나는 경우가 많습니다.
+        이상 증상이 보이면 즉시 수의사에게 알리세요.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="section-label"><span class="section-tag">07 · FAQ</span></div>
+    <h2>자주 묻는 질문</h2>
+
+    <div class="card">
+      <div class="card-label">Q. 백신을 맞아도 병에 걸릴 수 있나요?</div>
+      <p style="font-size:14px;">
+        네, 가능합니다. 백신은 100% 예방을 보장하지 않지만,
+        감염되더라도 증상이 훨씬 경미하고 생존율이 높아집니다.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Q. 백신을 늦게 맞았어요. 처음부터 다시 해야 하나요?</div>
+      <p style="font-size:14px;">
+        일정이 밀렸다면 중단된 곳부터 이어서 접종하면 됩니다.
+        다만 면역 형성이 늦어지므로 가급적 일정을 지키는 게 좋습니다.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Q. 실내견인데도 백신이 필요한가요?</div>
+      <p style="font-size:14px;">
+        네, 필요합니다. 바이러스는 사람 신발이나 옷에 묻어 들어올 수 있고,
+        동물병원 방문 시에도 노출될 수 있습니다.
+        광견병은 법적 의무이기도 합니다.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Q. 노령견도 매년 백신을 맞아야 하나요?</div>
+      <p style="font-size:14px;">
+        기저질환이 있거나 컨디션이 나쁘면 항체 검사로 대체할 수 있습니다.
+        수의사와 상담해서 개별적으로 결정하세요.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label"><span class="section-tag">Related</span></div>
+    <h2>함께 보면 좋은 가이드</h2>
+    <div class="related-grid">
+      <a class="related-item" href="care/health/heartworm">
+        <div class="related-emoji">🦟</div>
+        <div class="related-title">심장사상충 예방 가이드</div>
+        <div class="related-sub">CARE · 건강관리</div>
+      </a>
+      <a class="related-item" href="care/health/flea-tick">
+        <div class="related-emoji">🐜</div>
+        <div class="related-title">벼룩·진드기 예방 가이드</div>
+        <div class="related-sub">CARE · 건강관리</div>
+      </a>
+      <a class="related-item" href="care/health/dental">
+        <div class="related-emoji">🦷</div>
+        <div class="related-title">강아지 치아 관리 가이드</div>
+        <div class="related-sub">CARE · 건강관리</div>
+      </a>
+      <a class="related-item" href="care/health/senior">
+        <div class="related-emoji">🐕</div>
+        <div class="related-title">노령견 건강관리 가이드</div>
+        <div class="related-sub">CARE · 건강관리</div>
+      </a>
+    </div>
+  </section>
+
+  <div class="cta-banner">
+    <h3>우리 강아지 건강 보장이 궁금하다면</h3>
+    <p>예방접종부터 질병 치료까지 든든하게 보장하는 마이브라운 반려견 보험</p>
+    <a class="cta-btn" href="https://mybrownpet.com">보험 상담 신청하기 →</a>
+  </div>
+
+  <div class="article-meta">
+    <p>CARE_HEALTH_01 · 펫키디피아 Care Guide</p>
+    <p>마지막 업데이트: 2026.03</p>
+    <p>이 콘텐츠는 전문 수의학적 진단을 대체하지 않습니다.</p>
+  </div>
+
+</div>
+
+</body>
+</html>

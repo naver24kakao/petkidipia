@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light" style=""><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마이브라운 반려견보험 마케팅 전략 가이드</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+      :root {
+        --primary-color: #8b4513; /* SaddleBrown */
+        --secondary-color: #d2691e; /* Chocolate */
+        --accent-color: #cd853f; /* Peru */
+        --light-bg: #faf3e0; /* Very light beige */
+        --white: #ffffff;
+        --text-dark: #3e2723;
+        --text-gray: #5d4037;
+        --border-color: #deb887; /* Burlywood */
+      }
+
+      body {
+        font-family: 'Noto Sans KR', sans-serif;
+        color: var(--text-dark);
+        background-color: #fdfbf7;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+
+      /* Header */
+      header {
+        text-align: center;
+        margin-bottom: 60px;
+        padding: 40px;
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: var(--white);
+        border-radius: 16px;
+        box-shadow: 0 10px 25px rgba(139, 69, 19, 0.2);
+      }
+
+      header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        font-weight: 900;
+      }
+
+      header p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+      }
+
+      /* Typography & Layout */
+      h2 {
+        color: var(--primary-color);
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 10px;
+        margin-top: 60px;
+        margin-bottom: 30px;
+        font-size: 1.8rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      h3 {
+        color: var(--secondary-color);
+        margin-top: 30px;
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+        font-weight: 700;
+      }
+
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        margin-bottom: 30px;
+      }
+
+      .card {
+        background: var(--white);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 25px;
+        box-shadow: 0 4px 6px rgba(139, 69, 19, 0.05);
+        transition: transform 0.2s;
+        border-left: 5px solid var(--primary-color);
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 15px rgba(139, 69, 19, 0.1);
+      }
+
+      /* Tables */
+      .table-container {
+        overflow-x: auto;
+        margin-bottom: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      }
+
+      table {
+        width: 1000px; /* Fixed width to ensure it looks like document */
+        min-width: 100%;
+        border-collapse: collapse;
+        background: var(--white);
+      }
+
+      th {
+        background-color: var(--primary-color);
+        color: var(--white);
+        padding: 15px;
+        text-align: left;
+        font-weight: 600;
+      }
+
+      td {
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+        color: var(--text-gray);
+      }
+
+      tr:nth-child(even) {
+        background-color: #faf3e0;
+      }
+
+      /* Badges & Icons */
+      .badge {
+        display: inline-block;
+        background-color: var(--accent-color);
+        color: white;
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: bold;
+        margin-right: 5px;
+      }
+
+      .icon-box {
+        font-size: 2rem;
+        color: var(--primary-color);
+        margin-bottom: 15px;
+      }
+
+      /* Specific Sections */
+      .killer-point {
+        background: #fff;
+        border: 2px solid var(--secondary-color);
+      }
+
+      .highlight-box {
+        background-color: var(--light-bg);
+        border-left: 4px solid var(--secondary-color);
+        padding: 20px;
+        margin: 15px 0;
+        border-radius: 0 8px 8px 0;
+      }
+
+      /* Speech Bubbles */
+      .speech-bubble {
+        position: relative;
+        background: var(--white);
+        border-radius: 0.4em;
+        padding: 20px;
+        margin-bottom: 20px;
+        border: 1px solid var(--border-color);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      }
+
+      .speech-bubble::after {
+        content: '';
+        position: absolute;
+        left: 20px;
+        bottom: -20px;
+        border: 10px solid transparent;
+        border-top-color: var(--border-color);
+      }
+
+      .qa-box {
+        background: var(--white);
+        margin-bottom: 15px;
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid #e0e0e0;
+      }
+
+      .qa-q {
+        background: var(--light-bg);
+        padding: 15px 20px;
+        font-weight: bold;
+        color: var(--primary-color);
+        display: flex;
+        align-items: center;
+      }
+
+      .qa-q::before {
+        content: 'Q.';
+        margin-right: 10px;
+        font-size: 1.2em;
+      }
+
+      .qa-a {
+        padding: 20px;
+        color: var(--text-dark);
+        border-top: 1px solid #e0e0e0;
+      }
+
+      .qa-a::before {
+        content: 'A.';
+        font-weight: bold;
+        margin-right: 10px;
+        color: var(--secondary-color);
+      }
+
+      /* Card News Slide */
+      .slide-container {
+        display: flex;
+        overflow-x: auto;
+        gap: 20px;
+        padding-bottom: 20px;
+      }
+
+      .slide {
+        min-width: 250px;
+        background: var(--white);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border: 1px solid #eee;
+      }
+
+      .slide-header {
+        background: var(--secondary-color);
+        color: white;
+        padding: 10px;
+        text-align: center;
+        font-weight: bold;
+      }
+
+      .slide-content {
+        padding: 20px;
+        font-size: 0.9rem;
+      }
+
+      /* Sports Section */
+      .sports-card {
+        background: #2e7d32; /* Grass Green */
+        color: white;
+        border-radius: 12px;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+      .sports-card.baseball {
+        background: #1565c0; /* Blue for Baseball */
+      }
+      .sports-card h4 {
+        margin-top: 0;
+        color: #fff0c8;
+      }
+
+      /* Mobile Phone Mockup */
+      .mobile-mockup {
+        max-width: 350px;
+        margin: 0 auto;
+        background: #f5f5f5;
+        border-radius: 20px;
+        border: 8px solid #333;
+        padding: 20px;
+        font-family: sans-serif;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .check-icon {
+        color: #2e7d32;
+      }
+      .x-icon {
+        color: #c62828;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 20px 15px;
+        }
+        header h1 {
+          font-size: 1.8rem;
+        }
+        .card-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body style="">
+    <div class="container">
+      <header>
+        <h1>마이브라운 반려견보험</h1>
+        <p>마케팅 전략 &amp; 세일즈 가이드북</p>
+        <div style="margin-top: 20px; font-size: 0.9rem">
+          <span class="badge" style="background: rgba(255, 255, 255, 0.2)">#수의사가만든보험</span>
+          <span class="badge" style="background: rgba(255, 255, 255, 0.2)">#라이브청구</span>
+          <span class="badge" style="background: rgba(255, 255, 255, 0.2)">#슬개골180일</span>
+        </div>
+      </header>
+
+      <!-- 1. 분석 -->
+      <section>
+        <h2>📌 1. 마이브라운 반려견보험 심층 분석</h2>
+
+        <h3>① 판매 상품 (Product)</h3>
+        <div class="card-grid">
+          <div class="card">
+            <div class="icon-box"><i class="fa-solid fa-layer-group"></i></div>
+            <h4>3단계 플랜 구조</h4>
+            <p>옐로우(실속) / 브라운(표준) / 블랙(고급)으로 직관적인 구성</p>
+          </div>
+          <div class="card">
+            <div class="icon-box"><i class="fa-solid fa-shield-virus"></i></div>
+            <h4>12종 고액진료 기본보장</h4>
+            <p>MRI, CT, 내시경, 항암치료 등을 특약 없이 <span class="badge">기본 보장</span></p>
+          </div>
+          <div class="card">
+            <div class="icon-box"><i class="fa-solid fa-clock"></i></div>
+            <h4>업계 최단 대기기간</h4>
+            <p>슬개골/고관절 대기기간 <span class="badge">180일(6개월)</span>로 단축</p>
+          </div>
+        </div>
+
+        <h3>② 판매 메시지 (Message)</h3>
+        <div class="card-grid">
+          <div class="card">
+            <h4>👨‍⚕️ 수의사가 만든 보험</h4>
+            <p>실제 임상 현장의 데이터를 반영하여 보호자에게 꼭 필요한 보장만 담았습니다.</p>
+          </div>
+          <div class="card">
+            <h4>⚡ 라이브 청구</h4>
+            <p>병원 결제 시 보험금이 즉시 차감! '국민건강보험'처럼 편리하게 이용하세요.</p>
+          </div>
+          <div class="card">
+            <h4>👶 0~3세 골든타임</h4>
+            <p>0~3세 구간 보험료 20~30% 인하! 어릴 때 가입하면 더 합리적입니다.</p>
+          </div>
+        </div>
+
+        <h3>③ 고객 문제 &amp; 해결 (Problem &amp; Solution)</h3>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 50%">고객의 고민 (Problem)</th>
+                <th>마이브라운의 해결 (Solution)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>"보험료는 비싼데 MRI 같은 큰 검사는 보장이 안 돼요."</td>
+                <td><strong>고액 진료 12종 기본 탑재</strong> 및 저렴한 보험료</td>
+              </tr>
+              <tr>
+                <td>"청구하려고 서류 챙기고 앱 신청하고... 너무 귀찮아요."</td>
+                <td><strong>'라이브 청구'</strong>로 병원에서 즉시 정산 및 귀가</td>
+              </tr>
+              <tr>
+                <td>"슬개골 탈구는 가입하고 1년이나 기다려야 한대요."</td>
+                <td>대기기간을 <strong>180일로 단축</strong>하여 공백 최소화</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 2. 경쟁력 비교 -->
+      <section>
+        <h2>🏆 2. 타사 상품 대비 경쟁력 비교</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th style="width: 25%">비교 대상</th>
+                <th>마이브라운의 우위 요소 (Selling Point)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>KB 금쪽같은</strong></td>
+                <td>
+                  KB는 보호자 동반 보장이 강점이나, 마이브라운은 <strong>순수 반려견 의료비 집중도</strong>와
+                  <strong>가성비</strong>가 압도적
+                </td>
+              </tr>
+              <tr>
+                <td><strong>NH 펫앤미</strong></td>
+                <td>마이브라운은 고액 검사(MRI/CT)가 <strong>기본형에 포함</strong>되어 있어 '진짜 아플 때' 유리함</td>
+              </tr>
+              <tr>
+                <td><strong>현대해상 굿앤굿</strong></td>
+                <td>마이브라운은 <strong>'라이브 청구'</strong> 시스템으로 오프라인 병원에서의 편의성이 월등히 높음</td>
+              </tr>
+              <tr>
+                <td><strong>메리츠 펫퍼민트</strong></td>
+                <td>
+                  슬개골 대기기간 <strong>(180일 vs 1년)</strong>과 신생 전용사만의 <strong>저렴한 초기 보험료</strong>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>삼성화재 위풍댕댕</strong></td>
+                <td>수의사 주도 설계로 <strong>피부/치과 등 생활 질환 보장</strong>이 더 촘촘함</td>
+              </tr>
+              <tr>
+                <td><strong>한화 펫플러스 II</strong></td>
+                <td><strong>'웰컴브라운'</strong> 프로그램(건강체크)을 통해 강력한 초기 가입 경험 제공</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 3. 킬러포인트 -->
+      <section>
+        <h2>💥 3. 마이브라운 4대 킬러포인트</h2>
+        <div class="card-grid" style="grid-template-columns: 1fr 1fr">
+          <div class="card killer-point">
+            <div class="icon-box"><i class="fa-solid fa-mobile-screen-button"></i></div>
+            <h3>1. 라이브 청구 (UX 혁신)</h3>
+            <p>
+              서류 사진 찍고 업로드? NO! <br>파트너 병원에서 결제 시 <strong>자동으로 보험금 차감</strong>. 보호자가
+              느끼는 가장 큰 편의성입니다.
+            </p>
+          </div>
+          <div class="card killer-point">
+            <div class="icon-box"><i class="fa-solid fa-bone"></i></div>
+            <h3>2. 슬개골 탈구 '반년'의 승부</h3>
+            <p>
+              업계 최단 <strong>180일 면책</strong>. <br>"지금 가입하면 올해 안에 보장받을 수 있다"는 메시지는 매우
+              강력합니다.
+            </p>
+          </div>
+          <div class="card killer-point">
+            <div class="icon-box"><i class="fa-solid fa-stethoscope"></i></div>
+            <h3>3. 0~3세 '웰컴브라운' 전략</h3>
+            <p>무료 건강체크 후 가입! <br>건강할 때 미리 저렴하게 가입하려는 저연령 보호자 층을 확실히 선점합니다.</p>
+          </div>
+          <div class="card killer-point">
+            <div class="icon-box"><i class="fa-solid fa-star-of-life"></i></div>
+            <h3>4. 고액진료 12종 '묻지마 보장'</h3>
+            <p>
+              MRI, CT, 항암치료 등 고가 진료를 <strong>특약 없이 기본 포함</strong>. 복잡한 보험을 심플하게 바꿨습니다.
+            </p>
+          </div>
+        </div>
+
+        <div class="highlight-box">
+          <strong>✨ 추가 강력 포인트</strong>
+          <ul style="margin: 10px 0 0 20px">
+            <li><strong>치료 목적 스케일링 보장:</strong> 대부분 제외하는 치과 질환(스케일링, 발치) 보장</li>
+            <li><strong>수술 횟수 제한 없음:</strong> 연간 보상 한도 내에서 횟수 제한 없이 수술비 지원</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 4. 타겟 전략 -->
+      <section>
+        <h2>🎯 4. 3050 여성 타겟 전략</h2>
+        <p>
+          3050 여성 고객은 반려견을 '막내 자녀'로 인식하며, <strong>가성비(보험료)</strong>와
+          <strong>편의성(청구 절차)</strong>을 꼼꼼하게 따지는 스마트 컨슈머입니다.
+        </p>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th width="20%">구분</th>
+                <th width="40%">고객 페르소나 및 니즈</th>
+                <th>마이브라운 솔루션</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>30대</strong><br>직장인/육아맘</td>
+                <td>"바빠 죽겠는데 서류 챙길 시간 없어. 복잡하면 안 써."</td>
+                <td><strong>[라이브 청구]</strong><br>병원 현장 즉시 정산. 청구라는 '숙제' 해결.</td>
+              </tr>
+              <tr>
+                <td><strong>40대</strong><br>정보형/꼼꼼맘</td>
+                <td>"슬개골 걱정인데, 언제부터 보장돼? 조건은?"</td>
+                <td><strong>[180일 면책]</strong><br>타사(1년) 대비 절반. "올해 안에 보장" 강조.</td>
+              </tr>
+              <tr>
+                <td><strong>50대</strong><br>건강관리/시니어</td>
+                <td>"병원비 너무 비싸. MRI 한 번에 수십만 원인데..."</td>
+                <td><strong>[12종 고액진료]</strong><br>특약 고민 없이 MRI/CT/항암 포함된 '통 큰 보장'.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card">
+          <h3>💡 3050 여성 타겟 공략 멘트</h3>
+          <div class="highlight-box" style="border-left-color: var(--primary-color)">
+            <strong>"보험금 청구, 병원 문 나서기 전에 끝납니다"</strong><br>
+            → 영수증 챙기지 마세요, 병원에서 알아서 깎아줍니다. (편의성)
+          </div>
+          <div class="highlight-box" style="border-left-color: var(--primary-color)">
+            <strong>"수의사가 설계한 '진짜' 필요한 보장"</strong><br>
+            → 동물병원 원장님들이 직접 만든 '상술 없는 보험'입니다. (신뢰)
+          </div>
+          <div class="highlight-box" style="border-left-color: var(--primary-color)">
+            <strong>"가장 짧은 기다림, 슬개골 6개월의 약속"</strong><br>
+            → 1년 기다리다 병 키우지 말고, 6개월 만에 보장받으세요. (실익)
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. 비교표 -->
+      <section>
+        <h2>📊 5. 마이브라운 vs 대형 보험사 비교표</h2>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>비교 항목</th>
+                <th style="
+                    background: #fff3e0;
+                    color: var(--primary-color);
+                    border-bottom: 2px solid var(--primary-color);
+                  ">
+                  마이브라운 (추천)
+                </th>
+                <th>기존 대형 보험사</th>
+                <th>마이브라운의 강점</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>슬개골 면책</strong></td>
+                <td style="background: #fff3e0; font-weight: bold">180일 (6개월)</td>
+                <td>365일 (1년)</td>
+                <td>기다림은 짧게, 안심은 빠르게</td>
+              </tr>
+              <tr>
+                <td><strong>스케일링</strong></td>
+                <td style="background: #fff3e0; font-weight: bold">
+                  <i class="fa-solid fa-check check-icon"></i> 치료 목적 포함
+                </td>
+                <td><i class="fa-solid fa-xmark x-icon"></i> 대부분 제외</td>
+                <td>구강 건강까지 실질적 보장</td>
+              </tr>
+              <tr>
+                <td><strong>수술 횟수</strong></td>
+                <td style="background: #fff3e0; font-weight: bold">무제한 (한도 내)</td>
+                <td>연 2회 제한</td>
+                <td>고액/반복 치료 시 유리</td>
+              </tr>
+              <tr>
+                <td><strong>보험금 청구</strong></td>
+                <td style="background: #fff3e0; font-weight: bold">라이브 청구 (실시간)</td>
+                <td>서류/앱 사후 청구</td>
+                <td>번거로운 서류 절차 제로</td>
+              </tr>
+              <tr>
+                <td><strong>초기 보험료</strong></td>
+                <td style="background: #fff3e0; font-weight: bold">20~30% 저렴</td>
+                <td>표준 요율 (고가)</td>
+                <td>합리적인 초기 진입 비용</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 6. 카드뉴스 -->
+      <section>
+        <h2>📱 6. SNS/맘카페 마케팅용 카드뉴스</h2>
+        <div class="slide-container">
+          <div class="slide">
+            <div class="slide-header">SLIDE 1: 메인</div>
+            <div class="slide-content">
+              <strong>[감성 타겟팅]</strong><br><br>
+              "우리 집 막내, 아픈데 병원비 걱정부터 앞선다면? 엄마의 마음은 무겁습니다."<br><br>
+              <small>이미지: 강아지를 안고 있는 따뜻한 여성 사진</small>
+            </div>
+          </div>
+          <div class="slide">
+            <div class="slide-header">SLIDE 2: 공감</div>
+            <div class="slide-content">
+              <strong>[MRI/CT 보장]</strong><br><br>
+              "한 번 찍을 때마다 수십만 원... 망설이셨나요? 마이브라운은 12종 고액진료가 기본 포함!"<br><br>
+              <small>이미지: 병원비 영수증을 보고 고민하는 모습</small>
+            </div>
+          </div>
+          <div class="slide">
+            <div class="slide-header">SLIDE 3: 편의성</div>
+            <div class="slide-content">
+              <strong>[라이브 청구]</strong><br><br>
+              "서류 챙기는 건 이제 그만! 병원에서 바로 계산되는 라이브 청구로 아이 케어에만 집중하세요."<br><br>
+              <small>이미지: 핸드폰으로 간편하게 결제 완료</small>
+            </div>
+          </div>
+          <div class="slide">
+            <div class="slide-header">SLIDE 4: 혜택</div>
+            <div class="slide-content">
+              <strong>[슬개골 탈구]</strong><br><br>
+              "소형견 엄마들의 최대 고민, 1년이나 기다려야 한다고요? 마이브라운은 딱 180일!"<br><br>
+              <small>이미지: 활짝 웃으며 뛰어노는 강아지</small>
+            </div>
+          </div>
+          <div class="slide">
+            <div class="slide-header">SLIDE 5: 액션</div>
+            <div class="slide-content">
+              <strong>[마무리]</strong><br><br>
+              "사랑하는 아이를 위한 가장 스마트한 선택, 지금 바로 내 아이 보험료를 확인해보세요."<br><br>
+              <small>버튼: 내 아이 맞춤 보험료 조회하기</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. 상담 스크립트 -->
+      <section>
+        <h2>💬 7. 현장 상담용 클로징 &amp; Q&amp;A</h2>
+
+        <h3>💡 현장 클로징 멘트</h3>
+        <div class="speech-bubble">
+          <strong>1. 시간 절약 강조</strong><br>
+          "어머님, 안 그래도 바쁘신데 영수증 챙기고 앱 켜서 사진 찍으실 시간 없으시잖아요? 마이브라운은 병원에서 그냥
+          계산하면 끝이에요. 정말 편합니다."
+        </div>
+        <div class="speech-bubble">
+          <strong>2. 진정성 강조</strong><br>
+          "수의사분들이 병원에서 '이런 게 꼭 필요하다' 싶은 것들만 모아서 만들었어요. 엄마들이 제일 무서워하는 MRI나
+          슬개골 비용부터 확실하게 잡아줍니다."
+        </div>
+
+        <h3>🛡️ 거절 대응 Q&amp;A</h3>
+        <div class="qa-box">
+          <div class="qa-q">"아직 어려서 건강한데, 나중에 가입해도 되지 않을까요?"</div>
+          <div class="qa-a">
+            "맞아요, 지금은 건강하죠! 하지만 마이브라운은 0~3세 영유아기에 가입하면 20~30%나 저렴해요. 슬개골 탈구는
+            언제 올지 모르는데 대기기간 6개월을 미리 채워두시는 게 가장 현명합니다."
+          </div>
+        </div>
+        <div class="qa-box">
+          <div class="qa-q">"삼성이나 KB 같은 큰 회사가 더 믿음직스럽지 않나요?"</div>
+          <div class="qa-a">
+            "브랜드도 중요하죠. 하지만 마이브라운은 국내 최초 반려동물 전문 보험사입니다. 대형사도 못 하는 '스케일링
+            보장'이나 '라이브 청구'는 오직 전문사라서 가능한 혜택이에요."
+          </div>
+        </div>
+        <div class="qa-box">
+          <div class="qa-q">"보험금 청구하는 게 너무 귀찮아서 안 하려고요."</div>
+          <div class="qa-a">
+            "그 마음 이해합니다. 그래서 마이브라운은 그 숙제를 없앴어요! 제휴 병원에서는 결제할 때 보험금이 즉시
+            처리되니까, 그냥 아이만 안고 편하게 귀가하시면 됩니다."
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. 당근마켓 가이드 -->
+      <section>
+        <h2>🥕 8. 당근마켓 전용 마케팅 가이드</h2>
+
+        <div class="card-grid" style="grid-template-columns: repeat(3, 1fr)">
+          <div class="card" style="border-left-color: #ff8a3d">
+            <h4>[버전 A] 실속형</h4>
+            <p style="font-size: 0.9em; font-weight: bold; color: #ff8a3d">"우리 동네 댕댕이 엄마들 주목!"</p>
+            <hr>
+            <p>슬개골 탈구 보장, 1년 기다리다 지치셨나요? <strong>마이브라운은 딱 반년(180일)입니다!</strong></p>
+          </div>
+          <div class="card" style="border-left-color: #ff8a3d">
+            <h4>[버전 B] 편의성형</h4>
+            <p style="font-size: 0.9em; font-weight: bold; color: #ff8a3d">"병원비 결제, 서류 필요 없어요"</p>
+            <hr>
+            <p>바쁜 엄마들을 위한 0초 청구! 병원에서 결제 시 <strong>바로 보험금이 차감됩니다.</strong></p>
+          </div>
+          <div class="card" style="border-left-color: #ff8a3d">
+            <h4>[버전 C] 가성비형</h4>
+            <p style="font-size: 0.9em; font-weight: bold; color: #ff8a3d">"0~3세 막내라면? 지금이 기회!"</p>
+            <hr>
+            <p>우리 집 막내 보험료, <strong>타사 대비 20~30% 더 저렴하게</strong> 시작하세요!</p>
+          </div>
+        </div>
+
+        <div class="highlight-box" style="border-left-color: #ff8a3d; background: #fff3e0">
+          <strong>💡 당근마켓 운영 꿀팁</strong>
+          <ol>
+            <li><strong>동네생활 탭 활용:</strong> 강아지 질문에 답변하며 자연스럽게 180일 면책 강점 언급</li>
+            <li><strong>후기성 이미지:</strong> 정교한 그래픽보다 실제 강아지 사진 + 간단한 텍스트가 클릭률 ↑</li>
+            <li><strong>최적 시간대:</strong> 오전 10시~오후 2시(주부 자유시간) 또는 오후 9시 이후</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- 9. 스포츠 컨셉 -->
+      <section>
+        <h2>⚽⚾ 9. 스포츠 컨셉 광고 아이디어</h2>
+
+        <div class="card-grid">
+          <div class="sports-card baseball">
+            <h4>⚾ 야구 버전: 부상자 명단(IL) 편</h4>
+            <p>"타 팀(보험사)은 복귀까지 1년? <br><strong>마이브라운은 180일 만에 조기 복귀 확정!</strong>"</p>
+            <small>* 슬개골 탈구 대기기간을 야구의 '부상 복귀'로 비유</small>
+          </div>
+          <div class="sports-card" style="background: #2e7d32">
+            <h4>⚽ 축구 버전: 감독의 비밀 전술 편</h4>
+            <p>"승부처는 치아 건강! <br><strong>타사엔 없는 '치료 목적 스케일링'으로 컨디션 관리 끝.</strong>"</p>
+            <small>* 스케일링 보장을 '특급 전술'로 묘사</small>
+          </div>
+        </div>
+
+        <div class="speech-bubble" style="background: #f1f8e9; border-color: #2e7d32">
+          <strong>📣 스포츠 덕후 컨셉 채팅 멘트</strong><br>
+          "반갑습니다! 김댕댕 선수의 이번 시즌 완벽한 복귀를 위해 상담 도와드릴 마이브라운 전담 코치입니다. ⚽ 저희는
+          다른 팀보다 6개월이나 빨리 필드에 복귀(보장)할 수 있게 도와드려요. 김댕댕 선수의 연봉(보험료) 견적
+          뽑아드릴까요?"
+        </div>
+      </section>
+
+      <!-- 10. 모바일 제안서 -->
+      <section>
+        <h2>📝 10. 모바일 제안서 초안</h2>
+        <div class="mobile-mockup">
+          <div style="font-weight: bold; margin-bottom: 15px; font-size: 1.1em">
+            [마이브라운] 우리 아이 건강을 위한 '수의사표' 안심 플랜
+          </div>
+
+          <p style="font-size: 0.9em; margin-bottom: 15px">
+            안녕하세요, 보호자님! 3050 여성 보호자들이 가장 고민하는 '슬개골, 치아, 번거로운 청구' 문제를 해결해드리는
+            마이브라운입니다.
+          </p>
+
+          <div style="background: white; padding: 10px; border-radius: 8px; margin-bottom: 10px; font-size: 0.85em">
+            <strong>✨ 특별한 4가지 이유</strong><br>
+            1. <span style="color: #d2691e">기다림은 짧게</span>: 슬개골 면책 단 180일<br>
+            2. <span style="color: #d2691e">치아까지 꼼꼼하게</span>: 치료 목적 스케일링 보장<br>
+            3. <span style="color: #d2691e">수술비 걱정 제로</span>: 횟수 제한 없는 지원<br>
+            4. <span style="color: #d2691e">서류 절차 제로</span>: 병원 즉시 정산 '라이브 청구'
+          </div>
+
+          <p style="font-size: 0.9em; font-weight: bold">💰 0~3세 가입 시 기존 대비 20~30% 더 합리적!</p>
+
+          <div style="text-align: center; margin-top: 20px">
+            <span style="background: #d2691e; color: white; padding: 8px 20px; border-radius: 20px; font-size: 0.9em">맞춤 보험료 확인하기</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 11. 견종별 특화 -->
+      <section>
+        <h2>🐾 11. 견종별 특화 마케팅 문구</h2>
+        <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))">
+          <div class="card">
+            <h4>🐩 말티즈/포메</h4>
+            <div class="badge">슬개골 특화</div>
+            <p style="margin-top: 10px">
+              "엄마들의 1순위 고민 슬개골 탈구, 1년이나 불안하게 기다리지 마세요.
+              <strong>딱 6개월(180일)이면 보장이 시작됩니다.</strong>"
+            </p>
+          </div>
+          <div class="card">
+            <h4>🐕 토이푸들/비숑</h4>
+            <div class="badge">치아/스케일링</div>
+            <p style="margin-top: 10px">
+              "푸들은 치석 관리가 생명! 타사에선 안 되는 <strong>'치료 목적 스케일링'</strong>도 마이브라운은
+              보장합니다."
+            </p>
+          </div>
+          <div class="card">
+            <h4>🐶 요크셔/치와와</h4>
+            <div class="badge">수술/고액진료</div>
+            <p style="margin-top: 10px">
+              "작은 아이들 수술 비용 만만치 않죠? <strong>수술 횟수 제한 없이</strong> 꽉 채워 보장하는 마이브라운이
+              정답입니다."
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <footer style="text-align: center; padding: 40px; color: #888; border-top: 1px solid #ddd; margin-top: 50px">
+        <p>© 2024 MyBrown Pet Insurance Marketing Guide</p>
+        <p style="font-size: 0.8em">본 자료는 마이브라운 마케팅 및 영업 지원을 위한 내부 자료입니다.</p>
+      </footer>
+    </div>
+  
+
+</body></html>

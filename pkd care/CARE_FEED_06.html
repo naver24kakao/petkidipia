@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>알러지 식단 가이드 — 펫키디피아</title>
+  <meta name="description" content="음식 알레르기 강아지를 위한 제한 급여 시험과 저알레르기 식단 구성법.">
+  <meta name="keywords" content="강아지 알레르기, 알러지 사료, 제한 급여, 저알레르기 식단">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #FBF7F2; --cream-2: #F4EEE5; --gold: #C9A84C; --gold-pale: #F5ECD4;
+      --brown: #2E1F14; --brown-2: #3D2B1F; --warm: #8B5E3C; --soft: #EDE4D8; --muted: #9B8878;
+      --line: rgba(46,31,20,0.08); --green: #2E7D32; --green-pale: #E8F5E9;
+      --amber: #F57F17; --amber-pale: #FFF8E1; --red: #D32F2F; --red-pale: #FFF3F0;
+      --blue: #1976D2; --blue-pale: #E3F2FD; --purple: #7B1FA2; --purple-pale: #F3E5F5;
+      --max: 680px; --font-serif: "Cormorant Garamond", serif; --font-sans: "Noto Sans KR", sans-serif;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: var(--font-sans); background: var(--cream); color: var(--brown); line-height: 1.8; }
+    .top-bar { position: sticky; top: 0; z-index: 50; background: rgba(251,247,242,0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line); padding: 14px 20px; display: flex; align-items: center; gap: 12px; }
+    .top-back { background: none; border: none; font-size: 20px; cursor: pointer; color: var(--brown); }
+    .top-breadcrumb { font-size: 12px; color: var(--muted); }
+    .top-breadcrumb a { color: var(--warm); text-decoration: none; }
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 20px 120px; }
+    .hero { padding: 40px 0 32px; text-align: center; }
+    .hero-badge { display: inline-block; background: var(--amber-pale); color: var(--amber);
+      font-size: 11px; font-weight: 700; padding: 6px 14px; border-radius: 20px;
+      letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px; }
+    .hero h1 { font-family: var(--font-sans); font-size: 26px; font-weight: 700;
+      line-height: 1.4; color: var(--brown); margin-bottom: 12px; }
+    .hero-sub { font-size: 14px; color: var(--muted); line-height: 1.7; }
+    .section { margin-bottom: 36px; }
+    .section h2 { font-size: 20px; font-weight: 700; margin-bottom: 14px; }
+    .section p { font-size: 15px; color: var(--brown-2); margin-bottom: 12px; }
+    .card { background: #fff; border: 1px solid var(--soft); border-radius: 18px; padding: 20px; margin-bottom: 14px; }
+    .card-label { font-size: 11px; font-weight: 700; color: var(--warm);
+      letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 10px; }
+    .checklist { list-style: none; }
+    .checklist li { display: flex; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+    .checklist li:last-child { border-bottom: none; }
+    .check-icon { width: 22px; height: 22px; border-radius: 6px; background: var(--green-pale); color: var(--green);
+      display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+    .caution-box { background: var(--amber-pale); border: 1px solid rgba(245,127,23,0.2);
+      border-radius: 16px; padding: 18px 20px; margin-top: 16px; }
+    .caution-box-title { font-size: 13px; font-weight: 700; color: var(--amber); margin-bottom: 8px; }
+    .caution-box p { font-size: 13px; color: #5D4037; margin-bottom: 0; }
+    .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .related-item { display: block; background: #fff; border: 1px solid var(--soft); border-radius: 14px;
+      padding: 16px; text-decoration: none; transition: transform 0.2s; }
+    .related-item:hover { transform: translateY(-2px); }
+    .related-emoji { font-size: 22px; margin-bottom: 8px; }
+    .related-title { font-size: 13px; font-weight: 700; color: var(--brown); }
+    .related-sub { font-size: 11px; color: var(--muted); margin-top: 4px; }
+    .cta-banner { background: linear-gradient(135deg, var(--brown), var(--brown-2)); border-radius: 20px;
+      padding: 28px 24px; margin-top: 40px; text-align: center; }
+    .cta-banner h3 { font-size: 18px; font-weight: 700; color: var(--cream); margin-bottom: 10px; }
+    .cta-banner p { font-size: 13px; color: rgba(251,247,242,0.85); margin-bottom: 18px; }
+    .cta-btn { display: inline-block; background: var(--gold); color: var(--brown);
+      font-size: 14px; font-weight: 700; padding: 12px 28px; border-radius: 30px; text-decoration: none; }
+    .article-meta { margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--line);
+      text-align: center; font-size: 11px; color: var(--muted); line-height: 1.8; }
+  </style>
+</head>
+<body>
+
+<div class="top-bar">
+  <button class="top-back" onclick="history.back()">←</button>
+  <div class="top-breadcrumb"><a href="/">펫키디피아</a> / <a href="/care">CARE</a> / 급여관리</div>
+</div>
+
+<div class="container">
+  <div class="hero">
+    <div class="hero-badge">CARE · Feeding</div>
+    <h1>알러지 식단 가이드</h1>
+    <p class="hero-sub">음식 알레르기 강아지를 위한 제한 급여 시험과 저알레르기 식단.</p>
+  </div>
+
+  <section class="section">
+    <h2>흔한 알레르겐</h2>
+    <div class="card">
+      <ul class="checklist">
+        <li><span class="check-icon">1</span> 닭고기 → 대체: 오리, 칠면조, 토끼</li>
+        <li><span class="check-icon">2</span> 쇠고기 → 대체: 양고기, 사슴고기, 캥거루</li>
+        <li><span class="check-icon">3</span> 유제품 → 완전 제거</li>
+        <li><span class="check-icon">4</span> 밀 → 대체: 쌀, 감자, 고구마</li>
+        <li><span class="check-icon">5</span> 옥수수 → 대체: 쌀, 타피오카</li>
+        <li><span class="check-icon">6</span> 콩 → 대체: 완두콩 (주의)</li>
+        <li><span class="check-icon">7</span> 계란 → 완전 제거</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>제한 급여 시험 (Elimination Diet)</h2>
+    <div class="card">
+      <div class="card-label">1단계: 새로운 사료로 전환 (8~12주)</div>
+      <p style="font-size:14px;">
+        • 단일 단백질 + 단일 탄수화물<br>
+        • 먹어본 적 없는 재료 선택<br>
+        • 예: 오리+감자, 연어+고구마<br>
+        • **간식 일체 금지** (물과 사료만)
+      </p>
+    </div>
+    <div class="card">
+      <div class="card-label">2단계: 증상 개선 확인 (8~12주 후)</div>
+      <p style="font-size:14px;">증상 50% 이상 개선 → 음식 알레르기 가능성 높음</p>
+    </div>
+    <div class="card">
+      <div class="card-label">3단계: 재도전 (Challenge Test)</div>
+      <p style="font-size:14px;">이전 사료 소량 급여 → 증상 재발 시 알레르기 확진</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>저알레르기 사료 선택</h2>
+    <div class="card">
+      <div class="card-label">① 가수분해 사료</div>
+      <p style="font-size:14px;">단백질을 작게 쪼개서 알레르기 반응 최소화 (비쌈, 수의사 처방)</p>
+    </div>
+    <div class="card">
+      <div class="card-label">② 단일 단백질 사료</div>
+      <p style="font-size:14px;">한 가지 단백질 + 한 가지 탄수화물 (예: 오리+감자)</p>
+    </div>
+    <div class="card">
+      <div class="card-label">③ 곡물 무첨가 사료</div>
+      <p style="font-size:14px;">밀·옥수수·콩 제외</p>
+    </div>
+  </section>
+
+  <div class="caution-box">
+    <div class="caution-box-title">⚠️ 제한 급여 시험 주의</div>
+    <p>
+      8~12주 동안 **간식 일체 금지**. 가족 모두가 규칙을 지켜야 성공합니다.
+      중간에 포기하면 처음부터 다시 시작해야 해요.
+    </p>
+  </div>
+
+  <section class="section">
+    <h2>함께 보면 좋은 가이드</h2>
+    <div class="related-grid">
+      <a class="related-item" href="care/health/allergy">
+        <div class="related-emoji">🌾</div>
+        <div class="related-title">알러지 케어 기본 가이드</div>
+        <div class="related-sub">CARE · 건강관리</div>
+      </a>
+      <a class="related-item" href="care/health/skin">
+        <div class="related-emoji">🩹</div>
+        <div class="related-title">피부 민감견 케어 가이드</div>
+        <div class="related-sub">CARE · 건강관리</div>
+      </a>
+    </div>
+  </section>
+
+  <div class="cta-banner">
+    <h3>알레르기 치료비 보장</h3>
+    <p>마이브라운 반려견 보험</p>
+    <a class="cta-btn" href="https://mybrownpet.com">보험 상담 신청하기 →</a>
+  </div>
+
+  <div class="article-meta">
+    <p>CARE_FEED_06 · 펫키디피아 Care Guide</p>
+    <p>마지막 업데이트: 2026.03</p>
+  </div>
+</div>
+</body>
+</html>

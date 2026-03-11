@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>털갈이 시즌 관리법 — 펫키디피아</title>
+  <meta name="description" content="봄·가을 털갈이 시즌 대응법. 털빠짐 최소화 전략, 집안 관리, 영양 보충까지. 털갈이가 심한 견종 보호자를 위한 실전 가이드.">
+  <meta name="keywords" content="강아지 털갈이, 털갈이 시즌, 털빠짐 관리, 봄 털갈이, 가을 털갈이">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #FBF7F2;
+      --cream-2: #F4EEE5;
+      --gold: #C9A84C;
+      --gold-pale: #F5ECD4;
+      --brown: #2E1F14;
+      --brown-2: #3D2B1F;
+      --warm: #8B5E3C;
+      --soft: #EDE4D8;
+      --muted: #9B8878;
+      --line: rgba(46,31,20,0.08);
+      --green: #2E7D32;
+      --green-pale: #E8F5E9;
+      --amber: #F57F17;
+      --amber-pale: #FFF8E1;
+      --red: #D32F2F;
+      --red-pale: #FFF3F0;
+      --blue: #1976D2;
+      --blue-pale: #E3F2FD;
+      --max: 680px;
+      --font-serif: "Cormorant Garamond", serif;
+      --font-sans: "Noto Sans KR", sans-serif;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--cream);
+      color: var(--brown);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── 상단 바 ── */
+    .top-bar {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(251,247,242,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      padding: 14px 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .top-back { background: none; border: none; font-size: 20px; cursor: pointer; color: var(--brown); }
+    .top-breadcrumb { font-size: 12px; color: var(--muted); }
+    .top-breadcrumb a { color: var(--warm); text-decoration: none; }
+
+    /* ── 컨테이너 ── */
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 20px 120px; }
+
+    /* ── 히어로 ── */
+    .hero {
+      padding: 40px 0 32px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--gold-pale);
+      color: var(--warm);
+      font-size: 11px; font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: var(--font-sans);
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--brown);
+      margin-bottom: 12px;
+    }
+    .hero-sub {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ── 목차 ── */
+    .toc {
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 18px;
+      padding: 20px 24px;
+      margin-bottom: 32px;
+    }
+    .toc-title {
+      font-size: 12px; font-weight: 700;
+      color: var(--warm);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .toc a {
+      display: block;
+      font-size: 14px;
+      color: var(--brown-2);
+      text-decoration: none;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .toc a:last-child { border-bottom: none; }
+    .toc a:hover { color: var(--gold); }
+    .toc-num { color: var(--gold); font-weight: 700; margin-right: 8px; }
+
+    /* ── 섹션 공통 ── */
+    .section { margin-bottom: 36px; }
+    .section-label {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 16px;
+    }
+    .section-label::before, .section-label::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(to right, var(--gold), transparent);
+    }
+    .section-label::after {
+      background: linear-gradient(to left, var(--gold), transparent);
+    }
+    .section-tag {
+      font-family: var(--font-serif);
+      font-size: 13px; font-style: italic;
+      color: var(--gold);
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+    .section h2 {
+      font-size: 20px; font-weight: 700;
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+    .section p {
+      font-size: 15px;
+      color: var(--brown-2);
+      margin-bottom: 12px;
+    }
+
+    /* ── 카드 ── */
+    .card {
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 18px;
+      padding: 20px;
+      margin-bottom: 14px;
+    }
+    .card-label {
+      font-size: 11px; font-weight: 700;
+      color: var(--warm);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    /* ── 시즌 카드 ── */
+    .season-card {
+      background: #fff;
+      border: 2px solid var(--soft);
+      border-radius: 18px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+    .season-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .season-icon {
+      font-size: 32px;
+    }
+    .season-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--brown);
+    }
+    .season-period {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    /* ── 체크리스트 ── */
+    .checklist { list-style: none; }
+    .checklist li {
+      display: flex; gap: 10px; align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+    }
+    .checklist li:last-child { border-bottom: none; }
+    .check-icon {
+      width: 22px; height: 22px;
+      border-radius: 6px;
+      background: var(--green-pale);
+      color: var(--green);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* ── 주의 박스 ── */
+    .caution-box {
+      background: var(--amber-pale);
+      border: 1px solid rgba(245,127,23,0.2);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin-top: 16px;
+    }
+    .caution-box-title {
+      font-size: 13px; font-weight: 700;
+      color: var(--amber);
+      margin-bottom: 8px;
+    }
+    .caution-box p {
+      font-size: 13px;
+      color: #5D4037;
+      margin-bottom: 0;
+    }
+
+    /* ── 팁 박스 ── */
+    .tip-box {
+      background: var(--blue-pale);
+      border: 1px solid rgba(25,118,210,0.2);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin-top: 16px;
+    }
+    .tip-box-title {
+      font-size: 13px; font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+    .tip-box p {
+      font-size: 13px;
+      color: var(--brown-2);
+      margin-bottom: 0;
+    }
+
+    /* ── 타임라인 ── */
+    .timeline {
+      position: relative;
+      padding-left: 32px;
+      margin-top: 16px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--soft);
+    }
+    .timeline-item {
+      position: relative;
+      padding-bottom: 20px;
+    }
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+    .timeline-dot {
+      position: absolute;
+      left: -26px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 3px solid var(--cream);
+    }
+    .timeline-content {
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 12px;
+      padding: 14px 16px;
+    }
+    .timeline-week {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--warm);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .timeline-text {
+      font-size: 14px;
+      color: var(--brown-2);
+    }
+
+    /* ── 병원 방문 신호 ── */
+    .vet-signal {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 14px 16px;
+      background: var(--red-pale);
+      border: 1px solid rgba(211,47,47,0.12);
+      border-radius: 14px;
+      margin-bottom: 10px;
+    }
+    .vet-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--red);
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
+    .vet-text { font-size: 14px; color: var(--brown-2); }
+
+    /* ── 관련 콘텐츠 ── */
+    .related-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .related-item {
+      display: block;
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 14px;
+      padding: 16px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .related-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(46,31,20,0.08);
+    }
+    .related-emoji { font-size: 22px; margin-bottom: 8px; }
+    .related-title { font-size: 13px; font-weight: 700; color: var(--brown); line-height: 1.4; }
+    .related-sub { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+    /* ── CTA 배너 ── */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--brown), var(--brown-2));
+      border-radius: 20px;
+      padding: 28px 24px;
+      margin-top: 40px;
+      text-align: center;
+    }
+    .cta-banner h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    .cta-banner p {
+      font-size: 13px;
+      color: rgba(251,247,242,0.85);
+      margin-bottom: 18px;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--brown);
+      font-size: 14px; font-weight: 700;
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(201,168,76,0.4);
+    }
+
+    /* ── 아티클 메타 ── */
+    .article-meta {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      text-align: center;
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+
+<!-- 상단 바 -->
+<div class="top-bar">
+  <button class="top-back" onclick="history.back()">←</button>
+  <div class="top-breadcrumb">
+    <a href="/">펫키디피아</a> / <a href="/care">CARE</a> / 그루밍
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- 히어로 -->
+  <div class="hero">
+    <div class="hero-badge">CARE · Grooming</div>
+    <h1>털갈이 시즌 관리법</h1>
+    <p class="hero-sub">
+      봄과 가을, 집안이 털 천지가 되는 시기.<br>
+      털갈이를 이해하고 대응하면 보호자와 강아지 모두 편안합니다.
+    </p>
+  </div>
+
+  <!-- 목차 -->
+  <nav class="toc">
+    <div class="toc-title">목차</div>
+    <a href="#why"><span class="toc-num">01</span>왜 털갈이를 하나요</a>
+    <a href="#season"><span class="toc-num">02</span>시즌별 특징</a>
+    <a href="#timeline"><span class="toc-num">03</span>털갈이 타임라인</a>
+    <a href="#care"><span class="toc-num">04</span>시즌 관리법</a>
+    <a href="#home"><span class="toc-num">05</span>집안 관리 팁</a>
+    <a href="#nutrition"><span class="toc-num">06</span>영양 보충</a>
+    <a href="#vet"><span class="toc-num">07</span>병원 방문 신호</a>
+  </nav>
+
+  <!-- 01. WHY -->
+  <section class="section" id="why">
+    <div class="section-label"><span class="section-tag">01 · Why Shedding</span></div>
+    <h2>왜 털갈이를 하나요</h2>
+    <p>
+      털갈이는 계절 변화에 맞춰 체온 조절 시스템을 업데이트하는 자연스러운 과정입니다.
+      봄에는 두꺼운 겨울털을 벗고 얇은 여름털로 바꾸고,
+      가을에는 다시 보온용 겨울털을 준비해요.
+    </p>
+    <p>
+      이 과정에서 오래된 털(주로 언더코트)이 대량으로 빠지는데,
+      이중모 견종은 특히 털빠짐이 심합니다.
+      단모종이나 장모종도 계절에 따라 털 밀도가 달라지기 때문에 털갈이를 경험해요.
+    </p>
+
+    <div class="card">
+      <div class="card-label">털갈이가 심한 견종</div>
+      <p style="font-size:14px;">
+        <strong>이중모 견종</strong> — 골든 리트리버, 허스키, 사모예드, 진돗개, 웰시 코기, 포메라니안, 시바견 등<br>
+        <strong>일부 단모종</strong> — 래브라도 리트리버, 비글, 복서 등 (언더코트가 있는 경우)<br>
+        <strong>털갈이 거의 없는 견종</strong> — 푸들, 비숑 프리제, 몰티즈 (털이 계속 자라는 타입)
+      </p>
+    </div>
+  </section>
+
+  <!-- 02. 시즌별 특징 -->
+  <section class="section" id="season">
+    <div class="section-label"><span class="section-tag">02 · Seasonal Patterns</span></div>
+    <h2>시즌별 특징</h2>
+
+    <div class="season-card">
+      <div class="season-header">
+        <div class="season-icon">🌸</div>
+        <div>
+          <div class="season-title">봄 털갈이 (3~5월)</div>
+          <div class="season-period">가장 심한 시기</div>
+        </div>
+      </div>
+      <p style="font-size:14px; margin-bottom:12px;">
+        겨울 동안 보온을 위해 자란 두꺼운 언더코트가 한꺼번에 빠집니다.
+        이 시기가 연중 털빠짐이 가장 심한 때예요.
+      </p>
+      <p style="font-size:14px; color:var(--warm); font-weight:500;">
+        특징: 솜뭉치처럼 뭉쳐서 빠짐, 2~4주간 지속, 집안 곳곳에 털 폭발
+      </p>
+    </div>
+
+    <div class="season-card">
+      <div class="season-header">
+        <div class="season-icon">🍂</div>
+        <div>
+          <div class="season-title">가을 털갈이 (9~11월)</div>
+          <div class="season-period">중간 강도</div>
+        </div>
+      </div>
+      <p style="font-size:14px; margin-bottom:12px;">
+        여름털이 빠지고 겨울을 대비한 두꺼운 언더코트가 자라기 시작합니다.
+        봄만큼은 아니지만 꽤 많은 털이 빠져요.
+      </p>
+      <p style="font-size:14px; color:var(--warm); font-weight:500;">
+        특징: 봄보다 짧은 기간(1~3주), 새 털이 자라면서 빠짐
+      </p>
+    </div>
+
+    <div class="caution-box">
+      <div class="caution-box-title">💡 실내견의 털갈이</div>
+      <p>
+        실내에서만 생활하는 강아지는 일정한 온도에 노출되어
+        계절별 털갈이가 뚜렷하지 않고, 연중 조금씩 빠지는 경우가 많습니다.
+        그래도 봄·가을에는 다른 시기보다 털빠짐이 증가해요.
+      </p>
+    </div>
+  </section>
+
+  <!-- 03. 타임라인 -->
+  <section class="section" id="timeline">
+    <div class="section-label"><span class="section-tag">03 · Timeline</span></div>
+    <h2>털갈이 타임라인 (봄 기준)</h2>
+    <p>
+      일반적인 봄 털갈이는 약 3~4주에 걸쳐 진행됩니다.
+      견종과 개체에 따라 기간이 다를 수 있어요.
+    </p>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-week">Week 1</div>
+          <div class="timeline-text">털빠짐 시작. 빗질하면 조금씩 언더코트가 나옴. 아직 집안 털날림은 심하지 않음.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-week">Week 2</div>
+          <div class="timeline-text">피크 시작. 털이 솜뭉치처럼 뭉쳐서 빠짐. 하루 한 번 빗질 필수. 집안 청소 주기 증가 필요.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-week">Week 3</div>
+          <div class="timeline-text">절정. 가장 많은 털이 빠지는 시기. 매일 빗질해도 다음 날 또 나옴. 이 시기만 잘 버티면 됨.</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-week">Week 4</div>
+          <div class="timeline-text">마무리 단계. 털빠짐이 눈에 띄게 줄어듬. 주 2~3회 빗질로도 충분해짐. 새 털이 자라기 시작.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04. 시즌 관리법 -->
+  <section class="section" id="care">
+    <div class="section-label"><span class="section-tag">04 · Season Care</span></div>
+    <h2>시즌 관리법</h2>
+
+    <div class="card">
+      <div class="card-label">빗질 주기 조절</div>
+      <p style="font-size:14px;">
+        <strong>평소 (비시즌)</strong> — 주 1~2회 (단모종) / 주 2~3회 (장모·이중모)<br>
+        <strong>털갈이 시작</strong> — 주 3~4회로 증가<br>
+        <strong>피크 기간</strong> — 매일 또는 하루 2회 (아침·저녁)<br>
+        <strong>마무리 단계</strong> — 주 3회로 감소
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">목욕 타이밍</div>
+      <p style="font-size:14px;">
+        털갈이 시즌에는 목욕 후 드라이 중에 빗질하면
+        죽은 털이 대량으로 빠져서 매우 효과적입니다.
+        단, 목욕 전에 반드시 엉킨 털을 먼저 풀어야 해요.
+        젖은 상태에서 엉키면 매트가 되어 제거하기 어렵습니다.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">추천 도구</div>
+      <p style="font-size:14px;">
+        <strong>이중모 견종</strong> — 언더코트 레이크, 디셰딩 툴(퍼미네이터), 슬리커 브러시<br>
+        <strong>단모종</strong> — 러버 브러시, 브리슬 브러시<br>
+        <strong>장모종</strong> — 핀 브러시, 슬리커 브러시, 콤
+      </p>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-box-title">💡 빗질 팁</div>
+      <p>
+        야외에서 빗질하면 집안 청소가 훨씬 편합니다.
+        아파트라면 베란다나 옥상, 단독주택이라면 마당에서 빗질 추천.
+        빗질 후 강아지 옷이나 수건으로 몸을 한 번 쓸어주면
+        남은 털을 추가로 제거할 수 있어요.
+      </p>
+    </div>
+  </section>
+
+  <!-- 05. 집안 관리 -->
+  <section class="section" id="home">
+    <div class="section-label"><span class="section-tag">05 · Home Management</span></div>
+    <h2>집안 관리 팁</h2>
+    <p>
+      아무리 빗질을 열심히 해도 털갈이 시즌에는 집안 곳곳에 털이 날립니다.
+      완벽하게 막을 수는 없지만, 관리 부담을 줄이는 방법은 있어요.
+    </p>
+
+    <div class="card">
+      <div class="card-label">청소 도구</div>
+      <p style="font-size:14px;">
+        <strong>로봇청소기</strong> — 매일 자동 청소로 바닥 털 제거<br>
+        <strong>공기청정기</strong> — 공중에 떠다니는 털과 먼지 포집<br>
+        <strong>롤러 클리너</strong> — 소파, 침대, 옷에 붙은 털 제거<br>
+        <strong>고무장갑</strong> — 물기 있는 고무장갑으로 쓸어내면 털이 잘 뭉침
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">공간 관리</div>
+      <p style="font-size:14px;">
+        <strong>강아지 전용 공간</strong> — 가능하면 털날림이 집중되는 공간 지정<br>
+        <strong>커버 사용</strong> — 소파·침대에 빨기 쉬운 커버 씌우기<br>
+        <strong>환기</strong> — 창문 열어 털 먼지 배출 (공기청정기와 병행)<br>
+        <strong>카펫 최소화</strong> — 털갈이 시즌엔 러그나 카펫 치우기 고려
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">세탁 팁</div>
+      <p style="font-size:14px;">
+        강아지 옷이나 이불을 세탁할 때 건조기를 먼저 10분 정도 돌리면
+        털이 필터로 모여서 제거가 쉬워집니다.
+        그 다음 세탁하면 세탁기에 털이 덜 쌓여요.
+      </p>
+    </div>
+  </section>
+
+  <!-- 06. 영양 보충 -->
+  <section class="section" id="nutrition">
+    <div class="section-label"><span class="section-tag">06 · Nutrition Support</span></div>
+    <h2>영양 보충</h2>
+    <p>
+      털갈이 시즌에는 새로운 털이 자라면서 영양 소모가 많아집니다.
+      적절한 영양 보충으로 건강한 털 성장을 도울 수 있어요.
+    </p>
+
+    <div class="card">
+      <div class="card-label">오메가-3 지방산</div>
+      <p style="font-size:14px;">
+        피부와 털 건강에 가장 중요한 영양소입니다.
+        연어 오일, 들기름, 오메가-3 강아지 영양제 등을 급여하면
+        털 윤기가 좋아지고 피부 염증도 줄일 수 있어요.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">단백질</div>
+      <p style="font-size:14px;">
+        털의 주성분은 단백질(케라틴)입니다.
+        양질의 동물성 단백질이 풍부한 사료를 선택하고,
+        삶은 닭가슴살, 계란 노른자 같은 간식을 추가하면 도움이 됩니다.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">아연 & 비타민 E</div>
+      <p style="font-size:14px;">
+        피부 재생과 털 성장에 필요한 미네랄과 비타민입니다.
+        종합 영양제를 급여하거나, 수의사와 상담 후 보충제를 추가할 수 있어요.
+      </p>
+    </div>
+
+    <div class="caution-box">
+      <div class="caution-box-title">⚠️ 주의사항</div>
+      <p>
+        영양제는 과다 섭취 시 오히려 해로울 수 있습니다.
+        특히 지용성 비타민(A, D, E, K)은 체내 축적되므로
+        수의사와 상담 후 적정량을 급여하세요.
+      </p>
+    </div>
+  </section>
+
+  <!-- 07. 병원 방문 -->
+  <section class="section" id="vet">
+    <div class="section-label"><span class="section-tag">07 · When to Visit Vet</span></div>
+    <h2>병원 방문이 필요한 신호</h2>
+    <p>
+      일반적인 털갈이와 달리 아래 증상이 보이면 질환을 의심해볼 수 있습니다.
+    </p>
+
+    <div class="vet-signal">
+      <span class="vet-dot"></span>
+      <span class="vet-text">계절과 무관하게 털이 과도하게 빠진다</span>
+    </div>
+    <div class="vet-signal">
+      <span class="vet-dot"></span>
+      <span class="vet-text">특정 부위만 대칭적으로 털이 빠지거나 대머리가 생긴다</span>
+    </div>
+    <div class="vet-signal">
+      <span class="vet-dot"></span>
+      <span class="vet-text">피부에 붉은 반점, 발진, 각질, 또는 진물이 있다</span>
+    </div>
+    <div class="vet-signal">
+      <span class="vet-dot"></span>
+      <span class="vet-text">털빠짐과 함께 가려움증이 심하다 (계속 긁거나 핥음)</span>
+    </div>
+    <div class="vet-signal">
+      <span class="vet-dot"></span>
+      <span class="vet-text">털이 뭉쳐서 빠지는 게 아니라 부스스하게 빠진다</span>
+    </div>
+    <div class="vet-signal">
+      <span class="vet-dot"></span>
+      <span class="vet-text">체중 감소, 무기력, 식욕 저하 등 다른 증상이 동반된다</span>
+    </div>
+
+    <div class="caution-box" style="margin-top:16px;">
+      <div class="caution-box-title">⚠️ 참고</div>
+      <p>
+        이 가이드는 일반적인 관리 정보를 제공하며,
+        전문적인 수의학적 진단을 대체하지 않습니다.
+        강아지의 상태가 걱정되면 반드시 수의사와 상담하세요.
+      </p>
+    </div>
+  </section>
+
+  <!-- 관련 콘텐츠 -->
+  <section class="section">
+    <div class="section-label"><span class="section-tag">Related</span></div>
+    <h2>함께 보면 좋은 가이드</h2>
+    <div class="related-grid">
+      <a class="related-item" href="care/grooming/basic">
+        <div class="related-emoji">✂️</div>
+        <div class="related-title">털관리 기본 가이드</div>
+        <div class="related-sub">CARE · 그루밍</div>
+      </a>
+      <a class="related-item" href="care/grooming/double-coat">
+        <div class="related-emoji">🐺</div>
+        <div class="related-title">이중모 털관리 가이드</div>
+        <div class="related-sub">CARE · 그루밍</div>
+      </a>
+      <a class="related-item" href="care/grooming/long-coat">
+        <div class="related-emoji">🐩</div>
+        <div class="related-title">장모종 털관리 가이드</div>
+        <div class="related-sub">CARE · 그루밍</div>
+      </a>
+      <a class="related-item" href="care/grooming/short-coat">
+        <div class="related-emoji">🐕</div>
+        <div class="related-title">단모종 털관리 가이드</div>
+        <div class="related-sub">CARE · 그루밍</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA 배너 -->
+  <div class="cta-banner">
+    <h3>우리 강아지 견종별 털갈이 정도가 궁금하다면</h3>
+    <p>374종 Breed Detail에서 모질·털빠짐 정보를 확인하세요</p>
+    <a class="cta-btn" href="encyclopedia.html">Breed Detail 보러가기 →</a>
+  </div>
+
+  <!-- 아티클 메타 -->
+  <div class="article-meta">
+    <p>CARE_GROOMING_05 · 펫키디피아 Care Guide</p>
+    <p>마지막 업데이트: 2026.03</p>
+    <p>이 콘텐츠는 전문 수의학적 진단을 대체하지 않습니다.</p>
+  </div>
+
+</div>
+
+</body>
+</html>

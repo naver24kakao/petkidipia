@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>벼룩·진드기 예방 가이드 — 펫키디피아</title>
+  <meta name="description" content="외부기생충 완벽 차단. 벼룩·진드기 예방약 종류, 복용 주기, 감염 시 대처법까지.">
+  <meta name="keywords" content="강아지 벼룩, 강아지 진드기, 진드기 예방, 넥스가드, 브라벡토">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #FBF7F2;
+      --cream-2: #F4EEE5;
+      --gold: #C9A84C;
+      --gold-pale: #F5ECD4;
+      --brown: #2E1F14;
+      --brown-2: #3D2B1F;
+      --warm: #8B5E3C;
+      --soft: #EDE4D8;
+      --muted: #9B8878;
+      --line: rgba(46,31,20,0.08);
+      --green: #2E7D32;
+      --green-pale: #E8F5E9;
+      --amber: #F57F17;
+      --amber-pale: #FFF8E1;
+      --red: #D32F2F;
+      --red-pale: #FFF3F0;
+      --blue: #1976D2;
+      --blue-pale: #E3F2FD;
+      --purple: #7B1FA2;
+      --purple-pale: #F3E5F5;
+      --max: 680px;
+      --font-serif: "Cormorant Garamond", serif;
+      --font-sans: "Noto Sans KR", sans-serif;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--cream);
+      color: var(--brown);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .top-bar {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(251,247,242,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      padding: 14px 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .top-back { background: none; border: none; font-size: 20px; cursor: pointer; color: var(--brown); }
+    .top-breadcrumb { font-size: 12px; color: var(--muted); }
+    .top-breadcrumb a { color: var(--warm); text-decoration: none; }
+
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 20px 120px; }
+
+    .hero {
+      padding: 40px 0 32px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--purple-pale);
+      color: var(--purple);
+      font-size: 11px; font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: var(--font-sans);
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--brown);
+      margin-bottom: 12px;
+    }
+    .hero-sub {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .toc {
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 18px;
+      padding: 20px 24px;
+      margin-bottom: 32px;
+    }
+    .toc-title {
+      font-size: 12px; font-weight: 700;
+      color: var(--warm);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .toc a {
+      display: block;
+      font-size: 14px;
+      color: var(--brown-2);
+      text-decoration: none;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .toc a:last-child { border-bottom: none; }
+    .toc a:hover { color: var(--gold); }
+    .toc-num { color: var(--gold); font-weight: 700; margin-right: 8px; }
+
+    .section { margin-bottom: 36px; }
+    .section-label {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 16px;
+    }
+    .section-label::before, .section-label::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(to right, var(--gold), transparent);
+    }
+    .section-label::after {
+      background: linear-gradient(to left, var(--gold), transparent);
+    }
+    .section-tag {
+      font-family: var(--font-serif);
+      font-size: 13px; font-style: italic;
+      color: var(--gold);
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+    .section h2 {
+      font-size: 20px; font-weight: 700;
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+    .section p {
+      font-size: 15px;
+      color: var(--brown-2);
+      margin-bottom: 12px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 18px;
+      padding: 20px;
+      margin-bottom: 14px;
+    }
+    .card-label {
+      font-size: 11px; font-weight: 700;
+      color: var(--warm);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .compare-item {
+      background: var(--red-pale);
+      border: 1px solid rgba(211,47,47,0.15);
+      border-radius: 14px;
+      padding: 16px;
+    }
+    .compare-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--red);
+      margin-bottom: 10px;
+    }
+    .compare-text {
+      font-size: 13px;
+      color: var(--brown-2);
+      line-height: 1.6;
+    }
+
+    .medicine-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 13px;
+    }
+    .medicine-table th {
+      background: var(--purple-pale);
+      padding: 10px 12px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 12px;
+      color: var(--purple);
+      border-bottom: 2px solid var(--soft);
+    }
+    .medicine-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+
+    .step-box {
+      background: var(--blue-pale);
+      border: 1px solid rgba(25,118,210,0.2);
+      border-radius: 14px;
+      padding: 18px 20px;
+      margin-bottom: 12px;
+    }
+    .step-number {
+      display: inline-block;
+      width: 28px;
+      height: 28px;
+      background: var(--blue);
+      color: #fff;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 28px;
+      font-weight: 700;
+      font-size: 14px;
+      margin-right: 10px;
+    }
+    .step-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--brown);
+      margin-bottom: 8px;
+    }
+    .step-text {
+      font-size: 14px;
+      color: var(--brown-2);
+      line-height: 1.6;
+    }
+
+    .caution-box {
+      background: var(--amber-pale);
+      border: 1px solid rgba(245,127,23,0.2);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin-top: 16px;
+    }
+    .caution-box-title {
+      font-size: 13px; font-weight: 700;
+      color: var(--amber);
+      margin-bottom: 8px;
+    }
+    .caution-box p {
+      font-size: 13px;
+      color: #5D4037;
+      margin-bottom: 0;
+    }
+
+    .tip-box {
+      background: var(--blue-pale);
+      border: 1px solid rgba(25,118,210,0.2);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin-top: 16px;
+    }
+    .tip-box-title {
+      font-size: 13px; font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+    .tip-box p {
+      font-size: 13px;
+      color: var(--brown-2);
+      margin-bottom: 0;
+    }
+
+    .checklist { list-style: none; }
+    .checklist li {
+      display: flex; gap: 10px; align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+    }
+    .checklist li:last-child { border-bottom: none; }
+    .check-icon {
+      width: 22px; height: 22px;
+      border-radius: 6px;
+      background: var(--green-pale);
+      color: var(--green);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .related-item {
+      display: block;
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 14px;
+      padding: 16px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .related-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(46,31,20,0.08);
+    }
+    .related-emoji { font-size: 22px; margin-bottom: 8px; }
+    .related-title { font-size: 13px; font-weight: 700; color: var(--brown); line-height: 1.4; }
+    .related-sub { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+    .cta-banner {
+      background: linear-gradient(135deg, var(--brown), var(--brown-2));
+      border-radius: 20px;
+      padding: 28px 24px;
+      margin-top: 40px;
+      text-align: center;
+    }
+    .cta-banner h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    .cta-banner p {
+      font-size: 13px;
+      color: rgba(251,247,242,0.85);
+      margin-bottom: 18px;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--brown);
+      font-size: 14px; font-weight: 700;
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(201,168,76,0.4);
+    }
+
+    .article-meta {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      text-align: center;
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-bar">
+  <button class="top-back" onclick="history.back()">←</button>
+  <div class="top-breadcrumb">
+    <a href="/">펫키디피아</a> / <a href="/care">CARE</a> / 건강관리
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="hero">
+    <div class="hero-badge">CARE · Health</div>
+    <h1>벼룩·진드기 예방 가이드</h1>
+    <p class="hero-sub">
+      산책만 나가도 붙는 외부기생충.<br>
+      질병 전파와 가려움증을 막기 위해 1년 내내 예방하세요.
+    </p>
+  </div>
+
+  <nav class="toc">
+    <div class="toc-title">목차</div>
+    <a href="#what"><span class="toc-num">01</span>벼룩·진드기란</a>
+    <a href="#risk"><span class="toc-num">02</span>왜 위험한가</a>
+    <a href="#signs"><span class="toc-num">03</span>감염 징후</a>
+    <a href="#prevention"><span class="toc-num">04</span>예방약 종류</a>
+    <a href="#schedule"><span class="toc-num">05</span>예방 일정</a>
+    <a href="#removal"><span class="toc-num">06</span>진드기 제거법</a>
+    <a href="#home"><span class="toc-num">07</span>집안 관리</a>
+  </nav>
+
+  <section class="section" id="what">
+    <div class="section-label"><span class="section-tag">01 · What Are They</span></div>
+    <h2>벼룩·진드기란</h2>
+
+    <div class="compare-grid">
+      <div class="compare-item">
+        <div class="compare-title">🦟 벼룩 (Flea)</div>
+        <div class="compare-text">
+          <strong>크기:</strong> 1~3mm (깨알 크기)<br>
+          <strong>색:</strong> 갈색~검은색<br>
+          <strong>특징:</strong> 점프력 뛰어남<br>
+          <strong>서식:</strong> 털 속, 침구류
+        </div>
+      </div>
+      <div class="compare-item">
+        <div class="compare-title">🕷️ 진드기 (Tick)</div>
+        <div class="compare-text">
+          <strong>크기:</strong> 2~5mm (깨끗 흡혈 시 1cm+)<br>
+          <strong>색:</strong> 갈색~회색<br>
+          <strong>특징:</strong> 피부에 박혀 흡혈<br>
+          <strong>서식:</strong> 풀숲, 낙엽
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">생활사</div>
+      <p style="font-size:14px;">
+        <strong>벼룩</strong><br>
+        • 알 → 유충 → 번데기 → 성충 (2~4주)<br>
+        • 한 마리가 하루 50개 알 산란<br>
+        • 성충은 강아지 몸에, 알·유충은 환경(침구·카펫)에 존재<br>
+        • 집에서 번식 가능
+      </p>
+      <p style="font-size:14px; margin-top:12px;">
+        <strong>진드기</strong><br>
+        • 유충 → 약충 → 성충 (수개월~1년)<br>
+        • 주로 야외(풀숲·낙엽)에서 숙주를 기다림<br>
+        • 한 번 물리면 3~7일간 흡혈<br>
+        • 집 안에서는 번식 안 함 (야외에서만)
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="risk">
+    <div class="section-label"><span class="section-tag">02 · Why Dangerous</span></div>
+    <h2>왜 위험한가</h2>
+
+    <div class="card">
+      <div class="card-label">벼룩이 일으키는 문제</div>
+      <p style="font-size:14px;">
+        <strong>① 벼룩 알레르기성 피부염 (FAD)</strong><br>
+        벼룩 침에 알레르기 반응 → 심한 가려움, 탈모, 피부 염증<br>
+        한 마리만 물려도 증상 심각
+      </p>
+      <p style="font-size:14px;">
+        <strong>② 조충(촌충) 전파</strong><br>
+        벼룩이 조충 알을 가지고 있음 → 강아지가 벼룩을 씹어 먹으면 감염<br>
+        증상: 항문 주변 쌀알 같은 조충 조각, 설사
+      </p>
+      <p style="font-size:14px;">
+        <strong>③ 빈혈</strong><br>
+        대량 감염 시 피를 많이 빨려서 빈혈 (특히 퍼피)
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">진드기가 일으키는 문제</div>
+      <p style="font-size:14px;">
+        <strong>① 바베시아증 (Babesiosis)</strong><br>
+        적혈구 파괴 → 빈혈, 황달, 고열<br>
+        치명적일 수 있음
+      </p>
+      <p style="font-size:14px;">
+        <strong>② 라임병 (Lyme Disease)</strong><br>
+        관절염, 발열, 식욕 저하<br>
+        사람도 감염 가능
+      </p>
+      <p style="font-size:14px;">
+        <strong>③ 에를리히아증 (Ehrlichiosis)</strong><br>
+        백혈구 감염 → 발열, 출혈, 면역 저하
+      </p>
+      <p style="font-size:14px;">
+        <strong>④ 중증열성혈소판감소증후군 (SFTS)</strong><br>
+        사람에게 치명적 (치사율 10~30%)<br>
+        강아지도 감염 가능
+      </p>
+    </div>
+
+    <div class="caution-box">
+      <div class="caution-box-title">⚠️ 사람도 위험</div>
+      <p>
+        벼룩과 진드기는 사람도 물 수 있습니다.
+        특히 SFTS는 사람에게 매우 위험하므로
+        강아지 예방이 곧 가족 건강 보호입니다.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="signs">
+    <div class="section-label"><span class="section-tag">03 · Signs of Infection</span></div>
+    <h2>감염 징후</h2>
+
+    <div class="card">
+      <div class="card-label">벼룩 감염 증상</div>
+      <ul class="checklist">
+        <li><span class="check-icon">✓</span> 심하게 긁거나 씹는다 (특히 엉덩이·꼬리 쪽)</li>
+        <li><span class="check-icon">✓</span> 털 사이에 검은 점(벼룩 배설물) 보임</li>
+        <li><span class="check-icon">✓</span> 피부가 붉고 발진이 생김</li>
+        <li><span class="check-icon">✓</span> 탈모 (특히 꼬리 부근)</li>
+        <li><span class="check-icon">✓</span> 침구에 검은 점들이 보임</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-label">벼룩 배설물 확인법</div>
+      <p style="font-size:14px;">
+        털을 빗질하거나 손으로 털을 헤쳐보면 검은 점이 보입니다.
+        이것을 젖은 휴지에 문지르면 **빨갛게 번짐** (소화된 피이므로).
+        이것이 보이면 벼룩이 있다는 확실한 증거입니다.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">진드기 감염 증상</div>
+      <ul class="checklist">
+        <li><span class="check-icon">✓</span> 피부에 작은 혹처럼 붙어 있음 (손으로 만져지기도 함)</li>
+        <li><span class="check-icon">✓</span> 귀·목·발가락 사이·배에서 자주 발견</li>
+        <li><span class="check-icon">✓</span> 진드기 주변 피부가 붉고 부어오름</li>
+        <li><span class="check-icon">✓</span> 고열, 식욕 저하 (질병 전파 시)</li>
+      </ul>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-box-title">💡 산책 후 항상 체크하세요</div>
+      <p>
+        특히 풀숲·산에 다녀온 후에는 전신을 꼼꼼히 살펴보세요.
+        진드기는 24시간 이내에 제거하면 질병 전파 위험이 크게 줄어듭니다.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="prevention">
+    <div class="section-label"><span class="section-tag">04 · Prevention Medicine</span></div>
+    <h2>예방약 종류</h2>
+
+    <table class="medicine-table">
+      <thead>
+        <tr>
+          <th>제품명</th>
+          <th>형태</th>
+          <th>효과 기간</th>
+          <th>추가 예방</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>넥스가드</strong></td>
+          <td>경구 (츄어블)</td>
+          <td>1개월</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td><strong>넥스가드 스펙트라</strong></td>
+          <td>경구 (츄어블)</td>
+          <td>1개월</td>
+          <td>심장사상충, 회충, 구충</td>
+        </tr>
+        <tr>
+          <td><strong>심파리카</strong></td>
+          <td>경구 (츄어블)</td>
+          <td>1개월</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td><strong>심파리카 트리오</strong></td>
+          <td>경구 (츄어블)</td>
+          <td>1개월</td>
+          <td>심장사상충, 회충, 구충</td>
+        </tr>
+        <tr>
+          <td><strong>브라벡토</strong></td>
+          <td>경구 (츄어블)</td>
+          <td>3개월</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td><strong>프론트라인 플러스</strong></td>
+          <td>외용 (스팟온)</td>
+          <td>1개월</td>
+          <td>이 (Lice)</td>
+        </tr>
+        <tr>
+          <td><strong>레볼루션</strong></td>
+          <td>외용 (스팟온)</td>
+          <td>1개월</td>
+          <td>심장사상충, 벼룩, 귀진드기</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="card">
+      <div class="card-label">경구약 vs 외용약</div>
+      <p style="font-size:14px;">
+        <strong>경구약 (츄어블)</strong><br>
+        • 간식처럼 맛있어서 잘 먹음<br>
+        • 목욕·비·물놀이 영향 없음<br>
+        • 벼룩·진드기가 흡혈해야 죽음 (예방 원리)<br>
+        • 효과 빠름 (4~8시간 내 시작)
+      </p>
+      <p style="font-size:14px; margin-top:12px;">
+        <strong>외용약 (스팟온)</strong><br>
+        • 피부에 바르는 방식<br>
+        • 먹기 싫어하는 강아지 적합<br>
+        • 접촉만으로도 죽음 (경구약보다 빠른 차단)<br>
+        • 목욕 전후 48시간 피해야 함<br>
+        • 피부 예민한 경우 자극 가능
+      </p>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-box-title">💡 복합 예방약 추천</div>
+      <p>
+        넥스가드 스펙트라나 심파리카 트리오처럼
+        벼룩·진드기 + 심장사상충을 함께 예방하는 제품이 편리합니다.
+        한 번에 여러 기생충을 예방할 수 있어요.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="schedule">
+    <div class="section-label"><span class="section-tag">05 · Schedule</span></div>
+    <h2>예방 일정</h2>
+
+    <div class="card">
+      <div class="card-label">복용 주기</div>
+      <p style="font-size:14px;">
+        <strong>1개월형 제품</strong> — 매월 같은 날 복용<br>
+        <strong>3개월형 (브라벡토)</strong> — 3개월마다 복용
+      </p>
+      <p style="font-size:14px;">
+        예: 매월 1일로 정했다면 → 1월 1일, 2월 1일, 3월 1일…
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">1년 내내 복용</div>
+      <p style="font-size:14px;">
+        벼룩과 진드기는 겨울에도 활동합니다.
+        특히 실내는 따뜻해서 벼룩이 1년 내내 번식 가능하고,
+        진드기도 영상 4℃ 이상이면 활동합니다.
+      </p>
+      <p style="font-size:14px;">
+        **겨울에도 중단하지 마세요.**
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">이미 감염됐다면?</div>
+      <p style="font-size:14px;">
+        예방약을 먹이면 48시간 내에 벼룩·진드기가 죽습니다.
+        하지만 알·유충은 환경에 남아있으므로
+        집안 청소와 함께 진행해야 합니다 (아래 '집안 관리' 참고).
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="removal">
+    <div class="section-label"><span class="section-tag">06 · Tick Removal</span></div>
+    <h2>진드기 제거법</h2>
+    <p>
+      진드기를 발견하면 올바른 방법으로 제거해야 합니다.
+      잘못 제거하면 머리가 피부에 남아서 염증이 생길 수 있어요.
+    </p>
+
+    <div class="step-box">
+      <div class="step-title">
+        <span class="step-number">1</span>
+        진드기 제거 도구 준비
+      </div>
+      <div class="step-text">
+        진드기 제거 핀셋(Tick Remover) 또는 일반 핀셋 사용.
+        손으로 직접 만지지 마세요 (질병 전파 위험).
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-title">
+        <span class="step-number">2</span>
+        머리 부분을 최대한 가까이 잡기
+      </div>
+      <div class="step-text">
+        진드기의 몸통이 아니라 **피부에 박힌 머리 부분**을
+        핀셋으로 최대한 가깝게 잡습니다.
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-title">
+        <span class="step-number">3</span>
+        천천히 수직으로 당기기
+      </div>
+      <div class="step-text">
+        비틀거나 누르지 말고, 천천히 **일직선으로 수직**으로 당겨서 빼냅니다.
+        빠르게 잡아당기면 머리가 남을 수 있어요.
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-title">
+        <span class="step-number">4</span>
+        소독 및 확인
+      </div>
+      <div class="step-text">
+        제거 후 물린 부위를 소독하고,
+        진드기 머리가 피부에 남았는지 확인합니다.
+        남았다면 동물병원 방문 권장.
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-title">
+        <span class="step-number">5</span>
+        진드기 처리
+      </div>
+      <div class="step-text">
+        제거한 진드기는 알코올에 담그거나 화장지에 싸서 변기에 버립니다.
+        절대 손으로 으깨지 마세요 (알 분산).
+      </div>
+    </div>
+
+    <div class="caution-box">
+      <div class="caution-box-title">❌ 하지 말아야 할 것</div>
+      <p>
+        • 불로 지지기 — 진드기가 토하면서 세균 주입<br>
+        • 바셀린·기름 바르기 — 효과 없고 질병 전파 위험 증가<br>
+        • 손으로 으깨기 — 알 분산 및 감염 위험<br>
+        • 몸통 부분만 당기기 — 머리가 피부에 남음
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="home">
+    <div class="section-label"><span class="section-tag">07 · Home Management</span></div>
+    <h2>집안 관리</h2>
+    <p>
+      벼룩은 성충의 5%만 강아지 몸에 있고,
+      나머지 95%(알·유충·번데기)는 환경에 있습니다.
+      예방약과 함께 집안 청소가 필수입니다.
+    </p>
+
+    <div class="card">
+      <div class="card-label">벼룩 퇴치 청소 방법</div>
+      <p style="font-size:14px;">
+        <strong>① 진공청소기 (매일)</strong><br>
+        카펫, 소파, 침대, 구석구석 청소기로 흡입<br>
+        청소기 먼지봉투는 즉시 밀봉해서 버리기
+      </p>
+      <p style="font-size:14px;">
+        <strong>② 침구류 세탁 (60℃ 이상)</strong><br>
+        강아지 이불, 쿠션, 소파 커버 등 고온 세탁<br>
+        건조기 사용 권장
+      </p>
+      <p style="font-size:14px;">
+        <strong>③ 스팀 청소</strong><br>
+        카펫·매트는 스팀 청소로 알·유충 제거
+      </p>
+      <p style="font-size:14px;">
+        <strong>④ 환경 살충제 (필요 시)</strong><br>
+        벼룩 전용 환경 스프레이 사용<br>
+        강아지는 외출시킨 후 사용, 충분히 환기
+      </p>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-box-title">💡 벼룩 생활사 이해하기</div>
+      <p>
+        벼룩은 번데기 단계에서 최대 6개월까지 휴면 가능합니다.
+        그래서 한 번 청소로 끝나지 않고,
+        2~3개월간 꾸준히 청소해야 완전히 박멸할 수 있어요.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label"><span class="section-tag">Related</span></div>
+    <h2>함께 보면 좋은 가이드</h2>
+    <div class="related-grid">
+      <a class="related-item" href="care/health/vaccination">
+        <div class="related-emoji">💉</div>
+        <div class="related-title">예방접종 일정 가이드</div>
+        <div class="related-sub">CARE · 건강관리</div>
+      </a>
+      <a class="related-item" href="care/health/heartworm">
+        <div class="related-emoji">🦟</div>
+        <div class="related-title">심장사상충 예방 가이드</div>
+        <div class="related-sub">CARE · 건강관리</div>
+      </a>
+      <a class="related-item" href="care/health/skin">
+        <div class="related-emoji">🩹</div>
+        <div class="related-title">피부 민감견 케어 가이드</div>
+        <div class="related-sub">CARE · 건강관리</div>
+      </a>
+      <a class="related-item" href="care/grooming/basic">
+        <div class="related-emoji">✂️</div>
+        <div class="related-title">털관리 기본 가이드</div>
+        <div class="related-sub">CARE · 그루밍</div>
+      </a>
+    </div>
+  </section>
+
+  <div class="cta-banner">
+    <h3>기생충 치료비가 걱정된다면</h3>
+    <p>예방부터 치료까지 든든하게 보장하는 마이브라운 반려견 보험</p>
+    <a class="cta-btn" href="https://mybrownpet.com">보험 상담 신청하기 →</a>
+  </div>
+
+  <div class="article-meta">
+    <p>CARE_HEALTH_03 · 펫키디피아 Care Guide</p>
+    <p>마지막 업데이트: 2026.03</p>
+    <p>이 콘텐츠는 전문 수의학적 진단을 대체하지 않습니다.</p>
+  </div>
+
+</div>
+
+</body>
+</html>

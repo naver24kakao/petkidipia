@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>강아지 치아 관리 가이드 — 펫키디피아</title>
+  <meta name="description" content="치석·치주질환 예방부터 양치 방법까지. 3살 이상 강아지 80%가 치과 질환. 지금부터 시작하세요.">
+  <meta name="keywords" content="강아지 치아, 강아지 양치, 치석 제거, 스케일링, 치주질환">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #FBF7F2;
+      --cream-2: #F4EEE5;
+      --gold: #C9A84C;
+      --gold-pale: #F5ECD4;
+      --brown: #2E1F14;
+      --brown-2: #3D2B1F;
+      --warm: #8B5E3C;
+      --soft: #EDE4D8;
+      --muted: #9B8878;
+      --line: rgba(46,31,20,0.08);
+      --green: #2E7D32;
+      --green-pale: #E8F5E9;
+      --amber: #F57F17;
+      --amber-pale: #FFF8E1;
+      --red: #D32F2F;
+      --red-pale: #FFF3F0;
+      --blue: #1976D2;
+      --blue-pale: #E3F2FD;
+      --purple: #7B1FA2;
+      --purple-pale: #F3E5F5;
+      --max: 680px;
+      --font-serif: "Cormorant Garamond", serif;
+      --font-sans: "Noto Sans KR", sans-serif;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--cream);
+      color: var(--brown);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .top-bar {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(251,247,242,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      padding: 14px 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .top-back { background: none; border: none; font-size: 20px; cursor: pointer; color: var(--brown); }
+    .top-breadcrumb { font-size: 12px; color: var(--muted); }
+    .top-breadcrumb a { color: var(--warm); text-decoration: none; }
+
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 20px 120px; }
+
+    .hero {
+      padding: 40px 0 32px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--purple-pale);
+      color: var(--purple);
+      font-size: 11px; font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: var(--font-sans);
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--brown);
+      margin-bottom: 12px;
+    }
+    .hero-sub {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .toc {
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 18px;
+      padding: 20px 24px;
+      margin-bottom: 32px;
+    }
+    .toc-title {
+      font-size: 12px; font-weight: 700;
+      color: var(--warm);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .toc a {
+      display: block;
+      font-size: 14px;
+      color: var(--brown-2);
+      text-decoration: none;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .toc a:last-child { border-bottom: none; }
+    .toc a:hover { color: var(--gold); }
+    .toc-num { color: var(--gold); font-weight: 700; margin-right: 8px; }
+
+    .section { margin-bottom: 36px; }
+    .section-label {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 16px;
+    }
+    .section-label::before, .section-label::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(to right, var(--gold), transparent);
+    }
+    .section-label::after {
+      background: linear-gradient(to left, var(--gold), transparent);
+    }
+    .section-tag {
+      font-family: var(--font-serif);
+      font-size: 13px; font-style: italic;
+      color: var(--gold);
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+    .section h2 {
+      font-size: 20px; font-weight: 700;
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+    .section p {
+      font-size: 15px;
+      color: var(--brown-2);
+      margin-bottom: 12px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 18px;
+      padding: 20px;
+      margin-bottom: 14px;
+    }
+    .card-label {
+      font-size: 11px; font-weight: 700;
+      color: var(--warm);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .progression {
+      background: var(--red-pale);
+      border: 1px solid rgba(211,47,47,0.15);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+    .progression-step {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .progression-step:last-child {
+      border-bottom: none;
+    }
+    .progression-stage {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--red);
+      margin-bottom: 6px;
+    }
+    .progression-text {
+      font-size: 13px;
+      color: var(--brown-2);
+      line-height: 1.6;
+    }
+
+    .step-box {
+      background: var(--blue-pale);
+      border: 1px solid rgba(25,118,210,0.2);
+      border-radius: 14px;
+      padding: 18px 20px;
+      margin-bottom: 12px;
+    }
+    .step-number {
+      display: inline-block;
+      width: 28px;
+      height: 28px;
+      background: var(--blue);
+      color: #fff;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 28px;
+      font-weight: 700;
+      font-size: 14px;
+      margin-right: 10px;
+    }
+    .step-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--brown);
+      margin-bottom: 8px;
+    }
+    .step-text {
+      font-size: 14px;
+      color: var(--brown-2);
+      line-height: 1.6;
+    }
+
+    .caution-box {
+      background: var(--amber-pale);
+      border: 1px solid rgba(245,127,23,0.2);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin-top: 16px;
+    }
+    .caution-box-title {
+      font-size: 13px; font-weight: 700;
+      color: var(--amber);
+      margin-bottom: 8px;
+    }
+    .caution-box p {
+      font-size: 13px;
+      color: #5D4037;
+      margin-bottom: 0;
+    }
+
+    .tip-box {
+      background: var(--blue-pale);
+      border: 1px solid rgba(25,118,210,0.2);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin-top: 16px;
+    }
+    .tip-box-title {
+      font-size: 13px; font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+    .tip-box p {
+      font-size: 13px;
+      color: var(--brown-2);
+      margin-bottom: 0;
+    }
+
+    .checklist { list-style: none; }
+    .checklist li {
+      display: flex; gap: 10px; align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+    }
+    .checklist li:last-child { border-bottom: none; }
+    .check-icon {
+      width: 22px; height: 22px;
+      border-radius: 6px;
+      background: var(--green-pale);
+      color: var(--green);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .related-item {
+      display: block;
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 14px;
+      padding: 16px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .related-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(46,31,20,0.08);
+    }
+    .related-emoji { font-size: 22px; margin-bottom: 8px; }
+    .related-title { font-size: 13px; font-weight: 700; color: var(--brown); line-height: 1.4; }
+    .related-sub { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+    .cta-banner {
+      background: linear-gradient(135deg, var(--brown), var(--brown-2));
+      border-radius: 20px;
+      padding: 28px 24px;
+      margin-top: 40px;
+      text-align: center;
+    }
+    .cta-banner h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    .cta-banner p {
+      font-size: 13px;
+      color: rgba(251,247,242,0.85);
+      margin-bottom: 18px;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--brown);
+      font-size: 14px; font-weight: 700;
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(201,168,76,0.4);
+    }
+
+    .article-meta {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      text-align: center;
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-bar">
+  <button class="top-back" onclick="history.back()">←</button>
+  <div class="top-breadcrumb">
+    <a href="/">펫키디피아</a> / <a href="/care">CARE</a> / 건강관리
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="hero">
+    <div class="hero-badge">CARE · Health</div>
+    <h1>강아지 치아 관리 가이드</h1>
+    <p class="hero-sub">
+      3살 이상 강아지 80%가 치과 질환을 앓고 있습니다.<br>
+      매일 양치로 치석과 치주질환을 예방하세요.
+    </p>
+  </div>
+
+  <nav class="toc">
+    <div class="toc-title">목차</div>
+    <a href="#why"><span class="toc-num">01</span>왜 치아 관리가 중요한가</a>
+    <a href="#disease"><span class="toc-num">02</span>치과 질환 단계별 진행</a>
+    <a href="#signs"><span class="toc-num">03</span>치과 질환 신호</a>
+    <a href="#brushing"><span class="toc-num">04</span>양치 방법</a>
+    <a href="#tools"><span class="toc-num">05</span>구강 관리 도구</a>
+    <a href="#scaling"><span class="toc-num">06</span>스케일링</a>
+    <a href="#prevention"><span class="toc-num">07</span>예방 팁</a>
+  </nav>
+
+  <section class="section" id="why">
+    <div class="section-label"><span class="section-tag">01 · Why It Matters</span></div>
+    <h2>왜 치아 관리가 중요한가</h2>
+    <p>
+      강아지는 사람처럼 양치를 하지 않으면
+      음식물 찌꺼기와 침의 성분이 쌓여서 치석이 됩니다.
+      치석은 단순히 지저분한 게 아니라 치주질환으로 이어져요.
+    </p>
+
+    <div class="card">
+      <div class="card-label">치주질환의 위험성</div>
+      <p style="font-size:14px;">
+        <strong>① 통증과 불편함</strong><br>
+        잇몸이 붓고 아파서 밥을 잘 못 먹음
+      </p>
+      <p style="font-size:14px;">
+        <strong>② 치아 손실</strong><br>
+        뼈가 녹으면서 치아가 흔들리고 빠짐
+      </p>
+      <p style="font-size:14px;">
+        <strong>③ 전신 질환 유발</strong><br>
+        입안 세균이 혈관을 타고 심장·간·신장으로 이동<br>
+        심장판막증, 신부전 위험 증가
+      </p>
+      <p style="font-size:14px;">
+        <strong>④ 수명 단축</strong><br>
+        만성 염증과 감염이 전체 건강을 악화시킴
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">통계</div>
+      <p style="font-size:14px;">
+        • 3살 이상 강아지의 **80%**가 치과 질환 경험<br>
+        • 소형견은 치석이 더 빨리 쌓임 (입이 작아서)<br>
+        • 치주질환은 예방 가능한 질환이지만 대부분 방치됨
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="disease">
+    <div class="section-label"><span class="section-tag">02 · Disease Progression</span></div>
+    <h2>치과 질환 단계별 진행</h2>
+
+    <div class="progression">
+      <div class="progression-step">
+        <div class="progression-stage">1단계: 치태 (Plaque)</div>
+        <div class="progression-text">
+          음식물 찌꺼기와 세균이 치아 표면에 붙어 끈적한 막 형성.<br>
+          <strong>✅ 양치로 제거 가능</strong>
+        </div>
+      </div>
+      <div class="progression-step">
+        <div class="progression-stage">2단계: 치석 (Tartar / Calculus)</div>
+        <div class="progression-text">
+          치태가 침의 칼슘과 결합해 딱딱하게 굳음. 노란색~갈색.<br>
+          <strong>❌ 양치로 제거 불가, 스케일링 필요</strong>
+        </div>
+      </div>
+      <div class="progression-step">
+        <div class="progression-stage">3단계: 치은염 (Gingivitis)</div>
+        <div class="progression-text">
+          치석 속 세균이 잇몸을 자극. 잇몸이 붓고 빨갛게 변함. 피 날 수 있음.<br>
+          <strong>⚠️ 이 단계까지는 회복 가능</strong>
+        </div>
+      </div>
+      <div class="progression-step">
+        <div class="progression-stage">4단계: 치주염 (Periodontitis)</div>
+        <div class="progression-text">
+          염증이 잇몸 아래로 퍼져 뼈까지 손상. 치아가 흔들리고 빠짐.<br>
+          <strong>❌ 비가역적, 치료해도 뼈는 재생 안 됨</strong>
+        </div>
+      </div>
+    </div>
+
+    <div class="caution-box">
+      <div class="caution-box-title">⚠️ 되돌릴 수 없는 4단계</div>
+      <p>
+        치주염은 회복이 불가능합니다.
+        한 번 녹은 잇몸뼈는 다시 자라지 않아요.
+        그래서 3단계(치은염) 이전에 관리하는 게 중요합니다.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="signs">
+    <div class="section-label"><span class="section-tag">03 · Warning Signs</span></div>
+    <h2>치과 질환 신호</h2>
+
+    <ul class="checklist">
+      <li><span class="check-icon">✓</span> 입 냄새가 심하다</li>
+      <li><span class="check-icon">✓</span> 치아에 노란색·갈색 덩어리가 보인다 (치석)</li>
+      <li><span class="check-icon">✓</span> 잇몸이 붉거나 부어 있다</li>
+      <li><span class="check-icon">✓</span> 잇몸에서 피가 난다 (장난감·사료에 피 묻음)</li>
+      <li><span class="check-icon">✓</span> 침을 많이 흘린다</li>
+      <li><span class="check-icon">✓</span> 한쪽으로만 씹거나 밥을 잘 안 먹는다</li>
+      <li><span class="check-icon">✓</span> 얼굴을 만지면 아파한다</li>
+      <li><span class="check-icon">✓</span> 치아가 흔들리거나 빠진다</li>
+      <li><span class="check-icon">✓</span> 재채기를 자주 한다 (상악 치아 뿌리 감염 시)</li>
+    </ul>
+
+    <div class="tip-box">
+      <div class="tip-box-title">💡 정기 구강 체크</div>
+      <p>
+        주 1회 입술을 살짝 들어 올려서 치아와 잇몸 상태를 확인하세요.
+        치석이 쌓이기 시작하면 조기에 발견할 수 있습니다.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="brushing">
+    <div class="section-label"><span class="section-tag">04 · How to Brush</span></div>
+    <h2>양치 방법</h2>
+    <p>
+      이상적인 양치 주기는 **매일**입니다.
+      치태는 24~48시간 내에 치석으로 굳기 시작하므로
+      적어도 주 3~4회 이상 양치가 필요해요.
+    </p>
+
+    <div class="step-box">
+      <div class="step-title">
+        <span class="step-number">1</span>
+        적응 훈련 (1~2주)
+      </div>
+      <div class="step-text">
+        갑자기 칫솔을 입에 넣으면 강아지가 놀랍니다.
+        먼저 입 주변을 만지는 것부터 시작하세요.<br>
+        • 입술 들어올리기 → 잇몸 살짝 만지기 → 치아 만지기<br>
+        • 각 단계마다 간식 보상<br>
+        • 강아지가 편안해지면 다음 단계로
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-title">
+        <span class="step-number">2</span>
+        칫솔·치약 선택
+      </div>
+      <div class="step-text">
+        <strong>칫솔:</strong> 강아지 전용 칫솔 (작고 부드러운 모)<br>
+        <strong>치약:</strong> 강아지 전용 치약 (사람용 절대 금지!)
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-title">
+        <span class="step-number">3</span>
+        칫솔에 치약 묻히기
+      </div>
+      <div class="step-text">
+        칫솔에 강아지 치약을 조금 묻힙니다.
+        처음엔 강아지가 핥아먹게 해서 맛을 익히세요.
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-title">
+        <span class="step-number">4</span>
+        앞니부터 시작
+      </div>
+      <div class="step-text">
+        입술을 살짝 들어올리고 앞니부터 부드럽게 닦습니다.
+        45도 각도로 잇몸 라인을 따라 작은 원을 그리듯 브러싱.
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-title">
+        <span class="step-number">5</span>
+        어금니까지 확장
+      </div>
+      <div class="step-text">
+        익숙해지면 점차 안쪽 어금니까지 닦아줍니다.
+        어금니에 치석이 가장 많이 쌓이므로 꼼꼼히.
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-title">
+        <span class="step-number">6</span>
+        간식 보상
+      </div>
+      <div class="step-text">
+        양치가 끝나면 칭찬과 간식으로 보상.
+        양치가 긍정적인 경험으로 기억되도록.
+      </div>
+    </div>
+
+    <div class="caution-box">
+      <div class="caution-box-title">❌ 사람용 치약 절대 금지</div>
+      <p>
+        사람용 치약의 불소(Fluoride)와 자일리톨(Xylitol)은
+        강아지에게 독성이 있습니다.
+        강아지는 치약을 뱉지 못하고 삼키므로 매우 위험해요.
+        반드시 강아지 전용 치약을 사용하세요.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="tools">
+    <div class="section-label"><span class="section-tag">05 · Tools</span></div>
+    <h2>구강 관리 도구</h2>
+
+    <div class="card">
+      <div class="card-label">① 강아지 칫솔·치약</div>
+      <p style="font-size:14px;">
+        가장 효과적인 방법입니다.
+        치약은 닭고기·쇠고기 맛 등 강아지가 좋아하는 맛으로 나옵니다.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">② 손가락 칫솔</div>
+      <p style="font-size:14px;">
+        손가락에 끼우는 실리콘 칫솔.
+        칫솔을 싫어하는 강아지에게 좋습니다.
+        처음 양치를 시작할 때도 유용해요.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">③ 덴탈 껌·간식</div>
+      <p style="font-size:14px;">
+        씹으면서 치석을 물리적으로 제거하는 원리.
+        양치 대체는 불가능하지만 보조 수단으로 좋습니다.
+        VOHC(Veterinary Oral Health Council) 인증 제품 권장.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">④ 구강 청결제 (Dental Water Additive)</div>
+      <p style="font-size:14px;">
+        물에 타서 먹이는 방식. 세균 증식 억제.
+        양치를 전혀 못 하는 경우 최후의 수단.
+        효과는 양치보다 낮습니다.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">⑤ 덴탈 토이</div>
+      <p style="font-size:14px;">
+        치아 청소 기능이 있는 장난감.
+        놀면서 치아 표면을 닦아줍니다.
+        보조 수단으로 활용.
+      </p>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-box-title">💡 효과 순위</div>
+      <p>
+        칫솔 양치 > 손가락 칫솔 > 덴탈 껌 > 구강 청결제 > 덴탈 토이<br>
+        가능하면 칫솔 양치를 목표로 하되,
+        어려우면 다른 방법을 병행하세요.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="scaling">
+    <div class="section-label"><span class="section-tag">06 · Scaling</span></div>
+    <h2>스케일링 (치석 제거)</h2>
+    <p>
+      이미 굳은 치석은 양치로 제거할 수 없습니다.
+      동물병원에서 전문적인 스케일링이 필요해요.
+    </p>
+
+    <div class="card">
+      <div class="card-label">스케일링 과정</div>
+      <p style="font-size:14px;">
+        <strong>① 전신 마취</strong><br>
+        강아지는 가만히 있지 못하므로 전신 마취 필수.<br>
+        마취 전 혈액 검사로 안전성 확인.
+      </p>
+      <p style="font-size:14px;">
+        <strong>② 초음파 스케일링</strong><br>
+        초음파 장비로 치석 제거. 잇몸 아래 치석도 제거.
+      </p>
+      <p style="font-size:14px;">
+        <strong>③ 폴리싱</strong><br>
+        치아 표면을 매끄럽게 연마. 치석 재부착 방지.
+      </p>
+      <p style="font-size:14px;">
+        <strong>④ 발치 (필요 시)</strong><br>
+        흔들리거나 손상된 치아는 뽑습니다.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">스케일링 주기</div>
+      <p style="font-size:14px;">
+        <strong>소형견:</strong> 1~2년에 1회<br>
+        <strong>중·대형견:</strong> 2~3년에 1회<br>
+        (양치 여부와 치석 쌓이는 속도에 따라 달라짐)
+      </p>
+    </div>
+
+    <div class="caution-box">
+      <div class="caution-box-title">⚠️ 무마취 스케일링 주의</div>
+      <p>
+        일부 업체에서 무마취 스케일링을 광고하지만,
+        겉 표면만 긁어내는 것이라 잇몸 아래 치석은 제거 안 됩니다.
+        오히려 치아 표면이 거칠어져 치석이 더 빨리 쌓일 수 있어요.
+        수의사와 상담 후 전문 스케일링을 권장합니다.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="prevention">
+    <div class="section-label"><span class="section-tag">07 · Prevention Tips</span></div>
+    <h2>예방 팁</h2>
+
+    <ul class="checklist">
+      <li><span class="check-icon">✓</span> 매일 양치 (최소 주 3회)</li>
+      <li><span class="check-icon">✓</span> 덴탈 껌·간식 병행</li>
+      <li><span class="check-icon">✓</span> 단단한 장난감으로 놀기 (치아 운동)</li>
+      <li><span class="check-icon">✓</span> 습식 사료보다 건식 사료 (씹으면서 치석 제거)</li>
+      <li><span class="check-icon">✓</span> 주 1회 구강 상태 체크</li>
+      <li><span class="check-icon">✓</span> 정기 검진 (연 1~2회)</li>
+      <li><span class="check-icon">✓</span> 어릴 때부터 양치 습관 들이기</li>
+    </ul>
+
+    <div class="card">
+      <div class="card-label">고위험 견종</div>
+      <p style="font-size:14px;">
+        <strong>소형견</strong> — 요크셔 테리어, 치와와, 말티즈, 푸들, 포메라니안<br>
+        입이 작아 치아가 빽빽하게 배열되어 치석이 빨리 쌓임
+      </p>
+      <p style="font-size:14px;">
+        <strong>단두종</strong> — 퍼그, 프렌치 불독, 시츄<br>
+        치아 배열이 고르지 않아 관리 어려움
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label"><span class="section-tag">Related</span></div>
+    <h2>함께 보면 좋은 가이드</h2>
+    <div class="related-grid">
+      <a class="related-item" href="care/health/brushing">
+        <div class="related-emoji">🪥</div>
+        <div class="related-title">강아지 양치 루틴 만들기</div>
+        <div class="related-sub">CARE · 건강관리</div>
+      </a>
+      <a class="related-item" href="care/health/senior">
+        <div class="related-emoji">🐕</div>
+        <div class="related-title">노령견 건강관리 가이드</div>
+        <div class="related-sub">CARE · 건강관리</div>
+      </a>
+      <a class="related-item" href="care/health/vaccination">
+        <div class="related-emoji">💉</div>
+        <div class="related-title">예방접종 일정 가이드</div>
+        <div class="related-sub">CARE · 건강관리</div>
+      </a>
+      <a class="related-item" href="care/feed/basic">
+        <div class="related-emoji">🍚</div>
+        <div class="related-title">강아지 급여량 계산법</div>
+        <div class="related-sub">CARE · 급여관리</div>
+      </a>
+    </div>
+  </section>
+
+  <div class="cta-banner">
+    <h3>스케일링 비용이 부담된다면</h3>
+    <p>치과 치료까지 보장하는 마이브라운 반려견 보험</p>
+    <a class="cta-btn" href="https://mybrownpet.com">보험 상담 신청하기 →</a>
+  </div>
+
+  <div class="article-meta">
+    <p>CARE_HEALTH_04 · 펫키디피아 Care Guide</p>
+    <p>마지막 업데이트: 2026.03</p>
+    <p>이 콘텐츠는 전문 수의학적 진단을 대체하지 않습니다.</p>
+  </div>
+
+</div>
+
+</body>
+</html>

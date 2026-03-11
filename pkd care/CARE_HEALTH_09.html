@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>관절 관리 가이드 — 펫키디피아</title>
+  <meta name="description" content="계단 오르기 힘들어하나요? 관절염 예방부터 영양제, 운동 관리까지. 평생 건강한 관절 유지법.">
+  <meta name="keywords" content="강아지 관절염, 관절 영양제, 슬개골 탈구, 고관절 이형성증">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #FBF7F2;
+      --cream-2: #F4EEE5;
+      --gold: #C9A84C;
+      --gold-pale: #F5ECD4;
+      --brown: #2E1F14;
+      --brown-2: #3D2B1F;
+      --warm: #8B5E3C;
+      --soft: #EDE4D8;
+      --muted: #9B8878;
+      --line: rgba(46,31,20,0.08);
+      --green: #2E7D32;
+      --green-pale: #E8F5E9;
+      --amber: #F57F17;
+      --amber-pale: #FFF8E1;
+      --red: #D32F2F;
+      --red-pale: #FFF3F0;
+      --blue: #1976D2;
+      --blue-pale: #E3F2FD;
+      --purple: #7B1FA2;
+      --purple-pale: #F3E5F5;
+      --max: 680px;
+      --font-serif: "Cormorant Garamond", serif;
+      --font-sans: "Noto Sans KR", sans-serif;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--cream);
+      color: var(--brown);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .top-bar {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(251,247,242,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      padding: 14px 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .top-back { background: none; border: none; font-size: 20px; cursor: pointer; color: var(--brown); }
+    .top-breadcrumb { font-size: 12px; color: var(--muted); }
+    .top-breadcrumb a { color: var(--warm); text-decoration: none; }
+
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 20px 120px; }
+
+    .hero {
+      padding: 40px 0 32px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--purple-pale);
+      color: var(--purple);
+      font-size: 11px; font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: var(--font-sans);
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--brown);
+      margin-bottom: 12px;
+    }
+    .hero-sub {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .toc {
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 18px;
+      padding: 20px 24px;
+      margin-bottom: 32px;
+    }
+    .toc-title {
+      font-size: 12px; font-weight: 700;
+      color: var(--warm);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .toc a {
+      display: block;
+      font-size: 14px;
+      color: var(--brown-2);
+      text-decoration: none;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .toc a:last-child { border-bottom: none; }
+    .toc a:hover { color: var(--gold); }
+    .toc-num { color: var(--gold); font-weight: 700; margin-right: 8px; }
+
+    .section { margin-bottom: 36px; }
+    .section-label {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 16px;
+    }
+    .section-label::before, .section-label::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(to right, var(--gold), transparent);
+    }
+    .section-label::after {
+      background: linear-gradient(to left, var(--gold), transparent);
+    }
+    .section-tag {
+      font-family: var(--font-serif);
+      font-size: 13px; font-style: italic;
+      color: var(--gold);
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+    .section h2 {
+      font-size: 20px; font-weight: 700;
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+    .section p {
+      font-size: 15px;
+      color: var(--brown-2);
+      margin-bottom: 12px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 18px;
+      padding: 20px;
+      margin-bottom: 14px;
+    }
+    .card-label {
+      font-size: 11px; font-weight: 700;
+      color: var(--warm);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .disease-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .disease-item {
+      background: var(--red-pale);
+      border: 1px solid rgba(211,47,47,0.15);
+      border-radius: 14px;
+      padding: 16px;
+    }
+    .disease-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--red);
+      margin-bottom: 8px;
+    }
+    .disease-text {
+      font-size: 13px;
+      color: var(--brown-2);
+      line-height: 1.6;
+    }
+
+    .supplement-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 13px;
+    }
+    .supplement-table th {
+      background: var(--purple-pale);
+      padding: 10px 12px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 12px;
+      color: var(--purple);
+      border-bottom: 2px solid var(--soft);
+    }
+    .supplement-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+
+    .caution-box {
+      background: var(--amber-pale);
+      border: 1px solid rgba(245,127,23,0.2);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin-top: 16px;
+    }
+    .caution-box-title {
+      font-size: 13px; font-weight: 700;
+      color: var(--amber);
+      margin-bottom: 8px;
+    }
+    .caution-box p {
+      font-size: 13px;
+      color: #5D4037;
+      margin-bottom: 0;
+    }
+
+    .tip-box {
+      background: var(--blue-pale);
+      border: 1px solid rgba(25,118,210,0.2);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin-top: 16px;
+    }
+    .tip-box-title {
+      font-size: 13px; font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+    .tip-box p {
+      font-size: 13px;
+      color: var(--brown-2);
+      margin-bottom: 0;
+    }
+
+    .do-dont {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .do-box, .dont-box {
+      border-radius: 14px;
+      padding: 16px;
+    }
+    .do-box {
+      background: var(--green-pale);
+      border: 1px solid rgba(46,125,50,0.2);
+    }
+    .dont-box {
+      background: var(--red-pale);
+      border: 1px solid rgba(211,47,47,0.15);
+    }
+    .do-box-title, .dont-box-title {
+      font-size: 12px; font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+    }
+    .do-box-title { color: var(--green); }
+    .dont-box-title { color: var(--red); }
+    .do-box p, .dont-box p {
+      font-size: 13px;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    .checklist { list-style: none; }
+    .checklist li {
+      display: flex; gap: 10px; align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+    }
+    .checklist li:last-child { border-bottom: none; }
+    .check-icon {
+      width: 22px; height: 22px;
+      border-radius: 6px;
+      background: var(--green-pale);
+      color: var(--green);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .related-item {
+      display: block;
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 14px;
+      padding: 16px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .related-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(46,31,20,0.08);
+    }
+    .related-emoji { font-size: 22px; margin-bottom: 8px; }
+    .related-title { font-size: 13px; font-weight: 700; color: var(--brown); line-height: 1.4; }
+    .related-sub { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+    .cta-banner {
+      background: linear-gradient(135deg, var(--brown), var(--brown-2));
+      border-radius: 20px;
+      padding: 28px 24px;
+      margin-top: 40px;
+      text-align: center;
+    }
+    .cta-banner h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    .cta-banner p {
+      font-size: 13px;
+      color: rgba(251,247,242,0.85);
+      margin-bottom: 18px;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--brown);
+      font-size: 14px; font-weight: 700;
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(201,168,76,0.4);
+    }
+
+    .article-meta {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      text-align: center;
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-bar">
+  <button class="top-back" onclick="history.back()">←</button>
+  <div class="top-breadcrumb">
+    <a href="/">펫키디피아</a> / <a href="/care">CARE</a> / 건강관리
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="hero">
+    <div class="hero-badge">CARE · Health</div>
+    <h1>관절 관리 가이드</h1>
+    <p class="hero-sub">
+      계단 오르기 힘들어하거나 절뚝거리나요?<br>
+      관절염은 예방이 핵심입니다. 지금부터 관리 시작하세요.
+    </p>
+  </div>
+
+  <nav class="toc">
+    <div class="toc-title">목차</div>
+    <a href="#diseases"><span class="toc-num">01</span>주요 관절 질환</a>
+    <a href="#signs"><span class="toc-num">02</span>관절 문제 신호</a>
+    <a href="#prevention"><span class="toc-num">03</span>예방 전략</a>
+    <a href="#supplements"><span class="toc-num">04</span>관절 영양제</a>
+    <a href="#exercise"><span class="toc-num">05</span>적절한 운동</a>
+    <a href="#weight"><span class="toc-num">06</span>체중 관리</a>
+    <a href="#treatment"><span class="toc-num">07</span>치료 옵션</a>
+  </nav>
+
+  <section class="section" id="diseases">
+    <div class="section-label"><span class="section-tag">01 · Joint Diseases</span></div>
+    <h2>주요 관절 질환</h2>
+
+    <div class="disease-grid">
+      <div class="disease-item">
+        <div class="disease-title">퇴행성 관절염</div>
+        <div class="disease-text">
+          연골이 닳아서 생기는 염증.<br>
+          노령견에 흔함.<br>
+          진행성, 비가역적
+        </div>
+      </div>
+      <div class="disease-item">
+        <div class="disease-title">슬개골 탈구</div>
+        <div class="disease-text">
+          무릎뼈가 제자리에서 벗어남.<br>
+          소형견에 매우 흔함.<br>
+          유전적 요인 큼
+        </div>
+      </div>
+      <div class="disease-item">
+        <div class="disease-title">고관절 이형성증</div>
+        <div class="disease-text">
+          고관절이 비정상적으로 형성.<br>
+          대형견에 흔함.<br>
+          유전 + 환경 요인
+        </div>
+      </div>
+      <div class="disease-item">
+        <div class="disease-title">십자인대 파열</div>
+        <div class="disease-text">
+          무릎 십자인대 손상.<br>
+          갑작스런 외상 또는 만성 손상.<br>
+          수술 필요한 경우 많음
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">고위험 견종</div>
+      <p style="font-size:14px;">
+        <strong>슬개골 탈구 (소형견)</strong><br>
+        요크셔 테리어, 치와와, 포메라니안, 말티즈, 푸들, 시츄
+      </p>
+      <p style="font-size:14px;">
+        <strong>고관절 이형성증 (대형견)</strong><br>
+        골든 리트리버, 래브라도, 저먼 셰퍼드, 로트와일러, 세인트 버나드
+      </p>
+      <p style="font-size:14px;">
+        <strong>십자인대 파열</strong><br>
+        래브라도, 로트와일러, 복서, 웨스트 하이랜드 화이트 테리어
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="signs">
+    <div class="section-label"><span class="section-tag">02 · Warning Signs</span></div>
+    <h2>관절 문제 신호</h2>
+
+    <ul class="checklist">
+      <li><span class="check-icon">✓</span> 절뚝거리거나 다리를 들고 걷는다</li>
+      <li><span class="check-icon">✓</span> 계단 오르내리기를 꺼린다</li>
+      <li><span class="check-icon">✓</span> 소파·차에 뛰어오르지 못한다</li>
+      <li><span class="check-icon">✓</span> 일어날 때 힘들어한다 (특히 아침에)</li>
+      <li><span class="check-icon">✓</span> 산책을 싫어하거나 중간에 앉는다</li>
+      <li><span class="check-icon">✓</span> 뛰는 걸 그만두고 걷기만 한다</li>
+      <li><span class="check-icon">✓</span> 관절 부위를 만지면 아파한다</li>
+      <li><span class="check-icon">✓</span> 관절이 붓거나 열이 난다</li>
+      <li><span class="check-icon">✓</span> 걸음걸이가 뻣뻣하다</li>
+      <li><span class="check-icon">✓</span> 움직임이 느려지고 활동량이 줄었다</li>
+    </ul>
+
+    <div class="tip-box">
+      <div class="tip-box-title">💡 초기 증상은 미묘합니다</div>
+      <p>
+        관절염 초기에는 증상이 뚜렷하지 않아요.
+        "나이 들어서 그런가보다" 하고 넘기기 쉽지만,
+        조기 발견이 진행을 늦출 수 있습니다.
+        정기 검진 (연 1회)으로 조기 진단받으세요.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="prevention">
+    <div class="section-label"><span class="section-tag">03 · Prevention</span></div>
+    <h2>예방 전략</h2>
+
+    <div class="card">
+      <div class="card-label">① 퍼피 시절부터 관리</div>
+      <p style="font-size:14px;">
+        <strong>과도한 운동 피하기</strong><br>
+        성장판이 닫히기 전 (소형견 8~10개월, 대형견 12~18개월)에는
+        점프·계단 오르내리기·장시간 달리기를 자제하세요.
+        성장기 관절에 무리를 주면 평생 문제가 됩니다.
+      </p>
+      <p style="font-size:14px;">
+        <strong>미끄러운 바닥 주의</strong><br>
+        대리석·타일 바닥은 미끄러워서 슬개골 탈구 위험 증가.
+        러그·매트 깔아주기.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">② 적정 체중 유지</div>
+      <p style="font-size:14px;">
+        **비만은 관절염 1위 원인**입니다.
+        체중 1kg 증가 = 관절 부담 4배 증가<br>
+        평생 적정 체중 유지가 가장 중요한 예방법입니다.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">③ 규칙적인 저강도 운동</div>
+      <p style="font-size:14px;">
+        매일 적당한 산책으로 근육량 유지.<br>
+        근육이 관절을 지지해줍니다.<br>
+        과격한 운동보다 꾸준한 걷기가 좋습니다.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">④ 미끄럼 방지</div>
+      <p style="font-size:14px;">
+        • 바닥에 미끄럼 방지 매트 깔기<br>
+        • 발바닥 털 정기적으로 정리 (미끄러움 방지)<br>
+        • 발톱 짧게 유지<br>
+        • 필요 시 논슬립 양말 착용
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">⑤ 계단·점프 최소화</div>
+      <p style="font-size:14px;">
+        • 소파·침대용 계단 또는 경사로 설치<br>
+        • 차에 타고 내릴 때 안아주기<br>
+        • 고위험 견종은 어릴 때부터 점프 훈련 금지
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="supplements">
+    <div class="section-label"><span class="section-tag">04 · Supplements</span></div>
+    <h2>관절 영양제</h2>
+    <p>
+      관절 영양제는 연골을 보호하고 염증을 줄이는 데 도움을 줍니다.
+      이미 관절염이 있거나 고위험 견종은 예방 차원에서 복용 권장.
+    </p>
+
+    <table class="supplement-table">
+      <thead>
+        <tr>
+          <th>성분</th>
+          <th>효과</th>
+          <th>비고</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>글루코사민</strong></td>
+          <td>연골 구성 성분 보충</td>
+          <td>가장 기본, 장기 복용</td>
+        </tr>
+        <tr>
+          <td><strong>콘드로이틴</strong></td>
+          <td>연골 분해 억제, 보습</td>
+          <td>글루코사민과 병행</td>
+        </tr>
+        <tr>
+          <td><strong>MSM</strong></td>
+          <td>항염, 통증 완화</td>
+          <td>유황 화합물</td>
+        </tr>
+        <tr>
+          <td><strong>오메가-3 (EPA/DHA)</strong></td>
+          <td>항염 효과</td>
+          <td>생선 오일</td>
+        </tr>
+        <tr>
+          <td><strong>히알루론산</strong></td>
+          <td>관절액 보충, 윤활</td>
+          <td>주사제도 있음</td>
+        </tr>
+        <tr>
+          <td><strong>녹용</strong></td>
+          <td>연골 재생 촉진</td>
+          <td>한방 성분</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="card">
+      <div class="card-label">복용 시기</div>
+      <p style="font-size:14px;">
+        <strong>예방 목적:</strong> 5세 이상부터 (대형견 3세)<br>
+        <strong>고위험 견종:</strong> 1~2세부터<br>
+        <strong>이미 관절염:</strong> 진단 즉시
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">제품 선택 팁</div>
+      <p style="font-size:14px;">
+        • 글루코사민 + 콘드로이틴 조합 제품 권장<br>
+        • MSM, 오메가-3 추가 함유 시 더 좋음<br>
+        • 강아지 전용 제품 (사람용은 부형제가 다름)<br>
+        • 수의사 추천 브랜드 우선
+      </p>
+    </div>
+
+    <div class="caution-box">
+      <div class="caution-box-title">⚠️ 즉각 효과 없음</div>
+      <p>
+        관절 영양제는 통증약이 아닙니다.
+        최소 4~8주 복용해야 효과가 나타나며,
+        장기 복용 (평생)이 필요합니다.
+        단기간 먹고 중단하면 효과 없어요.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="exercise">
+    <div class="section-label"><span class="section-tag">05 · Exercise</span></div>
+    <h2>적절한 운동</h2>
+
+    <div class="card">
+      <div class="card-label">관절에 좋은 운동</div>
+      <p style="font-size:14px;">
+        <strong>① 걷기 (최고)</strong><br>
+        매일 15~30분, 평지에서 천천히<br>
+        근육 유지 + 관절 무리 최소화
+      </p>
+      <p style="font-size:14px;">
+        <strong>② 수영</strong><br>
+        물 속에서는 체중 부담이 없어서 관절염 강아지에게 최고의 운동.<br>
+        주 2~3회, 15~20분
+      </p>
+      <p style="font-size:14px;">
+        <strong>③ 수중 러닝머신</strong><br>
+        재활 병원에서 제공하는 수중 러닝머신.<br>
+        전문가 감독 하에 안전한 운동
+      </p>
+    </div>
+
+    <div class="do-dont">
+      <div class="do-box">
+        <div class="do-box-title">✅ 권장 운동</div>
+        <p>• 평지 천천히 걷기<br>
+        • 수영<br>
+        • 부드러운 스트레칭<br>
+        • 짧고 자주 (하루 2~3회)</p>
+      </div>
+      <div class="dont-box">
+        <div class="dont-box-title">❌ 피해야 할 운동</div>
+        <p>• 점프, 높이 뛰기<br>
+        • 계단 오르내리기<br>
+        • 장시간 달리기<br>
+        • 갑작스런 방향 전환</p>
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-box-title">💡 적당히가 핵심</div>
+      <p>
+        운동을 안 하면 근육이 약해지고 관절이 더 나빠집니다.
+        하지만 과도한 운동도 관절에 무리를 줍니다.
+        **적당한 강도, 짧은 시간, 매일 꾸준히**가 답입니다.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="weight">
+    <div class="section-label"><span class="section-tag">06 · Weight Management</span></div>
+    <h2>체중 관리</h2>
+    <p>
+      **체중 감량이 가장 효과적인 관절염 치료**입니다.
+      연구에 따르면 체중 감량만으로도 70%의 강아지가 증상 개선을 경험했습니다.
+    </p>
+
+    <div class="card">
+      <div class="card-label">비만이 관절에 미치는 영향</div>
+      <p style="font-size:14px;">
+        • 체중 1kg 증가 = 관절 부담 **4배** 증가<br>
+        • 10kg 강아지가 2kg 증가 → 관절 부담 **8kg** 증가<br>
+        • 비만견은 정상 체중 강아지보다 관절염 발생률 **2~3배** 높음
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">체중 감량 목표</div>
+      <p style="font-size:14px;">
+        과체중이라면 현재 체중의 **10~15%** 감량 목표<br>
+        예: 12kg 강아지 → 10~11kg 목표<br>
+        주당 1~2% 감량이 적정 (급격한 감량 금지)
+      </p>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-box-title">💡 체중 관리 = 관절 관리</div>
+      <p>
+        관절염이 있으면 운동이 어려워서 살이 더 찌고,
+        살이 찌면 관절이 더 나빠지는 악순환이 시작됩니다.
+        식단 조절로 체중을 먼저 줄이고,
+        가벼워진 몸으로 운동량을 늘리세요.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="treatment">
+    <div class="section-label"><span class="section-tag">07 · Treatment</span></div>
+    <h2>치료 옵션</h2>
+
+    <div class="card">
+      <div class="card-label">① 비스테로이드성 소염진통제 (NSAIDs)</div>
+      <p style="font-size:14px;">
+        카프로펜, 멜록시캄, 피록시캄 등<br>
+        통증과 염증 빠르게 완화<br>
+        장기 복용 가능하지만 정기 혈액 검사 필요 (간·신장 체크)
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">② 관절 주사 치료</div>
+      <p style="font-size:14px;">
+        <strong>히알루론산 주사</strong><br>
+        관절액 보충, 윤활 증가<br>
+        월 1회 또는 격주 투여
+      </p>
+      <p style="font-size:14px;">
+        <strong>스테로이드 주사</strong><br>
+        강력한 항염 효과<br>
+        단기 사용 권장
+      </p>
+      <p style="font-size:14px;">
+        <strong>PRP (자가혈소판풍부혈장) 주사</strong><br>
+        강아지 자신의 혈액에서 추출한 성분 주입<br>
+        재생 촉진, 부작용 적음
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">③ 줄기세포 치료</div>
+      <p style="font-size:14px;">
+        강아지 지방에서 줄기세포 채취 → 관절에 주입<br>
+        연골 재생 효과<br>
+        비용 300~500만원<br>
+        효과는 개체 차이 큼
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">④ 물리치료</div>
+      <p style="font-size:14px;">
+        레이저 치료, 초음파 치료, 전기 자극 치료<br>
+        재활 병원에서 제공<br>
+        통증 완화, 근육 강화
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">⑤ 수술</div>
+      <p style="font-size:14px;">
+        <strong>슬개골 탈구 수술</strong><br>
+        3~4단계 탈구 시 권장
+      </p>
+      <p style="font-size:14px;">
+        <strong>고관절 전치환술 (THR)</strong><br>
+        고관절 이형성증 치료의 최종 단계<br>
+        비용 500~800만원
+      </p>
+      <p style="font-size:14px;">
+        <strong>십자인대 수술 (TPLO, TTA 등)</strong><br>
+        파열된 십자인대 재건
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">⑥ 보조 장비</div>
+      <p style="font-size:14px;">
+        • 관절 보호대 (브레이스)<br>
+        • 정형외과 침대 (메모리폼)<br>
+        • 계단 또는 경사로<br>
+        • 미끄럼 방지 양말
+      </p>
+    </div>
+
+    <div class="caution-box">
+      <div class="caution-box-title">⚠️ 통증 관리는 필수</div>
+      <p>
+        "약을 계속 먹이면 안 좋을 것 같아서"라며 통증약을 안 주는 경우가 있는데,
+        이는 잘못된 생각입니다.
+        통증을 참으면 더 움직이지 않게 되고,
+        근육이 약해지면서 관절이 더 나빠집니다.
+        수의사 처방에 따라 적절히 통증을 관리하세요.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label"><span class="section-tag">Related</span></div>
+    <h2>함께 보면 좋은 가이드</h2>
+    <div class="related-grid">
+      <a class="related-item" href="care/health/obesity">
+        <div class="related-emoji">⚖️</div>
+        <div class="related-title">강아지 비만 관리 가이드</div>
+        <div class="related-sub">CARE · 건강관리</div>
+      </a>
+      <a class="related-item" href="care/exercise/basic">
+        <div class="related-emoji">🏃</div>
+        <div class="related-title">강아지 산책 기본 가이드</div>
+        <div class="related-sub">CARE · 운동관리</div>
+      </a>
+      <a class="related-item" href="care/health/senior">
+        <div class="related-emoji">🐕</div>
+        <div class="related-title">노령견 건강관리 가이드</div>
+        <div class="related-sub">CARE · 건강관리</div>
+      </a>
+      <a class="related-item" href="care/feed/basic">
+        <div class="related-emoji">🍚</div>
+        <div class="related-title">강아지 급여량 계산법</div>
+        <div class="related-sub">CARE · 급여관리</div>
+      </a>
+    </div>
+  </section>
+
+  <div class="cta-banner">
+    <h3>관절 치료비가 부담된다면</h3>
+    <p>슬개골 탈구 수술부터 만성 관절염 치료까지 보장하는 마이브라운 반려견 보험</p>
+    <a class="cta-btn" href="https://mybrownpet.com">보험 상담 신청하기 →</a>
+  </div>
+
+  <div class="article-meta">
+    <p>CARE_HEALTH_09 · 펫키디피아 Care Guide</p>
+    <p>마지막 업데이트: 2026.03</p>
+    <p>이 콘텐츠는 전문 수의학적 진단을 대체하지 않습니다.</p>
+  </div>
+
+</div>
+
+</body>
+</html>

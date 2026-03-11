@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>강아지 비만 관리 가이드 — 펫키디피아</title>
+  <meta name="description" content="적정 체중 확인부터 다이어트 식단, 운동 계획까지. 과체중 강아지를 위한 완벽 가이드.">
+  <meta name="keywords" content="강아지 비만, 강아지 다이어트, 강아지 적정 체중, 과체중 강아지">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #FBF7F2; --cream-2: #F4EEE5; --gold: #C9A84C; --gold-pale: #F5ECD4;
+      --brown: #2E1F14; --brown-2: #3D2B1F; --warm: #8B5E3C; --soft: #EDE4D8; --muted: #9B8878;
+      --line: rgba(46,31,20,0.08); --green: #2E7D32; --green-pale: #E8F5E9;
+      --amber: #F57F17; --amber-pale: #FFF8E1; --red: #D32F2F; --red-pale: #FFF3F0;
+      --blue: #1976D2; --blue-pale: #E3F2FD; --purple: #7B1FA2; --purple-pale: #F3E5F5;
+      --max: 680px; --font-serif: "Cormorant Garamond", serif; --font-sans: "Noto Sans KR", sans-serif;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: var(--font-sans); background: var(--cream); color: var(--brown); line-height: 1.8; }
+    .top-bar { position: sticky; top: 0; z-index: 50; background: rgba(251,247,242,0.95);
+      backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); padding: 14px 20px;
+      display: flex; align-items: center; gap: 12px; }
+    .top-back { background: none; border: none; font-size: 20px; cursor: pointer; color: var(--brown); }
+    .top-breadcrumb { font-size: 12px; color: var(--muted); }
+    .top-breadcrumb a { color: var(--warm); text-decoration: none; }
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 20px 120px; }
+    .hero { padding: 40px 0 32px; text-align: center; }
+    .hero-badge { display: inline-block; background: var(--purple-pale); color: var(--purple);
+      font-size: 11px; font-weight: 700; padding: 6px 14px; border-radius: 20px;
+      letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px; }
+    .hero h1 { font-size: 26px; font-weight: 700; line-height: 1.4; margin-bottom: 12px; }
+    .hero-sub { font-size: 14px; color: var(--muted); line-height: 1.7; }
+    .toc { background: #fff; border: 1px solid var(--soft); border-radius: 18px; padding: 20px 24px; margin-bottom: 32px; }
+    .toc-title { font-size: 12px; font-weight: 700; color: var(--warm); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; }
+    .toc a { display: block; font-size: 14px; color: var(--brown-2); text-decoration: none; padding: 6px 0; border-bottom: 1px solid var(--line); }
+    .toc a:last-child { border-bottom: none; }
+    .toc a:hover { color: var(--gold); }
+    .toc-num { color: var(--gold); font-weight: 700; margin-right: 8px; }
+    .section { margin-bottom: 36px; }
+    .section-label { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+    .section-label::before, .section-label::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, var(--gold), transparent); }
+    .section-label::after { background: linear-gradient(to left, var(--gold), transparent); }
+    .section-tag { font-family: var(--font-serif); font-size: 13px; font-style: italic; color: var(--gold); letter-spacing: 1px; white-space: nowrap; }
+    .section h2 { font-size: 20px; font-weight: 700; margin-bottom: 14px; line-height: 1.4; }
+    .section p { font-size: 15px; color: var(--brown-2); margin-bottom: 12px; }
+    .card { background: #fff; border: 1px solid var(--soft); border-radius: 18px; padding: 20px; margin-bottom: 14px; }
+    .card-label { font-size: 11px; font-weight: 700; color: var(--warm); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 10px; }
+    .checklist { list-style: none; }
+    .checklist li { display: flex; gap: 10px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+    .checklist li:last-child { border-bottom: none; }
+    .check-icon { width: 22px; height: 22px; border-radius: 6px; background: var(--green-pale); color: var(--green);
+      display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+    .caution-box { background: var(--amber-pale); border: 1px solid rgba(245,127,23,0.2); border-radius: 16px; padding: 18px 20px; margin-top: 16px; }
+    .caution-box-title { font-size: 13px; font-weight: 700; color: var(--amber); margin-bottom: 8px; }
+    .caution-box p { font-size: 13px; color: #5D4037; margin-bottom: 0; }
+    .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .related-item { display: block; background: #fff; border: 1px solid var(--soft); border-radius: 14px; padding: 16px; text-decoration: none; transition: transform 0.2s; }
+    .related-item:hover { transform: translateY(-2px); }
+    .related-emoji { font-size: 22px; margin-bottom: 8px; }
+    .related-title { font-size: 13px; font-weight: 700; color: var(--brown); line-height: 1.4; }
+    .related-sub { font-size: 11px; color: var(--muted); margin-top: 4px; }
+    .cta-banner { background: linear-gradient(135deg, var(--brown), var(--brown-2)); border-radius: 20px; padding: 28px 24px; margin-top: 40px; text-align: center; }
+    .cta-banner h3 { font-size: 18px; font-weight: 700; color: var(--cream); margin-bottom: 10px; }
+    .cta-banner p { font-size: 13px; color: rgba(251,247,242,0.85); margin-bottom: 18px; }
+    .cta-btn { display: inline-block; background: var(--gold); color: var(--brown); font-size: 14px; font-weight: 700;
+      padding: 12px 28px; border-radius: 30px; text-decoration: none; }
+    .article-meta { margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--line); text-align: center;
+      font-size: 11px; color: var(--muted); line-height: 1.8; }
+  </style>
+</head>
+<body>
+<div class="top-bar">
+  <button class="top-back" onclick="history.back()">←</button>
+  <div class="top-breadcrumb"><a href="/">펫키디피아</a> / <a href="/care">CARE</a> / 건강관리</div>
+</div>
+<div class="container">
+  <div class="hero">
+    <div class="hero-badge">CARE · Health</div>
+    <h1>강아지 비만 관리 가이드</h1>
+    <p class="hero-sub">과체중 강아지의 56%가 관절염, 당뇨, 심장질환 위험.<br>적정 체중 유지가 건강한 삶의 시작입니다.</p>
+  </div>
+  <nav class="toc">
+    <div class="toc-title">목차</div>
+    <a href="#why"><span class="toc-num">01</span>왜 비만이 위험한가</a>
+    <a href="#check"><span class="toc-num">02</span>비만 체크 방법</a>
+    <a href="#diet"><span class="toc-num">03</span>다이어트 식단</a>
+  </nav>
+  <section class="section" id="why">
+    <div class="section-label"><span class="section-tag">01 · Why</span></div>
+    <h2>왜 비만이 위험한가</h2>
+    <p>비만은 관절염, 당뇨, 심장질환의 직접적 원인입니다. 과체중 강아지는 정상 체중보다 평균 수명이 2년 짧습니다.</p>
+    <div class="card"><div class="card-label">주요 질환</div><p style="font-size:14px;">관절염, 당뇨병, 심부전, 호흡곤란, 간·신장 질환, 마취 위험 증가</p></div>
+  </section>
+  <section class="section" id="check">
+    <div class="section-label"><span class="section-tag">02 · Check</span></div>
+    <h2>비만 체크 방법</h2>
+    <div class="card"><div class="card-label">BCS 체크</div>
+    <p style="font-size:14px;">① 갈비뼈가 쉽게 만져지나요?<br>② 위에서 봤을 때 허리가 잘록한가요?<br>③ 옆에서 봤을 때 배가 올라가 있나요?</p></div>
+  </section>
+  <section class="section" id="diet">
+    <div class="section-label"><span class="section-tag">03 · Diet</span></div>
+    <h2>다이어트 식단</h2>
+    <ul class="checklist">
+      <li><span class="check-icon">✓</span> 현재 급여량의 75~80%로 줄이기</li>
+      <li><span class="check-icon">✓</span> 간식은 일일 칼로리의 10% 이하</li>
+      <li><span class="check-icon">✓</span> 사람 음식 절대 금지</li>
+      <li><span class="check-icon">✓</span> 주 1회 체중 측정</li>
+    </ul>
+    <div class="caution-box"><div class="caution-box-title">⚠️ 주의</div><p>급격한 감량 금지. 주당 체중의 1~2% 감량이 안전합니다.</p></div>
+  </section>
+  <section class="section">
+    <div class="section-label"><span class="section-tag">Related</span></div>
+    <h2>함께 보면 좋은 가이드</h2>
+    <div class="related-grid">
+      <a class="related-item" href="care/feed/basic"><div class="related-emoji">🍚</div><div class="related-title">급여량 계산법</div><div class="related-sub">CARE</div></a>
+      <a class="related-item" href="care/exercise/basic"><div class="related-emoji">🏃</div><div class="related-title">산책 가이드</div><div class="related-sub">CARE</div></a>
+    </div>
+  </section>
+  <div class="cta-banner">
+    <h3>비만 관련 질환 치료비가 걱정된다면</h3>
+    <p>관절염, 당뇨까지 보장하는 마이브라운 반려견 보험</p>
+    <a class="cta-btn" href="https://mybrownpet.com">보험 상담 신청하기 →</a>
+  </div>
+  <div class="article-meta">
+    <p>CARE_HEALTH_06 · 펫키디피아 Care Guide</p>
+    <p>마지막 업데이트: 2026.03</p>
+  </div>
+</div>
+</body>
+</html>

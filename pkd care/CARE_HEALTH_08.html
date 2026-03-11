@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>알러지 케어 기본 가이드 — 펫키디피아</title>
+  <meta name="description" content="음식 알레르기? 환경 알레르기? 알레르겐 찾기부터 관리 전략까지. 알레르기 완벽 대응 가이드.">
+  <meta name="keywords" content="강아지 알레르기, 음식 알레르기, 환경 알레르기, 알러지 관리">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #FBF7F2;
+      --cream-2: #F4EEE5;
+      --gold: #C9A84C;
+      --gold-pale: #F5ECD4;
+      --brown: #2E1F14;
+      --brown-2: #3D2B1F;
+      --warm: #8B5E3C;
+      --soft: #EDE4D8;
+      --muted: #9B8878;
+      --line: rgba(46,31,20,0.08);
+      --green: #2E7D32;
+      --green-pale: #E8F5E9;
+      --amber: #F57F17;
+      --amber-pale: #FFF8E1;
+      --red: #D32F2F;
+      --red-pale: #FFF3F0;
+      --blue: #1976D2;
+      --blue-pale: #E3F2FD;
+      --purple: #7B1FA2;
+      --purple-pale: #F3E5F5;
+      --max: 680px;
+      --font-serif: "Cormorant Garamond", serif;
+      --font-sans: "Noto Sans KR", sans-serif;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--cream);
+      color: var(--brown);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .top-bar {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(251,247,242,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      padding: 14px 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .top-back { background: none; border: none; font-size: 20px; cursor: pointer; color: var(--brown); }
+    .top-breadcrumb { font-size: 12px; color: var(--muted); }
+    .top-breadcrumb a { color: var(--warm); text-decoration: none; }
+
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 20px 120px; }
+
+    .hero {
+      padding: 40px 0 32px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--purple-pale);
+      color: var(--purple);
+      font-size: 11px; font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: var(--font-sans);
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--brown);
+      margin-bottom: 12px;
+    }
+    .hero-sub {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .toc {
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 18px;
+      padding: 20px 24px;
+      margin-bottom: 32px;
+    }
+    .toc-title {
+      font-size: 12px; font-weight: 700;
+      color: var(--warm);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .toc a {
+      display: block;
+      font-size: 14px;
+      color: var(--brown-2);
+      text-decoration: none;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .toc a:last-child { border-bottom: none; }
+    .toc a:hover { color: var(--gold); }
+    .toc-num { color: var(--gold); font-weight: 700; margin-right: 8px; }
+
+    .section { margin-bottom: 36px; }
+    .section-label {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 16px;
+    }
+    .section-label::before, .section-label::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(to right, var(--gold), transparent);
+    }
+    .section-label::after {
+      background: linear-gradient(to left, var(--gold), transparent);
+    }
+    .section-tag {
+      font-family: var(--font-serif);
+      font-size: 13px; font-style: italic;
+      color: var(--gold);
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+    .section h2 {
+      font-size: 20px; font-weight: 700;
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+    .section p {
+      font-size: 15px;
+      color: var(--brown-2);
+      margin-bottom: 12px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 18px;
+      padding: 20px;
+      margin-bottom: 14px;
+    }
+    .card-label {
+      font-size: 11px; font-weight: 700;
+      color: var(--warm);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .type-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .type-item {
+      background: var(--purple-pale);
+      border: 1px solid rgba(123,31,162,0.2);
+      border-radius: 14px;
+      padding: 16px;
+      text-align: center;
+    }
+    .type-icon {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+    .type-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--purple);
+      margin-bottom: 6px;
+    }
+    .type-desc {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .caution-box {
+      background: var(--amber-pale);
+      border: 1px solid rgba(245,127,23,0.2);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin-top: 16px;
+    }
+    .caution-box-title {
+      font-size: 13px; font-weight: 700;
+      color: var(--amber);
+      margin-bottom: 8px;
+    }
+    .caution-box p {
+      font-size: 13px;
+      color: #5D4037;
+      margin-bottom: 0;
+    }
+
+    .tip-box {
+      background: var(--blue-pale);
+      border: 1px solid rgba(25,118,210,0.2);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin-top: 16px;
+    }
+    .tip-box-title {
+      font-size: 13px; font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+    .tip-box p {
+      font-size: 13px;
+      color: var(--brown-2);
+      margin-bottom: 0;
+    }
+
+    .checklist { list-style: none; }
+    .checklist li {
+      display: flex; gap: 10px; align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+    }
+    .checklist li:last-child { border-bottom: none; }
+    .check-icon {
+      width: 22px; height: 22px;
+      border-radius: 6px;
+      background: var(--green-pale);
+      color: var(--green);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .allergen-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 13px;
+    }
+    .allergen-table th {
+      background: var(--purple-pale);
+      padding: 10px 12px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 12px;
+      color: var(--purple);
+      border-bottom: 2px solid var(--soft);
+    }
+    .allergen-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .related-item {
+      display: block;
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 14px;
+      padding: 16px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .related-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(46,31,20,0.08);
+    }
+    .related-emoji { font-size: 22px; margin-bottom: 8px; }
+    .related-title { font-size: 13px; font-weight: 700; color: var(--brown); line-height: 1.4; }
+    .related-sub { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+    .cta-banner {
+      background: linear-gradient(135deg, var(--brown), var(--brown-2));
+      border-radius: 20px;
+      padding: 28px 24px;
+      margin-top: 40px;
+      text-align: center;
+    }
+    .cta-banner h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    .cta-banner p {
+      font-size: 13px;
+      color: rgba(251,247,242,0.85);
+      margin-bottom: 18px;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--brown);
+      font-size: 14px; font-weight: 700;
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(201,168,76,0.4);
+    }
+
+    .article-meta {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      text-align: center;
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-bar">
+  <button class="top-back" onclick="history.back()">←</button>
+  <div class="top-breadcrumb">
+    <a href="/">펫키디피아</a> / <a href="/care">CARE</a> / 건강관리
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="hero">
+    <div class="hero-badge">CARE · Health</div>
+    <h1>알러지 케어 기본 가이드</h1>
+    <p class="hero-sub">
+      재채기, 가려움, 눈물, 구토. 알레르기 증상은 다양합니다.<br>
+      알레르겐을 찾아내고 관리하는 방법을 배우세요.
+    </p>
+  </div>
+
+  <nav class="toc">
+    <div class="toc-title">목차</div>
+    <a href="#types"><span class="toc-num">01</span>알레르기 3가지 유형</a>
+    <a href="#symptoms"><span class="toc-num">02</span>유형별 증상</a>
+    <a href="#food"><span class="toc-num">03</span>음식 알레르기 관리</a>
+    <a href="#environment"><span class="toc-num">04</span>환경 알레르기 관리</a>
+    <a href="#flea"><span class="toc-num">05</span>벼룩 알레르기 관리</a>
+    <a href="#diagnosis"><span class="toc-num">06</span>진단 검사</a>
+    <a href="#treatment"><span class="toc-num">07</span>치료 옵션</a>
+  </nav>
+
+  <section class="section" id="types">
+    <div class="section-label"><span class="section-tag">01 · Types</span></div>
+    <h2>알레르기 3가지 유형</h2>
+    <p>
+      강아지 알레르기는 크게 3가지로 나뉩니다.
+      증상이 비슷해서 구별이 어렵지만 원인과 대처법이 다릅니다.
+    </p>
+
+    <div class="type-grid">
+      <div class="type-item">
+        <div class="type-icon">🍖</div>
+        <div class="type-title">음식 알레르기</div>
+        <div class="type-desc">특정 단백질·곡물에 반응</div>
+      </div>
+      <div class="type-item">
+        <div class="type-icon">🌾</div>
+        <div class="type-title">환경 알레르기</div>
+        <div class="type-desc">꽃가루·먼지·곰팡이</div>
+      </div>
+      <div class="type-item">
+        <div class="type-icon">🦟</div>
+        <div class="type-title">벼룩 알레르기</div>
+        <div class="type-desc">벼룩 침에 과민 반응</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">유형 구별 팁</div>
+      <p style="font-size:14px;">
+        <strong>음식 알레르기</strong><br>
+        • 1년 내내 증상 지속<br>
+        • 소화기 증상 동반 (구토·설사)<br>
+        • 귀 감염 반복<br>
+        • 나이 상관없이 발생 가능
+      </p>
+      <p style="font-size:14px;">
+        <strong>환경 알레르기</strong><br>
+        • 계절성 증상 (봄·가을 악화)<br>
+        • 주로 피부 증상 (가려움)<br>
+        • 발바닥·겨드랑이·얼굴 집중<br>
+        • 보통 1~3세 이후 발생
+      </p>
+      <p style="font-size:14px;">
+        <strong>벼룩 알레르기</strong><br>
+        • 꼬리 근처·엉덩이 집중 가려움<br>
+        • 벼룩·벼룩 배설물 발견<br>
+        • 한 마리만 물려도 심각한 반응<br>
+        • 여름철 악화
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="symptoms">
+    <div class="section-label"><span class="section-tag">02 · Symptoms</span></div>
+    <h2>유형별 증상</h2>
+
+    <div class="card">
+      <div class="card-label">피부 증상 (모든 유형 공통)</div>
+      <ul class="checklist">
+        <li><span class="check-icon">✓</span> 심한 가려움 (긁기, 핥기, 씹기)</li>
+        <li><span class="check-icon">✓</span> 피부 붉어짐, 발진</li>
+        <li><span class="check-icon">✓</span> 탈모</li>
+        <li><span class="check-icon">✓</span> 피부 염증, 감염</li>
+        <li><span class="check-icon">✓</span> 귀 감염 (냄새, 분비물)</li>
+        <li><span class="check-icon">✓</span> 발바닥 핥기 (발이 갈색으로 변색)</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-label">소화기 증상 (주로 음식 알레르기)</div>
+      <ul class="checklist">
+        <li><span class="check-icon">✓</span> 구토</li>
+        <li><span class="check-icon">✓</span> 설사, 무른 변</li>
+        <li><span class="check-icon">✓</span> 복통 (배를 웅크림)</li>
+        <li><span class="check-icon">✓</span> 식욕 저하</li>
+        <li><span class="check-icon">✓</span> 잦은 방귀</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-label">호흡기 증상 (드물지만 가능)</div>
+      <ul class="checklist">
+        <li><span class="check-icon">✓</span> 재채기</li>
+        <li><span class="check-icon">✓</span> 콧물</li>
+        <li><span class="check-icon">✓</span> 눈물</li>
+        <li><span class="check-icon">✓</span> 기침</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="food">
+    <div class="section-label"><span class="section-tag">03 · Food Allergy</span></div>
+    <h2>음식 알레르기 관리</h2>
+
+    <table class="allergen-table">
+      <thead>
+        <tr>
+          <th>흔한 알레르겐</th>
+          <th>대체 옵션</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>닭고기</td>
+          <td>오리, 칠면조, 토끼</td>
+        </tr>
+        <tr>
+          <td>쇠고기</td>
+          <td>양고기, 사슴고기, 캥거루</td>
+        </tr>
+        <tr>
+          <td>유제품</td>
+          <td>완전 제거</td>
+        </tr>
+        <tr>
+          <td>밀</td>
+          <td>쌀, 감자, 고구마, 귀리</td>
+        </tr>
+        <tr>
+          <td>옥수수</td>
+          <td>쌀, 감자, 타피오카</td>
+        </tr>
+        <tr>
+          <td>콩</td>
+          <td>완두콩, 렌틸콩 (주의)</td>
+        </tr>
+        <tr>
+          <td>계란</td>
+          <td>완전 제거</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="card">
+      <div class="card-label">제한 급여 시험 (Elimination Diet)</div>
+      <p style="font-size:14px;">
+        <strong>1단계: 새로운 사료로 완전 전환 (8~12주)</strong><br>
+        • 단일 단백질 + 단일 탄수화물 사료<br>
+        • 강아지가 먹어본 적 없는 재료 선택<br>
+        • 예: 오리+감자, 연어+고구마, 사슴고기+쌀<br>
+        • **간식 일체 금지** (물과 사료만)
+      </p>
+      <p style="font-size:14px;">
+        <strong>2단계: 증상 개선 확인</strong><br>
+        • 8~12주 후 증상이 좋아졌다면 음식 알레르기 확진<br>
+        • 50~80% 개선 시 성공
+      </p>
+      <p style="font-size:14px;">
+        <strong>3단계: 재도전 (Challenge Test)</strong><br>
+        • 이전 사료를 소량 급여<br>
+        • 증상 재발하면 알레르기 확정<br>
+        • 증상 없으면 다른 원인 탐색
+      </p>
+      <p style="font-size:14px;">
+        <strong>4단계: 알레르겐 특정</strong><br>
+        • 한 가지 재료씩 추가하면서 반응 관찰<br>
+        • 증상 나타나는 재료를 평생 제외
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">가수분해 사료</div>
+      <p style="font-size:14px;">
+        단백질을 아주 작게 쪼개서 면역 시스템이 인식 못 하게 만든 사료.<br>
+        제한 급여 시험이 어려운 경우 대안.<br>
+        수의사 처방 필요, 비쌈 (월 10~20만원).
+      </p>
+    </div>
+
+    <div class="caution-box">
+      <div class="caution-box-title">⚠️ 제한 급여 시험 주의사항</div>
+      <p>
+        • 가족 모두가 규칙 지켜야 함 (누군가 몰래 간식 주면 실패)<br>
+        • 8~12주는 길게 느껴지지만 정확한 진단을 위해 필수<br>
+        • 중간에 포기하면 처음부터 다시 시작<br>
+        • 간식, 치약, 약도 같은 단백질 사용
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="environment">
+    <div class="section-label"><span class="section-tag">04 · Environmental Allergy</span></div>
+    <h2>환경 알레르기 관리</h2>
+
+    <div class="card">
+      <div class="card-label">흔한 환경 알레르겐</div>
+      <p style="font-size:14px;">
+        <strong>① 꽃가루</strong> — 나무·풀·꽃 (봄·여름·가을)<br>
+        <strong>② 먼지 진드기</strong> — 침구·카펫·소파 (1년 내내)<br>
+        <strong>③ 곰팡이</strong> — 습한 곳, 낙엽 (가을·겨울)<br>
+        <strong>④ 사람 비듬</strong> — 사람 피부 각질<br>
+        <strong>⑤ 기타</strong> — 고양이, 담배 연기, 향수
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">회피 전략 (Avoidance)</div>
+      <p style="font-size:14px;">
+        <strong>꽃가루 시즌</strong><br>
+        • 산책 시간 조절 (이른 아침·저녁 피하기)<br>
+        • 산책 후 발·배 닦기<br>
+        • 털 브러싱으로 꽃가루 제거<br>
+        • 창문 닫기, 공기청정기 가동
+      </p>
+      <p style="font-size:14px;">
+        <strong>먼지 진드기</strong><br>
+        • 침구·쿠션 주 1회 고온 세탁 (60℃+)<br>
+        • 진공청소 자주 (주 2~3회)<br>
+        • 제습기 사용 (습도 40~50% 유지)<br>
+        • 카펫 제거, 나무·타일 바닥 선호
+      </p>
+      <p style="font-size:14px;">
+        <strong>곰팡이</strong><br>
+        • 욕실·지하실 습기 관리<br>
+        • 낙엽 더미 접근 금지<br>
+        • 제습기, 환기
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">면역 요법 (Immunotherapy)</div>
+      <p style="font-size:14px;">
+        알레르겐을 소량씩 주사해서 면역 시스템을 점진적으로 적응시키는 방법.<br>
+        <strong>장점:</strong> 근본 치료, 약물 의존도 감소, 장기적 효과<br>
+        <strong>단점:</strong> 비용 (월 10~15만원), 6~12개월 소요, 70~80% 성공률<br>
+        알레르기 검사 후 맞춤 제작.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="flea">
+    <div class="section-label"><span class="section-tag">05 · Flea Allergy</span></div>
+    <h2>벼룩 알레르기 관리</h2>
+    <p>
+      벼룩 알레르기성 피부염(FAD)은 벼룩 침 속 단백질에 대한 과민 반응입니다.
+      벼룩 한 마리만 물려도 2~3주간 심한 가려움이 지속됩니다.
+    </p>
+
+    <div class="card">
+      <div class="card-label">증상</div>
+      <ul class="checklist">
+        <li><span class="check-icon">✓</span> 꼬리 근처·엉덩이·허벅지 뒤쪽 집중 가려움</li>
+        <li><span class="check-icon">✓</span> 피부가 붉고 딱지가 생김</li>
+        <li><span class="check-icon">✓</span> 탈모 (특히 꼬리 쪽)</li>
+        <li><span class="check-icon">✓</span> 털 사이 검은 점 (벼룩 배설물)</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-label">관리 방법</div>
+      <p style="font-size:14px;">
+        <strong>① 예방약 철저히 (1년 내내)</strong><br>
+        넥스가드, 심파리카, 브라벡토 등 매달 빠짐없이<br>
+        벼룩 알레르기가 있으면 겨울에도 중단 금지
+      </p>
+      <p style="font-size:14px;">
+        <strong>② 환경 관리</strong><br>
+        집안 청소, 침구 세탁, 진공청소기 매일<br>
+        벼룩 95%는 환경(카펫·침구)에 있음
+      </p>
+      <p style="font-size:14px;">
+        <strong>③ 다른 반려동물도 예방</strong><br>
+        고양이·다른 강아지도 동시 예방약 투여
+      </p>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-box-title">💡 벼룩 한 마리도 허용 안 됨</div>
+      <p>
+        정상 강아지는 벼룩 몇 마리 물려도 가볍게 긁지만,
+        벼룩 알레르기가 있는 강아지는 한 마리만 물려도 큰 고통입니다.
+        **완벽한 예방**이 유일한 해답입니다.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="diagnosis">
+    <div class="section-label"><span class="section-tag">06 · Diagnosis</span></div>
+    <h2>진단 검사</h2>
+
+    <div class="card">
+      <div class="card-label">① 제한 급여 시험 (음식 알레르기)</div>
+      <p style="font-size:14px;">
+        가장 정확한 방법. 8~12주 소요.<br>
+        위 '음식 알레르기 관리' 섹션 참고.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">② 피내 검사 (Intradermal Test)</div>
+      <p style="font-size:14px;">
+        환경 알레르기 진단 골드 스탠다드.<br>
+        피부에 소량의 알레르겐 주입 → 반응 관찰<br>
+        마취 필요, 비용 30~50만원<br>
+        면역 요법 계획 수립 시 필수
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">③ 혈액 검사 (Serum Allergy Test)</div>
+      <p style="font-size:14px;">
+        혈액으로 IgE 항체 측정.<br>
+        마취 불필요, 비용 20~30만원<br>
+        피내 검사보다 정확도 낮음<br>
+        참고용으로 활용
+      </p>
+    </div>
+
+    <div class="caution-box">
+      <div class="caution-box-title">⚠️ 음식 알레르기는 혈액 검사 불가</div>
+      <p>
+        음식 알레르기는 혈액 검사로 진단할 수 없습니다.
+        제한 급여 시험만이 확실한 방법입니다.
+        혈액 검사 결과를 믿고 사료를 바꾸면 실패할 수 있어요.
+      </p>
+    </caution-box>
+  </section>
+
+  <section class="section" id="treatment">
+    <div class="section-label"><span class="section-tag">07 · Treatment</span></div>
+    <h2>치료 옵션</h2>
+
+    <div class="card">
+      <div class="card-label">① 항히스타민제</div>
+      <p style="font-size:14px;">
+        세티리진, 디펜히드라민 등<br>
+        경미한 증상에 효과적<br>
+        부작용 적음, 장기 복용 가능<br>
+        효과는 개체마다 차이 큼 (30~50% 효과)
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">② 스테로이드</div>
+      <p style="font-size:14px;">
+        프레드니솔론 등<br>
+        빠르고 강력한 효과<br>
+        단기 사용 권장 (2~4주)<br>
+        장기 복용 시 부작용 (갈증·배뇨 증가·체중 증가·면역 저하)
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">③ 사이토카인 억제제</div>
+      <p style="font-size:14px;">
+        <strong>아포켈 (Apoquel)</strong><br>
+        가려움 신호 차단, 30분~4시간 내 효과<br>
+        스테로이드보다 부작용 적음<br>
+        장기 복용 가능<br>
+        비용 월 5~15만원
+      </p>
+      <p style="font-size:14px;">
+        <strong>사이토포인트 (Cytopoint)</strong><br>
+        주사제, 한 번에 4~8주 효과<br>
+        부작용 거의 없음<br>
+        비용 1회 5~10만원
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">④ 국소 치료</div>
+      <p style="font-size:14px;">
+        약용 샴푸, 스프레이, 연고<br>
+        부분적 증상에 효과적<br>
+        전신 약물과 병행
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">⑤ 오메가-3 보충제</div>
+      <p style="font-size:14px;">
+        생선 오일 (EPA, DHA)<br>
+        항염 효과, 피부 장벽 강화<br>
+        단독 사용보다 다른 치료와 병행 시 효과적
+      </p>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-box-title">💡 평생 관리</div>
+      <p>
+        알레르기는 완치가 어렵고 평생 관리가 필요합니다.
+        계절성이면 악화 시기에만 약 복용하고,
+        1년 내내 증상이 있으면 지속적 관리가 필요해요.
+        수의사와 함께 가장 부작용 적은 방법을 찾으세요.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label"><span class="section-tag">Related</span></div>
+    <h2>함께 보면 좋은 가이드</h2>
+    <div class="related-grid">
+      <a class="related-item" href="care/health/skin">
+        <div class="related-emoji">🩹</div>
+        <div class="related-title">피부 민감견 케어 가이드</div>
+        <div class="related-sub">CARE · 건강관리</div>
+      </a>
+      <a class="related-item" href="care/feed/basic">
+        <div class="related-emoji">🍚</div>
+        <div class="related-title">강아지 급여량 계산법</div>
+        <div class="related-sub">CARE · 급여관리</div>
+      </a>
+      <a class="related-item" href="care/health/flea-tick">
+        <div class="related-emoji">🐜</div>
+        <div class="related-title">벼룩·진드기 예방 가이드</div>
+        <div class="related-sub">CARE · 건강관리</div>
+      </a>
+      <a class="related-item" href="care/grooming/shampoo">
+        <div class="related-emoji">🧴</div>
+        <div class="related-title">강아지 샴푸 선택법</div>
+        <div class="related-sub">CARE · 그루밍</div>
+      </a>
+    </div>
+  </section>
+
+  <div class="cta-banner">
+    <h3>알레르기 치료비가 부담된다면</h3>
+    <p>만성 알레르기 관리비까지 보장하는 마이브라운 반려견 보험</p>
+    <a class="cta-btn" href="https://mybrownpet.com">보험 상담 신청하기 →</a>
+  </div>
+
+  <div class="article-meta">
+    <p>CARE_HEALTH_08 · 펫키디피아 Care Guide</p>
+    <p>마지막 업데이트: 2026.03</p>
+    <p>이 콘텐츠는 전문 수의학적 진단을 대체하지 않습니다.</p>
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>강아지 목욕 주기 가이드 — 펫키디피아</title>
+  <meta name="description" content="강아지 목욕은 얼마나 자주 해야 할까요? 모질별·피부 타입별 목욕 주기, 목욕 전후 관리, 샴푸 선택까지 완벽 가이드.">
+  <meta name="keywords" content="강아지 목욕 주기, 강아지 목욕 횟수, 강아지 씻기기, 반려견 목욕">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #FBF7F2;
+      --cream-2: #F4EEE5;
+      --gold: #C9A84C;
+      --gold-pale: #F5ECD4;
+      --brown: #2E1F14;
+      --brown-2: #3D2B1F;
+      --warm: #8B5E3C;
+      --soft: #EDE4D8;
+      --muted: #9B8878;
+      --line: rgba(46,31,20,0.08);
+      --green: #2E7D32;
+      --green-pale: #E8F5E9;
+      --amber: #F57F17;
+      --amber-pale: #FFF8E1;
+      --red: #D32F2F;
+      --red-pale: #FFF3F0;
+      --blue: #1976D2;
+      --blue-pale: #E3F2FD;
+      --max: 680px;
+      --font-serif: "Cormorant Garamond", serif;
+      --font-sans: "Noto Sans KR", sans-serif;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--cream);
+      color: var(--brown);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .top-bar {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(251,247,242,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      padding: 14px 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .top-back { background: none; border: none; font-size: 20px; cursor: pointer; color: var(--brown); }
+    .top-breadcrumb { font-size: 12px; color: var(--muted); }
+    .top-breadcrumb a { color: var(--warm); text-decoration: none; }
+
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 20px 120px; }
+
+    .hero {
+      padding: 40px 0 32px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--gold-pale);
+      color: var(--warm);
+      font-size: 11px; font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: var(--font-sans);
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--brown);
+      margin-bottom: 12px;
+    }
+    .hero-sub {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .toc {
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 18px;
+      padding: 20px 24px;
+      margin-bottom: 32px;
+    }
+    .toc-title {
+      font-size: 12px; font-weight: 700;
+      color: var(--warm);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .toc a {
+      display: block;
+      font-size: 14px;
+      color: var(--brown-2);
+      text-decoration: none;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .toc a:last-child { border-bottom: none; }
+    .toc a:hover { color: var(--gold); }
+    .toc-num { color: var(--gold); font-weight: 700; margin-right: 8px; }
+
+    .section { margin-bottom: 36px; }
+    .section-label {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 16px;
+    }
+    .section-label::before, .section-label::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(to right, var(--gold), transparent);
+    }
+    .section-label::after {
+      background: linear-gradient(to left, var(--gold), transparent);
+    }
+    .section-tag {
+      font-family: var(--font-serif);
+      font-size: 13px; font-style: italic;
+      color: var(--gold);
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+    .section h2 {
+      font-size: 20px; font-weight: 700;
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+    .section p {
+      font-size: 15px;
+      color: var(--brown-2);
+      margin-bottom: 12px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 18px;
+      padding: 20px;
+      margin-bottom: 14px;
+    }
+    .card-label {
+      font-size: 11px; font-weight: 700;
+      color: var(--warm);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .frequency-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 13px;
+    }
+    .frequency-table th {
+      background: var(--cream-2);
+      padding: 10px 12px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 12px;
+      color: var(--warm);
+      border-bottom: 2px solid var(--soft);
+    }
+    .frequency-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+
+    .checklist { list-style: none; }
+    .checklist li {
+      display: flex; gap: 10px; align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+    }
+    .checklist li:last-child { border-bottom: none; }
+    .check-icon {
+      width: 22px; height: 22px;
+      border-radius: 6px;
+      background: var(--green-pale);
+      color: var(--green);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .caution-box {
+      background: var(--amber-pale);
+      border: 1px solid rgba(245,127,23,0.2);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin-top: 16px;
+    }
+    .caution-box-title {
+      font-size: 13px; font-weight: 700;
+      color: var(--amber);
+      margin-bottom: 8px;
+    }
+    .caution-box p {
+      font-size: 13px;
+      color: #5D4037;
+      margin-bottom: 0;
+    }
+
+    .tip-box {
+      background: var(--blue-pale);
+      border: 1px solid rgba(25,118,210,0.2);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin-top: 16px;
+    }
+    .tip-box-title {
+      font-size: 13px; font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+    .tip-box p {
+      font-size: 13px;
+      color: var(--brown-2);
+      margin-bottom: 0;
+    }
+
+    .do-dont {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .do-box, .dont-box {
+      border-radius: 14px;
+      padding: 16px;
+    }
+    .do-box {
+      background: var(--green-pale);
+      border: 1px solid rgba(46,125,50,0.2);
+    }
+    .dont-box {
+      background: var(--red-pale);
+      border: 1px solid rgba(211,47,47,0.15);
+    }
+    .do-box-title, .dont-box-title {
+      font-size: 12px; font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+    }
+    .do-box-title { color: var(--green); }
+    .dont-box-title { color: var(--red); }
+    .do-box p, .dont-box p {
+      font-size: 13px;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .related-item {
+      display: block;
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 14px;
+      padding: 16px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .related-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(46,31,20,0.08);
+    }
+    .related-emoji { font-size: 22px; margin-bottom: 8px; }
+    .related-title { font-size: 13px; font-weight: 700; color: var(--brown); line-height: 1.4; }
+    .related-sub { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+    .cta-banner {
+      background: linear-gradient(135deg, var(--brown), var(--brown-2));
+      border-radius: 20px;
+      padding: 28px 24px;
+      margin-top: 40px;
+      text-align: center;
+    }
+    .cta-banner h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    .cta-banner p {
+      font-size: 13px;
+      color: rgba(251,247,242,0.85);
+      margin-bottom: 18px;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--brown);
+      font-size: 14px; font-weight: 700;
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(201,168,76,0.4);
+    }
+
+    .article-meta {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      text-align: center;
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-bar">
+  <button class="top-back" onclick="history.back()">←</button>
+  <div class="top-breadcrumb">
+    <a href="/">펫키디피아</a> / <a href="/care">CARE</a> / 그루밍
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="hero">
+    <div class="hero-badge">CARE · Grooming</div>
+    <h1>강아지 목욕 주기 가이드</h1>
+    <p class="hero-sub">
+      너무 자주 씻으면 피부가 건조해지고, 너무 안 씻으면 냄새와 피부 트러블.<br>
+      우리 강아지에게 맞는 목욕 주기를 찾아봅시다.
+    </p>
+  </div>
+
+  <nav class="toc">
+    <div class="toc-title">목차</div>
+    <a href="#frequency"><span class="toc-num">01</span>기본 목욕 주기</a>
+    <a href="#factors"><span class="toc-num">02</span>주기를 결정하는 요인</a>
+    <a href="#before"><span class="toc-num">03</span>목욕 전 준비</a>
+    <a href="#during"><span class="toc-num">04</span>목욕 중 주의사항</a>
+    <a href="#after"><span class="toc-num">05</span>목욕 후 관리</a>
+    <a href="#tips"><span class="toc-num">06</span>목욕 팁</a>
+    <a href="#signs"><span class="toc-num">07</span>목욕이 필요한 신호</a>
+  </nav>
+
+  <section class="section" id="frequency">
+    <div class="section-label"><span class="section-tag">01 · Basic Frequency</span></div>
+    <h2>기본 목욕 주기</h2>
+    <p>
+      강아지 목욕 주기는 모질, 피부 타입, 생활 환경에 따라 달라집니다.
+      일반적인 기준은 다음과 같아요.
+    </p>
+
+    <table class="frequency-table">
+      <thead>
+        <tr>
+          <th>견종 타입</th>
+          <th>권장 주기</th>
+          <th>참고사항</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>단모종</strong></td>
+          <td>월 1~2회</td>
+          <td>털이 짧아 피부 유분이 중요. 너무 자주 씻으면 건조해짐</td>
+        </tr>
+        <tr>
+          <td><strong>장모종</strong></td>
+          <td>2~4주에 1회</td>
+          <td>털 엉킴 방지 위해 목욕 전 빗질 필수</td>
+        </tr>
+        <tr>
+          <td><strong>이중모종</strong></td>
+          <td>월 1~2회</td>
+          <td>언더코트 완전 건조가 핵심. 곰팡이 위험 높음</td>
+        </tr>
+        <tr>
+          <td><strong>곱슬모</strong></td>
+          <td>2~3주에 1회</td>
+          <td>푸들, 비숑 등. 털이 계속 자라므로 미용과 함께 진행</td>
+        </tr>
+        <tr>
+          <td><strong>무모·단모</strong></td>
+          <td>주 1회 또는 격주</td>
+          <td>차이니즈 크레스티드 등. 피부 직접 노출되어 관리 중요</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="caution-box">
+      <div class="caution-box-title">⚠️ 과도한 목욕의 위험</div>
+      <p>
+        주 1회 이상 목욕은 피부의 천연 유분을 과도하게 제거하여
+        건조함, 가려움증, 피부염을 유발할 수 있습니다.
+        수의사와 상담 없이 너무 자주 씻지 마세요.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="factors">
+    <div class="section-label"><span class="section-tag">02 · Factors</span></div>
+    <h2>주기를 결정하는 요인</h2>
+
+    <div class="card">
+      <div class="card-label">① 생활 환경</div>
+      <p style="font-size:14px;">
+        <strong>실외 활동 많음</strong> — 흙, 먼지, 풀씨 등에 자주 노출되면 더 자주 씻어야 합니다.<br>
+        <strong>실내 중심</strong> — 상대적으로 깨끗하므로 목욕 주기를 늘릴 수 있어요.<br>
+        <strong>물놀이 자주</strong> — 수영장이나 개천에서 놀면 그날 바로 헹궈주는 게 좋습니다.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">② 피부 타입</div>
+      <p style="font-size:14px;">
+        <strong>건성 피부</strong> — 목욕 주기 늘리고, 보습 샴푸 사용<br>
+        <strong>지성 피부</strong> — 피지 분비가 많으면 주기를 약간 줄일 수 있음<br>
+        <strong>민감성 피부</strong> — 저자극 샴푸 사용, 수의사와 상담 후 주기 결정<br>
+        <strong>피부 질환</strong> — 약용 샴푸 사용 시 수의사 지시 따르기
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">③ 계절</div>
+      <p style="font-size:14px;">
+        <strong>여름</strong> — 땀과 피지 분비 증가, 냄새 심해지면 주기 단축 가능<br>
+        <strong>겨울</strong> — 건조하므로 주기 늘리고 보습 강화<br>
+        <strong>봄·가을</strong> — 털갈이 시즌엔 목욕 후 털 제거 효과적
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">④ 활동량</div>
+      <p style="font-size:14px;">
+        산책을 많이 하거나 운동량이 많으면 땀과 냄새가 더 빨리 생깁니다.
+        활동 후 발바닥과 배만 가볍게 닦아주는 것도 좋은 방법이에요.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="before">
+    <div class="section-label"><span class="section-tag">03 · Before Bath</span></div>
+    <h2>목욕 전 준비</h2>
+
+    <div class="card">
+      <div class="card-label">빗질 (가장 중요!)</div>
+      <p style="font-size:14px;">
+        장모종과 이중모종은 목욕 전 반드시 전신 빗질이 필요합니다.
+        엉킨 상태로 물에 적시면 매트(뭉친 털)가 더 단단해져서
+        나중에 풀 수 없게 됩니다.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">준비물 체크리스트</div>
+      <ul class="checklist">
+        <li><span class="check-icon">✓</span> 강아지 전용 샴푸 (피부 타입에 맞게)</li>
+        <li><span class="check-icon">✓</span> 컨디셔너 (장모종·건성 피부)</li>
+        <li><span class="check-icon">✓</span> 미끄럼 방지 매트</li>
+        <li><span class="check-icon">✓</span> 흡수력 좋은 수건 2~3장</li>
+        <li><span class="check-icon">✓</span> 드라이기 (강아지 전용 또는 저온 설정)</li>
+        <li><span class="check-icon">✓</span> 브러시·빗</li>
+        <li><span class="check-icon">✓</span> 귀 세정제 (필요 시)</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-label">온도 설정</div>
+      <p style="font-size:14px;">
+        물 온도는 미지근한 정도(37~38℃)가 적당합니다.
+        너무 뜨거우면 피부 자극, 너무 차가우면 강아지가 싫어해요.
+        손목 안쪽에 물을 뿌려 온도를 먼저 확인하세요.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="during">
+    <div class="section-label"><span class="section-tag">04 · During Bath</span></div>
+    <h2>목욕 중 주의사항</h2>
+
+    <div class="card">
+      <div class="card-label">목욕 순서</div>
+      <p style="font-size:14px;">
+        <strong>① 발·다리부터 시작</strong><br>
+        갑자기 머리에 물을 뿌리면 놀랄 수 있어요. 발부터 천천히 적셔가며 적응시킵니다.
+      </p>
+      <p style="font-size:14px;">
+        <strong>② 몸통 → 목 → 머리 순서</strong><br>
+        머리는 가장 나중에 씻습니다. 눈·코·귀에 물이 들어가지 않도록 조심하세요.
+      </p>
+      <p style="font-size:14px;">
+        <strong>③ 샴푸는 희석해서</strong><br>
+        샴푸를 직접 털에 붓지 말고, 손에 덜어서 거품을 낸 뒤 마사지하듯 문질러줍니다.
+      </p>
+      <p style="font-size:14px;">
+        <strong>④ 충분히 헹구기</strong><br>
+        샴푸 잔여물이 남으면 피부 트러블의 원인이 됩니다. 물이 맑아질 때까지 헹궈주세요.
+      </p>
+    </div>
+
+    <div class="do-dont">
+      <div class="do-box">
+        <div class="do-box-title">✅ DO</div>
+        <p>• 차분하고 부드러운 목소리로 칭찬<br>
+        • 물 압력은 약하게 설정<br>
+        • 귓속·눈가는 젖은 수건으로 닦기<br>
+        • 항문낭 짜기 (필요 시)</p>
+      </div>
+      <div class="dont-box">
+        <div class="dont-box-title">❌ DON'T</div>
+        <p>• 귀·눈에 직접 물 뿌리기<br>
+        • 사람용 샴푸 사용<br>
+        • 너무 오래 목욕시키기 (10~15분)<br>
+        • 강제로 붙잡고 씻기기</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="after">
+    <div class="section-label"><span class="section-tag">05 · After Bath</span></div>
+    <h2>목욕 후 관리</h2>
+
+    <div class="card">
+      <div class="card-label">수건으로 물기 제거</div>
+      <p style="font-size:14px;">
+        강아지가 스스로 털기 전에 수건으로 꾹꾹 눌러서 물기를 흡수합니다.
+        문지르면 장모종은 털이 엉키므로 꾹꾹 누르는 방식으로 진행하세요.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">완전 건조 (필수!)</div>
+      <p style="font-size:14px;">
+        드라이기로 털 안쪽까지 완전히 말려야 합니다.
+        특히 이중모종은 언더코트까지 건조되지 않으면 곰팡이가 생길 수 있어요.
+      </p>
+      <p style="font-size:14px;">
+        <strong>드라이 팁:</strong><br>
+        • 온도는 따뜻한 정도(저온~중온)<br>
+        • 한 곳에 오래 대지 말고 계속 움직이기<br>
+        • 브러시로 털을 펴면서 말리면 효과적<br>
+        • 귀 안쪽, 발바닥 사이도 꼼꼼히 확인
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">마무리 빗질</div>
+      <p style="font-size:14px;">
+        완전히 마른 뒤 다시 한 번 빗질하면 윤기가 살아나고,
+        빠진 털도 추가로 제거할 수 있어요.
+      </p>
+    </div>
+
+    <div class="caution-box">
+      <div class="caution-box-title">💡 자연 건조는 위험</div>
+      <p>
+        "바람쐬면 마르겠지"라고 생각하면 안 됩니다.
+        자연 건조는 피부 곰팡이, 냄새, 핫스팟(습성 피부염)의 원인이 됩니다.
+        반드시 드라이기로 완전 건조하세요.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="tips">
+    <div class="section-label"><span class="section-tag">06 · Tips</span></div>
+    <h2>목욕 팁</h2>
+
+    <div class="card">
+      <div class="card-label">목욕을 싫어하는 강아지</div>
+      <p style="font-size:14px;">
+        • 처음부터 전신 목욕 말고, 발만 씻기는 것부터 시작<br>
+        • 목욕 후 간식 보상으로 긍정적 경험 만들기<br>
+        • 욕조 바닥에 미끄럼 방지 매트 깔기<br>
+        • 샤워기 소리가 무서우면 컵으로 물 부어주기
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">집에서 vs 미용실</div>
+      <p style="font-size:14px;">
+        <strong>집에서 목욕</strong> — 비용 절약, 스트레스 적음, 자주 가능<br>
+        <strong>미용실</strong> — 전문 케어, 세밀한 미용, 대형견이나 목욕 거부 강한 경우
+      </p>
+      <p style="font-size:14px;">
+        보통은 일상 목욕은 집에서 하고,
+        2~3개월에 한 번 미용실에서 전문 미용을 받는 방식을 추천합니다.
+      </p>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-box-title">💡 산책 후 간단 세척</div>
+      <p>
+        매번 목욕할 필요는 없습니다.
+        산책 후 발바닥, 배, 엉덩이 주변만 물티슈나 젖은 수건으로 닦아주면
+        일상 청결을 유지하면서 목욕 주기를 늘릴 수 있어요.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="signs">
+    <div class="section-label"><span class="section-tag">07 · Signs</span></div>
+    <h2>목욕이 필요한 신호</h2>
+    <p>
+      아래 증상이 나타나면 목욕 타이밍입니다.
+    </p>
+
+    <ul class="checklist">
+      <li><span class="check-icon">✓</span> 털에서 냄새가 난다 (특히 비 맞은 후 강아지 냄새)</li>
+      <li><span class="check-icon">✓</span> 털이 기름지거나 떡진 느낌이 든다</li>
+      <li><span class="check-icon">✓</span> 피부가 가렵거나 자주 긁는다</li>
+      <li><span class="check-icon">✓</span> 흙·먼지가 털에 묻어 있다</li>
+      <li><span class="check-icon">✓</span> 배나 발바닥이 더럽다</li>
+      <li><span class="check-icon">✓</span> 쓰다듬을 때 손에 기름기나 먼지가 묻어난다</li>
+    </ul>
+
+    <div class="caution-box" style="margin-top:16px;">
+      <div class="caution-box-title">⚠️ 참고</div>
+      <p>
+        이 가이드는 일반적인 관리 정보를 제공하며,
+        전문적인 수의학적 진단을 대체하지 않습니다.
+        피부 질환이나 알레르기가 있다면 수의사와 상담 후 목욕 주기를 결정하세요.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label"><span class="section-tag">Related</span></div>
+    <h2>함께 보면 좋은 가이드</h2>
+    <div class="related-grid">
+      <a class="related-item" href="care/bath/shampoo">
+        <div class="related-emoji">🧴</div>
+        <div class="related-title">강아지 샴푸 선택법</div>
+        <div class="related-sub">CARE · 그루밍</div>
+      </a>
+      <a class="related-item" href="care/grooming/basic">
+        <div class="related-emoji">✂️</div>
+        <div class="related-title">털관리 기본 가이드</div>
+        <div class="related-sub">CARE · 그루밍</div>
+      </a>
+      <a class="related-item" href="care/grooming/long-coat">
+        <div class="related-emoji">🐩</div>
+        <div class="related-title">장모종 털관리 가이드</div>
+        <div class="related-sub">CARE · 그루밍</div>
+      </a>
+      <a class="related-item" href="care/ear/basic">
+        <div class="related-emoji">👂</div>
+        <div class="related-title">강아지 귀 청소 가이드</div>
+        <div class="related-sub">CARE · 그루밍</div>
+      </a>
+    </div>
+  </section>
+
+  <div class="cta-banner">
+    <h3>우리 강아지 모질별 관리 정보가 궁금하다면</h3>
+    <p>374종 Breed Detail에서 털 타입과 피부 특성을 확인하세요</p>
+    <a class="cta-btn" href="encyclopedia.html">Breed Detail 보러가기 →</a>
+  </div>
+
+  <div class="article-meta">
+    <p>CARE_GROOMING_06 · 펫키디피아 Care Guide</p>
+    <p>마지막 업데이트: 2026.03</p>
+    <p>이 콘텐츠는 전문 수의학적 진단을 대체하지 않습니다.</p>
+  </div>
+
+</div>
+
+</body>
+</html>

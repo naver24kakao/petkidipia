@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>강아지 양치 루틴 만들기 — 펫키디피아</title>
+  <meta name="description" content="양치를 싫어하는 강아지도 할 수 있다. 단계별 적응 훈련부터 습관 만들기까지 실전 가이드.">
+  <meta name="keywords" content="강아지 양치 훈련, 강아지 양치 적응, 강아지 치솔질, 양치 습관">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #FBF7F2;
+      --cream-2: #F4EEE5;
+      --gold: #C9A84C;
+      --gold-pale: #F5ECD4;
+      --brown: #2E1F14;
+      --brown-2: #3D2B1F;
+      --warm: #8B5E3C;
+      --soft: #EDE4D8;
+      --muted: #9B8878;
+      --line: rgba(46,31,20,0.08);
+      --green: #2E7D32;
+      --green-pale: #E8F5E9;
+      --amber: #F57F17;
+      --amber-pale: #FFF8E1;
+      --red: #D32F2F;
+      --red-pale: #FFF3F0;
+      --blue: #1976D2;
+      --blue-pale: #E3F2FD;
+      --purple: #7B1FA2;
+      --purple-pale: #F3E5F5;
+      --max: 680px;
+      --font-serif: "Cormorant Garamond", serif;
+      --font-sans: "Noto Sans KR", sans-serif;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--cream);
+      color: var(--brown);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .top-bar {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(251,247,242,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      padding: 14px 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .top-back { background: none; border: none; font-size: 20px; cursor: pointer; color: var(--brown); }
+    .top-breadcrumb { font-size: 12px; color: var(--muted); }
+    .top-breadcrumb a { color: var(--warm); text-decoration: none; }
+
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 20px 120px; }
+
+    .hero {
+      padding: 40px 0 32px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--purple-pale);
+      color: var(--purple);
+      font-size: 11px; font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: var(--font-sans);
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--brown);
+      margin-bottom: 12px;
+    }
+    .hero-sub {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .toc {
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 18px;
+      padding: 20px 24px;
+      margin-bottom: 32px;
+    }
+    .toc-title {
+      font-size: 12px; font-weight: 700;
+      color: var(--warm);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .toc a {
+      display: block;
+      font-size: 14px;
+      color: var(--brown-2);
+      text-decoration: none;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .toc a:last-child { border-bottom: none; }
+    .toc a:hover { color: var(--gold); }
+    .toc-num { color: var(--gold); font-weight: 700; margin-right: 8px; }
+
+    .section { margin-bottom: 36px; }
+    .section-label {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 16px;
+    }
+    .section-label::before, .section-label::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(to right, var(--gold), transparent);
+    }
+    .section-label::after {
+      background: linear-gradient(to left, var(--gold), transparent);
+    }
+    .section-tag {
+      font-family: var(--font-serif);
+      font-size: 13px; font-style: italic;
+      color: var(--gold);
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+    .section h2 {
+      font-size: 20px; font-weight: 700;
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+    .section p {
+      font-size: 15px;
+      color: var(--brown-2);
+      margin-bottom: 12px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 18px;
+      padding: 20px;
+      margin-bottom: 14px;
+    }
+    .card-label {
+      font-size: 11px; font-weight: 700;
+      color: var(--warm);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .week-box {
+      background: var(--purple-pale);
+      border: 1px solid rgba(123,31,162,0.2);
+      border-radius: 14px;
+      padding: 18px 20px;
+      margin-bottom: 14px;
+    }
+    .week-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--purple);
+      margin-bottom: 10px;
+    }
+    .week-text {
+      font-size: 14px;
+      color: var(--brown-2);
+      line-height: 1.6;
+    }
+
+    .do-dont {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .do-box, .dont-box {
+      border-radius: 14px;
+      padding: 16px;
+    }
+    .do-box {
+      background: var(--green-pale);
+      border: 1px solid rgba(46,125,50,0.2);
+    }
+    .dont-box {
+      background: var(--red-pale);
+      border: 1px solid rgba(211,47,47,0.15);
+    }
+    .do-box-title, .dont-box-title {
+      font-size: 12px; font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+    }
+    .do-box-title { color: var(--green); }
+    .dont-box-title { color: var(--red); }
+    .do-box p, .dont-box p {
+      font-size: 13px;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    .caution-box {
+      background: var(--amber-pale);
+      border: 1px solid rgba(245,127,23,0.2);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin-top: 16px;
+    }
+    .caution-box-title {
+      font-size: 13px; font-weight: 700;
+      color: var(--amber);
+      margin-bottom: 8px;
+    }
+    .caution-box p {
+      font-size: 13px;
+      color: #5D4037;
+      margin-bottom: 0;
+    }
+
+    .tip-box {
+      background: var(--blue-pale);
+      border: 1px solid rgba(25,118,210,0.2);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin-top: 16px;
+    }
+    .tip-box-title {
+      font-size: 13px; font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+    .tip-box p {
+      font-size: 13px;
+      color: var(--brown-2);
+      margin-bottom: 0;
+    }
+
+    .checklist { list-style: none; }
+    .checklist li {
+      display: flex; gap: 10px; align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+    }
+    .checklist li:last-child { border-bottom: none; }
+    .check-icon {
+      width: 22px; height: 22px;
+      border-radius: 6px;
+      background: var(--green-pale);
+      color: var(--green);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .related-item {
+      display: block;
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 14px;
+      padding: 16px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .related-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(46,31,20,0.08);
+    }
+    .related-emoji { font-size: 22px; margin-bottom: 8px; }
+    .related-title { font-size: 13px; font-weight: 700; color: var(--brown); line-height: 1.4; }
+    .related-sub { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+    .cta-banner {
+      background: linear-gradient(135deg, var(--brown), var(--brown-2));
+      border-radius: 20px;
+      padding: 28px 24px;
+      margin-top: 40px;
+      text-align: center;
+    }
+    .cta-banner h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    .cta-banner p {
+      font-size: 13px;
+      color: rgba(251,247,242,0.85);
+      margin-bottom: 18px;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--brown);
+      font-size: 14px; font-weight: 700;
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(201,168,76,0.4);
+    }
+
+    .article-meta {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      text-align: center;
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-bar">
+  <button class="top-back" onclick="history.back()">←</button>
+  <div class="top-breadcrumb">
+    <a href="/">펫키디피아</a> / <a href="/care">CARE</a> / 건강관리
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="hero">
+    <div class="hero-badge">CARE · Health</div>
+    <h1>강아지 양치 루틴 만들기</h1>
+    <p class="hero-sub">
+      "우리 강아지는 양치를 너무 싫어해요."<br>
+      괜찮습니다. 천천히 적응시키면 됩니다. 4주 훈련 플랜으로 시작하세요.
+    </p>
+  </div>
+
+  <nav class="toc">
+    <div class="toc-title">목차</div>
+    <a href="#before"><span class="toc-num">01</span>시작 전 준비</a>
+    <a href="#week1"><span class="toc-num">02</span>1주차: 입 만지기 적응</a>
+    <a href="#week2"><span class="toc-num">03</span>2주차: 칫솔 익숙해지기</a>
+    <a href="#week3"><span class="toc-num">04</span>3주차: 앞니 양치 시작</a>
+    <a href="#week4"><span class="toc-num">05</span>4주차: 전체 양치 완성</a>
+    <a href="#maintain"><span class="toc-num">06</span>습관 유지하기</a>
+    <a href="#troubleshooting"><span class="toc-num">07</span>문제 해결</a>
+  </nav>
+
+  <section class="section" id="before">
+    <div class="section-label"><span class="section-tag">01 · Before Start</span></div>
+    <h2>시작 전 준비</h2>
+
+    <div class="card">
+      <div class="card-label">필요한 도구</div>
+      <ul class="checklist">
+        <li><span class="check-icon">✓</span> 강아지 전용 칫솔 (또는 손가락 칫솔)</li>
+        <li><span class="check-icon">✓</span> 강아지 전용 치약 (닭고기·쇠고기 맛)</li>
+        <li><span class="check-icon">✓</span> 고가치 간식 (작고 부드러운 것)</li>
+        <li><span class="check-icon">✓</span> 인내심과 긍정적인 태도</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-label">성공을 위한 마음가짐</div>
+      <p style="font-size:14px;">
+        <strong>① 서두르지 않기</strong><br>
+        한 번에 완벽하게 하려 하지 마세요. 단계를 건너뛰면 오히려 실패합니다.
+      </p>
+      <p style="font-size:14px;">
+        <strong>② 긍정적인 경험 만들기</strong><br>
+        양치 = 간식·칭찬이라는 연결고리를 만드는 게 핵심입니다.
+      </p>
+      <p style="font-size:14px;">
+        <strong>③ 짧고 즐겁게</strong><br>
+        처음엔 5~10초만 해도 충분합니다. 강아지가 지치기 전에 끝내세요.
+      </p>
+      <p style="font-size:14px;">
+        <strong>④ 같은 시간에</strong><br>
+        저녁 산책 후, 아침 식사 후 등 매일 같은 시간에 하면 습관이 됩니다.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="week1">
+    <div class="section-label"><span class="section-tag">02 · Week 1</span></div>
+    <h2>1주차: 입 만지기 적응</h2>
+    <p>
+      첫 주는 칫솔을 전혀 사용하지 않습니다.
+      입 주변과 입 안을 만지는 것에 익숙해지는 게 목표예요.
+    </p>
+
+    <div class="week-box">
+      <div class="week-title">Day 1~2: 입술과 얼굴 만지기</div>
+      <div class="week-text">
+        • 강아지를 편안하게 앉히거나 눕힙니다.<br>
+        • 입 주변, 뺨, 턱을 부드럽게 쓰다듬습니다.<br>
+        • 입술을 살짝 들어 올렸다 내립니다 (1~2초).<br>
+        • 간식 + 칭찬<br>
+        • 하루 2~3회 반복
+      </div>
+    </div>
+
+    <div class="week-box">
+      <div class="week-title">Day 3~4: 잇몸 만지기</div>
+      <div class="week-text">
+        • 입술을 들어 올리고 손가락으로 앞니 잇몸을 살짝 터치합니다.<br>
+        • 처음엔 1초만, 점차 3~5초로 늘립니다.<br>
+        • 간식 + 칭찬<br>
+        • 저항하면 다시 입술 만지기로 돌아가기
+      </div>
+    </div>
+
+    <div class="week-box">
+      <div class="week-title">Day 5~7: 치아 만지기</div>
+      <div class="week-text">
+        • 손가락으로 앞니를 살짝 만집니다.<br>
+        • 위아래 앞니 모두 만져봅니다.<br>
+        • 송곳니까지 확장해봅니다.<br>
+        • 간식 + 칭찬<br>
+        • 강아지가 편안해하면 다음 주로
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-box-title">💡 1주차 핵심</div>
+      <p>
+        칫솔은 아직 사용하지 않습니다.
+        손으로 입을 만지는 것 자체에 익숙해지는 게 목표입니다.
+        강아지가 도망가거나 입을 피하지 않으면 성공입니다.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="week2">
+    <div class="section-label"><span class="section-tag">03 · Week 2</span></div>
+    <h2>2주차: 칫솔 익숙해지기</h2>
+    <p>
+      이번 주는 칫솔과 치약을 소개합니다.
+      아직 양치는 하지 않고, 도구에 익숙해지는 게 목표예요.
+    </p>
+
+    <div class="week-box">
+      <div class="week-title">Day 8~9: 치약 맛보기</div>
+      <div class="week-text">
+        • 손가락에 치약을 조금 묻혀서 강아지가 핥게 합니다.<br>
+        • 대부분의 강아지 치약은 맛이 좋아서 잘 핥아먹습니다.<br>
+        • 하루 2~3회 치약 핥게 하기<br>
+        • 치약 = 맛있는 것이라는 인식 심기
+      </div>
+    </div>
+
+    <div class="week-box">
+      <div class="week-title">Day 10~11: 칫솔 보여주기</div>
+      <div class="week-text">
+        • 칫솔을 강아지 앞에 보여줍니다.<br>
+        • 칫솔 냄새를 맡게 합니다.<br>
+        • 칫솔을 보여주고 → 간식<br>
+        • 칫솔 = 좋은 일이 일어나는 신호
+      </div>
+    </div>
+
+    <div class="week-box">
+      <div class="week-title">Day 12~14: 칫솔에 치약 묻혀 핥기</div>
+      <div class="week-text">
+        • 칫솔에 치약을 묻혀서 강아지가 핥게 합니다.<br>
+        • 칫솔을 입 근처에 가져가도 도망가지 않으면 성공<br>
+        • 간식 + 칭찬<br>
+        • 칫솔을 물거나 씹어도 괜찮습니다 (익숙해지는 중)
+      </div>
+    </div>
+
+    <div class="caution-box">
+      <div class="caution-box-title">⚠️ 서두르지 마세요</div>
+      <p>
+        강아지가 칫솔을 보고 도망가거나 입을 피하면
+        아직 준비가 안 된 것입니다.
+        1주차로 돌아가서 더 천천히 진행하세요.
+      </p>
+    </caution-box>
+  </section>
+
+  <section class="section" id="week3">
+    <div class="section-label"><span class="section-tag">04 · Week 3</span></div>
+    <h2>3주차: 앞니 양치 시작</h2>
+    <p>
+      드디어 실제 양치를 시작합니다.
+      하지만 앞니 몇 개만! 욕심내지 마세요.
+    </p>
+
+    <div class="week-box">
+      <div class="week-title">Day 15~17: 앞니 2~3개만</div>
+      <div class="week-text">
+        • 칫솔에 치약을 묻힙니다.<br>
+        • 입술을 들어 올리고 앞니 2~3개를 **5초** 동안만 닦습니다.<br>
+        • 좌우로 살살 움직이거나 작은 원을 그리듯<br>
+        • 즉시 간식 + 칭찬<br>
+        • 하루 1~2회
+      </div>
+    </div>
+
+    <div class="week-box">
+      <div class="week-title">Day 18~19: 앞니 전체로 확장</div>
+      <div class="week-text">
+        • 위·아래 앞니 전체를 닦습니다 (10초).<br>
+        • 아직 어금니는 건드리지 않습니다.<br>
+        • 강아지가 저항하면 2~3개로 다시 줄이기<br>
+        • 간식 + 칭찬
+      </div>
+    </div>
+
+    <div class="week-box">
+      <div class="week-title">Day 20~21: 송곳니 추가</div>
+      <div class="week-text">
+        • 앞니 + 송곳니까지 닦습니다 (15초).<br>
+        • 송곳니 뒤쪽 잇몸 라인도 살짝 닿게<br>
+        • 간식 + 칭찬<br>
+        • 편안해하면 다음 주로
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-box-title">💡 3주차 핵심</div>
+      <p>
+        시간보다 '긍정적 경험'이 중요합니다.
+        10초 양치하고 간식 먹는 게
+        30초 양치하고 스트레스받는 것보다 훨씬 좋습니다.
+        점진적으로 늘려가세요.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="week4">
+    <div class="section-label"><span class="section-tag">05 · Week 4</span></div>
+    <h2>4주차: 전체 양치 완성</h2>
+    <p>
+      마지막 주에는 어금니까지 확장합니다.
+      어금니는 치석이 가장 많이 쌓이는 부위라 중요해요.
+    </p>
+
+    <div class="week-box">
+      <div class="week-title">Day 22~24: 어금니 한쪽</div>
+      <div class="week-text">
+        • 앞니 + 송곳니 + 한쪽 어금니 (20초)<br>
+        • 어금니는 입을 살짝 벌려야 닦을 수 있습니다.<br>
+        • 처음엔 바깥쪽만 (안쪽은 나중에)<br>
+        • 간식 + 칭찬
+      </div>
+    </div>
+
+    <div class="week-box">
+      <div class="week-title">Day 25~26: 양쪽 어금니</div>
+      <div class="week-text">
+        • 앞니 + 송곳니 + 양쪽 어금니 (30초)<br>
+        • 좌우 대칭으로 골고루 닦기<br>
+        • 아직 안쪽은 무리하지 않기<br>
+        • 간식 + 칭찬
+      </div>
+    </div>
+
+    <div class="week-box">
+      <div class="week-title">Day 27~28: 완성!</div>
+      <div class="week-text">
+        • 전체 치아 바깥쪽 (45초~1분)<br>
+        • 여유가 있으면 안쪽도 시도<br>
+        • 강아지가 편안해하면 성공!<br>
+        • 간식 + 칭찬<br>
+        • 이제부터 매일 루틴으로 유지
+      </div>
+    </div>
+
+    <div class="caution-box">
+      <div class="caution-box-title">💡 안쪽 치아는 선택사항</div>
+      <p>
+        안쪽(혀 쪽) 치아는 침의 자정작용으로 바깥쪽보다 치석이 덜 쌓입니다.
+        바깥쪽만 잘 닦아도 80% 효과가 있으니
+        무리해서 안쪽까지 닦으려다 양치 자체를 싫어하게 만들지 마세요.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="maintain">
+    <div class="section-label"><span class="section-tag">06 · Maintenance</span></div>
+    <h2>습관 유지하기</h2>
+
+    <div class="card">
+      <div class="card-label">매일 같은 시간에</div>
+      <p style="font-size:14px;">
+        저녁 산책 후, 아침 식사 후 등 매일 같은 시간에 양치하세요.
+        루틴이 만들어지면 강아지도 기대하고 준비합니다.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">간식은 계속 주세요</div>
+      <p style="font-size:14px;">
+        익숙해졌다고 간식을 끊으면 안 됩니다.
+        양치 = 좋은 일이라는 연결고리를 평생 유지하세요.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">가끔 쉬어가도 괜찮아요</div>
+      <p style="font-size:14px;">
+        하루 이틀 빠져도 큰일 나지 않습니다.
+        완벽주의 때문에 스트레스받지 마세요.
+        주 3~4회만 해도 효과 있습니다.
+      </p>
+    </div>
+
+    <div class="do-dont">
+      <div class="do-box">
+        <div class="do-box-title">✅ DO</div>
+        <p>• 매일 같은 시간에<br>
+        • 짧고 즐겁게 (1분 이내)<br>
+        • 간식으로 마무리<br>
+        • 칭찬 많이 하기</p>
+      </div>
+      <div class="dont-box">
+        <div class="dont-box-title">❌ DON'T</div>
+        <p>• 억지로 붙잡고 하기<br>
+        • 너무 오래 하기 (지침)<br>
+        • 화내거나 야단치기<br>
+        • 완벽하게 하려고 무리하기</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="troubleshooting">
+    <div class="section-label"><span class="section-tag">07 · Troubleshooting</span></div>
+    <h2>문제 해결</h2>
+
+    <div class="card">
+      <div class="card-label">Q. 강아지가 도망가요</div>
+      <p style="font-size:14px;">
+        <strong>원인:</strong> 단계를 너무 빨리 진행했거나, 과거 나쁜 경험이 있음<br>
+        <strong>해결:</strong> 1주차로 돌아가서 천천히 다시 시작.
+        양치 도구를 보여주기만 해도 간식 주기. 인내심이 답입니다.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Q. 칫솔을 물어뜯어요</div>
+      <p style="font-size:14px;">
+        <strong>원인:</strong> 칫솔을 장난감으로 인식<br>
+        <strong>해결:</strong> 양치 시간 외에는 칫솔을 보관.
+        양치 중에 물면 즉시 칫솔을 치우고 5분 뒤 재시도.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Q. 입을 꽉 다물어요</div>
+      <p style="font-size:14px;">
+        <strong>원인:</strong> 긴장하거나 불편함<br>
+        <strong>해결:</strong> 바깥쪽만 닦아도 충분합니다.
+        입술만 살짝 들어 올려서 바깥 치아만 닦으세요.
+        억지로 벌리려 하지 마세요.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Q. 성견인데 지금 시작해도 되나요?</div>
+      <p style="font-size:14px;">
+        <strong>답:</strong> 늦은 게 아닙니다!
+        성견도 똑같은 4주 훈련으로 적응 가능합니다.
+        퍼피보다 시간이 더 걸릴 수 있지만 가능합니다.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Q. 이빨이 거의 없는 노령견이에요</div>
+      <p style="font-size:14px;">
+        <strong>답:</strong> 남은 치아라도 관리해야 합니다.
+        양치가 어렵다면 손가락에 거즈를 감아서
+        잇몸을 부드럽게 닦아주는 것만으로도 도움이 됩니다.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label"><span class="section-tag">Related</span></div>
+    <h2>함께 보면 좋은 가이드</h2>
+    <div class="related-grid">
+      <a class="related-item" href="care/health/dental">
+        <div class="related-emoji">🦷</div>
+        <div class="related-title">강아지 치아 관리 가이드</div>
+        <div class="related-sub">CARE · 건강관리</div>
+      </a>
+      <a class="related-item" href="care/health/senior">
+        <div class="related-emoji">🐕</div>
+        <div class="related-title">노령견 건강관리 가이드</div>
+        <div class="related-sub">CARE · 건강관리</div>
+      </a>
+      <a class="related-item" href="care/grooming/basic">
+        <div class="related-emoji">✂️</div>
+        <div class="related-title">털관리 기본 가이드</div>
+        <div class="related-sub">CARE · 그루밍</div>
+      </a>
+      <a class="related-item" href="care/life/training">
+        <div class="related-emoji">🎓</div>
+        <div class="related-title">기본 훈련 가이드</div>
+        <div class="related-sub">CARE · 생활관리</div>
+      </a>
+    </div>
+  </section>
+
+  <div class="cta-banner">
+    <h3>양치만으로 부족할 때</h3>
+    <p>치과 치료비까지 보장하는 마이브라운 반려견 보험</p>
+    <a class="cta-btn" href="https://mybrownpet.com">보험 상담 신청하기 →</a>
+  </div>
+
+  <div class="article-meta">
+    <p>CARE_HEALTH_05 · 펫키디피아 Care Guide</p>
+    <p>마지막 업데이트: 2026.03</p>
+    <p>이 콘텐츠는 전문 수의학적 진단을 대체하지 않습니다.</p>
+  </div>
+
+</div>
+
+</body>
+</html>

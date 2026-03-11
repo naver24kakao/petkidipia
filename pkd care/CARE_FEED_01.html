@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>강아지 급여량 계산법 — 펫키디피아</title>
+  <meta name="description" content="우리 강아지는 하루에 얼마나 먹어야 할까? 체중·나이·활동량별 정확한 급여량 계산법.">
+  <meta name="keywords" content="강아지 급여량, 사료 급여량, 강아지 밥 양, 급여량 계산">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #FBF7F2;
+      --cream-2: #F4EEE5;
+      --gold: #C9A84C;
+      --gold-pale: #F5ECD4;
+      --brown: #2E1F14;
+      --brown-2: #3D2B1F;
+      --warm: #8B5E3C;
+      --soft: #EDE4D8;
+      --muted: #9B8878;
+      --line: rgba(46,31,20,0.08);
+      --green: #2E7D32;
+      --green-pale: #E8F5E9;
+      --amber: #F57F17;
+      --amber-pale: #FFF8E1;
+      --red: #D32F2F;
+      --red-pale: #FFF3F0;
+      --blue: #1976D2;
+      --blue-pale: #E3F2FD;
+      --purple: #7B1FA2;
+      --purple-pale: #F3E5F5;
+      --max: 680px;
+      --font-serif: "Cormorant Garamond", serif;
+      --font-sans: "Noto Sans KR", sans-serif;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--cream);
+      color: var(--brown);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .top-bar {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(251,247,242,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      padding: 14px 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .top-back { background: none; border: none; font-size: 20px; cursor: pointer; color: var(--brown); }
+    .top-breadcrumb { font-size: 12px; color: var(--muted); }
+    .top-breadcrumb a { color: var(--warm); text-decoration: none; }
+
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 20px 120px; }
+
+    .hero {
+      padding: 40px 0 32px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--amber-pale);
+      color: var(--amber);
+      font-size: 11px; font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: var(--font-sans);
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--brown);
+      margin-bottom: 12px;
+    }
+    .hero-sub {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .toc {
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 18px;
+      padding: 20px 24px;
+      margin-bottom: 32px;
+    }
+    .toc-title {
+      font-size: 12px; font-weight: 700;
+      color: var(--warm);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .toc a {
+      display: block;
+      font-size: 14px;
+      color: var(--brown-2);
+      text-decoration: none;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .toc a:last-child { border-bottom: none; }
+    .toc a:hover { color: var(--gold); }
+    .toc-num { color: var(--gold); font-weight: 700; margin-right: 8px; }
+
+    .section { margin-bottom: 36px; }
+    .section-label {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 16px;
+    }
+    .section-label::before, .section-label::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(to right, var(--gold), transparent);
+    }
+    .section-label::after {
+      background: linear-gradient(to left, var(--gold), transparent);
+    }
+    .section-tag {
+      font-family: var(--font-serif);
+      font-size: 13px; font-style: italic;
+      color: var(--gold);
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+    .section h2 {
+      font-size: 20px; font-weight: 700;
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+    .section p {
+      font-size: 15px;
+      color: var(--brown-2);
+      margin-bottom: 12px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 18px;
+      padding: 20px;
+      margin-bottom: 14px;
+    }
+    .card-label {
+      font-size: 11px; font-weight: 700;
+      color: var(--warm);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .formula-box {
+      background: var(--blue-pale);
+      border: 2px solid var(--blue);
+      border-radius: 16px;
+      padding: 20px;
+      margin: 20px 0;
+      text-align: center;
+    }
+    .formula-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+    }
+    .formula-text {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--brown);
+      line-height: 1.6;
+    }
+    .formula-sub {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    .portion-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 13px;
+    }
+    .portion-table th {
+      background: var(--amber-pale);
+      padding: 10px 12px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 12px;
+      color: var(--amber);
+      border-bottom: 2px solid var(--soft);
+    }
+    .portion-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+    }
+
+    .factor-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .factor-item {
+      background: var(--green-pale);
+      border: 1px solid rgba(46,125,50,0.2);
+      border-radius: 14px;
+      padding: 16px;
+    }
+    .factor-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 8px;
+    }
+    .factor-text {
+      font-size: 13px;
+      color: var(--brown-2);
+      line-height: 1.6;
+    }
+
+    .caution-box {
+      background: var(--amber-pale);
+      border: 1px solid rgba(245,127,23,0.2);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin-top: 16px;
+    }
+    .caution-box-title {
+      font-size: 13px; font-weight: 700;
+      color: var(--amber);
+      margin-bottom: 8px;
+    }
+    .caution-box p {
+      font-size: 13px;
+      color: #5D4037;
+      margin-bottom: 0;
+    }
+
+    .tip-box {
+      background: var(--blue-pale);
+      border: 1px solid rgba(25,118,210,0.2);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin-top: 16px;
+    }
+    .tip-box-title {
+      font-size: 13px; font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 8px;
+    }
+    .tip-box p {
+      font-size: 13px;
+      color: var(--brown-2);
+      margin-bottom: 0;
+    }
+
+    .checklist { list-style: none; }
+    .checklist li {
+      display: flex; gap: 10px; align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+    }
+    .checklist li:last-child { border-bottom: none; }
+    .check-icon {
+      width: 22px; height: 22px;
+      border-radius: 6px;
+      background: var(--green-pale);
+      color: var(--green);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .related-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .related-item {
+      display: block;
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 14px;
+      padding: 16px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .related-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(46,31,20,0.08);
+    }
+    .related-emoji { font-size: 22px; margin-bottom: 8px; }
+    .related-title { font-size: 13px; font-weight: 700; color: var(--brown); line-height: 1.4; }
+    .related-sub { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+    .cta-banner {
+      background: linear-gradient(135deg, var(--brown), var(--brown-2));
+      border-radius: 20px;
+      padding: 28px 24px;
+      margin-top: 40px;
+      text-align: center;
+    }
+    .cta-banner h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    .cta-banner p {
+      font-size: 13px;
+      color: rgba(251,247,242,0.85);
+      margin-bottom: 18px;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--brown);
+      font-size: 14px; font-weight: 700;
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(201,168,76,0.4);
+    }
+
+    .article-meta {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      text-align: center;
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-bar">
+  <button class="top-back" onclick="history.back()">←</button>
+  <div class="top-breadcrumb">
+    <a href="/">펫키디피아</a> / <a href="/care">CARE</a> / 급여관리
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="hero">
+    <div class="hero-badge">CARE · Feeding</div>
+    <h1>강아지 급여량 계산법</h1>
+    <p class="hero-sub">
+      우리 강아지는 하루에 얼마나 먹어야 할까?<br>
+      체중·나이·활동량에 따른 정확한 급여량을 알아보세요.
+    </p>
+  </div>
+
+  <nav class="toc">
+    <div class="toc-title">목차</div>
+    <a href="#basic"><span class="toc-num">01</span>기본 급여량 계산식</a>
+    <a href="#factors"><span class="toc-num">02</span>급여량에 영향을 주는 요인</a>
+    <a href="#lifestage"><span class="toc-num">03</span>생애주기별 급여량</a>
+    <a href="#table"><span class="toc-num">04</span>체중별 급여량 참고표</a>
+    <a href="#adjust"><span class="toc-num">05</span>급여량 조절하기</a>
+    <a href="#mistakes"><span class="toc-num">06</span>흔한 실수</a>
+    <a href="#tips"><span class="toc-num">07</span>급여 팁</a>
+  </nav>
+
+  <section class="section" id="basic">
+    <div class="section-label"><span class="section-tag">01 · Basic Formula</span></div>
+    <h2>기본 급여량 계산식</h2>
+    <p>
+      강아지의 하루 필요 칼로리를 먼저 계산한 뒤,
+      사료의 칼로리 함량으로 나누면 급여량이 나옵니다.
+    </p>
+
+    <div class="formula-box">
+      <div class="formula-title">1단계: 휴식기 에너지 요구량 (RER)</div>
+      <div class="formula-text">
+        RER = 70 × (체중kg)<sup>0.75</sup>
+      </div>
+      <div class="formula-sub">
+        또는 간단 계산: RER = 30 × 체중kg + 70
+      </div>
+    </div>
+
+    <div class="formula-box">
+      <div class="formula-title">2단계: 일일 에너지 요구량 (DER)</div>
+      <div class="formula-text">
+        DER = RER × 활동 계수
+      </div>
+      <div class="formula-sub">
+        활동 계수는 아래 표 참고
+      </div>
+    </div>
+
+    <div class="formula-box">
+      <div class="formula-title">3단계: 급여량 계산</div>
+      <div class="formula-text">
+        급여량 (g) = DER ÷ 사료 칼로리 (kcal/100g) × 100
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">활동 계수표</div>
+      <table class="portion-table">
+        <thead>
+          <tr>
+            <th>상태</th>
+            <th>계수</th>
+            <th>설명</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>중성화 성견 (정상 활동)</td>
+            <td><strong>1.6</strong></td>
+            <td>가장 일반적</td>
+          </tr>
+          <tr>
+            <td>비중성화 성견</td>
+            <td><strong>1.8</strong></td>
+            <td>중성화 안 한 경우</td>
+          </tr>
+          <tr>
+            <td>활동량 적음 (집안 생활)</td>
+            <td><strong>1.2~1.4</strong></td>
+            <td>산책 거의 안 함</td>
+          </tr>
+          <tr>
+            <td>활동량 많음 (운동견)</td>
+            <td><strong>2.0~5.0</strong></td>
+            <td>하루 2시간+ 운동</td>
+          </tr>
+          <tr>
+            <td>퍼피 (4개월 미만)</td>
+            <td><strong>3.0</strong></td>
+            <td>급성장기</td>
+          </tr>
+          <tr>
+            <td>퍼피 (4개월~성견)</td>
+            <td><strong>2.0</strong></td>
+            <td>성장기</td>
+          </tr>
+          <tr>
+            <td>임신견 (후반기)</td>
+            <td><strong>3.0</strong></td>
+            <td>임신 42일~</td>
+          </tr>
+          <tr>
+            <td>수유견</td>
+            <td><strong>4.0~8.0</strong></td>
+            <td>강아지 수에 따라</td>
+          </tr>
+          <tr>
+            <td>노령견</td>
+            <td><strong>1.4</strong></td>
+            <td>활동량 감소</td>
+          </tr>
+          <tr>
+            <td>체중 감량 목표</td>
+            <td><strong>1.0</strong></td>
+            <td>다이어트 중</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="card-label">계산 예시</div>
+      <p style="font-size:14px;">
+        <strong>예: 5kg 중성화 성견, 사료 칼로리 350kcal/100g</strong>
+      </p>
+      <p style="font-size:14px;">
+        <strong>1단계: RER 계산</strong><br>
+        간단 공식 사용: RER = 30 × 5 + 70 = 220 kcal
+      </p>
+      <p style="font-size:14px;">
+        <strong>2단계: DER 계산</strong><br>
+        DER = 220 × 1.6 (중성화 성견) = 352 kcal
+      </p>
+      <p style="font-size:14px;">
+        <strong>3단계: 급여량 계산</strong><br>
+        급여량 = 352 ÷ 350 × 100 = **약 100g**
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="factors">
+    <div class="section-label"><span class="section-tag">02 · Factors</span></div>
+    <h2>급여량에 영향을 주는 요인</h2>
+
+    <div class="factor-grid">
+      <div class="factor-item">
+        <div class="factor-title">① 체중·체형</div>
+        <div class="factor-text">
+          같은 견종이라도 개체 차이 큼.<br>
+          마른 강아지 vs 통통한 강아지
+        </div>
+      </div>
+      <div class="factor-item">
+        <div class="factor-title">② 나이</div>
+        <div class="factor-text">
+          퍼피: 많이 먹음 (성장)<br>
+          노령견: 적게 먹음 (활동 감소)
+        </div>
+      </div>
+      <div class="factor-item">
+        <div class="factor-title">③ 활동량</div>
+        <div class="factor-text">
+          하루 종일 뛰어노는 강아지 vs<br>
+          집에서만 있는 강아지
+        </div>
+      </div>
+      <div class="factor-item">
+        <div class="factor-title">④ 중성화 여부</div>
+        <div class="factor-text">
+          중성화 후 대사율 20~30% 감소<br>
+          → 급여량 줄여야 함
+        </div>
+      </div>
+      <div class="factor-item">
+        <div class="factor-title">⑤ 건강 상태</div>
+        <div class="factor-text">
+          질병·회복기·임신·수유 시<br>
+          필요 칼로리 증가
+        </div>
+      </div>
+      <div class="factor-item">
+        <div class="factor-title">⑥ 사료 종류</div>
+        <div class="factor-text">
+          건식 vs 습식<br>
+          칼로리 함량 차이 큼
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="lifestage">
+    <div class="section-label"><span class="section-tag">03 · Life Stage</span></div>
+    <h2>생애주기별 급여량</h2>
+
+    <div class="card">
+      <div class="card-label">퍼피 (2개월~12개월)</div>
+      <p style="font-size:14px;">
+        <strong>급여량:</strong> 성견의 **2~3배**<br>
+        <strong>급여 횟수:</strong> 하루 3~4회 (소량씩 자주)<br>
+        <strong>주의:</strong> 과식 금지 (관절·성장판 문제)<br>
+        <strong>사료:</strong> 퍼피 전용 사료 (단백질·칼슘 높음)
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">성견 (1~7세)</div>
+      <p style="font-size:14px;">
+        <strong>급여량:</strong> 위 계산식 적용<br>
+        <strong>급여 횟수:</strong> 하루 2회<br>
+        <strong>주의:</strong> 체중 유지가 목표<br>
+        <strong>사료:</strong> 성견용 사료
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">노령견 (7세 이상, 대형견 5세+)</div>
+      <p style="font-size:14px;">
+        <strong>급여량:</strong> 성견 시절의 **80~90%**<br>
+        <strong>급여 횟수:</strong> 하루 2~3회 (소화 부담 줄이기)<br>
+        <strong>주의:</strong> 비만 방지, 소화 잘 되는 사료<br>
+        <strong>사료:</strong> 시니어 전용 사료 (저칼로리·고단백)
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="table">
+    <div class="section-label"><span class="section-tag">04 · Reference Table</span></div>
+    <h2>체중별 급여량 참고표</h2>
+    <p>
+      아래는 중성화 성견, 보통 활동량 기준 **참고용**입니다.
+      사료 칼로리 350kcal/100g 기준.
+    </p>
+
+    <table class="portion-table">
+      <thead>
+        <tr>
+          <th>체중</th>
+          <th>하루 급여량</th>
+          <th>비고</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2kg</td>
+          <td>약 60g</td>
+          <td>초소형견</td>
+        </tr>
+        <tr>
+          <td>3kg</td>
+          <td>약 80g</td>
+          <td>치와와, 요크셔 테리어</td>
+        </tr>
+        <tr>
+          <td>5kg</td>
+          <td>약 100g</td>
+          <td>말티즈, 포메라니안</td>
+        </tr>
+        <tr>
+          <td>7kg</td>
+          <td>약 130g</td>
+          <td>푸들, 시츄</td>
+        </tr>
+        <tr>
+          <td>10kg</td>
+          <td>약 170g</td>
+          <td>비글, 코카 스파니엘</td>
+        </tr>
+        <tr>
+          <td>15kg</td>
+          <td>약 230g</td>
+          <td>불독, 웰시 코기</td>
+        </tr>
+        <tr>
+          <td>20kg</td>
+          <td>약 290g</td>
+          <td>보더 콜리</td>
+        </tr>
+        <tr>
+          <td>25kg</td>
+          <td>약 340g</td>
+          <td>래브라도, 골든 리트리버</td>
+        </tr>
+        <tr>
+          <td>30kg</td>
+          <td>약 390g</td>
+          <td>저먼 셰퍼드</td>
+        </tr>
+        <tr>
+          <td>40kg</td>
+          <td>약 480g</td>
+          <td>로트와일러</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="caution-box">
+      <div class="caution-box-title">⚠️ 이 표는 참고용입니다</div>
+      <p>
+        강아지마다 활동량·대사율이 다르므로
+        반드시 **사료 포장지의 급여량 가이드**를 먼저 확인하세요.
+        그 후 강아지 체형을 보면서 조절합니다.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="adjust">
+    <div class="section-label"><span class="section-tag">05 · Adjustment</span></div>
+    <h2>급여량 조절하기</h2>
+
+    <div class="card">
+      <div class="card-label">체형 평가 (BCS)</div>
+      <p style="font-size:14px;">
+        <strong>갈비뼈 만져보기</strong><br>
+        • 쉽게 만져짐 + 허리 들어감 → **정상** (유지)<br>
+        • 눌러야 만져짐 + 허리 없음 → **과체중** (10~15% 줄이기)<br>
+        • 갈비뼈 보임 + 허리 과도하게 들어감 → **저체중** (10~15% 늘리기)
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">점진적 조절</div>
+      <p style="font-size:14px;">
+        급여량을 갑자기 바꾸지 마세요.<br>
+        • 1주일 단위로 10~15%씩 조절<br>
+        • 체중 변화 관찰 (주 1회 체중 측정)<br>
+        • 목표: 주당 1~2% 체중 변화 (감량 시)
+      </p>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-box-title">💡 간식도 칼로리입니다</div>
+      <p>
+        간식 칼로리는 하루 총 칼로리의 **10% 이내**로 제한하세요.
+        간식을 많이 주면 사료를 그만큼 줄여야 합니다.
+        예: 하루 350kcal 필요 → 간식 35kcal, 사료 315kcal
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="mistakes">
+    <div class="section-label"><span class="section-tag">06 · Common Mistakes</span></div>
+    <h2>흔한 실수</h2>
+
+    <ul class="checklist">
+      <li><span class="check-icon">✗</span> <strong>눈대중으로 급여</strong> — 계량컵 사용 필수</li>
+      <li><span class="check-icon">✗</span> <strong>포장지 권장량만 믿기</strong> — 강아지 체형 보면서 조절</li>
+      <li><span class="check-icon">✗</span> <strong>사료 바뀌어도 양 그대로</strong> — 칼로리 다름, 재계산 필요</li>
+      <li><span class="check-icon">✗</span> <strong>간식 칼로리 무시</strong> — 간식도 밥입니다</li>
+      <li><span class="check-icon">✗</span> <strong>남기면 더 주기</strong> — 남기는 건 문제 신호, 양 줄이기</li>
+      <li><span class="check-icon">✗</span> <strong>밥그릇 항상 채워두기</strong> — 자율급식은 비만 위험</li>
+      <li><span class="check-icon">✗</span> <strong>중성화 후에도 같은 양</strong> — 대사율 감소, 20% 줄이기</li>
+    </ul>
+  </section>
+
+  <section class="section" id="tips">
+    <div class="section-label"><span class="section-tag">07 · Feeding Tips</span></div>
+    <h2>급여 팁</h2>
+
+    <div class="card">
+      <div class="card-label">정확한 계량</div>
+      <p style="font-size:14px;">
+        • 디지털 저울 사용 권장 (g 단위)<br>
+        • 계량컵 사용 시 평평하게 (수북이 담지 말기)<br>
+        • 사료 밀도가 다르므로 컵보다 무게(g)가 정확
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">급여 시간 일정하게</div>
+      <p style="font-size:14px;">
+        매일 같은 시간에 급여하면 소화에 좋고<br>
+        배변 시간도 일정해집니다.<br>
+        예: 아침 7시, 저녁 7시
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">물은 항상 충분히</div>
+      <p style="font-size:14px;">
+        건식 사료는 수분이 거의 없으므로<br>
+        신선한 물을 항상 준비해두세요.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">남기면 치우기</div>
+      <p style="font-size:14px;">
+        15~20분 후 남은 사료는 치웁니다.<br>
+        자율급식보다 시간 제한 급식이 건강에 좋습니다.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label"><span class="section-tag">Related</span></div>
+    <h2>함께 보면 좋은 가이드</h2>
+    <div class="related-grid">
+      <a class="related-item" href="care/feeding/puppy">
+        <div class="related-emoji">🍼</div>
+        <div class="related-title">퍼피 식단 가이드</div>
+        <div class="related-sub">CARE · 급여관리</div>
+      </a>
+      <a class="related-item" href="care/feeding/senior">
+        <div class="related-emoji">🐕</div>
+        <div class="related-title">노령견 식단 가이드</div>
+        <div class="related-sub">CARE · 급여관리</div>
+      </a>
+      <a class="related-item" href="care/feeding/snacks">
+        <div class="related-emoji">🦴</div>
+        <div class="related-title">강아지 간식 기준 가이드</div>
+        <div class="related-sub">CARE · 급여관리</div>
+      </a>
+      <a class="related-item" href="care/health/obesity">
+        <div class="related-emoji">⚖️</div>
+        <div class="related-title">강아지 비만 관리 가이드</div>
+        <div class="related-sub">CARE · 건강관리</div>
+      </a>
+    </div>
+  </section>
+
+  <div class="cta-banner">
+    <h3>건강한 식단 관리의 든든한 파트너</h3>
+    <p>질병 예방부터 치료까지 보장하는 마이브라운 반려견 보험</p>
+    <a class="cta-btn" href="https://mybrownpet.com">보험 상담 신청하기 →</a>
+  </div>
+
+  <div class="article-meta">
+    <p>CARE_FEED_01 · 펫키디피아 Care Guide</p>
+    <p>마지막 업데이트: 2026.03</p>
+    <p>이 콘텐츠는 전문 수의학적 진단을 대체하지 않습니다.</p>
+  </div>
+
+</div>
+
+</body>
+</html>

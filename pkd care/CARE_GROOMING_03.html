@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>단모종 털관리 가이드 — 펫키디피아</title>
+  <meta name="description" content="단모종 강아지의 털빠짐 관리, 피부 건강, 광택 유지법. 비글, 프렌치 불독, 래브라도 리트리버 등 단모종 보호자를 위한 실전 가이드.">
+  <meta name="keywords" content="단모종 털관리, 단모견 빗질, 강아지 털빠짐, 비글 털관리, 프렌치불독 털관리">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #FBF7F2;
+      --cream-2: #F4EEE5;
+      --gold: #C9A84C;
+      --gold-pale: #F5ECD4;
+      --brown: #2E1F14;
+      --brown-2: #3D2B1F;
+      --warm: #8B5E3C;
+      --soft: #EDE4D8;
+      --muted: #9B8878;
+      --line: rgba(46,31,20,0.08);
+      --green: #2E7D32;
+      --green-pale: #E8F5E9;
+      --amber: #F57F17;
+      --amber-pale: #FFF8E1;
+      --red: #D32F2F;
+      --red-pale: #FFF3F0;
+      --max: 680px;
+      --font-serif: "Cormorant Garamond", serif;
+      --font-sans: "Noto Sans KR", sans-serif;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--cream);
+      color: var(--brown);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── 상단 바 ── */
+    .top-bar {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(251,247,242,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      padding: 14px 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .top-back { background: none; border: none; font-size: 20px; cursor: pointer; color: var(--brown); }
+    .top-breadcrumb { font-size: 12px; color: var(--muted); }
+    .top-breadcrumb a { color: var(--warm); text-decoration: none; }
+
+    /* ── 컨테이너 ── */
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 20px 120px; }
+
+    /* ── 히어로 ── */
+    .hero {
+      padding: 40px 0 32px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: var(--gold-pale);
+      color: var(--warm);
+      font-size: 11px; font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: var(--font-sans);
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--brown);
+      margin-bottom: 12px;
+    }
+    .hero-sub {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ── 목차 ── */
+    .toc {
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 18px;
+      padding: 20px 24px;
+      margin-bottom: 32px;
+    }
+    .toc-title {
+      font-size: 12px; font-weight: 700;
+      color: var(--warm);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .toc a {
+      display: block;
+      font-size: 14px;
+      color: var(--brown-2);
+      text-decoration: none;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .toc a:last-child { border-bottom: none; }
+    .toc a:hover { color: var(--gold); }
+    .toc-num { color: var(--gold); font-weight: 700; margin-right: 8px; }
+
+    /* ── 섹션 공통 ── */
+    .section { margin-bottom: 36px; }
+    .section-label {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 16px;
+    }
+    .section-label::before, .section-label::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(to right, var(--gold), transparent);
+    }
+    .section-label::after {
+      background: linear-gradient(to left, var(--gold), transparent);
+    }
+    .section-tag {
+      font-family: var(--font-serif);
+      font-size: 13px; font-style: italic;
+      color: var(--gold);
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+    .section h2 {
+      font-size: 20px; font-weight: 700;
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+    .section p {
+      font-size: 15px;
+      color: var(--brown-2);
+      margin-bottom: 12px;
+    }
+
+    /* ── 카드 ── */
+    .card {
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 18px;
+      padding: 20px;
+      margin-bottom: 14px;
+    }
+    .card-label {
+      font-size: 11px; font-weight: 700;
+      color: var(--warm);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    /* ── 견종 리스트 ── */
+    .breed-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .breed-tag {
+      background: var(--cream-2);
+      border: 1px solid var(--soft);
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-size: 12px;
+      text-align: center;
+      color: var(--brown-2);
+      font-weight: 500;
+    }
+
+    /* ── 체크리스트 ── */
+    .checklist { list-style: none; }
+    .checklist li {
+      display: flex; gap: 10px; align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+    }
+    .checklist li:last-child { border-bottom: none; }
+    .check-icon {
+      width: 22px; height: 22px;
+      border-radius: 6px;
+      background: var(--green-pale);
+      color: var(--green);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* ── 주의 박스 ── */
+    .caution-box {
+      background: var(--amber-pale);
+      border: 1px solid rgba(245,127,23,0.2);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin-top: 16px;
+    }
+    .caution-box-title {
+      font-size: 13px; font-weight: 700;
+      color: var(--amber);
+      margin-bottom: 8px;
+    }
+    .caution-box p {
+      font-size: 13px;
+      color: #5D4037;
+      margin-bottom: 0;
+    }
+
+    /* ── Do/Don't 박스 ── */
+    .do-dont {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .do-box, .dont-box {
+      border-radius: 14px;
+      padding: 16px;
+    }
+    .do-box {
+      background: var(--green-pale);
+      border: 1px solid rgba(46,125,50,0.2);
+    }
+    .dont-box {
+      background: var(--red-pale);
+      border: 1px solid rgba(211,47,47,0.15);
+    }
+    .do-box-title, .dont-box-title {
+      font-size: 12px; font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+    }
+    .do-box-title { color: var(--green); }
+    .dont-box-title { color: var(--red); }
+    .do-box p, .dont-box p {
+      font-size: 13px;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    /* ── 병원 방문 신호 ── */
+    .vet-signal {
+      display: flex; gap: 12px; align-items: flex-start;
+      padding: 14px 16px;
+      background: var(--red-pale);
+      border: 1px solid rgba(211,47,47,0.12);
+      border-radius: 14px;
+      margin-bottom: 10px;
+    }
+    .vet-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--red);
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
+    .vet-text { font-size: 14px; color: var(--brown-2); }
+
+    /* ── 관련 콘텐츠 ── */
+    .related-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .related-item {
+      display: block;
+      background: #fff;
+      border: 1px solid var(--soft);
+      border-radius: 14px;
+      padding: 16px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .related-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(46,31,20,0.08);
+    }
+    .related-emoji { font-size: 22px; margin-bottom: 8px; }
+    .related-title { font-size: 13px; font-weight: 700; color: var(--brown); line-height: 1.4; }
+    .related-sub { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+    /* ── CTA 배너 ── */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--brown), var(--brown-2));
+      border-radius: 20px;
+      padding: 28px 24px;
+      margin-top: 40px;
+      text-align: center;
+    }
+    .cta-banner h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    .cta-banner p {
+      font-size: 13px;
+      color: rgba(251,247,242,0.85);
+      margin-bottom: 18px;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--brown);
+      font-size: 14px; font-weight: 700;
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(201,168,76,0.4);
+    }
+
+    /* ── 아티클 메타 ── */
+    .article-meta {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      text-align: center;
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+
+<!-- 상단 바 -->
+<div class="top-bar">
+  <button class="top-back" onclick="history.back()">←</button>
+  <div class="top-breadcrumb">
+    <a href="/">펫키디피아</a> / <a href="/care">CARE</a> / 그루밍
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- 히어로 -->
+  <div class="hero">
+    <div class="hero-badge">CARE · Grooming</div>
+    <h1>단모종 털관리 가이드</h1>
+    <p class="hero-sub">
+      짧은 털이라고 관리가 필요 없는 건 아닙니다.<br>
+      털빠짐 최소화와 피부 건강, 자연스러운 광택을 유지하는 법을 알려드립니다.
+    </p>
+  </div>
+
+  <!-- 목차 -->
+  <nav class="toc">
+    <div class="toc-title">목차</div>
+    <a href="#breeds"><span class="toc-num">01</span>단모종이란</a>
+    <a href="#why"><span class="toc-num">02</span>왜 관리가 필요한가</a>
+    <a href="#brushing"><span class="toc-num">03</span>브러싱 기법</a>
+    <a href="#shedding"><span class="toc-num">04</span>털빠짐 관리</a>
+    <a href="#bath"><span class="toc-num">05</span>목욕과 피부 관리</a>
+    <a href="#routine"><span class="toc-num">06</span>주간 루틴</a>
+    <a href="#vet"><span class="toc-num">07</span>병원 방문 신호</a>
+  </nav>
+
+  <!-- 01. 단모종이란 -->
+  <section class="section" id="breeds">
+    <div class="section-label"><span class="section-tag">01 · Short-Coated Breeds</span></div>
+    <h2>단모종이란</h2>
+    <p>
+      단모종은 털이 짧고 매끈한 견종을 말합니다.
+      비글, 프렌치 불독, 래브라도 리트리버, 도베르만 등
+      짧은 털이 피부에 밀착되어 자라는 견종들이에요.
+    </p>
+    <p>
+      단모종은 엉킴 걱정이 없어서 관리가 쉽다고 생각하기 쉽지만,
+      실제로는 털빠짐이 많고 피부가 직접 노출되기 때문에
+      다른 방식의 관리가 필요합니다.
+    </p>
+
+    <div class="card">
+      <div class="card-label">대표 단모종 견종</div>
+      <div class="breed-grid">
+        <div class="breed-tag">비글</div>
+        <div class="breed-tag">프렌치 불독</div>
+        <div class="breed-tag">래브라도 리트리버</div>
+        <div class="breed-tag">복서</div>
+        <div class="breed-tag">도베르만</div>
+        <div class="breed-tag">불 테리어</div>
+        <div class="breed-tag">잭 러셀 테리어</div>
+        <div class="breed-tag">보스턴 테리어</div>
+        <div class="breed-tag">퍼그</div>
+        <div class="breed-tag">베이스지</div>
+        <div class="breed-tag">달마시안</div>
+        <div class="breed-tag">로트와일러</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02. WHY -->
+  <section class="section" id="why">
+    <div class="section-label"><span class="section-tag">02 · Why It Matters</span></div>
+    <h2>왜 관리가 필요한가</h2>
+    <p>
+      "털이 짧으니까 빗질 안 해도 되지 않나요?"
+      이렇게 생각하는 분들이 많지만, 단모종도 정기적인 관리가 필요합니다.
+    </p>
+
+    <div class="card">
+      <div class="card-label">① 털빠짐은 오히려 더 심함</div>
+      <p style="font-size:14px;">
+        단모종은 털 한 올 한 올이 짧고 뾰족해서
+        옷이나 소파에 박히면 장모종 털보다 오히려 제거하기 어렵습니다.
+        정기적으로 빗질해서 죽은 털을 미리 제거하면 실내 털날림을 크게 줄일 수 있어요.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">② 피부 건강 체크가 핵심</div>
+      <p style="font-size:14px;">
+        단모종은 털이 짧아서 피부가 바로 보이기 때문에
+        피부 트러블을 빠르게 발견할 수 있습니다.
+        빗질하면서 붉은 기, 각질, 뾰루지, 벌레 등을 확인하는 게 중요해요.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">③ 자연스러운 윤기 유지</div>
+      <p style="font-size:14px;">
+        빗질은 피부에서 나오는 천연 유분을 털 전체에 고르게 펴주는 역할을 합니다.
+        이 과정이 있어야 털에 윤기가 나고 건강해 보이죠.
+        샴푸만으로는 이 효과를 얻기 어렵습니다.
+      </p>
+    </div>
+  </section>
+
+  <!-- 03. 브러싱 -->
+  <section class="section" id="brushing">
+    <div class="section-label"><span class="section-tag">03 · Brushing Technique</span></div>
+    <h2>브러싱 기법</h2>
+    <p>
+      단모종 빗질은 장모종보다 간단하지만,
+      도구 선택과 압력 조절이 중요합니다.
+      털이 짧아서 브러시가 피부에 직접 닿기 때문이에요.
+    </p>
+
+    <div class="card">
+      <div class="card-label">추천 도구</div>
+      <p style="font-size:14px;">
+        <strong>러버 브러시 (고무 브러시)</strong><br>
+        죽은 털을 효과적으로 제거하면서 피부 마사지 효과도 있습니다.
+        고무 재질이라 피부 자극이 적고, 털이 브러시에 잘 붙어서 청소도 편해요.
+      </p>
+      <p style="font-size:14px;">
+        <strong>브리슬 브러시 (천연모 브러시)</strong><br>
+        천연 털로 만들어져 부드럽고, 피부 유분을 고르게 펴주는 데 좋습니다.
+        빗질 마무리 단계에서 사용하면 윤기가 살아납니다.
+      </p>
+      <p style="font-size:14px;">
+        <strong>슬리커 브러시 (선택)</strong><br>
+        털갈이 시즌에 언더코트를 제거할 때 유용하지만,
+        너무 세게 누르면 피부에 상처가 날 수 있으니 주의하세요.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">빗질 순서</div>
+      <p style="font-size:14px;">
+        <strong>① 털 방향대로 가볍게</strong><br>
+        러버 브러시로 털이 자라는 방향대로 빗어줍니다.
+        힘을 주지 말고 손목의 스냅을 이용해 가볍게 쓸어내듯이 진행하세요.
+      </p>
+      <p style="font-size:14px;">
+        <strong>② 역방향으로 한 번 더 (선택)</strong><br>
+        털갈이 시즌에는 역방향으로도 한 번 빗어주면
+        속에 남아 있던 죽은 털이 더 많이 나옵니다.
+        단, 피부 자극이 있을 수 있으니 강아지 반응을 보면서 조절하세요.
+      </p>
+      <p style="font-size:14px;">
+        <strong>③ 브리슬 브러시로 마무리</strong><br>
+        천연모 브러시로 다시 한 번 털 방향대로 빗어주면
+        유분이 골고루 펴지면서 윤기가 살아납니다.
+      </p>
+    </div>
+
+    <div class="do-dont">
+      <div class="do-box">
+        <div class="do-box-title">✅ DO</div>
+        <p>• 털 방향대로 부드럽게 빗기<br>
+        • 손목 스냅을 이용한 가벼운 동작<br>
+        • 빗질 중 피부 상태 확인하기<br>
+        • 털갈이 시즌엔 주 2~3회로 늘리기</p>
+      </div>
+      <div class="dont-box">
+        <div class="dont-box-title">❌ DON'T</div>
+        <p>• 슬리커 브러시를 세게 누르기<br>
+        • 같은 자리를 반복해서 문지르기<br>
+        • 강아지가 아파하는데 계속하기<br>
+        • 금속 빗을 피부에 직접 대기</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04. 털빠짐 -->
+  <section class="section" id="shedding">
+    <div class="section-label"><span class="section-tag">04 · Shedding Control</span></div>
+    <h2>털빠짐 관리</h2>
+    <p>
+      단모종의 가장 큰 고민은 역시 털빠짐입니다.
+      완전히 막을 수는 없지만, 관리 방법에 따라 털날림을 크게 줄일 수 있어요.
+    </p>
+
+    <div class="card">
+      <div class="card-label">정기적인 빗질이 핵심</div>
+      <p style="font-size:14px;">
+        주 1~2회 정기적으로 빗질하면 죽은 털이 집안에 날리기 전에 제거됩니다.
+        털갈이 시즌(봄·가을)에는 주 3~4회로 늘리는 것을 권장해요.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">영양 상태 체크</div>
+      <p style="font-size:14px;">
+        비정상적으로 털이 많이 빠진다면 영양 결핍이나 피부 질환을 의심해볼 수 있습니다.
+        오메가-3가 풍부한 사료나 영양제를 급여하면 털 건강에 도움이 돼요.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">스트레스 관리</div>
+      <p style="font-size:14px;">
+        스트레스를 받으면 털이 더 많이 빠질 수 있습니다.
+        충분한 산책과 놀이 시간을 확보하고,
+        환경 변화나 소음에 대한 스트레스를 최소화해주세요.
+      </p>
+    </div>
+
+    <div class="caution-box">
+      <div class="caution-box-title">⚠️ 비정상적 탈모 신호</div>
+      <p>
+        특정 부위만 털이 빠지거나, 대칭적으로 탈모가 생기거나,
+        피부가 붉어지고 가려워하는 증상이 있다면
+        단순 털갈이가 아닌 질환일 수 있습니다. 동물병원 방문을 권장합니다.
+      </p>
+    </div>
+  </section>
+
+  <!-- 05. 목욕 -->
+  <section class="section" id="bath">
+    <div class="section-label"><span class="section-tag">05 · Bath & Skin Care</span></div>
+    <h2>목욕과 피부 관리</h2>
+    <p>
+      단모종은 털이 짧아서 피부가 직접 노출되기 때문에
+      목욕 주기와 샴푸 선택이 중요합니다.
+    </p>
+
+    <div class="card">
+      <div class="card-label">목욕 주기</div>
+      <p style="font-size:14px;">
+        일반적으로 월 1~2회가 적당합니다.
+        너무 자주 씻으면 피부의 천연 유분이 씻겨나가서
+        오히려 건조해지고 가려움증이 생길 수 있어요.
+        실외 활동이 많거나 피부가 기름진 경우 주기를 조절할 수 있습니다.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">샴푸 선택</div>
+      <p style="font-size:14px;">
+        피부 타입에 맞는 강아지 전용 샴푸를 사용하세요.
+        민감성 피부라면 저자극 또는 오트밀 성분 샴푸가 좋고,
+        피부가 기름진 경우 딥클렌징 샴푸를 사용할 수 있습니다.
+        사람용 샴푸는 pH가 달라서 피부에 자극을 줄 수 있어요.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">건조</div>
+      <p style="font-size:14px;">
+        수건으로 물기를 충분히 제거한 뒤,
+        따뜻한 바람의 드라이기로 완전히 말려주세요.
+        털이 짧아도 피부까지 완전히 건조되지 않으면
+        곰팡이나 피부염의 원인이 될 수 있습니다.
+      </p>
+    </div>
+
+    <div class="caution-box">
+      <div class="caution-box-title">💡 피부 보습</div>
+      <p>
+        건조한 계절(겨울)에는 목욕 후 강아지 전용 보습제를 발라주면 도움이 됩니다.
+        단, 사람용 로션이나 크림은 강아지가 핥았을 때 위험할 수 있으니 사용하지 마세요.
+      </p>
+    </div>
+  </section>
+
+  <!-- 06. 루틴 -->
+  <section class="section" id="routine">
+    <div class="section-label"><span class="section-tag">06 · Weekly Routine</span></div>
+    <h2>주간 루틴</h2>
+
+    <div class="card">
+      <div class="card-label">주 1~2회 (5~10분)</div>
+      <p style="font-size:14px;">
+        <strong>전체 빗질</strong> — 러버 브러시로 죽은 털 제거, 브리슬 브러시로 마무리<br>
+        <strong>피부 체크</strong> — 붉은 기, 각질, 뾰루지, 벌레 흔적 확인<br>
+        <strong>귀 확인</strong> — 냄새나 분비물이 없는지 간단히 체크
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">주간 추가 관리</div>
+      <p style="font-size:14px;">
+        <strong>발톱 체크</strong> — 바닥에 발톱 소리가 나면 깎아줄 타이밍<br>
+        <strong>발바닥 패드</strong> — 갈라짐이나 상처가 없는지 확인, 건조하면 밤 크림 발라주기<br>
+        <strong>치아</strong> — 주 2~3회 칫솔질로 치석 예방
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">월간 루틴</div>
+      <p style="font-size:14px;">
+        <strong>목욕</strong> — 월 1~2회 (활동량·피부 타입에 따라 조절)<br>
+        <strong>발톱 관리</strong> — 너무 길어지기 전에 정기적으로 자르기<br>
+        <strong>귀 청소</strong> — 전용 클리너로 가볍게 (면봉 사용 금지)
+      </p>
+    </div>
+  </section>
+
+  <!-- 07. 병원 방문 -->
+  <section class="section" id="vet">
+    <div class="section-label"><span class="section-tag">07 · When to Visit Vet</span></div>
+    <h2>병원 방문이 필요한 신호</h2>
+    <p>
+      빗질하거나 목욕시키다가 아래 증상을 발견하면 동물병원 방문을 권장합니다.
+    </p>
+
+    <div class="vet-signal">
+      <span class="vet-dot"></span>
+      <span class="vet-text">피부에 붉은 반점, 발진, 또는 각질이 심하게 일어난다</span>
+    </div>
+    <div class="vet-signal">
+      <span class="vet-dot"></span>
+      <span class="vet-text">특정 부위의 털이 비정상적으로 빠지거나 대칭적 탈모가 보인다</span>
+    </div>
+    <div class="vet-signal">
+      <span class="vet-dot"></span>
+      <span class="vet-text">피부에서 평소와 다른 냄새가 나거나 기름기가 과도하다</span>
+    </div>
+    <div class="vet-signal">
+      <span class="vet-dot"></span>
+      <span class="vet-text">피부를 만질 때 강아지가 평소와 달리 아파하거나 예민하게 반응한다</span>
+    </div>
+    <div class="vet-signal">
+      <span class="vet-dot"></span>
+      <span class="vet-text">피부에 덩어리, 혹, 또는 사마귀 같은 것이 만져진다</span>
+    </div>
+    <div class="vet-signal">
+      <span class="vet-dot"></span>
+      <span class="vet-text">벼룩, 진드기, 또는 알 수 없는 벌레가 발견된다</span>
+    </div>
+
+    <div class="caution-box" style="margin-top:16px;">
+      <div class="caution-box-title">⚠️ 참고</div>
+      <p>
+        이 가이드는 일반적인 관리 정보를 제공하며,
+        전문적인 수의학적 진단을 대체하지 않습니다.
+        강아지의 상태가 걱정되면 반드시 수의사와 상담하세요.
+      </p>
+    </div>
+  </section>
+
+  <!-- 관련 콘텐츠 -->
+  <section class="section">
+    <div class="section-label"><span class="section-tag">Related</span></div>
+    <h2>함께 보면 좋은 가이드</h2>
+    <div class="related-grid">
+      <a class="related-item" href="care/grooming/basic">
+        <div class="related-emoji">✂️</div>
+        <div class="related-title">털관리 기본 가이드</div>
+        <div class="related-sub">CARE · 그루밍</div>
+      </a>
+      <a class="related-item" href="care/grooming/long-coat">
+        <div class="related-emoji">🐩</div>
+        <div class="related-title">장모종 털관리 가이드</div>
+        <div class="related-sub">CARE · 그루밍</div>
+      </a>
+      <a class="related-item" href="care/grooming/shedding-season">
+        <div class="related-emoji">🍂</div>
+        <div class="related-title">털갈이 시즌 관리법</div>
+        <div class="related-sub">CARE · 그루밍</div>
+      </a>
+      <a class="related-item" href="care/bath/basic">
+        <div class="related-emoji">🛁</div>
+        <div class="related-title">강아지 목욕 주기 가이드</div>
+        <div class="related-sub">CARE · 그루밍</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA 배너 -->
+  <div class="cta-banner">
+    <h3>우리 강아지 견종별 털 특성이 궁금하다면</h3>
+    <p>374종 Breed Detail에서 모질·관리 정보를 확인하세요</p>
+    <a class="cta-btn" href="encyclopedia.html">Breed Detail 보러가기 →</a>
+  </div>
+
+  <!-- 아티클 메타 -->
+  <div class="article-meta">
+    <p>CARE_GROOMING_03 · 펫키디피아 Care Guide</p>
+    <p>마지막 업데이트: 2026.03</p>
+    <p>이 콘텐츠는 전문 수의학적 진단을 대체하지 않습니다.</p>
+  </div>
+
+</div>
+
+</body>
+</html>

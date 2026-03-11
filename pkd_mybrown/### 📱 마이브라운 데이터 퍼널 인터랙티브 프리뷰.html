@@ -1,0 +1,163 @@
+### 📱 마이브라운 데이터 퍼널 인터랙티브 프리뷰
+
+```html
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마이브라운 x PKD 데이터 리포트</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap');
+        body { font-family: 'Noto Sans KR', sans-serif; background-color: #1a1a1a; overflow: hidden; margin: 0; }
+        
+        /* Swipe Container */
+        .slider { display: flex; transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); width: 600vw; height: 100vh; }
+        .card { width: 100vw; height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px; box-sizing: border-box; }
+        
+        /* Card UI */
+        .card-inner { background: white; width: 100%; max-width: 380px; height: 85vh; border-radius: 32px; padding: 40px 24px; position: relative; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
+        
+        /* Inputs */
+        .input-group input { width: 100%; padding: 16px; border: 2px solid #f3f4f6; border-radius: 16px; margin-bottom: 12px; font-size: 1rem; outline: none; transition: border-color 0.3s; }
+        .input-group input:focus { border-color: #8b4513; }
+        
+        /* Buttons */
+        .btn-primary { background: #8b4513; color: white; padding: 18px; border-radius: 18px; text-align: center; font-weight: bold; font-size: 1.1rem; cursor: pointer; transition: transform 0.2s; }
+        .btn-primary:active { transform: scale(0.95); }
+        
+        /* Progress Dot */
+        .dots { display: flex; gap: 6px; justify-content: center; margin-bottom: 20px; }
+        .dot { width: 8px; height: 8px; background: #e5e7eb; border-radius: 50%; }
+        .dot.active { background: #8b4513; width: 24px; border-radius: 10px; }
+
+        /* Risk Animation */
+        .loading-spinner { border: 4px solid #f3f4f6; border-top: 4px solid #8b4513; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 0 auto; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+
+<div class="slider" id="slider">
+    <!-- Card 1: Hook -->
+    <div class="card">
+        <div class="card-inner">
+            <div class="dots"><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+            <div class="text-center">
+                <h1 class="text-3xl font-black leading-tight mb-4">우리 동네<br><span class="text-orange-600">댕댕이댁</span> 주목!</h1>
+                <p class="text-gray-500">데이터로 분석하는<br>내 아이 맞춤 건강 리포트</p>
+                <img src="https://images.unsplash.com/photo-1544568100-847a948585b9?auto=format&fit=crop&w=400&q=80" class="rounded-3xl mt-6 w-full shadow-lg">
+            </div>
+            <div class="btn-primary" onclick="move(1)">리포트 시작하기</div>
+        </div>
+    </div>
+
+    <!-- Card 2: Breed (Biology Layer) -->
+    <div class="card">
+        <div class="card-inner">
+            <div class="dots"><div class="dot"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+            <div>
+                <h2 class="text-2xl font-bold mb-6">아이의 <span class="text-orange-600">견종</span>이<br>무엇인가요?</h2>
+                <div class="input-group">
+                    <input type="text" id="breed" placeholder="예: 말티즈, 포메라니안, 푸들" oninput="checkInput(1)">
+                </div>
+                <p class="text-sm text-gray-400 mt-4">견종별 유전 질환 데이터를 분석합니다.</p>
+            </div>
+            <div class="btn-primary" id="btn1" onclick="move(2)">다음으로</div>
+        </div>
+    </div>
+
+    <!-- Card 3: Age & Location (Geo Layer) -->
+    <div class="card">
+        <div class="card-inner">
+            <div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot active"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+            <div>
+                <h2 class="text-2xl font-bold mb-6">나이와 지역을<br>알려주세요</h2>
+                <div class="input-group">
+                    <input type="number" id="age" placeholder="나이 (세)">
+                    <input type="text" id="location" placeholder="거주 지역 (예: 강남구)">
+                </div>
+            </div>
+            <div class="btn-primary" onclick="runAnalysis()">리포트 생성하기</div>
+        </div>
+    </div>
+
+    <!-- Card 4: Loading -->
+    <div class="card">
+        <div class="card-inner justify-center text-center">
+            <div class="loading-spinner mb-6"></div>
+            <h2 class="text-xl font-bold">PKD 데이터 엔진 가동 중...</h2>
+            <p class="text-gray-400 mt-2">견종별 리스크와 지역별 병원비를<br>매칭하고 있습니다.</p>
+        </div>
+    </div>
+
+    <!-- Card 5: Personalized Risk (Insight) -->
+    <div class="card">
+        <div class="card-inner">
+            <div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot active"></div><div class="dot"></div></div>
+            <div>
+                <div class="inline-block bg-red-100 text-red-600 px-3 py-1 rounded-full text-xs font-bold mb-4">🚨 데이터 분석 리포트</div>
+                <h2 class="text-2xl font-bold mb-4" id="risk-title">분석 결과</h2>
+                <div class="bg-gray-50 p-5 rounded-2xl border-l-4 border-orange-500">
+                    <p class="text-sm text-gray-600 leading-relaxed" id="risk-desc"></p>
+                </div>
+                <p class="text-xs text-gray-400 mt-6">* 본 리포트는 마이브라운 수의사 데이터셋을 기반으로 합니다.</p>
+            </div>
+            <div class="btn-primary" onclick="move(5)">해결책 확인하기</div>
+        </div>
+    </div>
+
+    <!-- Card 6: CTA (Conversion) -->
+    <div class="card">
+        <div class="card-inner text-center">
+            <div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot active"></div></div>
+            <div>
+                <h2 class="text-2xl font-black mb-4">병원비 걱정 없는<br><span class="text-orange-600">라이브 청구</span> 시작하기</h2>
+                <p class="text-gray-500 mb-8">서류 한 장 없이 병원에서 즉시 차감!<br>지금 상담하고 무료 건강체크 받으세요.</p>
+                <div class="bg-orange-50 p-6 rounded-3xl border-2 border-dashed border-orange-200 mb-6">
+                    <p class="text-orange-600 font-bold">🎁 당근마켓 전용 혜택<br>웰컴브라운 키트 증정</p>
+                </div>
+            </div>
+            <a href="https://m.mybrown.com/?utm_source=daangn&utm_medium=swipe&utm_campaign=pkd_report" class="btn-primary block no-underline">마이브라운 무료 상담 예약</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    const slider = document.getElementById('slider');
+    
+    function move(idx) {
+        slider.style.transform = `translateX(-${idx * 100}vw)`;
+    }
+
+    function runAnalysis() {
+        move(3); // Loading card
+        
+        const breed = document.getElementById('breed').value || "우리 아이";
+        const age = parseInt(document.getElementById('age').value) || 0;
+        const loc = document.getElementById('location').value || "우리 동네";
+        
+        // Risk Engine Logic
+        setTimeout(() => {
+            let title = `${breed} 건강 주의보`;
+            let desc = "";
+
+            if (['말티즈', '포메라니안', '푸들', '요크셔'].includes(breed)) {
+                desc = `${loc} 지역의 ${breed}는 유전적으로 **슬개골 탈구** 리스크가 72%로 매우 높습니다. 타사처럼 1년 기다리지 마세요. 마이브라운은 **180일**이면 보장이 시작됩니다.`;
+            } else if (age >= 7) {
+                desc = `이제 ${age}살인 ${breed}에게는 **심장 및 신장 질환** 관리가 필수입니다. MRI/CT 등 고액 검사비가 걱정되신다면, 특약 없이 기본 보장되는 마이브라운이 정답입니다.`;
+            } else {
+                desc = `${loc}에서 ${breed}와 함께하는 보호자님! 건강할 때 가입하면 보험료가 20~30% 더 저렴합니다. 병원비 즉시 차감되는 '라이브 청구'를 미리 준비하세요.`;
+            }
+
+            document.getElementById('risk-title').innerText = title;
+            document.getElementById('risk-desc').innerHTML = desc.replace(/\*\*(.*?)\*\*/g, '<b class="text-orange-600">$1</b>');
+            
+            move(4); // Result card
+        }, 1500);
+    }
+</script>
+
+</body>
+</html>

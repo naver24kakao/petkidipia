@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>노령견 식단 가이드 — 펫키디피아</title>
+  <meta name="description" content="7세 이상 시니어견을 위한 맞춤 식단. 소화 부담 줄이고 영양은 높이는 급여 전략.">
+  <meta name="keywords" content="노령견 식단, 시니어 사료, 노견 급여, 강아지 노년기 식단">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #FBF7F2; --cream-2: #F4EEE5;
+      --gold: #C9A84C; --gold-pale: #F5ECD4;
+      --brown: #2E1F14; --brown-2: #3D2B1F;
+      --warm: #8B5E3C; --soft: #EDE4D8; --muted: #9B8878;
+      --line: rgba(46,31,20,0.08);
+      --green: #2E7D32; --green-pale: #E8F5E9;
+      --amber: #F57F17; --amber-pale: #FFF8E1;
+      --red: #D32F2F; --red-pale: #FFF3F0;
+      --blue: #1976D2; --blue-pale: #E3F2FD;
+      --purple: #7B1FA2; --purple-pale: #F3E5F5;
+      --max: 680px;
+      --font-serif: "Cormorant Garamond", serif;
+      --font-sans: "Noto Sans KR", sans-serif;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--cream);
+      color: var(--brown);
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+    .top-bar {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(251,247,242,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+      padding: 14px 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .top-back { background: none; border: none; font-size: 20px; cursor: pointer; color: var(--brown); }
+    .top-breadcrumb { font-size: 12px; color: var(--muted); }
+    .top-breadcrumb a { color: var(--warm); text-decoration: none; }
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 20px 120px; }
+    .hero { padding: 40px 0 32px; text-align: center; }
+    .hero-badge {
+      display: inline-block; background: var(--amber-pale); color: var(--amber);
+      font-size: 11px; font-weight: 700; padding: 6px 14px; border-radius: 20px;
+      letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: var(--font-sans); font-size: 26px; font-weight: 700;
+      line-height: 1.4; color: var(--brown); margin-bottom: 12px;
+    }
+    .hero-sub { font-size: 14px; color: var(--muted); line-height: 1.7; }
+    .toc {
+      background: #fff; border: 1px solid var(--soft); border-radius: 18px;
+      padding: 20px 24px; margin-bottom: 32px;
+    }
+    .toc-title {
+      font-size: 12px; font-weight: 700; color: var(--warm);
+      letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px;
+    }
+    .toc a {
+      display: block; font-size: 14px; color: var(--brown-2);
+      text-decoration: none; padding: 6px 0; border-bottom: 1px solid var(--line);
+    }
+    .toc a:last-child { border-bottom: none; }
+    .toc a:hover { color: var(--gold); }
+    .toc-num { color: var(--gold); font-weight: 700; margin-right: 8px; }
+    .section { margin-bottom: 36px; }
+    .section-label {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
+    }
+    .section-label::before, .section-label::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(to right, var(--gold), transparent);
+    }
+    .section-label::after {
+      background: linear-gradient(to left, var(--gold), transparent);
+    }
+    .section-tag {
+      font-family: var(--font-serif); font-size: 13px; font-style: italic;
+      color: var(--gold); letter-spacing: 1px; white-space: nowrap;
+    }
+    .section h2 { font-size: 20px; font-weight: 700; margin-bottom: 14px; line-height: 1.4; }
+    .section p { font-size: 15px; color: var(--brown-2); margin-bottom: 12px; }
+    .card {
+      background: #fff; border: 1px solid var(--soft); border-radius: 18px;
+      padding: 20px; margin-bottom: 14px;
+    }
+    .card-label {
+      font-size: 11px; font-weight: 700; color: var(--warm);
+      letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 10px;
+    }
+    .caution-box {
+      background: var(--amber-pale); border: 1px solid rgba(245,127,23,0.2);
+      border-radius: 16px; padding: 18px 20px; margin-top: 16px;
+    }
+    .caution-box-title { font-size: 13px; font-weight: 700; color: var(--amber); margin-bottom: 8px; }
+    .caution-box p { font-size: 13px; color: #5D4037; margin-bottom: 0; }
+    .tip-box {
+      background: var(--blue-pale); border: 1px solid rgba(25,118,210,0.2);
+      border-radius: 16px; padding: 18px 20px; margin-top: 16px;
+    }
+    .tip-box-title { font-size: 13px; font-weight: 700; color: var(--blue); margin-bottom: 8px; }
+    .tip-box p { font-size: 13px; color: var(--brown-2); margin-bottom: 0; }
+    .checklist { list-style: none; }
+    .checklist li {
+      display: flex; gap: 10px; align-items: flex-start;
+      padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 14px;
+    }
+    .checklist li:last-child { border-bottom: none; }
+    .check-icon {
+      width: 22px; height: 22px; border-radius: 6px;
+      background: var(--green-pale); color: var(--green);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700; flex-shrink: 0; margin-top: 2px;
+    }
+    .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .related-item {
+      display: block; background: #fff; border: 1px solid var(--soft);
+      border-radius: 14px; padding: 16px; text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .related-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(46,31,20,0.08);
+    }
+    .related-emoji { font-size: 22px; margin-bottom: 8px; }
+    .related-title { font-size: 13px; font-weight: 700; color: var(--brown); line-height: 1.4; }
+    .related-sub { font-size: 11px; color: var(--muted); margin-top: 4px; }
+    .cta-banner {
+      background: linear-gradient(135deg, var(--brown), var(--brown-2));
+      border-radius: 20px; padding: 28px 24px; margin-top: 40px; text-align: center;
+    }
+    .cta-banner h3 {
+      font-size: 18px; font-weight: 700; color: var(--cream);
+      margin-bottom: 10px; line-height: 1.4;
+    }
+    .cta-banner p { font-size: 13px; color: rgba(251,247,242,0.85); margin-bottom: 18px; }
+    .cta-btn {
+      display: inline-block; background: var(--gold); color: var(--brown);
+      font-size: 14px; font-weight: 700; padding: 12px 28px; border-radius: 30px;
+      text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(201,168,76,0.4);
+    }
+    .article-meta {
+      margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--line);
+      text-align: center; font-size: 11px; color: var(--muted); line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+
+<div class="top-bar">
+  <button class="top-back" onclick="history.back()">←</button>
+  <div class="top-breadcrumb">
+    <a href="/">펫키디피아</a> / <a href="/care">CARE</a> / 급여관리
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="hero">
+    <div class="hero-badge">CARE · Feeding</div>
+    <h1>노령견 식단 가이드</h1>
+    <p class="hero-sub">
+      7세 이상 시니어견을 위한 맞춤 식단.<br>
+      소화 부담 줄이고, 영양은 높이는 급여 전략을 배우세요.
+    </p>
+  </div>
+
+  <nav class="toc">
+    <div class="toc-title">목차</div>
+    <a href="#changes"><span class="toc-num">01</span>노화에 따른 영양 요구 변화</a>
+    <a href="#nutrition"><span class="toc-num">02</span>시니어 필수 영양소</a>
+    <a href="#amount"><span class="toc-num">03</span>급여량 조절</a>
+    <a href="#easy"><span class="toc-num">04</span>먹기 쉽게 만들기</a>
+    <a href="#supplements"><span class="toc-num">05</span>보충제</a>
+    <a href="#conditions"><span class="toc-num">06</span>질병별 식단 조절</a>
+  </nav>
+
+  <section class="section" id="changes">
+    <div class="section-label"><span class="section-tag">01 · Changes</span></div>
+    <h2>노화에 따른 영양 요구 변화</h2>
+
+    <div class="card">
+      <div class="card-label">활동량 감소 → 칼로리 감소</div>
+      <p style="font-size:14px;">
+        노령견은 성견보다 **20~30% 적게** 움직입니다.<br>
+        같은 양을 먹으면 비만 위험.<br>
+        급여량을 성견 시절의 **80~90%**로 줄이세요.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">근육량 감소 → 단백질 유지/증가</div>
+      <p style="font-size:14px;">
+        노화로 근육이 줄어듭니다.<br>
+        단백질을 **줄이면 안 되고** 오히려 **양질의 단백질**을 유지하거나 늘려야 합니다.<br>
+        권장: 단백질 25~30% (성견 18%)
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">소화 능력 저하 → 소화 잘 되는 식단</div>
+      <p style="font-size:14px;">
+        소화 효소 감소, 장 운동 느려짐<br>
+        → 소화 잘 되는 고품질 재료<br>
+        → 섬유질 증가 (변비 예방)
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">치아 약화 → 부드러운 식감</div>
+      <p style="font-size:14px;">
+        치아 손실, 잇몸 문제<br>
+        → 사료를 물에 불리거나 습식 사료 병행
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">신장·간 기능 저하 → 저인·적정 단백질</div>
+      <p style="font-size:14px;">
+        과도한 단백질·인은 신장에 부담<br>
+        하지만 너무 줄이면 근육 손실<br>
+        → **양질의 단백질 적정량** 유지 중요
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="nutrition">
+    <div class="section-label"><span class="section-tag">02 · Senior Nutrition</span></div>
+    <h2>시니어 필수 영양소</h2>
+
+    <div class="card">
+      <div class="card-label">시니어 사료 특징</div>
+      <p style="font-size:14px;">
+        <strong>① 칼로리 감소</strong> — 활동량 감소 반영<br>
+        <strong>② 단백질 유지/증가</strong> — 근육량 유지 (양질의 동물성 단백질)<br>
+        <strong>③ 섬유질 증가</strong> — 소화 건강, 변비 예방<br>
+        <strong>④ 관절 보조 성분</strong> — 글루코사민, 콘드로이틴<br>
+        <strong>⑤ 항산화제</strong> — 비타민 E, C, 베타카로틴 (노화 방지)<br>
+        <strong>⑥ 오메가-3</strong> — 항염, 심장·관절·뇌 건강<br>
+        <strong>⑦ 저인(低磷)</strong> — 신장 부담 감소
+      </p>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-box-title">💡 시니어 사료 언제 전환?</div>
+      <p>
+        <strong>소형견:</strong> 9~11세<br>
+        <strong>중형견:</strong> 7~9세<br>
+        <strong>대형견:</strong> 5~7세<br>
+        대형견은 빨리 늙으므로 일찍 전환하세요.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="amount">
+    <div class="section-label"><span class="section-tag">03 · Portion</span></div>
+    <h2>급여량 조절</h2>
+
+    <div class="card">
+      <div class="card-label">칼로리 계산</div>
+      <p style="font-size:14px;">
+        <strong>DER = RER × 1.4</strong><br>
+        (성견 중성화 1.6보다 낮음)
+      </p>
+      <p style="font-size:14px;">
+        성견 시절 급여량의 **80~90%**로 시작<br>
+        체중 관찰하면서 조절
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">급여 횟수 늘리기</div>
+      <p style="font-size:14px;">
+        하루 2회 → **하루 3회**로 변경 권장<br>
+        소량씩 자주 → 소화 부담 감소
+      </p>
+    </div>
+
+    <div class="caution-box">
+      <div class="caution-box-title">⚠️ 비만 vs 영양실조 균형</div>
+      <p>
+        노령견은 **비만**도 문제지만 **영양실조**도 문제입니다.<br>
+        너무 적게 먹으면 근육 손실 → 거동 불편<br>
+        체중·근육량 모니터링하면서 균형 맞추세요.
+      </p>
+    </caution-box>
+  </section>
+
+  <section class="section" id="easy">
+    <div class="section-label"><span class="section-tag">04 · Easy Eating</span></div>
+    <h2>먹기 쉽게 만들기</h2>
+
+    <ul class="checklist">
+      <li><span class="check-icon">✓</span> <strong>사료 불리기</strong> — 따뜻한 물에 10분 불려서 부드럽게</li>
+      <li><span class="check-icon">✓</span> <strong>습식 병행</strong> — 건식 70% + 습식 30% 혼합</li>
+      <li><span class="check-icon">✓</span> <strong>사료 데우기</strong> — 살짝 데워서 냄새 강화 (식욕 자극)</li>
+      <li><span class="check-icon">✓</span> <strong>높이 있는 그릇</strong> — 목·관절 부담 줄이기</li>
+      <li><span class="check-icon">✓</span> <strong>미끄럼 방지 매트</strong> — 그릇 아래 깔아서 고정</li>
+      <li><span class="check-icon">✓</span> <strong>조용한 환경</strong> — 스트레스 없이 편하게 먹게</li>
+    </ul>
+
+    <div class="card">
+      <div class="card-label">식욕 떨어졌을 때</div>
+      <p style="font-size:14px;">
+        <strong>① 토핑 추가</strong><br>
+        삶은 닭가슴살·계란·치즈 소량 추가 (기호성 ↑)
+      </p>
+      <p style="font-size:14px;">
+        <strong>② 손으로 먹여주기</strong><br>
+        애정 표현 + 식욕 자극
+      </p>
+      <p style="font-size:14px;">
+        <strong>③ 소량씩 자주</strong><br>
+        한 번에 많이보다 하루 4~5회 소량씩
+      </p>
+      <p style="font-size:14px;">
+        <strong>④ 수의사 상담</strong><br>
+        2~3일 이상 안 먹으면 병원 진료
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="supplements">
+    <div class="section-label"><span class="section-tag">05 · Supplements</span></div>
+    <h2>보충제</h2>
+
+    <div class="card">
+      <div class="card-label">① 관절 영양제</div>
+      <p style="font-size:14px;">
+        글루코사민, 콘드로이틴, MSM, 히알루론산<br>
+        관절염 예방·완화
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">② 오메가-3 지방산</div>
+      <p style="font-size:14px;">
+        생선 오일 (EPA, DHA)<br>
+        항염, 심장·관절·피부·뇌 건강
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">③ 프로바이오틱스</div>
+      <p style="font-size:14px;">
+        장 건강, 소화 개선<br>
+        면역력 강화
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">④ 항산화제</div>
+      <p style="font-size:14px;">
+        비타민 E, C<br>
+        노화 방지, 인지 기능 지원
+      </p>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-box-title">💡 수의사와 상담 후 복용</div>
+      <p>
+        보충제는 사료에 이미 포함되어 있을 수 있으므로<br>
+        과다 섭취 위험. 수의사와 상담 후 적정량 결정하세요.
+      </p>
+    </tip-box>
+  </section>
+
+  <section class="section" id="conditions">
+    <div class="section-label"><span class="section-tag">06 · Disease Diet</span></div>
+    <h2>질병별 식단 조절</h2>
+
+    <div class="card">
+      <div class="card-label">신부전 (만성 신장 질환)</div>
+      <p style="font-size:14px;">
+        <strong>처방식:</strong> 저단백·저인 사료 (수의사 처방)<br>
+        <strong>수분:</strong> 충분한 물 섭취 필수<br>
+        <strong>금지:</strong> 인 높은 음식 (간식, 뼈)
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">심장 질환</div>
+      <p style="font-size:14px;">
+        <strong>처방식:</strong> 저나트륨 사료<br>
+        <strong>권장:</strong> 오메가-3, 타우린<br>
+        <strong>금지:</strong> 소금 많은 간식
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">당뇨병</div>
+      <p style="font-size:14px;">
+        <strong>처방식:</strong> 고섬유·저지방 사료<br>
+        <strong>급여:</strong> 정해진 시간에 정확한 양 (인슐린 주사 시간 맞추기)<br>
+        <strong>금지:</strong> 당분 많은 간식
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="card-label">관절염</div>
+      <p style="font-size:14px;">
+        <strong>사료:</strong> 관절 보조 성분 포함 (글루코사민)<br>
+        <strong>체중:</strong> 비만 방지 최우선<br>
+        <strong>보충제:</strong> 오메가-3, 관절 영양제
+      </p>
+    </div>
+
+    <div class="caution-box">
+      <div class="caution-box-title">⚠️ 처방식은 수의사 지시 필수</div>
+      <p>
+        신부전·심장·당뇨 등 만성 질환이 있다면<br>
+        반드시 **수의사 처방 사료**를 먹여야 합니다.<br>
+        일반 사료는 질환을 악화시킬 수 있어요.
+      </p>
+    </caution-box>
+  </section>
+
+  <section class="section">
+    <div class="section-label"><span class="section-tag">Related</span></div>
+    <h2>함께 보면 좋은 가이드</h2>
+    <div class="related-grid">
+      <a class="related-item" href="care/health/senior">
+        <div class="related-emoji">🐕</div>
+        <div class="related-title">노령견 건강관리 가이드</div>
+        <div class="related-sub">CARE · 건강관리</div>
+      </a>
+      <a class="related-item" href="care/health/joint">
+        <div class="related-emoji">🦴</div>
+        <div class="related-title">관절 관리 가이드</div>
+        <div class="related-sub">CARE · 건강관리</div>
+      </a>
+      <a class="related-item" href="care/feeding/portion">
+        <div class="related-emoji">🍚</div>
+        <div class="related-title">강아지 급여량 계산법</div>
+        <div class="related-sub">CARE · 급여관리</div>
+      </a>
+      <a class="related-item" href="care/feeding/hydration">
+        <div class="related-emoji">💧</div>
+        <div class="related-title">수분 섭취 관리 가이드</div>
+        <div class="related-sub">CARE · 급여관리</div>
+      </a>
+    </div>
+  </section>
+
+  <div class="cta-banner">
+    <h3>노령견 치료비 걱정 없이</h3>
+    <p>신부전·심장질환·암 치료까지 보장하는 마이브라운 반려견 보험</p>
+    <a class="cta-btn" href="https://mybrownpet.com">보험 상담 신청하기 →</a>
+  </div>
+
+  <div class="article-meta">
+    <p>CARE_FEED_04 · 펫키디피아 Care Guide</p>
+    <p>마지막 업데이트: 2026.03</p>
+    <p>이 콘텐츠는 전문 수의학적 진단을 대체하지 않습니다.</p>
+  </div>
+
+</div>
+
+</body>
+</html>
